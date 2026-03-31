@@ -1,0 +1,64 @@
+{
+  "ChannelSales": [
+    {
+      "Channel": "Careem",
+      "No. of Orders": 10652,
+      "Avg. Order Value": 73.0699295907,
+      "Gross Sales": 778340.8900000001,
+      "Discounts": 285506.5499999998,
+      "Total Earnings": 492834.3400000003,
+      "Taxes": 23801.7656399999,
+      "Net Sales": 469032.2993900008
+    },
+    {
+      "Channel": "Deliveroo",
+      "No. of Orders": 4641,
+      "Avg. Order Value": 82.1291790562,
+      "Gross Sales": 381161.52,
+      "Discounts": 139222.0,
+      "Total Earnings": 241939.52,
+      "Taxes": 11646.85071,
+      "Net Sales": 230273.6235400003
+    },
+    {
+      "Channel": "Talabat",
+      "No. of Orders": 14484,
+      "Avg. Order Value": 78.6204646506,
+      "Gross Sales": 1138738.8100000003,
+      "Discounts": 402936.25,
+      "Total Earnings": 735802.5600000003,
+      "Taxes": 35422.0887700002,
+      "Net Sales": 700379.9670900046
+    },
+    {
+      "Channel": "KeeTa",
+      "No. of Orders": 9430,
+      "Avg. Order Value": 91.7417465536,
+      "Gross Sales": 865124.67,
+      "Discounts": 367260.2300000007,
+      "Total Earnings": 497864.4399999993,
+      "Taxes": 23969.36826,
+      "Net Sales": 473894.7724899973
+    },
+    {
+      "Channel": "Noon",
+      "No. of Orders": 1594,
+      "Avg. Order Value": 72.9389648683,
+      "Gross Sales": 116264.71,
+      "Discounts": 46028.2,
+      "Total Earnings": 70236.51,
+      "Taxes": 3843.3038,
+      "Net Sales": 66393.1816699999
+    },
+    {
+      "Channel": "Grubtech Test",
+      "No. of Orders": 1,
+      "Avg. Order Value": 4.0,
+      "Gross Sales": 4.0,
+      "Discounts": 0.0,
+      "Total Earnings": 4.0,
+      "Taxes": 0.19048,
+      "Net Sales": 3.80952
+    }
+  ]
+}

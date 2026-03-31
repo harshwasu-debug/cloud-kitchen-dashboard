@@ -1,0 +1,228 @@
+{
+  "PosSyncSummary": [
+    {
+      "Brand": "Seoul Food",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 5753,
+      "Sync Successful": 5746,
+      "Error": 7
+    },
+    {
+      "Brand": "Casa Del Queso",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 5949,
+      "Sync Successful": 5944,
+      "Error": 5
+    },
+    {
+      "Brand": "Noona",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 2460,
+      "Sync Successful": 2457,
+      "Error": 3
+    },
+    {
+      "Brand": "Picante",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 2034,
+      "Sync Successful": 2031,
+      "Error": 3
+    },
+    {
+      "Brand": "Smashville Burgers",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 5065,
+      "Sync Successful": 5062,
+      "Error": 3
+    },
+    {
+      "Brand": "Bronx Burger House",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 2075,
+      "Sync Successful": 2073,
+      "Error": 2
+    },
+    {
+      "Brand": "Annyeong",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 594,
+      "Sync Successful": 592,
+      "Error": 2
+    },
+    {
+      "Brand": "Mexigo",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 2015,
+      "Sync Successful": 2013,
+      "Error": 2
+    },
+    {
+      "Brand": "The Big Kahuna",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 773,
+      "Sync Successful": 771,
+      "Error": 2
+    },
+    {
+      "Brand": "Oneesan",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 744,
+      "Sync Successful": 743,
+      "Error": 1
+    },
+    {
+      "Brand": "Wings of Fury",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 499,
+      "Sync Successful": 498,
+      "Error": 1
+    },
+    {
+      "Brand": "The Smoky Tandoor",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 267,
+      "Sync Successful": 266,
+      "Error": 1
+    },
+    {
+      "Brand": "Juicy Buns",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 322,
+      "Sync Successful": 321,
+      "Error": 1
+    },
+    {
+      "Brand": "Shanghai Spice",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 416,
+      "Sync Successful": 415,
+      "Error": 1
+    },
+    {
+      "Brand": "Red Ginger",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 197,
+      "Sync Successful": 196,
+      "Error": 1
+    },
+    {
+      "Brand": "PokeMan",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 1266,
+      "Sync Successful": 1265,
+      "Error": 1
+    },
+    {
+      "Brand": "The Curry Club",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 224,
+      "Sync Successful": 224,
+      "Error": 0
+    },
+    {
+      "Brand": "Norii",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 590,
+      "Sync Successful": 590,
+      "Error": 0
+    },
+    {
+      "Brand": "The Patty Pit",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 96,
+      "Sync Successful": 96,
+      "Error": 0
+    },
+    {
+      "Brand": "Zaika Punjab",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 456,
+      "Sync Successful": 456,
+      "Error": 0
+    },
+    {
+      "Brand": "Wok Street",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 98,
+      "Sync Successful": 98,
+      "Error": 0
+    },
+    {
+      "Brand": "Hikari",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 286,
+      "Sync Successful": 286,
+      "Error": 0
+    },
+    {
+      "Brand": "Tandoori Tribe",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 428,
+      "Sync Successful": 428,
+      "Error": 0
+    },
+    {
+      "Brand": "Hungry Oppa",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 973,
+      "Sync Successful": 973,
+      "Error": 0
+    },
+    {
+      "Brand": "Loco Taco",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 844,
+      "Sync Successful": 844,
+      "Error": 0
+    },
+    {
+      "Brand": "Taco Libre",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 19,
+      "Sync Successful": 19,
+      "Error": 0
+    },
+    {
+      "Brand": "Patiala Plate",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 365,
+      "Sync Successful": 365,
+      "Error": 0
+    },
+    {
+      "Brand": "Winging it",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 257,
+      "Sync Successful": 257,
+      "Error": 0
+    },
+    {
+      "Brand": "Fiesta",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 668,
+      "Sync Successful": 668,
+      "Error": 0
+    },
+    {
+      "Brand": "Big Dawg’s Burgers",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 314,
+      "Sync Successful": 314,
+      "Error": 0
+    },
+    {
+      "Brand": "The Slider Shack",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 447,
+      "Sync Successful": 447,
+      "Error": 0
+    },
+    {
+      "Brand": "Jinjja",
+      "Location": "Ghost Kitchen",
+      "Total No of Orders": 898,
+      "Sync Successful": 898,
+      "Error": 0
+    }
+  ]
+}

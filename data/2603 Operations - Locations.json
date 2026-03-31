@@ -1,0 +1,324 @@
+{
+  "LocationPerformanceAverage": [
+    {
+      "Brand": "Picante",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:25",
+      "Started To Prepared": "0:26:11",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:23:36",
+      "Received to Delivered": "0:48:13"
+    },
+    {
+      "Brand": "Casa Del Queso",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:25",
+      "Started To Prepared": "0:24:21",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:26:01",
+      "Received to Delivered": "0:48:30"
+    },
+    {
+      "Brand": "PokeMan",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:20",
+      "Started To Prepared": "0:23:10",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:23:47",
+      "Received to Delivered": "0:42:21"
+    },
+    {
+      "Brand": "Hikari",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:13",
+      "Started To Prepared": "0:31:57",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:25:09",
+      "Received to Delivered": "0:51:17"
+    },
+    {
+      "Brand": "Red Ginger",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:20",
+      "Started To Prepared": "0:23:24",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:12",
+      "Received to Delivered": "0:46:27"
+    },
+    {
+      "Brand": "Smashville Burgers",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:23",
+      "Started To Prepared": "0:24:44",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:49",
+      "Received to Delivered": "0:44:04"
+    },
+    {
+      "Brand": "The Slider Shack",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:17",
+      "Started To Prepared": "0:22:47",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:48",
+      "Received to Delivered": "0:45:49"
+    },
+    {
+      "Brand": "Seoul Food",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:20",
+      "Started To Prepared": "0:29:32",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:33",
+      "Received to Delivered": "0:48:47"
+    },
+    {
+      "Brand": "Fiesta",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:30",
+      "Started To Prepared": "0:24:28",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:23:05",
+      "Received to Delivered": "0:48:54"
+    },
+    {
+      "Brand": "The Curry Club",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:34",
+      "Started To Prepared": "0:22:58",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:37",
+      "Received to Delivered": "0:45:09"
+    },
+    {
+      "Brand": "Big Dawg’s Burgers",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:15",
+      "Started To Prepared": "0:24:10",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:50",
+      "Received to Delivered": "0:46:35"
+    },
+    {
+      "Brand": "Taco Libre",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:23",
+      "Started To Prepared": "0:27:08",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": null,
+      "Received to Delivered": null
+    },
+    {
+      "Brand": "Oneesan",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:15",
+      "Started To Prepared": "0:36:30",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:21:50",
+      "Received to Delivered": "0:48:25"
+    },
+    {
+      "Brand": "Loco Taco",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:21",
+      "Started To Prepared": "0:25:25",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:21:50",
+      "Received to Delivered": "0:48:00"
+    },
+    {
+      "Brand": "Wok Street",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:21",
+      "Started To Prepared": "0:21:49",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:23:08",
+      "Received to Delivered": "0:45:43"
+    },
+    {
+      "Brand": "Norii",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:20",
+      "Started To Prepared": "0:33:15",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:12",
+      "Received to Delivered": "0:48:24"
+    },
+    {
+      "Brand": "The Smoky Tandoor",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:16",
+      "Started To Prepared": "0:26:39",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:21:59",
+      "Received to Delivered": "0:48:09"
+    },
+    {
+      "Brand": "The Patty Pit",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:18",
+      "Started To Prepared": "0:19:01",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:18",
+      "Received to Delivered": "0:41:40"
+    },
+    {
+      "Brand": "Annyeong",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:19",
+      "Started To Prepared": "0:29:09",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:16",
+      "Received to Delivered": "0:47:01"
+    },
+    {
+      "Brand": "Winging it",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:18",
+      "Started To Prepared": "0:20:34",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:25:06",
+      "Received to Delivered": "0:44:38"
+    },
+    {
+      "Brand": "Patiala Plate",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:13",
+      "Started To Prepared": "0:29:40",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:20:42",
+      "Received to Delivered": "0:47:15"
+    },
+    {
+      "Brand": "Noona",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:18",
+      "Started To Prepared": "0:26:51",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:48",
+      "Received to Delivered": "0:46:51"
+    },
+    {
+      "Brand": "Wings of Fury",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:24",
+      "Started To Prepared": "0:21:37",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:44",
+      "Received to Delivered": "0:45:39"
+    },
+    {
+      "Brand": "Mexigo",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:18",
+      "Started To Prepared": "0:24:39",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:24",
+      "Received to Delivered": "0:46:14"
+    },
+    {
+      "Brand": "Shanghai Spice",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:25",
+      "Started To Prepared": "0:26:06",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:23:05",
+      "Received to Delivered": "0:48:02"
+    },
+    {
+      "Brand": "Bronx Burger House",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:28",
+      "Started To Prepared": "0:22:45",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:23:14",
+      "Received to Delivered": "0:43:43"
+    },
+    {
+      "Brand": "Hungry Oppa",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:13",
+      "Started To Prepared": "0:25:28",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:24:22",
+      "Received to Delivered": "0:47:20"
+    },
+    {
+      "Brand": "Zaika Punjab",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:17",
+      "Started To Prepared": "0:25:59",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:15",
+      "Received to Delivered": "0:48:11"
+    },
+    {
+      "Brand": "Tandoori Tribe",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:19",
+      "Started To Prepared": "0:27:06",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:23:57",
+      "Received to Delivered": "0:50:35"
+    },
+    {
+      "Brand": "The Big Kahuna",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:15",
+      "Started To Prepared": "0:24:50",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:18",
+      "Received to Delivered": "0:42:04"
+    },
+    {
+      "Brand": "Juicy Buns",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:30",
+      "Started To Prepared": "0:20:40",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:22:41",
+      "Received to Delivered": "0:42:27"
+    },
+    {
+      "Brand": "Jinjja",
+      "Location": "Ghost Kitchen",
+      "Accepted to Started": "0:00:22",
+      "Started To Prepared": "0:24:08",
+      "Prepared to Sent to Dispatch": "0:00:00",
+      "Sent To Dispatch to Dispatched": "0:00:00",
+      "Dispatched to Delivered": "0:26:21",
+      "Received to Delivered": "0:48:53"
+    }
+  ]
+}

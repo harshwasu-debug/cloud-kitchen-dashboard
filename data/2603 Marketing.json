@@ -1,0 +1,3724 @@
+{
+  "CampaignPerformanceByPartner": [
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Deliveroo",
+      "No of Orders": 1,
+      "Original Amount": 158.0,
+      "Discount": 30.0,
+      "Sales Amount": 128.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Fiesta",
+      "Channel": "KeeTa",
+      "No of Orders": 43,
+      "Original Amount": 3901.0,
+      "Discount": 1595.8,
+      "Sales Amount": 2305.2
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "KeeTa",
+      "No of Orders": 115,
+      "Original Amount": 11721.0,
+      "Discount": 5660.700000000001,
+      "Sales Amount": 6060.299999999999
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "KeeTa",
+      "No of Orders": 29,
+      "Original Amount": 2580.0,
+      "Discount": 1129.3,
+      "Sales Amount": 1450.7
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "KeeTa",
+      "No of Orders": 319,
+      "Original Amount": 37926.0,
+      "Discount": 13817.199999999997,
+      "Sales Amount": 24108.80000000001
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "KeeTa",
+      "No of Orders": 20,
+      "Original Amount": 1658.0,
+      "Discount": 769.0,
+      "Sales Amount": 889.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "KeeTa",
+      "No of Orders": 2,
+      "Original Amount": 128.0,
+      "Discount": 60.0,
+      "Sales Amount": 68.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "KeeTa",
+      "No of Orders": 3,
+      "Original Amount": 313.0,
+      "Discount": 144.0,
+      "Sales Amount": 169.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "KeeTa",
+      "No of Orders": 61,
+      "Original Amount": 4762.0,
+      "Discount": 2242.4,
+      "Sales Amount": 2519.6
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "KeeTa",
+      "No of Orders": 63,
+      "Original Amount": 6099.0,
+      "Discount": 2130.9,
+      "Sales Amount": 3968.1
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "KeeTa",
+      "No of Orders": 155,
+      "Original Amount": 15406.029999999999,
+      "Discount": 5643.110000000001,
+      "Sales Amount": 9762.92
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "KeeTa",
+      "No of Orders": 189,
+      "Original Amount": 15218.0,
+      "Discount": 6407.410000000002,
+      "Sales Amount": 8810.59
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "KeeTa",
+      "No of Orders": 545,
+      "Original Amount": 46627.0,
+      "Discount": 20541.199999999997,
+      "Sales Amount": 26085.800000000003
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "KeeTa",
+      "No of Orders": 11,
+      "Original Amount": 913.0,
+      "Discount": 439.5,
+      "Sales Amount": 473.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "KeeTa",
+      "No of Orders": 632,
+      "Original Amount": 50489.0,
+      "Discount": 24750.6,
+      "Sales Amount": 25738.4
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "KeeTa",
+      "No of Orders": 50,
+      "Original Amount": 4314.0,
+      "Discount": 1843.2999999999997,
+      "Sales Amount": 2470.7
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "KeeTa",
+      "No of Orders": 114,
+      "Original Amount": 9084.0,
+      "Discount": 4544.9,
+      "Sales Amount": 4539.1
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "KeeTa",
+      "No of Orders": 104,
+      "Original Amount": 9296.0,
+      "Discount": 3591.3999999999996,
+      "Sales Amount": 5704.6
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "KeeTa",
+      "No of Orders": 720,
+      "Original Amount": 69008.0,
+      "Discount": 28892.899999999994,
+      "Sales Amount": 40115.09999999999
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "KeeTa",
+      "No of Orders": 494,
+      "Original Amount": 45056.0,
+      "Discount": 20136.0,
+      "Sales Amount": 24920.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "KeeTa",
+      "No of Orders": 35,
+      "Original Amount": 2742.0,
+      "Discount": 1131.8,
+      "Sales Amount": 1610.2
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "KeeTa",
+      "No of Orders": 357,
+      "Original Amount": 34535.0,
+      "Discount": 12892.1,
+      "Sales Amount": 21642.9
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "KeeTa",
+      "No of Orders": 252,
+      "Original Amount": 26016.0,
+      "Discount": 11777.5,
+      "Sales Amount": 14238.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "KeeTa",
+      "No of Orders": 192,
+      "Original Amount": 18077.0,
+      "Discount": 7772.1,
+      "Sales Amount": 10304.900000000001
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "KeeTa",
+      "No of Orders": 59,
+      "Original Amount": 5332.0,
+      "Discount": 2715.5,
+      "Sales Amount": 2616.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "KeeTa",
+      "No of Orders": 13,
+      "Original Amount": 1241.0,
+      "Discount": 520.81,
+      "Sales Amount": 720.19
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "KeeTa",
+      "No of Orders": 362,
+      "Original Amount": 30877.0,
+      "Discount": 14322.699999999999,
+      "Sales Amount": 16554.300000000003
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "KeeTa",
+      "No of Orders": 2208,
+      "Original Amount": 212583.0,
+      "Discount": 88384.69999999997,
+      "Sales Amount": 124198.30000000013
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "KeeTa",
+      "No of Orders": 6,
+      "Original Amount": 459.0,
+      "Discount": 205.5,
+      "Sales Amount": 253.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "KeeTa",
+      "No of Orders": 215,
+      "Original Amount": 21741.0,
+      "Discount": 8481.5,
+      "Sales Amount": 13259.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "KeeTa",
+      "No of Orders": 1976,
+      "Original Amount": 167594.64,
+      "Discount": 71654.50000000003,
+      "Sales Amount": 95940.13999999997
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "KeeTa",
+      "No of Orders": 82,
+      "Original Amount": 9274.0,
+      "Discount": 3027.8999999999996,
+      "Sales Amount": 6246.1
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 279.0,
+      "Discount": 83.7,
+      "Sales Amount": 195.3
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 270.0,
+      "Discount": 81.0,
+      "Sales Amount": 189.0
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 370.0,
+      "Discount": 111.0,
+      "Sales Amount": 259.0
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 38.0,
+      "Discount": 11.4,
+      "Sales Amount": 26.6
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 837.0,
+      "Discount": 251.10000000000002,
+      "Sales Amount": 585.9
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 45.0,
+      "Discount": 13.5,
+      "Sales Amount": 31.5
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 255.0,
+      "Discount": 76.5,
+      "Sales Amount": 178.5
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 46.0,
+      "Discount": 13.8,
+      "Sales Amount": 32.2
+    },
+    {
+      "Campaign": "30EVERY",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 119.0,
+      "Discount": 35.7,
+      "Sales Amount": 83.30000000000001
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Careem",
+      "No of Orders": 36,
+      "Original Amount": 2303.0,
+      "Discount": 916.5,
+      "Sales Amount": 1386.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Careem",
+      "No of Orders": 15,
+      "Original Amount": 1229.0,
+      "Discount": 401.5,
+      "Sales Amount": 827.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Careem",
+      "No of Orders": 32,
+      "Original Amount": 2257.0,
+      "Discount": 877.5,
+      "Sales Amount": 1379.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 11,
+      "Original Amount": 727.0,
+      "Discount": 301.0,
+      "Sales Amount": 426.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 260,
+      "Original Amount": 21845.0,
+      "Discount": 7525.0,
+      "Sales Amount": 14320.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 263.0,
+      "Discount": 131.5,
+      "Sales Amount": 131.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 22,
+      "Original Amount": 1318.0,
+      "Discount": 587.0,
+      "Sales Amount": 731.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 53,
+      "Original Amount": 3655.0,
+      "Discount": 1513.5,
+      "Sales Amount": 2141.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 47,
+      "Original Amount": 3237.0,
+      "Discount": 1280.5,
+      "Sales Amount": 1956.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 13,
+      "Original Amount": 1047.0,
+      "Discount": 376.0,
+      "Sales Amount": 671.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Careem",
+      "No of Orders": 12,
+      "Original Amount": 609.0,
+      "Discount": 279.5,
+      "Sales Amount": 329.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 194,
+      "Original Amount": 13037.0,
+      "Discount": 5422.5,
+      "Sales Amount": 7614.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 121,
+      "Original Amount": 8144.0,
+      "Discount": 3384.5,
+      "Sales Amount": 4759.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Careem",
+      "No of Orders": 44,
+      "Original Amount": 2383.0,
+      "Discount": 1069.5,
+      "Sales Amount": 1313.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Careem",
+      "No of Orders": 10,
+      "Original Amount": 691.0,
+      "Discount": 254.0,
+      "Sales Amount": 437.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Careem",
+      "No of Orders": 29,
+      "Original Amount": 1880.0,
+      "Discount": 759.0,
+      "Sales Amount": 1121.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Careem",
+      "No of Orders": 12,
+      "Original Amount": 723.0,
+      "Discount": 302.5,
+      "Sales Amount": 420.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 79,
+      "Original Amount": 4867.0,
+      "Discount": 2018.5,
+      "Sales Amount": 2848.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Careem",
+      "No of Orders": 7,
+      "Original Amount": 589.0,
+      "Discount": 207.0,
+      "Sales Amount": 382.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 41,
+      "Original Amount": 2506.0,
+      "Discount": 1091.5,
+      "Sales Amount": 1414.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "Careem",
+      "No of Orders": 22,
+      "Original Amount": 1646.0,
+      "Discount": 649.5,
+      "Sales Amount": 996.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Careem",
+      "No of Orders": 17,
+      "Original Amount": 934.0,
+      "Discount": 420.0,
+      "Sales Amount": 514.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Careem",
+      "No of Orders": 17,
+      "Original Amount": 924.0,
+      "Discount": 438.5,
+      "Sales Amount": 485.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Careem",
+      "No of Orders": 18,
+      "Original Amount": 1412.0,
+      "Discount": 505.0,
+      "Sales Amount": 907.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Careem",
+      "No of Orders": 25,
+      "Original Amount": 1774.0,
+      "Discount": 662.5,
+      "Sales Amount": 1111.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Careem",
+      "No of Orders": 28,
+      "Original Amount": 1446.0,
+      "Discount": 667.0,
+      "Sales Amount": 779.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 292,
+      "Original Amount": 19947.0,
+      "Discount": 7647.5,
+      "Sales Amount": 12299.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 21,
+      "Original Amount": 1530.0,
+      "Discount": 585.5,
+      "Sales Amount": 944.5
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 30,
+      "Original Amount": 1917.0,
+      "Discount": 791.0,
+      "Sales Amount": 1126.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Fiesta",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 268.0,
+      "Discount": 104.0,
+      "Sales Amount": 164.0
+    },
+    {
+      "Campaign": "50FTU",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Careem",
+      "No of Orders": 7,
+      "Original Amount": 376.0,
+      "Discount": 165.5,
+      "Sales Amount": 210.5
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Talabat",
+      "No of Orders": 1,
+      "Original Amount": 111.0,
+      "Discount": 30.0,
+      "Sales Amount": 81.0
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Talabat",
+      "No of Orders": 1,
+      "Original Amount": 78.0,
+      "Discount": 30.0,
+      "Sales Amount": 48.0
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Talabat",
+      "No of Orders": 3,
+      "Original Amount": 205.0,
+      "Discount": 74.0,
+      "Sales Amount": 131.0
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Talabat",
+      "No of Orders": 1,
+      "Original Amount": 63.0,
+      "Discount": 25.2,
+      "Sales Amount": 37.8
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Talabat",
+      "No of Orders": 2,
+      "Original Amount": 221.0,
+      "Discount": 55.0,
+      "Sales Amount": 166.0
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Talabat",
+      "No of Orders": 17,
+      "Original Amount": 1107.0,
+      "Discount": 422.8,
+      "Sales Amount": 684.1999999999998
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Talabat",
+      "No of Orders": 8,
+      "Original Amount": 772.0,
+      "Discount": 217.2,
+      "Sales Amount": 554.8
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Talabat",
+      "No of Orders": 2,
+      "Original Amount": 165.0,
+      "Discount": 52.4,
+      "Sales Amount": 112.6
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Talabat",
+      "No of Orders": 3,
+      "Original Amount": 196.0,
+      "Discount": 77.2,
+      "Sales Amount": 118.8
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Talabat",
+      "No of Orders": 5,
+      "Original Amount": 335.0,
+      "Discount": 111.2,
+      "Sales Amount": 223.8
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Talabat",
+      "No of Orders": 2,
+      "Original Amount": 88.0,
+      "Discount": 35.2,
+      "Sales Amount": 52.8
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Talabat",
+      "No of Orders": 9,
+      "Original Amount": 632.0,
+      "Discount": 228.0,
+      "Sales Amount": 404.0
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Talabat",
+      "No of Orders": 2,
+      "Original Amount": 99.0,
+      "Discount": 39.599999999999994,
+      "Sales Amount": 59.400000000000006
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Talabat",
+      "No of Orders": 5,
+      "Original Amount": 500.0,
+      "Discount": 135.0,
+      "Sales Amount": 365.0
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Talabat",
+      "No of Orders": 5,
+      "Original Amount": 299.0,
+      "Discount": 122.0,
+      "Sales Amount": 177.0
+    },
+    {
+      "Campaign": "Disc_40",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Talabat",
+      "No of Orders": 7,
+      "Original Amount": 518.0,
+      "Discount": 173.6,
+      "Sales Amount": 344.4
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Talabat",
+      "No of Orders": 69,
+      "Original Amount": 4730.0,
+      "Discount": 1834.9999999999998,
+      "Sales Amount": 2895.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Talabat",
+      "No of Orders": 127,
+      "Original Amount": 8769.0,
+      "Discount": 3510.6,
+      "Sales Amount": 5258.4
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Talabat",
+      "No of Orders": 58,
+      "Original Amount": 4150.0,
+      "Discount": 1573.9,
+      "Sales Amount": 2576.1
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Talabat",
+      "No of Orders": 44,
+      "Original Amount": 3669.0,
+      "Discount": 1254.5,
+      "Sales Amount": 2414.5
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Talabat",
+      "No of Orders": 29,
+      "Original Amount": 2850.0,
+      "Discount": 830.0,
+      "Sales Amount": 2020.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Talabat",
+      "No of Orders": 13,
+      "Original Amount": 1048.0,
+      "Discount": 349.5,
+      "Sales Amount": 698.5
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Talabat",
+      "No of Orders": 89,
+      "Original Amount": 5734.0,
+      "Discount": 2338.5,
+      "Sales Amount": 3395.5
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Talabat",
+      "No of Orders": 229,
+      "Original Amount": 13896.0,
+      "Discount": 5986.199999999999,
+      "Sales Amount": 7909.8
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Talabat",
+      "No of Orders": 511,
+      "Original Amount": 36927.5,
+      "Discount": 14028.25,
+      "Sales Amount": 22899.25
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Talabat",
+      "No of Orders": 151,
+      "Original Amount": 11125.0,
+      "Discount": 4103.0,
+      "Sales Amount": 7022.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Talabat",
+      "No of Orders": 14,
+      "Original Amount": 909.0,
+      "Discount": 323.0,
+      "Sales Amount": 586.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Talabat",
+      "No of Orders": 252,
+      "Original Amount": 15166.880000000001,
+      "Discount": 6282.35,
+      "Sales Amount": 8884.53
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Talabat",
+      "No of Orders": 771,
+      "Original Amount": 54788.5,
+      "Discount": 21528.4,
+      "Sales Amount": 33260.09999999999
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Talabat",
+      "No of Orders": 63,
+      "Original Amount": 4957.0,
+      "Discount": 1770.7,
+      "Sales Amount": 3186.3
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Talabat",
+      "No of Orders": 1144,
+      "Original Amount": 79009.0,
+      "Discount": 30601.3,
+      "Sales Amount": 48407.70000000001
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Talabat",
+      "No of Orders": 596,
+      "Original Amount": 40095.0,
+      "Discount": 15720.5,
+      "Sales Amount": 24374.5
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Talabat",
+      "No of Orders": 71,
+      "Original Amount": 5328.0,
+      "Discount": 2023.0,
+      "Sales Amount": 3305.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Talabat",
+      "No of Orders": 136,
+      "Original Amount": 10287.0,
+      "Discount": 3867.5,
+      "Sales Amount": 6419.5
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Talabat",
+      "No of Orders": 192,
+      "Original Amount": 13348.0,
+      "Discount": 5455.0,
+      "Sales Amount": 7893.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Talabat",
+      "No of Orders": 123,
+      "Original Amount": 7706.2,
+      "Discount": 3232.2999999999997,
+      "Sales Amount": 4473.9
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Fiesta",
+      "Channel": "Talabat",
+      "No of Orders": 147,
+      "Original Amount": 12914.0,
+      "Discount": 4229.5,
+      "Sales Amount": 8684.5
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Talabat",
+      "No of Orders": 20,
+      "Original Amount": 2012.0,
+      "Discount": 557.0,
+      "Sales Amount": 1455.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Talabat",
+      "No of Orders": 94,
+      "Original Amount": 6879.0,
+      "Discount": 2529.5,
+      "Sales Amount": 4349.5
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Talabat",
+      "No of Orders": 181,
+      "Original Amount": 11202.02,
+      "Discount": 4632.9,
+      "Sales Amount": 6569.120000000001
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Talabat",
+      "No of Orders": 93,
+      "Original Amount": 6347.5,
+      "Discount": 2266.1000000000004,
+      "Sales Amount": 4081.4
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "Talabat",
+      "No of Orders": 16,
+      "Original Amount": 954.0,
+      "Discount": 419.0,
+      "Sales Amount": 535.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Talabat",
+      "No of Orders": 138,
+      "Original Amount": 9451.0,
+      "Discount": 3872.4,
+      "Sales Amount": 5578.6
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Talabat",
+      "No of Orders": 169,
+      "Original Amount": 14914.0,
+      "Discount": 4966.0,
+      "Sales Amount": 9948.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Talabat",
+      "No of Orders": 48,
+      "Original Amount": 4011.0,
+      "Discount": 1359.0,
+      "Sales Amount": 2652.0
+    },
+    {
+      "Campaign": "Disc_50",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Talabat",
+      "No of Orders": 12,
+      "Original Amount": 783.0,
+      "Discount": 299.5,
+      "Sales Amount": 483.5
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 194.0,
+      "Discount": 88.5,
+      "Sales Amount": 105.5
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 105.0,
+      "Discount": 52.0,
+      "Sales Amount": 53.0
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 300.0,
+      "Discount": 120.0,
+      "Sales Amount": 180.0
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 236.0,
+      "Discount": 82.0,
+      "Sales Amount": 154.0
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 246.0,
+      "Discount": 104.0,
+      "Sales Amount": 142.0
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 47.0,
+      "Discount": 23.5,
+      "Sales Amount": 23.5
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 123.0,
+      "Discount": 59.5,
+      "Sales Amount": 63.5
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Careem",
+      "No of Orders": 9,
+      "Original Amount": 459.0,
+      "Discount": 229.5,
+      "Sales Amount": 229.5
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 215.0,
+      "Discount": 102.5,
+      "Sales Amount": 112.5
+    },
+    {
+      "Campaign": "EID50",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 282.0,
+      "Discount": 112.0,
+      "Sales Amount": 170.0
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 14,
+      "Original Amount": 2337.0,
+      "Discount": 817.95,
+      "Sales Amount": 1519.05
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 23,
+      "Original Amount": 3243.0,
+      "Discount": 1135.05,
+      "Sales Amount": 2107.95
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 82,
+      "Original Amount": 11418.0,
+      "Discount": 3996.2999999999997,
+      "Sales Amount": 7421.699999999999
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 732.0,
+      "Discount": 256.2,
+      "Sales Amount": 475.8
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 16,
+      "Original Amount": 1883.0,
+      "Discount": 659.0500000000002,
+      "Sales Amount": 1223.95
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 129.0,
+      "Discount": 45.15,
+      "Sales Amount": 83.85
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 743.0,
+      "Discount": 260.05,
+      "Sales Amount": 482.95000000000005
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 528.0,
+      "Discount": 184.8,
+      "Sales Amount": 343.20000000000005
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 108.0,
+      "Discount": 37.8,
+      "Sales Amount": 70.2
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 703.0,
+      "Discount": 246.05,
+      "Sales Amount": 456.95
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 268.0,
+      "Discount": 93.80000000000001,
+      "Sales Amount": 174.2
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 146.0,
+      "Discount": 51.1,
+      "Sales Amount": 94.9
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 11,
+      "Original Amount": 1865.0,
+      "Discount": 652.75,
+      "Sales Amount": 1212.25
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 118.0,
+      "Discount": 41.3,
+      "Sales Amount": 76.7
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 582.0,
+      "Discount": 203.7,
+      "Sales Amount": 378.29999999999995
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 768.0,
+      "Discount": 268.79999999999995,
+      "Sales Amount": 499.20000000000005
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 131.0,
+      "Discount": 45.85,
+      "Sales Amount": 85.15
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 32,
+      "Original Amount": 4559.0,
+      "Discount": 1595.65,
+      "Sales Amount": 2963.3500000000004
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 121.0,
+      "Discount": 42.35,
+      "Sales Amount": 78.65
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 693.0,
+      "Discount": 242.55,
+      "Sales Amount": 450.45000000000005
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 8,
+      "Original Amount": 973.0,
+      "Discount": 340.55,
+      "Sales Amount": 632.45
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Careem",
+      "No of Orders": 9,
+      "Original Amount": 1396.0,
+      "Discount": 488.6,
+      "Sales Amount": 907.4
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 754.0,
+      "Discount": 263.9,
+      "Sales Amount": 490.1
+    },
+    {
+      "Campaign": "FEAST",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 671.0,
+      "Discount": 234.85,
+      "Sales Amount": 436.15
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 77.0,
+      "Discount": 30.0,
+      "Sales Amount": 47.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 61.0,
+      "Discount": 30.0,
+      "Sales Amount": 31.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 76.0,
+      "Discount": 30.0,
+      "Sales Amount": 46.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 214.0,
+      "Discount": 60.0,
+      "Sales Amount": 154.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 124.0,
+      "Discount": 30.0,
+      "Sales Amount": 94.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 87.0,
+      "Discount": 30.0,
+      "Sales Amount": 57.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 14,
+      "Original Amount": 1130.0,
+      "Discount": 408.5,
+      "Sales Amount": 721.5
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 103.0,
+      "Discount": 30.0,
+      "Sales Amount": 73.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 53.0,
+      "Discount": 26.5,
+      "Sales Amount": 26.5
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 14,
+      "Original Amount": 1323.0,
+      "Discount": 414.0,
+      "Sales Amount": 909.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 50.0,
+      "Discount": 25.0,
+      "Sales Amount": 25.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 84.0,
+      "Discount": 30.0,
+      "Sales Amount": 54.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 65.0,
+      "Discount": 30.0,
+      "Sales Amount": 35.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 62.0,
+      "Discount": 30.0,
+      "Sales Amount": 32.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 105.0,
+      "Discount": 30.0,
+      "Sales Amount": 75.0
+    },
+    {
+      "Campaign": "FLASH50",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 122.0,
+      "Discount": 30.0,
+      "Sales Amount": 92.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Careem",
+      "No of Orders": 55,
+      "Original Amount": 4365.0,
+      "Discount": 1561.5,
+      "Sales Amount": 2803.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 1021,
+      "Original Amount": 66226.0,
+      "Discount": 29187.5,
+      "Sales Amount": 37038.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 433,
+      "Original Amount": 27197.5,
+      "Discount": 11937.5,
+      "Sales Amount": 15260.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 253,
+      "Original Amount": 16266.0,
+      "Discount": 7365.5,
+      "Sales Amount": 8900.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 89,
+      "Original Amount": 7295.02,
+      "Discount": 2634.0,
+      "Sales Amount": 4661.02
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 122,
+      "Original Amount": 7832.0,
+      "Discount": 3408.0,
+      "Sales Amount": 4424.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Careem",
+      "No of Orders": 17,
+      "Original Amount": 1237.0,
+      "Discount": 490.5,
+      "Sales Amount": 746.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Careem",
+      "No of Orders": 133,
+      "Original Amount": 7797.0,
+      "Discount": 3473.0,
+      "Sales Amount": 4324.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Careem",
+      "No of Orders": 47,
+      "Original Amount": 2989.0,
+      "Discount": 1251.5,
+      "Sales Amount": 1737.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 544.0,
+      "Discount": 150.0,
+      "Sales Amount": 394.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Careem",
+      "No of Orders": 50,
+      "Original Amount": 5381.0,
+      "Discount": 1487.5,
+      "Sales Amount": 3893.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Careem",
+      "No of Orders": 36,
+      "Original Amount": 2902.0,
+      "Discount": 1062.5,
+      "Sales Amount": 1839.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Careem",
+      "No of Orders": 66,
+      "Original Amount": 3623.0,
+      "Discount": 1667.5,
+      "Sales Amount": 1955.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Careem",
+      "No of Orders": 62,
+      "Original Amount": 3979.0,
+      "Discount": 1692.0,
+      "Sales Amount": 2287.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 70,
+      "Original Amount": 4498.0,
+      "Discount": 2043.5,
+      "Sales Amount": 2454.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Careem",
+      "No of Orders": 150,
+      "Original Amount": 8935.0,
+      "Discount": 4075.0,
+      "Sales Amount": 4860.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 383,
+      "Original Amount": 24081.0,
+      "Discount": 10856.5,
+      "Sales Amount": 13224.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 1080,
+      "Original Amount": 84739.0,
+      "Discount": 31945.5,
+      "Sales Amount": 52793.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 299,
+      "Original Amount": 18007.0,
+      "Discount": 7942.5,
+      "Sales Amount": 10064.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 1804,
+      "Original Amount": 113911.0,
+      "Discount": 49701.5,
+      "Sales Amount": 64209.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 46,
+      "Original Amount": 3126.0,
+      "Discount": 1280.5,
+      "Sales Amount": 1845.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Fiesta",
+      "Channel": "Careem",
+      "No of Orders": 14,
+      "Original Amount": 960.0,
+      "Discount": 390.5,
+      "Sales Amount": 569.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Careem",
+      "No of Orders": 28,
+      "Original Amount": 1723.0,
+      "Discount": 776.5,
+      "Sales Amount": 946.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "Careem",
+      "No of Orders": 127,
+      "Original Amount": 9231.0,
+      "Discount": 3734.5,
+      "Sales Amount": 5496.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 462,
+      "Original Amount": 33373.0,
+      "Discount": 13493.5,
+      "Sales Amount": 19879.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Careem",
+      "No of Orders": 27,
+      "Original Amount": 2942.0,
+      "Discount": 798.5,
+      "Sales Amount": 2143.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Careem",
+      "No of Orders": 142,
+      "Original Amount": 9647.0,
+      "Discount": 4034.0,
+      "Sales Amount": 5613.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Careem",
+      "No of Orders": 119,
+      "Original Amount": 6890.0,
+      "Discount": 3202.0,
+      "Sales Amount": 3688.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 82,
+      "Original Amount": 5699.0,
+      "Discount": 2311.5,
+      "Sales Amount": 3387.5
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Careem",
+      "No of Orders": 30,
+      "Original Amount": 1608.0,
+      "Discount": 751.0,
+      "Sales Amount": 857.0
+    },
+    {
+      "Campaign": "GOTYOU",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Careem",
+      "No of Orders": 28,
+      "Original Amount": 1656.99,
+      "Discount": 764.5,
+      "Sales Amount": 892.49
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 341.0,
+      "Discount": 160.0,
+      "Sales Amount": 181.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 160.0,
+      "Discount": 80.0,
+      "Sales Amount": 80.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 62.0,
+      "Discount": 30.0,
+      "Sales Amount": 32.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 104.0,
+      "Discount": 52.0,
+      "Sales Amount": 52.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 85.0,
+      "Discount": 30.0,
+      "Sales Amount": 55.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 51.0,
+      "Discount": 25.5,
+      "Sales Amount": 25.5
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 10,
+      "Original Amount": 576.0,
+      "Discount": 283.0,
+      "Sales Amount": 293.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 62.0,
+      "Discount": 30.0,
+      "Sales Amount": 32.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 75.0,
+      "Discount": 30.0,
+      "Sales Amount": 45.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 243.0,
+      "Discount": 90.0,
+      "Sales Amount": 153.0
+    },
+    {
+      "Campaign": "GOTYOU!",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 257.0,
+      "Discount": 116.0,
+      "Sales Amount": 141.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 58.0,
+      "Discount": 29.0,
+      "Sales Amount": 29.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 152.0,
+      "Discount": 30.0,
+      "Sales Amount": 122.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 174.0,
+      "Discount": 30.0,
+      "Sales Amount": 144.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 128.0,
+      "Discount": 60.0,
+      "Sales Amount": 68.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 17,
+      "Original Amount": 1484.0,
+      "Discount": 508.0,
+      "Sales Amount": 976.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 66.0,
+      "Discount": 30.0,
+      "Sales Amount": 36.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 81.0,
+      "Discount": 30.0,
+      "Sales Amount": 51.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 533.0,
+      "Discount": 179.0,
+      "Sales Amount": 354.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 96.0,
+      "Discount": 48.0,
+      "Sales Amount": 48.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 210.0,
+      "Discount": 60.0,
+      "Sales Amount": 150.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 22,
+      "Original Amount": 1327.0,
+      "Discount": 621.0,
+      "Sales Amount": 706.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 68.0,
+      "Discount": 30.0,
+      "Sales Amount": 38.0
+    },
+    {
+      "Campaign": "HOT50",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 65.0,
+      "Discount": 30.0,
+      "Sales Amount": 35.0
+    },
+    {
+      "Campaign": "LTO50",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 92.0,
+      "Discount": 30.0,
+      "Sales Amount": 62.0
+    },
+    {
+      "Campaign": "LTO50",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 41.0,
+      "Discount": 20.5,
+      "Sales Amount": 20.5
+    },
+    {
+      "Campaign": "LTO50",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 114.0,
+      "Discount": 30.0,
+      "Sales Amount": 84.0
+    },
+    {
+      "Campaign": "LTO50",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 69.0,
+      "Discount": 30.0,
+      "Sales Amount": 39.0
+    },
+    {
+      "Campaign": "LTO50",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 88.0,
+      "Discount": 44.0,
+      "Sales Amount": 44.0
+    },
+    {
+      "Campaign": "LTO50",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 63.0,
+      "Discount": 30.0,
+      "Sales Amount": 33.0
+    },
+    {
+      "Campaign": "LTO50",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 57.0,
+      "Discount": 28.5,
+      "Sales Amount": 28.5
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 46.0,
+      "Discount": 13.8,
+      "Sales Amount": 32.2
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 4,
+      "Original Amount": 526.0,
+      "Discount": 157.8,
+      "Sales Amount": 368.20000000000005
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 126.0,
+      "Discount": 37.8,
+      "Sales Amount": 88.2
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 132.0,
+      "Discount": 39.6,
+      "Sales Amount": 92.4
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 353.0,
+      "Discount": 105.9,
+      "Sales Amount": 247.10000000000002
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 259.0,
+      "Discount": 77.7,
+      "Sales Amount": 181.3
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 119.0,
+      "Discount": 35.7,
+      "Sales Amount": 83.3
+    },
+    {
+      "Campaign": "MM30",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 194.0,
+      "Discount": 58.2,
+      "Sales Amount": 135.8
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Talabat",
+      "No of Orders": 930,
+      "Original Amount": 72855.64,
+      "Discount": 26194.75,
+      "Sales Amount": 46660.89
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Talabat",
+      "No of Orders": 135,
+      "Original Amount": 13212.0,
+      "Discount": 3717.0,
+      "Sales Amount": 9495.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Talabat",
+      "No of Orders": 91,
+      "Original Amount": 7425.0,
+      "Discount": 2601.0,
+      "Sales Amount": 4824.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Talabat",
+      "No of Orders": 764,
+      "Original Amount": 61020.5,
+      "Discount": 21606.2,
+      "Sales Amount": 39414.3
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Talabat",
+      "No of Orders": 446,
+      "Original Amount": 42977.17999999999,
+      "Discount": 12956.0,
+      "Sales Amount": 30021.179999999997
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Talabat",
+      "No of Orders": 451,
+      "Original Amount": 33631.0,
+      "Discount": 13048.5,
+      "Sales Amount": 20582.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Talabat",
+      "No of Orders": 79,
+      "Original Amount": 5219.0,
+      "Discount": 2085.0,
+      "Sales Amount": 3134.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Talabat",
+      "No of Orders": 154,
+      "Original Amount": 14111.0,
+      "Discount": 4027.5,
+      "Sales Amount": 10083.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Talabat",
+      "No of Orders": 15,
+      "Original Amount": 1248.0,
+      "Discount": 412.5,
+      "Sales Amount": 835.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Fiesta",
+      "Channel": "Talabat",
+      "No of Orders": 428,
+      "Original Amount": 31776.0,
+      "Discount": 12421.5,
+      "Sales Amount": 19354.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Talabat",
+      "No of Orders": 58,
+      "Original Amount": 4293.0,
+      "Discount": 1564.5,
+      "Sales Amount": 2728.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Talabat",
+      "No of Orders": 42,
+      "Original Amount": 2929.0,
+      "Discount": 1102.0,
+      "Sales Amount": 1827.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Talabat",
+      "No of Orders": 677,
+      "Original Amount": 57248.0,
+      "Discount": 19268.0,
+      "Sales Amount": 37980.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Talabat",
+      "No of Orders": 400,
+      "Original Amount": 31431.0,
+      "Discount": 11540.25,
+      "Sales Amount": 19890.75
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Talabat",
+      "No of Orders": 29,
+      "Original Amount": 3128.99,
+      "Discount": 769.0,
+      "Sales Amount": 2359.99
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Talabat",
+      "No of Orders": 395,
+      "Original Amount": 36175.0,
+      "Discount": 11441.75,
+      "Sales Amount": 24733.25
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Talabat",
+      "No of Orders": 28,
+      "Original Amount": 1763.0,
+      "Discount": 635.5,
+      "Sales Amount": 1127.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Talabat",
+      "No of Orders": 18,
+      "Original Amount": 1332.0,
+      "Discount": 520.5,
+      "Sales Amount": 811.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Talabat",
+      "No of Orders": 39,
+      "Original Amount": 2835.0,
+      "Discount": 1045.5,
+      "Sales Amount": 1789.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Talabat",
+      "No of Orders": 55,
+      "Original Amount": 3630.0,
+      "Discount": 1428.5,
+      "Sales Amount": 2201.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Talabat",
+      "No of Orders": 424,
+      "Original Amount": 45278.0,
+      "Discount": 12379.0,
+      "Sales Amount": 32899.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Talabat",
+      "No of Orders": 164,
+      "Original Amount": 11861.0,
+      "Discount": 4851.5,
+      "Sales Amount": 7009.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Talabat",
+      "No of Orders": 1394,
+      "Original Amount": 130437.0,
+      "Discount": 41026.5,
+      "Sales Amount": 89410.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Talabat",
+      "No of Orders": 64,
+      "Original Amount": 4650.0,
+      "Discount": 1727.0,
+      "Sales Amount": 2923.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "Talabat",
+      "No of Orders": 178,
+      "Original Amount": 12078.0,
+      "Discount": 4801.5,
+      "Sales Amount": 7276.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Talabat",
+      "No of Orders": 42,
+      "Original Amount": 3962.0,
+      "Discount": 1192.0,
+      "Sales Amount": 2770.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Talabat",
+      "No of Orders": 159,
+      "Original Amount": 14461.0,
+      "Discount": 4322.5,
+      "Sales Amount": 10138.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Talabat",
+      "No of Orders": 24,
+      "Original Amount": 1801.0,
+      "Discount": 711.0,
+      "Sales Amount": 1090.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Talabat",
+      "No of Orders": 175,
+      "Original Amount": 16171.0,
+      "Discount": 4952.5,
+      "Sales Amount": 11218.5
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Talabat",
+      "No of Orders": 65,
+      "Original Amount": 5056.5,
+      "Discount": 1849.5,
+      "Sales Amount": 3207.0
+    },
+    {
+      "Campaign": "NOT_MAPPED",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Talabat",
+      "No of Orders": 840,
+      "Original Amount": 61846.0,
+      "Discount": 23032.5,
+      "Sales Amount": 38813.5
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 164,
+      "Original Amount": 11518.0,
+      "Discount": 4861.8,
+      "Sales Amount": 6656.200000000001
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 379.0,
+      "Discount": 142.8,
+      "Sales Amount": 236.2
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 24,
+      "Original Amount": 2169.0,
+      "Discount": 715.2,
+      "Sales Amount": 1453.8000000000002
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 104,
+      "Original Amount": 9205.0,
+      "Discount": 3116.4000000000005,
+      "Sales Amount": 6088.599999999999
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 326.0,
+      "Discount": 177.0,
+      "Sales Amount": 149.0
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 174.0,
+      "Discount": 88.8,
+      "Sales Amount": 85.2
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "Careem",
+      "No of Orders": 19,
+      "Original Amount": 1267.0,
+      "Discount": 567.0,
+      "Sales Amount": 700.0
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Careem",
+      "No of Orders": 34,
+      "Original Amount": 3381.0,
+      "Discount": 1020.0,
+      "Sales Amount": 2361.0
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 33,
+      "Original Amount": 2335.0,
+      "Discount": 974.9999999999999,
+      "Sales Amount": 1360.0
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 495.0,
+      "Discount": 177.60000000000002,
+      "Sales Amount": 317.4
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Careem",
+      "No of Orders": 13,
+      "Original Amount": 707.0,
+      "Discount": 371.4,
+      "Sales Amount": 335.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 8,
+      "Original Amount": 605.0,
+      "Discount": 239.4,
+      "Sales Amount": 365.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Careem",
+      "No of Orders": 14,
+      "Original Amount": 1164.0,
+      "Discount": 420.0,
+      "Sales Amount": 744.0
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 32,
+      "Original Amount": 2427.0,
+      "Discount": 936.6,
+      "Sales Amount": 1490.4
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 10,
+      "Original Amount": 1204.16,
+      "Discount": 298.8,
+      "Sales Amount": 905.36
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 159.0,
+      "Discount": 56.4,
+      "Sales Amount": 102.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 167.0,
+      "Discount": 59.4,
+      "Sales Amount": 107.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 366.0,
+      "Discount": 175.20000000000002,
+      "Sales Amount": 190.79999999999998
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Careem",
+      "No of Orders": 17,
+      "Original Amount": 1274.0,
+      "Discount": 497.40000000000003,
+      "Sales Amount": 776.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 147.0,
+      "Discount": 85.8,
+      "Sales Amount": 61.2
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 133.0,
+      "Discount": 59.4,
+      "Sales Amount": 73.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 23,
+      "Original Amount": 1583.0,
+      "Discount": 663.6,
+      "Sales Amount": 919.4
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Fiesta",
+      "Channel": "Careem",
+      "No of Orders": 3,
+      "Original Amount": 140.0,
+      "Discount": 80.4,
+      "Sales Amount": 59.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 437.0,
+      "Discount": 178.2,
+      "Sales Amount": 258.8
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 39,
+      "Original Amount": 3263.0,
+      "Discount": 1169.4,
+      "Sales Amount": 2093.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 20,
+      "Original Amount": 1315.0,
+      "Discount": 590.4,
+      "Sales Amount": 724.6
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 474.0,
+      "Discount": 178.8,
+      "Sales Amount": 295.2
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 161.0,
+      "Discount": 60.0,
+      "Sales Amount": 101.0
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 7,
+      "Original Amount": 408.0,
+      "Discount": 204.6,
+      "Sales Amount": 203.4
+    },
+    {
+      "Campaign": "REGIE60",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Careem",
+      "No of Orders": 10,
+      "Original Amount": 737.0,
+      "Discount": 296.4,
+      "Sales Amount": 440.6
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Noon",
+      "No of Orders": 131,
+      "Original Amount": 8391.0,
+      "Discount": 3638.3999999999996,
+      "Sales Amount": 4752.6
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Noon",
+      "No of Orders": 35,
+      "Original Amount": 2951.0,
+      "Discount": 1040.3,
+      "Sales Amount": 1910.6999999999998
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Noon",
+      "No of Orders": 24,
+      "Original Amount": 1624.0,
+      "Discount": 681.7,
+      "Sales Amount": 942.3000000000001
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Noon",
+      "No of Orders": 31,
+      "Original Amount": 2787.0,
+      "Discount": 843.3,
+      "Sales Amount": 1943.6999999999998
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Noon",
+      "No of Orders": 46,
+      "Original Amount": 3983.71,
+      "Discount": 1675.1999999999998,
+      "Sales Amount": 2308.51
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Noon",
+      "No of Orders": 394,
+      "Original Amount": 28145.0,
+      "Discount": 11179.0,
+      "Sales Amount": 16966.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Noon",
+      "No of Orders": 19,
+      "Original Amount": 1126.0,
+      "Discount": 522.7,
+      "Sales Amount": 603.3
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Noon",
+      "No of Orders": 58,
+      "Original Amount": 4112.0,
+      "Discount": 1647.7,
+      "Sales Amount": 2464.3
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Noon",
+      "No of Orders": 105,
+      "Original Amount": 8417.0,
+      "Discount": 3153.0000000000005,
+      "Sales Amount": 5264.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Noon",
+      "No of Orders": 214,
+      "Original Amount": 18085.0,
+      "Discount": 6695.000000000001,
+      "Sales Amount": 11390.000000000004
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Noon",
+      "No of Orders": 80,
+      "Original Amount": 5562.0,
+      "Discount": 2200.8,
+      "Sales Amount": 3361.2000000000003
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Noon",
+      "No of Orders": 56,
+      "Original Amount": 3813.0,
+      "Discount": 1604.0,
+      "Sales Amount": 2209.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Noon",
+      "No of Orders": 4,
+      "Original Amount": 284.0,
+      "Discount": 120.0,
+      "Sales Amount": 164.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Noon",
+      "No of Orders": 41,
+      "Original Amount": 3018.0,
+      "Discount": 1239.3,
+      "Sales Amount": 1778.7
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Noon",
+      "No of Orders": 1,
+      "Original Amount": 72.0,
+      "Discount": 30.0,
+      "Sales Amount": 42.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Noon",
+      "No of Orders": 9,
+      "Original Amount": 761.0,
+      "Discount": 269.5,
+      "Sales Amount": 491.5
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Noon",
+      "No of Orders": 112,
+      "Original Amount": 7977.0,
+      "Discount": 3301.999999999999,
+      "Sales Amount": 4675.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Noon",
+      "No of Orders": 21,
+      "Original Amount": 1848.0,
+      "Discount": 630.0,
+      "Sales Amount": 1218.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Noon",
+      "No of Orders": 1,
+      "Original Amount": 110.0,
+      "Discount": 30.0,
+      "Sales Amount": 80.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Noon",
+      "No of Orders": 57,
+      "Original Amount": 3942.0,
+      "Discount": 1654.9,
+      "Sales Amount": 2287.1
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Noon",
+      "No of Orders": 1,
+      "Original Amount": 65.0,
+      "Discount": 30.0,
+      "Sales Amount": 35.0
+    },
+    {
+      "Campaign": "Restaurant Discount",
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Noon",
+      "No of Orders": 140,
+      "Original Amount": 9034.0,
+      "Discount": 3841.4,
+      "Sales Amount": 5192.6
+    },
+    {
+      "Campaign": "SNAP50",
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 56.0,
+      "Discount": 28.0,
+      "Sales Amount": 28.0
+    },
+    {
+      "Campaign": "SNAP50",
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 89.0,
+      "Discount": 44.5,
+      "Sales Amount": 44.5
+    },
+    {
+      "Campaign": "SNAP50",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 72.0,
+      "Discount": 30.0,
+      "Sales Amount": 42.0
+    },
+    {
+      "Campaign": "SNAP50",
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 80.0,
+      "Discount": 30.0,
+      "Sales Amount": 50.0
+    },
+    {
+      "Campaign": "SNAP50",
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 146.0,
+      "Discount": 30.0,
+      "Sales Amount": 116.0
+    },
+    {
+      "Campaign": "SNAP50",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 61.0,
+      "Discount": 30.0,
+      "Sales Amount": 31.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 139.0,
+      "Discount": 60.0,
+      "Sales Amount": 79.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 74.0,
+      "Discount": 30.0,
+      "Sales Amount": 44.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 52.0,
+      "Discount": 26.0,
+      "Sales Amount": 26.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Careem",
+      "No of Orders": 16,
+      "Original Amount": 1417.0,
+      "Discount": 473.5,
+      "Sales Amount": 943.5
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 120.0,
+      "Discount": 56.0,
+      "Sales Amount": 64.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Careem",
+      "No of Orders": 9,
+      "Original Amount": 809.0,
+      "Discount": 265.0,
+      "Sales Amount": 544.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Careem",
+      "No of Orders": 6,
+      "Original Amount": 427.0,
+      "Discount": 180.0,
+      "Sales Amount": 247.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 459.0,
+      "Discount": 141.0,
+      "Sales Amount": 318.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 68.0,
+      "Discount": 30.0,
+      "Sales Amount": 38.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 49.0,
+      "Discount": 24.5,
+      "Sales Amount": 24.5
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Careem",
+      "No of Orders": 2,
+      "Original Amount": 149.0,
+      "Discount": 60.0,
+      "Sales Amount": 89.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Careem",
+      "No of Orders": 5,
+      "Original Amount": 694.0,
+      "Discount": 150.0,
+      "Sales Amount": 544.0
+    },
+    {
+      "Campaign": "TREAT50",
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Careem",
+      "No of Orders": 1,
+      "Original Amount": 79.0,
+      "Discount": 30.0,
+      "Sales Amount": 49.0
+    },
+    {
+      "Campaign": "Talabat_Gem",
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Talabat",
+      "No of Orders": 1,
+      "Original Amount": 56.0,
+      "Discount": 15.0,
+      "Sales Amount": 41.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Tandoori Tribe",
+      "Channel": "Deliveroo",
+      "No of Orders": 15,
+      "Original Amount": 2507.0,
+      "Discount": 443.8,
+      "Sales Amount": 2063.2
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Casa Del Queso",
+      "Channel": "Deliveroo",
+      "No of Orders": 2043,
+      "Original Amount": 156002.0,
+      "Discount": 60651.600000000006,
+      "Sales Amount": 95350.39999999997
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Wings of Fury",
+      "Channel": "Deliveroo",
+      "No of Orders": 63,
+      "Original Amount": 4079.02,
+      "Discount": 1830.1,
+      "Sales Amount": 2248.92
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Big Dawg’s Burgers",
+      "Channel": "Deliveroo",
+      "No of Orders": 7,
+      "Original Amount": 873.0,
+      "Discount": 237.5,
+      "Sales Amount": 635.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Smoky Tandoor",
+      "Channel": "Deliveroo",
+      "No of Orders": 42,
+      "Original Amount": 3261.0,
+      "Discount": 1347.9999999999998,
+      "Sales Amount": 1913.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Big Kahuna",
+      "Channel": "Deliveroo",
+      "No of Orders": 15,
+      "Original Amount": 1124.0,
+      "Discount": 461.0,
+      "Sales Amount": 663.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Oneesan",
+      "Channel": "Deliveroo",
+      "No of Orders": 5,
+      "Original Amount": 596.0,
+      "Discount": 169.5,
+      "Sales Amount": 426.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Loco Taco",
+      "Channel": "Deliveroo",
+      "No of Orders": 160,
+      "Original Amount": 15092.5,
+      "Discount": 5458.75,
+      "Sales Amount": 9633.749999999998
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Bronx Burger House",
+      "Channel": "Deliveroo",
+      "No of Orders": 495,
+      "Original Amount": 38599.0,
+      "Discount": 14695.0,
+      "Sales Amount": 23904.000000000004
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Mexigo",
+      "Channel": "Deliveroo",
+      "No of Orders": 100,
+      "Original Amount": 7260.0,
+      "Discount": 3017.800000000001,
+      "Sales Amount": 4242.199999999999
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Patiala Plate",
+      "Channel": "Deliveroo",
+      "No of Orders": 11,
+      "Original Amount": 619.0,
+      "Discount": 298.0,
+      "Sales Amount": 321.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Curry Club",
+      "Channel": "Deliveroo",
+      "No of Orders": 39,
+      "Original Amount": 2964.0,
+      "Discount": 1125.1999999999998,
+      "Sales Amount": 1838.8000000000002
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Patty Pit",
+      "Channel": "Deliveroo",
+      "No of Orders": 2,
+      "Original Amount": 101.0,
+      "Discount": 48.0,
+      "Sales Amount": 53.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Norii",
+      "Channel": "Deliveroo",
+      "No of Orders": 37,
+      "Original Amount": 3668.0,
+      "Discount": 1617.0,
+      "Sales Amount": 2051.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Winging it",
+      "Channel": "Deliveroo",
+      "No of Orders": 21,
+      "Original Amount": 1610.0,
+      "Discount": 570.25,
+      "Sales Amount": 1039.75
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Wok Street",
+      "Channel": "Deliveroo",
+      "No of Orders": 16,
+      "Original Amount": 1547.0,
+      "Discount": 471.00000000000006,
+      "Sales Amount": 1076.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Shanghai Spice",
+      "Channel": "Deliveroo",
+      "No of Orders": 177,
+      "Original Amount": 15289.0,
+      "Discount": 4918.499999999999,
+      "Sales Amount": 10370.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Zaika Punjab",
+      "Channel": "Deliveroo",
+      "No of Orders": 21,
+      "Original Amount": 1390.0,
+      "Discount": 566.5,
+      "Sales Amount": 823.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Picante",
+      "Channel": "Deliveroo",
+      "No of Orders": 273,
+      "Original Amount": 20228.0,
+      "Discount": 8171.299999999999,
+      "Sales Amount": 12056.7
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Seoul Food",
+      "Channel": "Deliveroo",
+      "No of Orders": 160,
+      "Original Amount": 17015.0,
+      "Discount": 5427.399999999998,
+      "Sales Amount": 11587.6
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Red Ginger",
+      "Channel": "Deliveroo",
+      "No of Orders": 34,
+      "Original Amount": 2622.0,
+      "Discount": 977.1,
+      "Sales Amount": 1644.9
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Noona",
+      "Channel": "Deliveroo",
+      "No of Orders": 240,
+      "Original Amount": 24990.0,
+      "Discount": 7613.199999999999,
+      "Sales Amount": 17376.8
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Jinjja",
+      "Channel": "Deliveroo",
+      "No of Orders": 120,
+      "Original Amount": 12886.0,
+      "Discount": 3973.1,
+      "Sales Amount": 8912.9
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "PokeMan",
+      "Channel": "Deliveroo",
+      "No of Orders": 88,
+      "Original Amount": 7274.0,
+      "Discount": 2943.0,
+      "Sales Amount": 4331.0
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Hungry Oppa",
+      "Channel": "Deliveroo",
+      "No of Orders": 57,
+      "Original Amount": 6333.0,
+      "Discount": 1923.0,
+      "Sales Amount": 4409.999999999999
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Annyeong",
+      "Channel": "Deliveroo",
+      "No of Orders": 48,
+      "Original Amount": 4892.0,
+      "Discount": 1582.5,
+      "Sales Amount": 3309.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Juicy Buns",
+      "Channel": "Deliveroo",
+      "No of Orders": 28,
+      "Original Amount": 1725.0,
+      "Discount": 675.4,
+      "Sales Amount": 1049.6000000000001
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "The Slider Shack",
+      "Channel": "Deliveroo",
+      "No of Orders": 12,
+      "Original Amount": 958.0,
+      "Discount": 325.5,
+      "Sales Amount": 632.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Smashville Burgers",
+      "Channel": "Deliveroo",
+      "No of Orders": 221,
+      "Original Amount": 16546.0,
+      "Discount": 6763.200000000001,
+      "Sales Amount": 9782.800000000001
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Hikari",
+      "Channel": "Deliveroo",
+      "No of Orders": 9,
+      "Original Amount": 1325.0,
+      "Discount": 362.5,
+      "Sales Amount": 962.5
+    },
+    {
+      "Campaign": NaN,
+      "Type": "Discount",
+      "Brand": "Fiesta",
+      "Channel": "Deliveroo",
+      "No of Orders": 13,
+      "Original Amount": 1488.0,
+      "Discount": 442.3,
+      "Sales Amount": 1045.7
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "BrandSales": [
+    {
+      "Brand": "Annyeong",
+      "No. of Orders": 585,
+      "Avg. Order Value": 96.358974359,
+      "Gross Sales": 56370.0,
+      "Discounts": 19103.3,
+      "Total Earnings": 37266.7,
+      "Taxes": 1774.60467,
+      "Net Sales": 35492.05603
+    },
+    {
+      "Brand": "Big Dawg’s Burgers",
+      "No. of Orders": 311,
+      "Avg. Order Value": 72.3445659164,
+      "Gross Sales": 22499.16,
+      "Discounts": 8291.2,
+      "Total Earnings": 14207.96,
+      "Taxes": 676.56947,
+      "Net Sales": 13531.38846
+    },
+    {
+      "Brand": "Bronx Burger House",
+      "No. of Orders": 2682,
+      "Avg. Order Value": 76.5249440716,
+      "Gross Sales": 205239.9,
+      "Discounts": 80567.1,
+      "Total Earnings": 124672.8,
+      "Taxes": 7540.299,
+      "Net Sales": 117132.4540799999
+    },
+    {
+      "Brand": "Casa Del Queso",
+      "No. of Orders": 6837,
+      "Avg. Order Value": 71.2007020623,
+      "Gross Sales": 486799.2,
+      "Discounts": 190326.4599999999,
+      "Total Earnings": 296472.74,
+      "Taxes": 14117.75075,
+      "Net Sales": 282354.920270003
+    },
+    {
+      "Brand": "Fiesta",
+      "No. of Orders": 658,
+      "Avg. Order Value": 78.6854103343,
+      "Gross Sales": 51775.0,
+      "Discounts": 19264.0,
+      "Total Earnings": 32511.0,
+      "Taxes": 1548.14294,
+      "Net Sales": 30962.83769
+    },
+    {
+      "Brand": "Hikari",
+      "No. of Orders": 274,
+      "Avg. Order Value": 98.8503649635,
+      "Gross Sales": 27085.0,
+      "Discounts": 7597.6,
+      "Total Earnings": 19487.4,
+      "Taxes": 927.97156,
+      "Net Sales": 18559.43211
+    },
+    {
+      "Brand": "Hungry Oppa",
+      "No. of Orders": 961,
+      "Avg. Order Value": 104.2528616025,
+      "Gross Sales": 100187.0,
+      "Discounts": 30837.2,
+      "Total Earnings": 69349.8,
+      "Taxes": 3302.37116,
+      "Net Sales": 66028.3003200002
+    },
+    {
+      "Brand": "Jinjja",
+      "No. of Orders": 881,
+      "Avg. Order Value": 96.4974233825,
+      "Gross Sales": 85014.23,
+      "Discounts": 27135.31,
+      "Total Earnings": 57878.92,
+      "Taxes": 2756.13905,
+      "Net Sales": 55122.73232
+    },
+    {
+      "Brand": "Juicy Buns",
+      "No. of Orders": 559,
+      "Avg. Order Value": 61.6652593918,
+      "Gross Sales": 34470.88,
+      "Discounts": 14129.25,
+      "Total Earnings": 20341.63,
+      "Taxes": 968.64911,
+      "Net Sales": 19372.97633
+    },
+    {
+      "Brand": "Loco Taco",
+      "No. of Orders": 836,
+      "Avg. Order Value": 88.0328947368,
+      "Gross Sales": 73595.5,
+      "Discounts": 24839.45,
+      "Total Earnings": 48756.05,
+      "Taxes": 2321.71672,
+      "Net Sales": 46434.314
+    },
+    {
+      "Brand": "Mexigo",
+      "No. of Orders": 2392,
+      "Avg. Order Value": 72.3118938127,
+      "Gross Sales": 172970.05,
+      "Discounts": 66994.15,
+      "Total Earnings": 105975.9,
+      "Taxes": 5046.47183,
+      "Net Sales": 100929.38532
+    },
+    {
+      "Brand": "Noona",
+      "No. of Orders": 2425,
+      "Avg. Order Value": 86.6771134021,
+      "Gross Sales": 210192.0,
+      "Discounts": 78129.65,
+      "Total Earnings": 132062.35,
+      "Taxes": 6288.68365,
+      "Net Sales": 125773.57967
+    },
+    {
+      "Brand": "Norii",
+      "No. of Orders": 571,
+      "Avg. Order Value": 109.7530647986,
+      "Gross Sales": 62669.0,
+      "Discounts": 21239.4,
+      "Total Earnings": 41429.6,
+      "Taxes": 1972.83821,
+      "Net Sales": 39456.75021
+    },
+    {
+      "Brand": "Oneesan",
+      "No. of Orders": 728,
+      "Avg. Order Value": 89.1936813187,
+      "Gross Sales": 64933.0,
+      "Discounts": 26288.9,
+      "Total Earnings": 38644.1,
+      "Taxes": 1840.19561,
+      "Net Sales": 36803.88856
+    },
+    {
+      "Brand": "Patiala Plate",
+      "No. of Orders": 428,
+      "Avg. Order Value": 83.7843691589,
+      "Gross Sales": 35859.71,
+      "Discounts": 14590.85,
+      "Total Earnings": 21268.86,
+      "Taxes": 1012.80285,
+      "Net Sales": 20256.05301
+    },
+    {
+      "Brand": "Picante",
+      "No. of Orders": 2043,
+      "Avg. Order Value": 77.2976015663,
+      "Gross Sales": 157919.0,
+      "Discounts": 61146.25,
+      "Total Earnings": 96772.75,
+      "Taxes": 4608.22671,
+      "Net Sales": 92164.4543700002
+    },
+    {
+      "Brand": "PokeMan",
+      "No. of Orders": 1251,
+      "Avg. Order Value": 75.6858513189,
+      "Gross Sales": 94683.0,
+      "Discounts": 42872.2,
+      "Total Earnings": 51810.8,
+      "Taxes": 2467.18178,
+      "Net Sales": 49343.5642599999
+    },
+    {
+      "Brand": "Red Ginger",
+      "No. of Orders": 337,
+      "Avg. Order Value": 74.2862017804,
+      "Gross Sales": 25034.45,
+      "Discounts": 9402.61,
+      "Total Earnings": 15631.84,
+      "Taxes": 744.37331,
+      "Net Sales": 14887.4551
+    },
+    {
+      "Brand": "Seoul Food",
+      "No. of Orders": 5677,
+      "Avg. Order Value": 93.0535494099,
+      "Gross Sales": 528265.0,
+      "Discounts": 188691.1000000002,
+      "Total Earnings": 339573.8999999998,
+      "Taxes": 16170.18616,
+      "Net Sales": 323403.4231700021
+    },
+    {
+      "Brand": "Shanghai Spice",
+      "No. of Orders": 575,
+      "Avg. Order Value": 85.8852173913,
+      "Gross Sales": 49384.0,
+      "Discounts": 16484.35,
+      "Total Earnings": 32899.65,
+      "Taxes": 1566.64991,
+      "Net Sales": 31332.98858
+    },
+    {
+      "Brand": "Smashville Burgers",
+      "No. of Orders": 5013,
+      "Avg. Order Value": 77.7292599242,
+      "Gross Sales": 389656.78,
+      "Discounts": 156107.0499999999,
+      "Total Earnings": 233549.7300000001,
+      "Taxes": 11121.41501,
+      "Net Sales": 222428.2070800024
+    },
+    {
+      "Brand": "Tandoori Tribe",
+      "No. of Orders": 591,
+      "Avg. Order Value": 77.865143824,
+      "Gross Sales": 46018.3,
+      "Discounts": 18382.2,
+      "Total Earnings": 27636.1,
+      "Taxes": 1316.00478,
+      "Net Sales": 26320.09338
+    },
+    {
+      "Brand": "The Big Kahuna",
+      "No. of Orders": 752,
+      "Avg. Order Value": 77.8670212766,
+      "Gross Sales": 58556.0,
+      "Discounts": 24985.2,
+      "Total Earnings": 33570.8,
+      "Taxes": 1598.6095,
+      "Net Sales": 31972.1758700001
+    },
+    {
+      "Brand": "The Curry Club",
+      "No. of Orders": 329,
+      "Avg. Order Value": 74.5468085106,
+      "Gross Sales": 24525.9,
+      "Discounts": 9047.65,
+      "Total Earnings": 15478.25,
+      "Taxes": 737.05953,
+      "Net Sales": 14741.18222
+    },
+    {
+      "Brand": "The Patty Pit",
+      "No. of Orders": 241,
+      "Avg. Order Value": 62.0091286307,
+      "Gross Sales": 14944.2,
+      "Discounts": 6270.9,
+      "Total Earnings": 8673.3,
+      "Taxes": 413.01447,
+      "Net Sales": 8260.27497
+    },
+    {
+      "Brand": "The Slider Shack",
+      "No. of Orders": 623,
+      "Avg. Order Value": 65.5586195827,
+      "Gross Sales": 40843.02,
+      "Discounts": 17130.5,
+      "Total Earnings": 23712.52,
+      "Taxes": 1129.16747,
+      "Net Sales": 22583.34214
+    },
+    {
+      "Brand": "The Smoky Tandoor",
+      "No. of Orders": 413,
+      "Avg. Order Value": 71.2033898305,
+      "Gross Sales": 29407.0,
+      "Discounts": 12085.8,
+      "Total Earnings": 17321.2,
+      "Taxes": 824.81904,
+      "Net Sales": 16496.38141
+    },
+    {
+      "Brand": "Winging it",
+      "No. of Orders": 366,
+      "Avg. Order Value": 73.3715846995,
+      "Gross Sales": 26854.0,
+      "Discounts": 9817.4,
+      "Total Earnings": 17036.6,
+      "Taxes": 811.26668,
+      "Net Sales": 16225.32273
+    },
+    {
+      "Brand": "Wings of Fury",
+      "No. of Orders": 721,
+      "Avg. Order Value": 64.761220527,
+      "Gross Sales": 46692.84,
+      "Discounts": 18683.75,
+      "Total Earnings": 28009.09,
+      "Taxes": 1333.76613,
+      "Net Sales": 26675.32365
+    },
+    {
+      "Brand": "Wok Street",
+      "No. of Orders": 218,
+      "Avg. Order Value": 78.2774311927,
+      "Gross Sales": 17064.48,
+      "Discounts": 5560.9,
+      "Total Earnings": 11503.58,
+      "Taxes": 547.7895,
+      "Net Sales": 10955.7844
+    },
+    {
+      "Brand": "Zaika Punjab",
+      "No. of Orders": 524,
+      "Avg. Order Value": 76.5782442748,
+      "Gross Sales": 40127.0,
+      "Discounts": 14951.55,
+      "Total Earnings": 25175.45,
+      "Taxes": 1198.8311,
+      "Net Sales": 23976.61199
+    }
+  ]
+}

@@ -1,0 +1,3651 @@
+{
+  "SalesByMenuItemTags": [
+    {
+      "Menu Item Tag": "Rice cc",
+      "Item Qty": 15,
+      "Total Sales": 274.0,
+      "Total Discounts": 0.0,
+      "VAT": 7.78026
+    },
+    {
+      "Menu Item Tag": "M4S",
+      "Item Qty": 20,
+      "Total Sales": 2950.0,
+      "Total Discounts": 0.0,
+      "VAT": 116.66661
+    },
+    {
+      "Menu Item Tag": "Tikkas",
+      "Item Qty": 36,
+      "Total Sales": 1823.0,
+      "Total Discounts": 0.0,
+      "VAT": 49.58863
+    },
+    {
+      "Menu Item Tag": "Rice TT",
+      "Item Qty": 10,
+      "Total Sales": 155.5,
+      "Total Discounts": 13.5,
+      "VAT": 6.55275
+    },
+    {
+      "Menu Item Tag": "Burgers",
+      "Item Qty": 2,
+      "Total Sales": 116.0,
+      "Total Discounts": 0.0,
+      "VAT": 4.66071
+    },
+    {
+      "Menu Item Tag": "Uramaki",
+      "Item Qty": 117,
+      "Total Sales": 5811.69,
+      "Total Discounts": 13.31,
+      "VAT": 197.59402
+    },
+    {
+      "Menu Item Tag": "Bread",
+      "Item Qty": 1324,
+      "Total Sales": 13302.33,
+      "Total Discounts": 247.67,
+      "VAT": 381.22306
+    },
+    {
+      "Menu Item Tag": "Wraps",
+      "Item Qty": 76,
+      "Total Sales": 2899.94,
+      "Total Discounts": 131.06,
+      "VAT": 87.77853
+    },
+    {
+      "Menu Item Tag": "Sips",
+      "Item Qty": 130,
+      "Total Sales": 882.16,
+      "Total Discounts": 29.84,
+      "VAT": 25.51603
+    },
+    {
+      "Menu Item Tag": "Starter",
+      "Item Qty": 24,
+      "Total Sales": 920.22,
+      "Total Discounts": 9.78,
+      "VAT": 30.46826
+    },
+    {
+      "Menu Item Tag": "Mains",
+      "Item Qty": 209,
+      "Total Sales": 6906.87,
+      "Total Discounts": 496.13,
+      "VAT": 244.79008
+    },
+    {
+      "Menu Item Tag": "Jarritos",
+      "Item Qty": 526,
+      "Total Sales": 9020.61,
+      "Total Discounts": 679.39,
+      "VAT": 290.77411
+    },
+    {
+      "Menu Item Tag": "Sides",
+      "Item Qty": 3346,
+      "Total Sales": 85835.5500000001,
+      "Total Discounts": 7377.65,
+      "VAT": 2781.22002
+    },
+    {
+      "Menu Item Tag": "Noon 26",
+      "Item Qty": 734,
+      "Total Sales": 40474.06,
+      "Total Discounts": 3505.94,
+      "VAT": 1264.38718
+    },
+    {
+      "Menu Item Tag": "Salads",
+      "Item Qty": 48,
+      "Total Sales": 1758.78,
+      "Total Discounts": 6.22,
+      "VAT": 57.75789
+    },
+    {
+      "Menu Item Tag": "Fries",
+      "Item Qty": 43,
+      "Total Sales": 879.0,
+      "Total Discounts": 0.0,
+      "VAT": 23.29502
+    },
+    {
+      "Menu Item Tag": "K-Sets",
+      "Item Qty": 129,
+      "Total Sales": 9182.27,
+      "Total Discounts": 518.73,
+      "VAT": 283.32821
+    },
+    {
+      "Menu Item Tag": "Sliders",
+      "Item Qty": 47,
+      "Total Sales": 2039.0,
+      "Total Discounts": 0.0,
+      "VAT": 54.39633
+    },
+    {
+      "Menu Item Tag": "Kimbaps",
+      "Item Qty": 201,
+      "Total Sales": 8851.66,
+      "Total Discounts": 541.34,
+      "VAT": 288.19192
+    },
+    {
+      "Menu Item Tag": "Ramyuns",
+      "Item Qty": 179,
+      "Total Sales": 9193.82,
+      "Total Discounts": 310.18,
+      "VAT": 284.56522
+    },
+    {
+      "Menu Item Tag": "Wings",
+      "Item Qty": 447,
+      "Total Sales": 17838.49,
+      "Total Discounts": 135.51,
+      "VAT": 538.45309
+    },
+    {
+      "Menu Item Tag": "Sets",
+      "Item Qty": 10,
+      "Total Sales": 506.0,
+      "Total Discounts": 238.0,
+      "VAT": 21.50846
+    },
+    {
+      "Menu Item Tag": "Tenders",
+      "Item Qty": 178,
+      "Total Sales": 7412.38,
+      "Total Discounts": 167.0,
+      "VAT": 225.23052
+    },
+    {
+      "Menu Item Tag": "Rice",
+      "Item Qty": 110,
+      "Total Sales": 1867.72,
+      "Total Discounts": 117.28,
+      "VAT": 60.08446
+    },
+    {
+      "Menu Item Tag": "M41",
+      "Item Qty": 17,
+      "Total Sales": 478.5,
+      "Total Discounts": 14.5,
+      "VAT": 23.9865
+    },
+    {
+      "Menu Item Tag": "Drinks",
+      "Item Qty": 168,
+      "Total Sales": 1282.87,
+      "Total Discounts": 17.13,
+      "VAT": 38.00797
+    },
+    {
+      "Menu Item Tag": "Starters",
+      "Item Qty": 69,
+      "Total Sales": 2511.0,
+      "Total Discounts": 0.0,
+      "VAT": 93.36397
+    },
+    {
+      "Menu Item Tag": "Hosomaki",
+      "Item Qty": 20,
+      "Total Sales": 727.56,
+      "Total Discounts": 2.44,
+      "VAT": 24.56209
+    },
+    {
+      "Menu Item Tag": "RICE",
+      "Item Qty": 28,
+      "Total Sales": 559.0,
+      "Total Discounts": 0.0,
+      "VAT": 16.91417
+    },
+    {
+      "Menu Item Tag": "Dips",
+      "Item Qty": 1099,
+      "Total Sales": 7191.91,
+      "Total Discounts": 282.09,
+      "VAT": 217.69575
+    },
+    {
+      "Menu Item Tag": "M4I",
+      "Item Qty": 42,
+      "Total Sales": 4131.0,
+      "Total Discounts": 0.0,
+      "VAT": 181.11047
+    },
+    {
+      "Menu Item Tag": "Soups",
+      "Item Qty": 384,
+      "Total Sales": 11522.09,
+      "Total Discounts": 493.91,
+      "VAT": 357.84253
+    },
+    {
+      "Menu Item Tag": "Burritos",
+      "Item Qty": 84,
+      "Total Sales": 5209.0,
+      "Total Discounts": 0.0,
+      "VAT": 158.787
+    },
+    {
+      "Menu Item Tag": "Bites",
+      "Item Qty": 220,
+      "Total Sales": 11094.88,
+      "Total Discounts": 547.12,
+      "VAT": 377.36075
+    },
+    {
+      "Menu Item Tag": "side winging",
+      "Item Qty": 6,
+      "Total Sales": 172.0,
+      "Total Discounts": 0.0,
+      "VAT": 4.95693
+    },
+    {
+      "Menu Item Tag": "Veg Curries",
+      "Item Qty": 2,
+      "Total Sales": 97.36,
+      "Total Discounts": 3.64,
+      "VAT": 3.70366
+    },
+    {
+      "Menu Item Tag": "Classic Maki",
+      "Item Qty": 85,
+      "Total Sales": 2170.2,
+      "Total Discounts": 102.8,
+      "VAT": 68.18693
+    },
+    {
+      "Menu Item Tag": "Liquid Chaos",
+      "Item Qty": 74,
+      "Total Sales": 493.93,
+      "Total Discounts": 42.07,
+      "VAT": 17.2237
+    },
+    {
+      "Menu Item Tag": "Burrito Bar",
+      "Item Qty": 116,
+      "Total Sales": 6171.86,
+      "Total Discounts": 30.14,
+      "VAT": 177.3116
+    },
+    {
+      "Menu Item Tag": "Beverages New 26",
+      "Item Qty": 74,
+      "Total Sales": 541.49,
+      "Total Discounts": 18.51,
+      "VAT": 17.61319
+    },
+    {
+      "Menu Item Tag": "Pure Sashimi",
+      "Item Qty": 7,
+      "Total Sales": 380.0,
+      "Total Discounts": 0.0,
+      "VAT": 13.05436
+    },
+    {
+      "Menu Item Tag": "Beverages 26",
+      "Item Qty": 61,
+      "Total Sales": 533.97,
+      "Total Discounts": 18.03,
+      "VAT": 18.77242
+    },
+    {
+      "Menu Item Tag": "Kababs (Seafood)",
+      "Item Qty": 77,
+      "Total Sales": 3871.7,
+      "Total Discounts": 144.3,
+      "VAT": 102.25597
+    },
+    {
+      "Menu Item Tag": "Sidekicks",
+      "Item Qty": 85,
+      "Total Sales": 1208.83,
+      "Total Discounts": 49.17,
+      "VAT": 38.38172
+    },
+    {
+      "Menu Item Tag": "Sides & Snacks",
+      "Item Qty": 106,
+      "Total Sales": 3892.0,
+      "Total Discounts": 0.0,
+      "VAT": 120.99597
+    },
+    {
+      "Menu Item Tag": "Slider Meals",
+      "Item Qty": 5,
+      "Total Sales": 344.0,
+      "Total Discounts": 0.0,
+      "VAT": 10.83486
+    },
+    {
+      "Menu Item Tag": "Smash Wraps",
+      "Item Qty": 110,
+      "Total Sales": 4113.37,
+      "Total Discounts": 207.63,
+      "VAT": 120.12545
+    },
+    {
+      "Menu Item Tag": "Drinks winging",
+      "Item Qty": 2,
+      "Total Sales": 18.0,
+      "Total Discounts": 0.0,
+      "VAT": 0.58296
+    },
+    {
+      "Menu Item Tag": "Sides & Starters",
+      "Item Qty": 147,
+      "Total Sales": 5203.05,
+      "Total Discounts": 139.95,
+      "VAT": 156.99267
+    },
+    {
+      "Menu Item Tag": "Quesadillas",
+      "Item Qty": 88,
+      "Total Sales": 5512.87,
+      "Total Discounts": 14.13,
+      "VAT": 181.30651
+    },
+    {
+      "Menu Item Tag": "Signature Baps",
+      "Item Qty": 264,
+      "Total Sales": 16048.27,
+      "Total Discounts": 207.73,
+      "VAT": 448.10345
+    },
+    {
+      "Menu Item Tag": "Indian Breads cc",
+      "Item Qty": 36,
+      "Total Sales": 393.0,
+      "Total Discounts": 0.0,
+      "VAT": 12.58602
+    },
+    {
+      "Menu Item Tag": "side fury",
+      "Item Qty": 10,
+      "Total Sales": 379.0,
+      "Total Discounts": 0.0,
+      "VAT": 14.38446
+    },
+    {
+      "Menu Item Tag": "Veggie curries",
+      "Item Qty": 106,
+      "Total Sales": 4025.0,
+      "Total Discounts": 248.0,
+      "VAT": 121.76671
+    },
+    {
+      "Menu Item Tag": "Ramen New 26",
+      "Item Qty": 135,
+      "Total Sales": 8851.25,
+      "Total Discounts": 141.75,
+      "VAT": 274.13074
+    },
+    {
+      "Menu Item Tag": "Fresh Salads",
+      "Item Qty": 18,
+      "Total Sales": 868.0,
+      "Total Discounts": 0.0,
+      "VAT": 24.20079
+    },
+    {
+      "Menu Item Tag": "Cheesy Tacos New",
+      "Item Qty": 175,
+      "Total Sales": 10535.18,
+      "Total Discounts": 471.82,
+      "VAT": 367.49885
+    },
+    {
+      "Menu Item Tag": "burger fury",
+      "Item Qty": 2,
+      "Total Sales": 92.18,
+      "Total Discounts": 15.82,
+      "VAT": 3.6181
+    },
+    {
+      "Menu Item Tag": "The Raw Bar",
+      "Item Qty": 91,
+      "Total Sales": 3176.13,
+      "Total Discounts": 127.87,
+      "VAT": 103.84481
+    },
+    {
+      "Menu Item Tag": "Ramyun Station",
+      "Item Qty": 45,
+      "Total Sales": 2505.21,
+      "Total Discounts": 23.79,
+      "VAT": 72.92985
+    },
+    {
+      "Menu Item Tag": "Chicken Sliders",
+      "Item Qty": 345,
+      "Total Sales": 13663.46,
+      "Total Discounts": 155.54,
+      "VAT": 392.70785
+    },
+    {
+      "Menu Item Tag": "Veg Starters",
+      "Item Qty": 3,
+      "Total Sales": 138.9,
+      "Total Discounts": 3.1,
+      "VAT": 4.55147
+    },
+    {
+      "Menu Item Tag": "Tenders fury",
+      "Item Qty": 6,
+      "Total Sales": 324.0,
+      "Total Discounts": 0.0,
+      "VAT": 9.52338
+    },
+    {
+      "Menu Item Tag": "Indian Breads",
+      "Item Qty": 6,
+      "Total Sales": 58.0,
+      "Total Discounts": 0.0,
+      "VAT": 1.66022
+    },
+    {
+      "Menu Item Tag": "Signature Maki",
+      "Item Qty": 72,
+      "Total Sales": 3960.44,
+      "Total Discounts": 11.56,
+      "VAT": 127.86728
+    },
+    {
+      "Menu Item Tag": "Bibimbap New 26",
+      "Item Qty": 57,
+      "Total Sales": 3676.72,
+      "Total Discounts": 184.28,
+      "VAT": 122.16478
+    },
+    {
+      "Menu Item Tag": "SideKicks",
+      "Item Qty": 147,
+      "Total Sales": 2187.89,
+      "Total Discounts": 70.11,
+      "VAT": 70.80057
+    },
+    {
+      "Menu Item Tag": "Sizzling Fajitas",
+      "Item Qty": 410,
+      "Total Sales": 17185.51,
+      "Total Discounts": 2663.49,
+      "VAT": 578.49587
+    },
+    {
+      "Menu Item Tag": "Smash Wing Packs",
+      "Item Qty": 13,
+      "Total Sales": 817.0,
+      "Total Discounts": 30.0,
+      "VAT": 27.88989
+    },
+    {
+      "Menu Item Tag": "Meal Combos",
+      "Item Qty": 206,
+      "Total Sales": 15481.17,
+      "Total Discounts": 187.83,
+      "VAT": 479.22028
+    },
+    {
+      "Menu Item Tag": "Peelo Te Jeelo",
+      "Item Qty": 23,
+      "Total Sales": 143.0,
+      "Total Discounts": 4.0,
+      "VAT": 4.08049
+    },
+    {
+      "Menu Item Tag": "sliders winging",
+      "Item Qty": 2,
+      "Total Sales": 116.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.39567
+    },
+    {
+      "Menu Item Tag": "Annyeong Sets",
+      "Item Qty": 11,
+      "Total Sales": 819.0,
+      "Total Discounts": 30.0,
+      "VAT": 25.70134
+    },
+    {
+      "Menu Item Tag": "Beverages TT",
+      "Item Qty": 6,
+      "Total Sales": 34.5,
+      "Total Discounts": 0.0,
+      "VAT": 1.00533
+    },
+    {
+      "Menu Item Tag": "Sashimi (5 pcs)",
+      "Item Qty": 38,
+      "Total Sales": 1536.0,
+      "Total Discounts": 20.0,
+      "VAT": 40.33604
+    },
+    {
+      "Menu Item Tag": "wraps fury",
+      "Item Qty": 2,
+      "Total Sales": 108.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.15789
+    },
+    {
+      "Menu Item Tag": "Rice and Noodles",
+      "Item Qty": 729,
+      "Total Sales": 20320.28,
+      "Total Discounts": 1828.72,
+      "VAT": 705.44556
+    },
+    {
+      "Menu Item Tag": "Combo Meals",
+      "Item Qty": 36,
+      "Total Sales": 2361.47,
+      "Total Discounts": 21.53,
+      "VAT": 68.31404
+    },
+    {
+      "Menu Item Tag": "Street Bowls NEW",
+      "Item Qty": 49,
+      "Total Sales": 2611.16,
+      "Total Discounts": 202.84,
+      "VAT": 84.72382
+    },
+    {
+      "Menu Item Tag": "Elevated Sides",
+      "Item Qty": 267,
+      "Total Sales": 6660.64,
+      "Total Discounts": 510.36,
+      "VAT": 220.4692
+    },
+    {
+      "Menu Item Tag": "Chicken Stacks",
+      "Item Qty": 13,
+      "Total Sales": 728.0,
+      "Total Discounts": 0.0,
+      "VAT": 20.45437
+    },
+    {
+      "Menu Item Tag": "Noodle Bowls",
+      "Item Qty": 181,
+      "Total Sales": 10399.38,
+      "Total Discounts": 341.62,
+      "VAT": 318.41958
+    },
+    {
+      "Menu Item Tag": "COMBO MEALS NEWW",
+      "Item Qty": 17,
+      "Total Sales": 1409.0,
+      "Total Discounts": 0.0,
+      "VAT": 53.15753
+    },
+    {
+      "Menu Item Tag": "Burrito Carnage",
+      "Item Qty": 104,
+      "Total Sales": 4783.85,
+      "Total Discounts": 666.15,
+      "VAT": 160.66802
+    },
+    {
+      "Menu Item Tag": "Ranchero Rampage",
+      "Item Qty": 8,
+      "Total Sales": 311.5,
+      "Total Discounts": 83.5,
+      "VAT": 11.71301
+    },
+    {
+      "Menu Item Tag": "Kababs (Chicken)",
+      "Item Qty": 331,
+      "Total Sales": 16520.51,
+      "Total Discounts": 991.49,
+      "VAT": 491.22578
+    },
+    {
+      "Menu Item Tag": "PANEER CURRIES",
+      "Item Qty": 12,
+      "Total Sales": 648.5,
+      "Total Discounts": 29.5,
+      "VAT": 19.71946
+    },
+    {
+      "Menu Item Tag": "Wings winging",
+      "Item Qty": 7,
+      "Total Sales": 439.0,
+      "Total Discounts": 0.0,
+      "VAT": 13.93582
+    },
+    {
+      "Menu Item Tag": "Smash Wings",
+      "Item Qty": 134,
+      "Total Sales": 6209.13,
+      "Total Discounts": 60.87,
+      "VAT": 204.71124
+    },
+    {
+      "Menu Item Tag": "Sides And Fries",
+      "Item Qty": 690,
+      "Total Sales": 14976.59,
+      "Total Discounts": 1967.63,
+      "VAT": 508.1401
+    },
+    {
+      "Menu Item Tag": "Burger Meals",
+      "Item Qty": 23,
+      "Total Sales": 1726.0,
+      "Total Discounts": 0.0,
+      "VAT": 48.99307
+    },
+    {
+      "Menu Item Tag": "ACCOMPANIMENTS",
+      "Item Qty": 11,
+      "Total Sales": 128.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.18535
+    },
+    {
+      "Menu Item Tag": "Signature Sauces",
+      "Item Qty": 285,
+      "Total Sales": 2144.95,
+      "Total Discounts": 123.05,
+      "VAT": 63.45523
+    },
+    {
+      "Menu Item Tag": "K-Pops & Wings",
+      "Item Qty": 362,
+      "Total Sales": 18616.05,
+      "Total Discounts": 803.95,
+      "VAT": 628.52867
+    },
+    {
+      "Menu Item Tag": "Chicken Burgers",
+      "Item Qty": 382,
+      "Total Sales": 15243.46,
+      "Total Discounts": 921.54,
+      "VAT": 457.93986
+    },
+    {
+      "Menu Item Tag": "Veg Starters cc",
+      "Item Qty": 3,
+      "Total Sales": 108.5,
+      "Total Discounts": 22.5,
+      "VAT": 3.48233
+    },
+    {
+      "Menu Item Tag": "Street Eats",
+      "Item Qty": 77,
+      "Total Sales": 4821.38,
+      "Total Discounts": 274.62,
+      "VAT": 160.02928
+    },
+    {
+      "Menu Item Tag": "Fire Tacos",
+      "Item Qty": 331,
+      "Total Sales": 16717.34,
+      "Total Discounts": 692.66,
+      "VAT": 539.88735
+    },
+    {
+      "Menu Item Tag": "VEG STARTERS",
+      "Item Qty": 7,
+      "Total Sales": 349.0,
+      "Total Discounts": 0.0,
+      "VAT": 11.15392
+    },
+    {
+      "Menu Item Tag": "Street Tacos",
+      "Item Qty": 95,
+      "Total Sales": 5946.13,
+      "Total Discounts": 15.87,
+      "VAT": 198.47582
+    },
+    {
+      "Menu Item Tag": "VEG CURRIES NEWW",
+      "Item Qty": 32,
+      "Total Sales": 1473.0,
+      "Total Discounts": 0.0,
+      "VAT": 43.84709
+    },
+    {
+      "Menu Item Tag": "Warming Soups",
+      "Item Qty": 43,
+      "Total Sales": 2457.73,
+      "Total Discounts": 165.27,
+      "VAT": 85.00607
+    },
+    {
+      "Menu Item Tag": "Beverages",
+      "Item Qty": 2466,
+      "Total Sales": 16669.17,
+      "Total Discounts": 852.33,
+      "VAT": 496.76807
+    },
+    {
+      "Menu Item Tag": "Homestyle Tacos",
+      "Item Qty": 62,
+      "Total Sales": 3744.24,
+      "Total Discounts": 117.76,
+      "VAT": 119.23923
+    },
+    {
+      "Menu Item Tag": "Wings fury",
+      "Item Qty": 23,
+      "Total Sales": 1429.64,
+      "Total Discounts": 12.36,
+      "VAT": 51.51553
+    },
+    {
+      "Menu Item Tag": "Veg Curries cc",
+      "Item Qty": 17,
+      "Total Sales": 751.0,
+      "Total Discounts": 0.0,
+      "VAT": 22.31001
+    },
+    {
+      "Menu Item Tag": "Indian Breads TT",
+      "Item Qty": 55,
+      "Total Sales": 559.32,
+      "Total Discounts": 10.68,
+      "VAT": 20.82639
+    },
+    {
+      "Menu Item Tag": "Tenders winign",
+      "Item Qty": 12,
+      "Total Sales": 574.0,
+      "Total Discounts": 24.0,
+      "VAT": 16.14869
+    },
+    {
+      "Menu Item Tag": "Beverages cc",
+      "Item Qty": 3,
+      "Total Sales": 22.0,
+      "Total Discounts": 0.0,
+      "VAT": 0.53334
+    },
+    {
+      "Menu Item Tag": "Drinks New Menu",
+      "Item Qty": 104,
+      "Total Sales": 884.58,
+      "Total Discounts": 2.92,
+      "VAT": 31.22137
+    },
+    {
+      "Menu Item Tag": "Sauces & Dips",
+      "Item Qty": 98,
+      "Total Sales": 763.0,
+      "Total Discounts": 0.0,
+      "VAT": 22.16239
+    },
+    {
+      "Menu Item Tag": "Burrito Bowls",
+      "Item Qty": 41,
+      "Total Sales": 2541.0,
+      "Total Discounts": 30.0,
+      "VAT": 75.2598
+    },
+    {
+      "Menu Item Tag": "Dips & Salsas",
+      "Item Qty": 40,
+      "Total Sales": 320.0,
+      "Total Discounts": 0.0,
+      "VAT": 10.17093
+    },
+    {
+      "Menu Item Tag": "Raita Shaita",
+      "Item Qty": 26,
+      "Total Sales": 374.0,
+      "Total Discounts": 0.0,
+      "VAT": 11.48394
+    },
+    {
+      "Menu Item Tag": "Soups & Stews",
+      "Item Qty": 411,
+      "Total Sales": 26404.96,
+      "Total Discounts": 575.04,
+      "VAT": 753.44293
+    },
+    {
+      "Menu Item Tag": "Queso Lineup",
+      "Item Qty": 138,
+      "Total Sales": 7553.81,
+      "Total Discounts": 348.19,
+      "VAT": 242.50836
+    },
+    {
+      "Menu Item Tag": "Combo Meals cc",
+      "Item Qty": 6,
+      "Total Sales": 379.0,
+      "Total Discounts": 0.0,
+      "VAT": 11.72891
+    },
+    {
+      "Menu Item Tag": "Warm Plates",
+      "Item Qty": 45,
+      "Total Sales": 1550.5,
+      "Total Discounts": 77.5,
+      "VAT": 54.9086
+    },
+    {
+      "Menu Item Tag": "Bold Burritos",
+      "Item Qty": 819,
+      "Total Sales": 42031.6,
+      "Total Discounts": 989.4,
+      "VAT": 1169.03613
+    },
+    {
+      "Menu Item Tag": "Classic Sides",
+      "Item Qty": 119,
+      "Total Sales": 3324.5,
+      "Total Discounts": 14.5,
+      "VAT": 105.12987
+    },
+    {
+      "Menu Item Tag": "BEVERAGES",
+      "Item Qty": 7,
+      "Total Sales": 28.0,
+      "Total Discounts": 0.0,
+      "VAT": 0.96625
+    },
+    {
+      "Menu Item Tag": "Kahuna Feasts",
+      "Item Qty": 1,
+      "Total Sales": 99.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.28571
+    },
+    {
+      "Menu Item Tag": " Wings and Wraps",
+      "Item Qty": 1,
+      "Total Sales": 46.0,
+      "Total Discounts": 0.0,
+      "VAT": 1.09524
+    },
+    {
+      "Menu Item Tag": "Green Heat Tacos",
+      "Item Qty": 108,
+      "Total Sales": 5206.35,
+      "Total Discounts": 296.65,
+      "VAT": 161.73567
+    },
+    {
+      "Menu Item Tag": "Flame Wraps",
+      "Item Qty": 18,
+      "Total Sales": 797.71,
+      "Total Discounts": 124.29,
+      "VAT": 28.34829
+    },
+    {
+      "Menu Item Tag": "Smoked Burritos",
+      "Item Qty": 84,
+      "Total Sales": 4533.45,
+      "Total Discounts": 115.55,
+      "VAT": 133.42164
+    },
+    {
+      "Menu Item Tag": "Tribe Feasts",
+      "Item Qty": 1,
+      "Total Sales": 70.0,
+      "Total Discounts": 0.0,
+      "VAT": 1.98198
+    },
+    {
+      "Menu Item Tag": "Smash Tenders",
+      "Item Qty": 152,
+      "Total Sales": 7044.04,
+      "Total Discounts": 298.24,
+      "VAT": 236.14573
+    },
+    {
+      "Menu Item Tag": "Kimbap Rolls",
+      "Item Qty": 56,
+      "Total Sales": 2698.98,
+      "Total Discounts": 112.02,
+      "VAT": 95.8199
+    },
+    {
+      "Menu Item Tag": "Fries & Sides",
+      "Item Qty": 43,
+      "Total Sales": 1044.21,
+      "Total Discounts": 40.79,
+      "VAT": 35.88937
+    },
+    {
+      "Menu Item Tag": "Biryani and Rice",
+      "Item Qty": 78,
+      "Total Sales": 1438.66,
+      "Total Discounts": 24.34,
+      "VAT": 40.08173
+    },
+    {
+      "Menu Item Tag": "Enchilada Nights",
+      "Item Qty": 33,
+      "Total Sales": 1875.54,
+      "Total Discounts": 16.46,
+      "VAT": 53.29319
+    },
+    {
+      "Menu Item Tag": "Rice & Pulao",
+      "Item Qty": 7,
+      "Total Sales": 118.0,
+      "Total Discounts": 0.0,
+      "VAT": 4.0737
+    },
+    {
+      "Menu Item Tag": "Fresh Sashimi",
+      "Item Qty": 1,
+      "Total Sales": 54.0,
+      "Total Discounts": 0.0,
+      "VAT": 1.73292
+    },
+    {
+      "Menu Item Tag": "Build Your Own",
+      "Item Qty": 218,
+      "Total Sales": 14285.32,
+      "Total Discounts": 357.68,
+      "VAT": 376.38769
+    },
+    {
+      "Menu Item Tag": "Refreshments",
+      "Item Qty": 59,
+      "Total Sales": 476.0,
+      "Total Discounts": 0.0,
+      "VAT": 13.60547
+    },
+    {
+      "Menu Item Tag": "Craft Your Own",
+      "Item Qty": 36,
+      "Total Sales": 2977.0,
+      "Total Discounts": 0.0,
+      "VAT": 87.9608
+    },
+    {
+      "Menu Item Tag": "Complete Meals",
+      "Item Qty": 3,
+      "Total Sales": 239.0,
+      "Total Discounts": 0.0,
+      "VAT": 7.39523
+    },
+    {
+      "Menu Item Tag": "Street Wraps",
+      "Item Qty": 16,
+      "Total Sales": 619.27,
+      "Total Discounts": 10.73,
+      "VAT": 20.12799
+    },
+    {
+      "Menu Item Tag": "Mains (Veg)",
+      "Item Qty": 176,
+      "Total Sales": 7018.0,
+      "Total Discounts": 0.0,
+      "VAT": 200.07113
+    },
+    {
+      "Menu Item Tag": "The Robata Grill",
+      "Item Qty": 45,
+      "Total Sales": 2023.2,
+      "Total Discounts": 16.8,
+      "VAT": 66.47732
+    },
+    {
+      "Menu Item Tag": "Cool Drinks",
+      "Item Qty": 30,
+      "Total Sales": 250.35,
+      "Total Discounts": 17.65,
+      "VAT": 8.63779
+    },
+    {
+      "Menu Item Tag": "Smashed Quesas",
+      "Item Qty": 82,
+      "Total Sales": 4402.98,
+      "Total Discounts": 191.02,
+      "VAT": 143.82526
+    },
+    {
+      "Menu Item Tag": "Crispy Rolls",
+      "Item Qty": 41,
+      "Total Sales": 2225.15,
+      "Total Discounts": 8.85,
+      "VAT": 68.77378
+    },
+    {
+      "Menu Item Tag": "Ranchero Wraps",
+      "Item Qty": 34,
+      "Total Sales": 1699.0,
+      "Total Discounts": 0.0,
+      "VAT": 56.17023
+    },
+    {
+      "Menu Item Tag": "Essential Sides",
+      "Item Qty": 46,
+      "Total Sales": 734.98,
+      "Total Discounts": 11.02,
+      "VAT": 24.78797
+    },
+    {
+      "Menu Item Tag": "Nigiri & Sashimi",
+      "Item Qty": 32,
+      "Total Sales": 1432.6,
+      "Total Discounts": 5.4,
+      "VAT": 55.99181
+    },
+    {
+      "Menu Item Tag": "Urban Start",
+      "Item Qty": 49,
+      "Total Sales": 1467.04,
+      "Total Discounts": 69.96,
+      "VAT": 50.87381
+    },
+    {
+      "Menu Item Tag": "Veg Curries TT",
+      "Item Qty": 14,
+      "Total Sales": 654.91,
+      "Total Discounts": 4.09,
+      "VAT": 25.16368
+    },
+    {
+      "Menu Item Tag": "Fajita Feast",
+      "Item Qty": 126,
+      "Total Sales": 6214.32,
+      "Total Discounts": 172.68,
+      "VAT": 188.8001
+    },
+    {
+      "Menu Item Tag": "The Loco Bowlout",
+      "Item Qty": 8,
+      "Total Sales": 395.0,
+      "Total Discounts": 126.0,
+      "VAT": 12.90475
+    },
+    {
+      "Menu Item Tag": "Accompaniments",
+      "Item Qty": 2,
+      "Total Sales": 16.66,
+      "Total Discounts": 0.34,
+      "VAT": 0.56576
+    },
+    {
+      "Menu Item Tag": "Sauced Up",
+      "Item Qty": 14,
+      "Total Sales": 112.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.78343
+    },
+    {
+      "Menu Item Tag": "Saucy Business",
+      "Item Qty": 77,
+      "Total Sales": 541.43,
+      "Total Discounts": 54.57,
+      "VAT": 19.24096
+    },
+    {
+      "Menu Item Tag": "Heat & Greens",
+      "Item Qty": 1,
+      "Total Sales": 64.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.28571
+    },
+    {
+      "Menu Item Tag": "Dawg Deals",
+      "Item Qty": 19,
+      "Total Sales": 1495.69,
+      "Total Discounts": 24.31,
+      "VAT": 50.02678
+    },
+    {
+      "Menu Item Tag": "Ramadan Combos",
+      "Item Qty": 18,
+      "Total Sales": 2292.0,
+      "Total Discounts": 30.0,
+      "VAT": 116.19236
+    },
+    {
+      "Menu Item Tag": "Noodle Bar",
+      "Item Qty": 83,
+      "Total Sales": 5839.25,
+      "Total Discounts": 230.75,
+      "VAT": 162.60661
+    },
+    {
+      "Menu Item Tag": "Warm Indulgences",
+      "Item Qty": 76,
+      "Total Sales": 2575.5,
+      "Total Discounts": 85.5,
+      "VAT": 85.34344
+    },
+    {
+      "Menu Item Tag": "Fresh Salads",
+      "Item Qty": 172,
+      "Total Sales": 7599.49,
+      "Total Discounts": 338.51,
+      "VAT": 221.34286
+    },
+    {
+      "Menu Item Tag": "Teppanyaki Bowls",
+      "Item Qty": 14,
+      "Total Sales": 825.0,
+      "Total Discounts": 0.0,
+      "VAT": 23.4607
+    },
+    {
+      "Menu Item Tag": "Urban Poke Bowls",
+      "Item Qty": 46,
+      "Total Sales": 2142.86,
+      "Total Discounts": 64.14,
+      "VAT": 62.32951
+    },
+    {
+      "Menu Item Tag": "Wings Meal fury",
+      "Item Qty": 5,
+      "Total Sales": 528.0,
+      "Total Discounts": 0.0,
+      "VAT": 15.94606
+    },
+    {
+      "Menu Item Tag": "Warming Broths",
+      "Item Qty": 11,
+      "Total Sales": 507.0,
+      "Total Discounts": 0.0,
+      "VAT": 15.71563
+    },
+    {
+      "Menu Item Tag": "Sides & Add-ons",
+      "Item Qty": 63,
+      "Total Sales": 1399.49,
+      "Total Discounts": 21.51,
+      "VAT": 45.43796
+    },
+    {
+      "Menu Item Tag": "Hot Bowls",
+      "Item Qty": 154,
+      "Total Sales": 8357.99,
+      "Total Discounts": 209.01,
+      "VAT": 236.89175
+    },
+    {
+      "Menu Item Tag": "Taco Time",
+      "Item Qty": 93,
+      "Total Sales": 4824.48,
+      "Total Discounts": 73.52,
+      "VAT": 161.62109
+    },
+    {
+      "Menu Item Tag": "Tribe Feasts TT",
+      "Item Qty": 9,
+      "Total Sales": 742.0,
+      "Total Discounts": 0.0,
+      "VAT": 22.88853
+    },
+    {
+      "Menu Item Tag": "sliders fury",
+      "Item Qty": 4,
+      "Total Sales": 208.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.53309
+    },
+    {
+      "Menu Item Tag": "Veg Sliders",
+      "Item Qty": 16,
+      "Total Sales": 573.0,
+      "Total Discounts": 0.0,
+      "VAT": 19.6852
+    },
+    {
+      "Menu Item Tag": "Hearty Burritos",
+      "Item Qty": 94,
+      "Total Sales": 5698.24,
+      "Total Discounts": 204.76,
+      "VAT": 198.8225
+    },
+    {
+      "Menu Item Tag": "Sides New Menu",
+      "Item Qty": 243,
+      "Total Sales": 6533.81,
+      "Total Discounts": 174.19,
+      "VAT": 251.71594
+    },
+    {
+      "Menu Item Tag": "Dips & Sauces",
+      "Item Qty": 11,
+      "Total Sales": 88.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.80429
+    },
+    {
+      "Menu Item Tag": "Kababs (Veg)",
+      "Item Qty": 5,
+      "Total Sales": 214.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.09524
+    },
+    {
+      "Menu Item Tag": "Urban Bowls",
+      "Item Qty": 7,
+      "Total Sales": 261.2,
+      "Total Discounts": 35.8,
+      "VAT": 9.38797
+    },
+    {
+      "Menu Item Tag": "Power Bowls",
+      "Item Qty": 41,
+      "Total Sales": 2324.38,
+      "Total Discounts": 70.62,
+      "VAT": 64.7446
+    },
+    {
+      "Menu Item Tag": "Sloppy Enchis",
+      "Item Qty": 19,
+      "Total Sales": 1089.5,
+      "Total Discounts": 31.5,
+      "VAT": 36.46731
+    },
+    {
+      "Menu Item Tag": "NON-VEG STARTERS",
+      "Item Qty": 22,
+      "Total Sales": 1282.0,
+      "Total Discounts": 0.0,
+      "VAT": 39.88722
+    },
+    {
+      "Menu Item Tag": "Mandu New Menu",
+      "Item Qty": 5,
+      "Total Sales": 236.0,
+      "Total Discounts": 0.0,
+      "VAT": 6.79288
+    },
+    {
+      "Menu Item Tag": "Fajita Wraps",
+      "Item Qty": 21,
+      "Total Sales": 1184.0,
+      "Total Discounts": 0.0,
+      "VAT": 40.10372
+    },
+    {
+      "Menu Item Tag": "Mains (Non Veg)",
+      "Item Qty": 240,
+      "Total Sales": 11618.44,
+      "Total Discounts": 251.56,
+      "VAT": 313.06638
+    },
+    {
+      "Menu Item Tag": "Homestyle Sides",
+      "Item Qty": 70,
+      "Total Sales": 2449.99,
+      "Total Discounts": 58.01,
+      "VAT": 81.05085
+    },
+    {
+      "Menu Item Tag": "Taco Salads",
+      "Item Qty": 1,
+      "Total Sales": 62.0,
+      "Total Discounts": 0.0,
+      "VAT": 1.97907
+    },
+    {
+      "Menu Item Tag": "Oppa's Combos",
+      "Item Qty": 6,
+      "Total Sales": 450.38,
+      "Total Discounts": 31.62,
+      "VAT": 14.59898
+    },
+    {
+      "Menu Item Tag": "BEVERAGES NEWW",
+      "Item Qty": 8,
+      "Total Sales": 62.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.38658
+    },
+    {
+      "Menu Item Tag": "Slider Combo",
+      "Item Qty": 388,
+      "Total Sales": 29149.22,
+      "Total Discounts": 1243.78,
+      "VAT": 881.66982
+    },
+    {
+      "Menu Item Tag": "Side Hustles",
+      "Item Qty": 117,
+      "Total Sales": 2496.84,
+      "Total Discounts": 180.16,
+      "VAT": 78.93238
+    },
+    {
+      "Menu Item Tag": "Fajita Platters",
+      "Item Qty": 33,
+      "Total Sales": 2256.0,
+      "Total Discounts": 0.0,
+      "VAT": 64.96135
+    },
+    {
+      "Menu Item Tag": "Drinks fury",
+      "Item Qty": 5,
+      "Total Sales": 43.18,
+      "Total Discounts": 1.82,
+      "VAT": 1.33112
+    },
+    {
+      "Menu Item Tag": "RICE NEWW",
+      "Item Qty": 12,
+      "Total Sales": 215.0,
+      "Total Discounts": 0.0,
+      "VAT": 6.63655
+    },
+    {
+      "Menu Item Tag": "Veg Starters TT",
+      "Item Qty": 20,
+      "Total Sales": 975.0,
+      "Total Discounts": 0.0,
+      "VAT": 32.9425
+    },
+    {
+      "Menu Item Tag": "Beef Slider Duo",
+      "Item Qty": 299,
+      "Total Sales": 12341.51,
+      "Total Discounts": 1080.49,
+      "VAT": 379.78839
+    },
+    {
+      "Menu Item Tag": "Add-Ons New Menu",
+      "Item Qty": 13,
+      "Total Sales": 210.76,
+      "Total Discounts": 18.24,
+      "VAT": 8.49519
+    },
+    {
+      "Menu Item Tag": "Taco Fiesta",
+      "Item Qty": 943,
+      "Total Sales": 40996.96,
+      "Total Discounts": 5354.04,
+      "VAT": 1440.08878
+    },
+    {
+      "Menu Item Tag": "Starters (Veg)",
+      "Item Qty": 355,
+      "Total Sales": 10491.91,
+      "Total Discounts": 1205.09,
+      "VAT": 362.04218
+    },
+    {
+      "Menu Item Tag": "Robatayaki",
+      "Item Qty": 4,
+      "Total Sales": 247.0,
+      "Total Discounts": 0.0,
+      "VAT": 9.76427
+    },
+    {
+      "Menu Item Tag": "Street Tacos NEW",
+      "Item Qty": 177,
+      "Total Sales": 10832.55,
+      "Total Discounts": 398.45,
+      "VAT": 376.53028
+    },
+    {
+      "Menu Item Tag": "Beef Stacks",
+      "Item Qty": 11,
+      "Total Sales": 754.0,
+      "Total Discounts": 0.0,
+      "VAT": 22.60353
+    },
+    {
+      "Menu Item Tag": "Banchan New 26",
+      "Item Qty": 52,
+      "Total Sales": 952.23,
+      "Total Discounts": 8.77,
+      "VAT": 34.1324
+    },
+    {
+      "Menu Item Tag": "Signature Bites",
+      "Item Qty": 94,
+      "Total Sales": 5069.21,
+      "Total Discounts": 115.79,
+      "VAT": 159.07045
+    },
+    {
+      "Menu Item Tag": "Warm Appetizers",
+      "Item Qty": 157,
+      "Total Sales": 5343.0,
+      "Total Discounts": 0.0,
+      "VAT": 147.88106
+    },
+    {
+      "Menu Item Tag": "Cooling Drinks",
+      "Item Qty": 23,
+      "Total Sales": 216.15,
+      "Total Discounts": 9.85,
+      "VAT": 6.6739
+    },
+    {
+      "Menu Item Tag": "VEG CURRIES",
+      "Item Qty": 27,
+      "Total Sales": 1241.0,
+      "Total Discounts": 0.0,
+      "VAT": 35.20531
+    },
+    {
+      "Menu Item Tag": "Non Veg Curries",
+      "Item Qty": 224,
+      "Total Sales": 10228.53,
+      "Total Discounts": 571.47,
+      "VAT": 333.26113
+    },
+    {
+      "Menu Item Tag": "Noodles & Rice",
+      "Item Qty": 62,
+      "Total Sales": 3305.78,
+      "Total Discounts": 42.22,
+      "VAT": 102.6444
+    },
+    {
+      "Menu Item Tag": "Small Plates",
+      "Item Qty": 13,
+      "Total Sales": 523.0,
+      "Total Discounts": 0.0,
+      "VAT": 18.598
+    },
+    {
+      "Menu Item Tag": "NON-VEG CURRIES",
+      "Item Qty": 38,
+      "Total Sales": 2303.0,
+      "Total Discounts": 0.0,
+      "VAT": 72.79413
+    },
+    {
+      "Menu Item Tag": "The Fixin's",
+      "Item Qty": 9,
+      "Total Sales": 254.61,
+      "Total Discounts": 10.39,
+      "VAT": 7.52912
+    },
+    {
+      "Menu Item Tag": "Beef Sliders",
+      "Item Qty": 842,
+      "Total Sales": 35453.59,
+      "Total Discounts": 528.41,
+      "VAT": 981.13882
+    },
+    {
+      "Menu Item Tag": "Tasty Tacos",
+      "Item Qty": 405,
+      "Total Sales": 19747.07,
+      "Total Discounts": 281.93,
+      "VAT": 620.42998
+    },
+    {
+      "Menu Item Tag": "Veggie Sliders",
+      "Item Qty": 17,
+      "Total Sales": 608.0,
+      "Total Discounts": 0.0,
+      "VAT": 17.88418
+    },
+    {
+      "Menu Item Tag": "Naan Shaan",
+      "Item Qty": 552,
+      "Total Sales": 5878.77,
+      "Total Discounts": 83.23,
+      "VAT": 180.65584
+    },
+    {
+      "Menu Item Tag": "INDIAN BREADS",
+      "Item Qty": 95,
+      "Total Sales": 1052.0,
+      "Total Discounts": 0.0,
+      "VAT": 34.22191
+    },
+    {
+      "Menu Item Tag": "Kimbap New 26",
+      "Item Qty": 44,
+      "Total Sales": 2483.0,
+      "Total Discounts": 41.0,
+      "VAT": 83.8569
+    },
+    {
+      "Menu Item Tag": "Non-Veg Curries",
+      "Item Qty": 8,
+      "Total Sales": 470.19,
+      "Total Discounts": 12.81,
+      "VAT": 18.20429
+    },
+    {
+      "Menu Item Tag": "Beef Burgers",
+      "Item Qty": 2182,
+      "Total Sales": 115996.21,
+      "Total Discounts": 8361.79,
+      "VAT": 3422.77441
+    },
+    {
+      "Menu Item Tag": "Accompaniments cc",
+      "Item Qty": 9,
+      "Total Sales": 94.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.59404
+    },
+    {
+      "Menu Item Tag": "Comfort Fajita Wraps New",
+      "Item Qty": 47,
+      "Total Sales": 2642.45,
+      "Total Discounts": 265.55,
+      "VAT": 91.77253
+    },
+    {
+      "Menu Item Tag": "Street Snacks New Menu",
+      "Item Qty": 9,
+      "Total Sales": 705.0,
+      "Total Discounts": 0.0,
+      "VAT": 22.67578
+    },
+    {
+      "Menu Item Tag": "Tandoori Specialties TT",
+      "Item Qty": 29,
+      "Total Sales": 1862.46,
+      "Total Discounts": 52.54,
+      "VAT": 70.7231
+    },
+    {
+      "Menu Item Tag": "Kimbap Rolls New Menu",
+      "Item Qty": 38,
+      "Total Sales": 2009.11,
+      "Total Discounts": 6.89,
+      "VAT": 65.76028
+    },
+    {
+      "Menu Item Tag": "Korean Fried Chicken 26",
+      "Item Qty": 124,
+      "Total Sales": 8287.51,
+      "Total Discounts": 190.49,
+      "VAT": 299.66101
+    },
+    {
+      "Menu Item Tag": "Comfort Sides New",
+      "Item Qty": 327,
+      "Total Sales": 10501.95,
+      "Total Discounts": 744.05,
+      "VAT": 352.36799
+    },
+    {
+      "Menu Item Tag": "Signature Baps New Menu",
+      "Item Qty": 6,
+      "Total Sales": 368.26,
+      "Total Discounts": 15.74,
+      "VAT": 11.00559
+    },
+    {
+      "Menu Item Tag": "Stir-Fried Noodles",
+      "Item Qty": 54,
+      "Total Sales": 3900.82,
+      "Total Discounts": 33.18,
+      "VAT": 131.7924
+    },
+    {
+      "Menu Item Tag": "INDIAN BREADS NEWW",
+      "Item Qty": 105,
+      "Total Sales": 1186.0,
+      "Total Discounts": 0.0,
+      "VAT": 36.0498
+    },
+    {
+      "Menu Item Tag": "Bold Stir-Fry New 26",
+      "Item Qty": 28,
+      "Total Sales": 2051.91,
+      "Total Discounts": 38.09,
+      "VAT": 69.03315
+    },
+    {
+      "Menu Item Tag": "Smash Beefy Bites",
+      "Item Qty": 403,
+      "Total Sales": 21983.74,
+      "Total Discounts": 335.26,
+      "VAT": 624.24413
+    },
+    {
+      "Menu Item Tag": "Non-Veg Curries TT",
+      "Item Qty": 17,
+      "Total Sales": 913.58,
+      "Total Discounts": 37.42,
+      "VAT": 35.92346
+    },
+    {
+      "Menu Item Tag": "Crispy Chimi Chaos",
+      "Item Qty": 34,
+      "Total Sales": 1707.31,
+      "Total Discounts": 190.69,
+      "VAT": 58.73721
+    },
+    {
+      "Menu Item Tag": "Wings of your choice",
+      "Item Qty": 152,
+      "Total Sales": 6218.95,
+      "Total Discounts": 326.05,
+      "VAT": 184.39204
+    },
+    {
+      "Menu Item Tag": "Refreshing Drinks New",
+      "Item Qty": 109,
+      "Total Sales": 1043.72,
+      "Total Discounts": 120.28,
+      "VAT": 34.26495
+    },
+    {
+      "Menu Item Tag": "Saucy Chicken New Menu",
+      "Item Qty": 21,
+      "Total Sales": 1402.0,
+      "Total Discounts": 0.0,
+      "VAT": 47.62759
+    },
+    {
+      "Menu Item Tag": "Signature Poké Bowls",
+      "Item Qty": 962,
+      "Total Sales": 57722.51,
+      "Total Discounts": 1692.49,
+      "VAT": 1496.15743
+    },
+    {
+      "Menu Item Tag": "Tandoori Non Veg Grills",
+      "Item Qty": 568,
+      "Total Sales": 32374.05,
+      "Total Discounts": 201.95,
+      "VAT": 872.19578
+    },
+    {
+      "Menu Item Tag": "Specialty Mains 26",
+      "Item Qty": 33,
+      "Total Sales": 2623.7,
+      "Total Discounts": 43.3,
+      "VAT": 92.66403
+    },
+    {
+      "Menu Item Tag": "Jjigae - Korean Stews",
+      "Item Qty": 37,
+      "Total Sales": 2390.6,
+      "Total Discounts": 158.4,
+      "VAT": 85.53751
+    },
+    {
+      "Menu Item Tag": "Chicken Burgers New Menu",
+      "Item Qty": 147,
+      "Total Sales": 7661.33,
+      "Total Discounts": 308.67,
+      "VAT": 211.39837
+    },
+    {
+      "Menu Item Tag": "Sizzling Fajita Platters",
+      "Item Qty": 123,
+      "Total Sales": 7848.56,
+      "Total Discounts": 538.44,
+      "VAT": 238.65765
+    },
+    {
+      "Menu Item Tag": "Noona's Starters New 26",
+      "Item Qty": 48,
+      "Total Sales": 1907.85,
+      "Total Discounts": 44.15,
+      "VAT": 64.77318
+    },
+    {
+      "Menu Item Tag": "Combo Sets New Menu",
+      "Item Qty": 2,
+      "Total Sales": 178.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.72598
+    },
+    {
+      "Menu Item Tag": "Main Dishes New Menu",
+      "Item Qty": 1,
+      "Total Sales": 86.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.29746
+    },
+    {
+      "Menu Item Tag": "Breads From The Tandoor",
+      "Item Qty": 37,
+      "Total Sales": 390.71,
+      "Total Discounts": 14.29,
+      "VAT": 13.01443
+    },
+    {
+      "Menu Item Tag": "Warm Fajita Wraps NEW",
+      "Item Qty": 4,
+      "Total Sales": 264.0,
+      "Total Discounts": 0.0,
+      "VAT": 8.38385
+    },
+    {
+      "Menu Item Tag": "Hot Pots New Menu",
+      "Item Qty": 48,
+      "Total Sales": 3525.2,
+      "Total Discounts": 45.8,
+      "VAT": 117.32188
+    },
+    {
+      "Menu Item Tag": "Spicy Noodles New Menu",
+      "Item Qty": 1,
+      "Total Sales": 76.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.19048
+    },
+    {
+      "Menu Item Tag": "Golden Crisp Rolls",
+      "Item Qty": 76,
+      "Total Sales": 4118.81,
+      "Total Discounts": 220.19,
+      "VAT": 124.79913
+    },
+    {
+      "Menu Item Tag": "Smash Combo Meals",
+      "Item Qty": 62,
+      "Total Sales": 5250.74,
+      "Total Discounts": 115.26,
+      "VAT": 175.50136
+    },
+    {
+      "Menu Item Tag": "Beef Burger Meals",
+      "Item Qty": 42,
+      "Total Sales": 3021.0,
+      "Total Discounts": 30.0,
+      "VAT": 83.97951
+    },
+    {
+      "Menu Item Tag": "Chimichurri Taco Time",
+      "Item Qty": 13,
+      "Total Sales": 696.75,
+      "Total Discounts": 16.25,
+      "VAT": 24.01528
+    },
+    {
+      "Menu Item Tag": "Build Your Night In",
+      "Item Qty": 54,
+      "Total Sales": 7699.0,
+      "Total Discounts": 0.0,
+      "VAT": 242.00863
+    },
+    {
+      "Menu Item Tag": "Protein Baps New Menu",
+      "Item Qty": 23,
+      "Total Sales": 1566.09,
+      "Total Discounts": 216.91,
+      "VAT": 61.71854
+    },
+    {
+      "Menu Item Tag": "Tandoori Veg Grills",
+      "Item Qty": 41,
+      "Total Sales": 1804.34,
+      "Total Discounts": 13.66,
+      "VAT": 56.77673
+    },
+    {
+      "Menu Item Tag": "Veggie Smash Bites",
+      "Item Qty": 79,
+      "Total Sales": 2916.35,
+      "Total Discounts": 115.65,
+      "VAT": 78.26611
+    },
+    {
+      "Menu Item Tag": "Purity: Sashimi & Nigiri",
+      "Item Qty": 32,
+      "Total Sales": 869.0,
+      "Total Discounts": 0.0,
+      "VAT": 30.01876
+    },
+    {
+      "Menu Item Tag": "Korean Chicken New Menu",
+      "Item Qty": 8,
+      "Total Sales": 516.43,
+      "Total Discounts": 33.57,
+      "VAT": 17.97539
+    },
+    {
+      "Menu Item Tag": "Chimichurri Burritos",
+      "Item Qty": 8,
+      "Total Sales": 448.0,
+      "Total Discounts": 0.0,
+      "VAT": 14.66826
+    },
+    {
+      "Menu Item Tag": "Signature Burritos",
+      "Item Qty": 2928,
+      "Total Sales": 126776.4600000001,
+      "Total Discounts": 19723.54,
+      "VAT": 4050.65138
+    },
+    {
+      "Menu Item Tag": "Hot Pots New Menu",
+      "Item Qty": 19,
+      "Total Sales": 1412.0,
+      "Total Discounts": 0.0,
+      "VAT": 47.82503
+    },
+    {
+      "Menu Item Tag": "Combo Feasts New Menu",
+      "Item Qty": 9,
+      "Total Sales": 842.0,
+      "Total Discounts": 0.0,
+      "VAT": 31.02916
+    },
+    {
+      "Menu Item Tag": "Non-Veg Curries cc",
+      "Item Qty": 30,
+      "Total Sales": 1649.5,
+      "Total Discounts": 29.5,
+      "VAT": 45.26014
+    },
+    {
+      "Menu Item Tag": "Ramadan Iftar Combos",
+      "Item Qty": 67,
+      "Total Sales": 6379.98,
+      "Total Discounts": 239.02,
+      "VAT": 232.19013
+    },
+    {
+      "Menu Item Tag": "The Heritage Sets 26",
+      "Item Qty": 77,
+      "Total Sales": 6697.0,
+      "Total Discounts": 150.0,
+      "VAT": 228.90556
+    },
+    {
+      "Menu Item Tag": "Classic Rolls (Uramaki)",
+      "Item Qty": 113,
+      "Total Sales": 4917.2,
+      "Total Discounts": 32.8,
+      "VAT": 147.04009
+    },
+    {
+      "Menu Item Tag": "Chimi Burrito Meltdown",
+      "Item Qty": 13,
+      "Total Sales": 575.89,
+      "Total Discounts": 91.11,
+      "VAT": 19.32646
+    },
+    {
+      "Menu Item Tag": "Homestyle Sides NEW",
+      "Item Qty": 30,
+      "Total Sales": 1108.91,
+      "Total Discounts": 34.09,
+      "VAT": 35.3889
+    },
+    {
+      "Menu Item Tag": "Saucy Chicken New Menu",
+      "Item Qty": 68,
+      "Total Sales": 4536.0,
+      "Total Discounts": 0.0,
+      "VAT": 161.23174
+    },
+    {
+      "Menu Item Tag": "Chimichurri Tacos",
+      "Item Qty": 101,
+      "Total Sales": 5697.77,
+      "Total Discounts": 207.23,
+      "VAT": 187.03495
+    },
+    {
+      "Menu Item Tag": "VEG STARTERS NEWW",
+      "Item Qty": 9,
+      "Total Sales": 428.0,
+      "Total Discounts": 0.0,
+      "VAT": 12.87004
+    },
+    {
+      "Menu Item Tag": "Gosht De Pakwan (Mutton)",
+      "Item Qty": 62,
+      "Total Sales": 3189.15,
+      "Total Discounts": 83.85,
+      "VAT": 93.53867
+    },
+    {
+      "Menu Item Tag": "Flingin’ Fajita Wraps",
+      "Item Qty": 7,
+      "Total Sales": 351.46,
+      "Total Discounts": 36.54,
+      "VAT": 11.0304
+    },
+    {
+      "Menu Item Tag": "ACCOMPANIMENTS NEWW",
+      "Item Qty": 17,
+      "Total Sales": 175.0,
+      "Total Discounts": 0.0,
+      "VAT": 4.73238
+    },
+    {
+      "Menu Item Tag": "Japchae Bowls New Menu",
+      "Item Qty": 13,
+      "Total Sales": 944.0,
+      "Total Discounts": 18.0,
+      "VAT": 39.97937
+    },
+    {
+      "Menu Item Tag": "Premium Fried Rice 26",
+      "Item Qty": 21,
+      "Total Sales": 1453.51,
+      "Total Discounts": 5.49,
+      "VAT": 49.0155
+    },
+    {
+      "Menu Item Tag": "Kimbap - Korean Rolls",
+      "Item Qty": 73,
+      "Total Sales": 3062.32,
+      "Total Discounts": 475.68,
+      "VAT": 106.75351
+    },
+    {
+      "Menu Item Tag": "Power Bowls New Menu",
+      "Item Qty": 3,
+      "Total Sales": 218.0,
+      "Total Discounts": 0.0,
+      "VAT": 8.08231
+    },
+    {
+      "Menu Item Tag": "Wings & Things New Menu",
+      "Item Qty": 7,
+      "Total Sales": 486.0,
+      "Total Discounts": 0.0,
+      "VAT": 18.90995
+    },
+    {
+      "Menu Item Tag": "Spicy Seafood Rice 26",
+      "Item Qty": 14,
+      "Total Sales": 1084.0,
+      "Total Discounts": 0.0,
+      "VAT": 35.57473
+    },
+    {
+      "Menu Item Tag": "Taco Salad Throwdown",
+      "Item Qty": 2,
+      "Total Sales": 124.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.42622
+    },
+    {
+      "Menu Item Tag": "Wings & Tenders New Menu",
+      "Item Qty": 22,
+      "Total Sales": 1022.25,
+      "Total Discounts": 17.75,
+      "VAT": 35.4563
+    },
+    {
+      "Menu Item Tag": "Traditional Stews 26",
+      "Item Qty": 116,
+      "Total Sales": 8708.07,
+      "Total Discounts": 49.93,
+      "VAT": 284.40205
+    },
+    {
+      "Menu Item Tag": "Premium Wings 26",
+      "Item Qty": 33,
+      "Total Sales": 2351.69,
+      "Total Discounts": 30.31,
+      "VAT": 88.49343
+    },
+    {
+      "Menu Item Tag": "Simple Rolls (Hosomaki)",
+      "Item Qty": 50,
+      "Total Sales": 1426.0,
+      "Total Discounts": 0.0,
+      "VAT": 38.21637
+    },
+    {
+      "Menu Item Tag": "Jjamppong Bowls New 26",
+      "Item Qty": 13,
+      "Total Sales": 963.42,
+      "Total Discounts": 39.58,
+      "VAT": 34.91114
+    },
+    {
+      "Menu Item Tag": "Street Smash Tacos",
+      "Item Qty": 280,
+      "Total Sales": 13164.75,
+      "Total Discounts": 1330.25,
+      "VAT": 439.65428
+    },
+    {
+      "Menu Item Tag": "Starters New Menu",
+      "Item Qty": 9,
+      "Total Sales": 382.43,
+      "Total Discounts": 11.57,
+      "VAT": 14.25845
+    },
+    {
+      "Menu Item Tag": "Chicken Sliders New Menu",
+      "Item Qty": 27,
+      "Total Sales": 1298.04,
+      "Total Discounts": 119.96,
+      "VAT": 42.51955
+    },
+    {
+      "Menu Item Tag": "Wings Meal winging",
+      "Item Qty": 1,
+      "Total Sales": 70.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.30241
+    },
+    {
+      "Menu Item Tag": "Crispy Chimichangas",
+      "Item Qty": 46,
+      "Total Sales": 2573.5,
+      "Total Discounts": 88.5,
+      "VAT": 77.23688
+    },
+    {
+      "Menu Item Tag": "Poke Compositions",
+      "Item Qty": 15,
+      "Total Sales": 721.0,
+      "Total Discounts": 0.0,
+      "VAT": 18.90242
+    },
+    {
+      "Menu Item Tag": "Seafood Bowls New Menu",
+      "Item Qty": 4,
+      "Total Sales": 306.0,
+      "Total Discounts": 0.0,
+      "VAT": 10.04177
+    },
+    {
+      "Menu Item Tag": "Melted Quesadillas",
+      "Item Qty": 855,
+      "Total Sales": 37392.33,
+      "Total Discounts": 659.67,
+      "VAT": 1090.95346
+    },
+    {
+      "Menu Item Tag": "Korean Seaweed Rolls 26",
+      "Item Qty": 132,
+      "Total Sales": 7187.57,
+      "Total Discounts": 261.43,
+      "VAT": 238.45879
+    },
+    {
+      "Menu Item Tag": "Ramen Bowls New Menu",
+      "Item Qty": 20,
+      "Total Sales": 1322.0,
+      "Total Discounts": 60.0,
+      "VAT": 42.32695
+    },
+    {
+      "Menu Item Tag": "Korean Appetizers New 26",
+      "Item Qty": 26,
+      "Total Sales": 1040.21,
+      "Total Discounts": 76.79,
+      "VAT": 36.64295
+    },
+    {
+      "Menu Item Tag": "Non - Vegetarian Gravies",
+      "Item Qty": 8,
+      "Total Sales": 446.0,
+      "Total Discounts": 30.0,
+      "VAT": 14.77217
+    },
+    {
+      "Menu Item Tag": "Comforting Bowls NEW",
+      "Item Qty": 26,
+      "Total Sales": 1695.0,
+      "Total Discounts": 0.0,
+      "VAT": 45.99668
+    },
+    {
+      "Menu Item Tag": "Curated Collections",
+      "Item Qty": 19,
+      "Total Sales": 1737.0,
+      "Total Discounts": 0.0,
+      "VAT": 62.34657
+    },
+    {
+      "Menu Item Tag": "Fiery Fajita Wraps",
+      "Item Qty": 3,
+      "Total Sales": 144.0,
+      "Total Discounts": 29.0,
+      "VAT": 4.11904
+    },
+    {
+      "Menu Item Tag": "Chimichurri Tacos NEW",
+      "Item Qty": 42,
+      "Total Sales": 2488.69,
+      "Total Discounts": 62.31,
+      "VAT": 83.27021
+    },
+    {
+      "Menu Item Tag": "Burger Meals New Menu",
+      "Item Qty": 109,
+      "Total Sales": 7538.53,
+      "Total Discounts": 519.47,
+      "VAT": 243.96719
+    },
+    {
+      "Menu Item Tag": "Crispy Fire Quesadillas",
+      "Item Qty": 72,
+      "Total Sales": 3895.59,
+      "Total Discounts": 506.41,
+      "VAT": 139.67724
+    },
+    {
+      "Menu Item Tag": "Hikari Signature Rolls",
+      "Item Qty": 60,
+      "Total Sales": 2677.71,
+      "Total Discounts": 44.29,
+      "VAT": 89.26145
+    },
+    {
+      "Menu Item Tag": "Vegetarian Gravies",
+      "Item Qty": 2,
+      "Total Sales": 94.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.2381
+    },
+    {
+      "Menu Item Tag": "Wings Tenders and Wraps",
+      "Item Qty": 2,
+      "Total Sales": 78.63,
+      "Total Discounts": 25.37,
+      "VAT": 3.74429
+    },
+    {
+      "Menu Item Tag": "Thirst Quenchers NEW",
+      "Item Qty": 38,
+      "Total Sales": 484.67,
+      "Total Discounts": 35.83,
+      "VAT": 17.23303
+    },
+    {
+      "Menu Item Tag": "Starters (Non Veg)",
+      "Item Qty": 925,
+      "Total Sales": 29055.43,
+      "Total Discounts": 2324.57,
+      "VAT": 965.08567
+    },
+    {
+      "Menu Item Tag": "Korean Chicken New Menu",
+      "Item Qty": 27,
+      "Total Sales": 1761.94,
+      "Total Discounts": 61.06,
+      "VAT": 60.23374
+    },
+    {
+      "Menu Item Tag": "Smash Chicken Bites",
+      "Item Qty": 108,
+      "Total Sales": 5031.71,
+      "Total Discounts": 112.29,
+      "VAT": 157.40944
+    },
+    {
+      "Menu Item Tag": "The Norii Signatures",
+      "Item Qty": 96,
+      "Total Sales": 4178.34,
+      "Total Discounts": 96.66,
+      "VAT": 133.76656
+    },
+    {
+      "Menu Item Tag": "Cooling Drinks NEW",
+      "Item Qty": 15,
+      "Total Sales": 162.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.52735
+    },
+    {
+      "Menu Item Tag": "Street Burritos NEW",
+      "Item Qty": 62,
+      "Total Sales": 3605.1,
+      "Total Discounts": 312.9,
+      "VAT": 129.94386
+    },
+    {
+      "Menu Item Tag": "Family Fajita Meals",
+      "Item Qty": 173,
+      "Total Sales": 10072.0,
+      "Total Discounts": 0.0,
+      "VAT": 292.29794
+    },
+    {
+      "Menu Item Tag": "Korean Bites & Skewers",
+      "Item Qty": 66,
+      "Total Sales": 2975.29,
+      "Total Discounts": 438.71,
+      "VAT": 111.05367
+    },
+    {
+      "Menu Item Tag": "Main Dishes New Menu",
+      "Item Qty": 4,
+      "Total Sales": 298.0,
+      "Total Discounts": 15.0,
+      "VAT": 12.03361
+    },
+    {
+      "Menu Item Tag": "Jjajangmyeon New 26",
+      "Item Qty": 27,
+      "Total Sales": 1991.42,
+      "Total Discounts": 78.58,
+      "VAT": 70.36943
+    },
+    {
+      "Menu Item Tag": "Noona's Deopbap New 26",
+      "Item Qty": 8,
+      "Total Sales": 536.88,
+      "Total Discounts": 8.12,
+      "VAT": 18.07676
+    },
+    {
+      "Menu Item Tag": "Non-Veg Starters cc",
+      "Item Qty": 3,
+      "Total Sales": 144.0,
+      "Total Discounts": 0.0,
+      "VAT": 4.4821
+    },
+    {
+      "Menu Item Tag": "Sides & Accompaniments",
+      "Item Qty": 16,
+      "Total Sales": 122.33,
+      "Total Discounts": 4.67,
+      "VAT": 4.4439
+    },
+    {
+      "Menu Item Tag": "Black Bean Noodles 26",
+      "Item Qty": 75,
+      "Total Sales": 5704.13,
+      "Total Discounts": 49.87,
+      "VAT": 192.68284
+    },
+    {
+      "Menu Item Tag": "Saucy Noodles New Menu",
+      "Item Qty": 25,
+      "Total Sales": 1886.0,
+      "Total Discounts": 30.0,
+      "VAT": 65.0772
+    },
+    {
+      "Menu Item Tag": "Teppan-Grilled Bowls",
+      "Item Qty": 6,
+      "Total Sales": 369.0,
+      "Total Discounts": 0.0,
+      "VAT": 9.19196
+    },
+    {
+      "Menu Item Tag": "Smashville Beef Burgers",
+      "Item Qty": 2476,
+      "Total Sales": 147940.83,
+      "Total Discounts": 1861.17,
+      "VAT": 4183.56099
+    },
+    {
+      "Menu Item Tag": "Hearty Burritos NEW",
+      "Item Qty": 25,
+      "Total Sales": 1532.0,
+      "Total Discounts": 0.0,
+      "VAT": 40.6204
+    },
+    {
+      "Menu Item Tag": "Classic Korean Wings",
+      "Item Qty": 324,
+      "Total Sales": 20126.6,
+      "Total Discounts": 147.4,
+      "VAT": 663.26212
+    },
+    {
+      "Menu Item Tag": "Homemade Salsas & Dips",
+      "Item Qty": 65,
+      "Total Sales": 482.28,
+      "Total Discounts": 37.72,
+      "VAT": 15.71601
+    },
+    {
+      "Menu Item Tag": "NON-VEG STARTERS NEWW",
+      "Item Qty": 16,
+      "Total Sales": 819.0,
+      "Total Discounts": 0.0,
+      "VAT": 26.86973
+    },
+    {
+      "Menu Item Tag": "Noona's Deopbap New 26",
+      "Item Qty": 99,
+      "Total Sales": 7135.99,
+      "Total Discounts": 128.01,
+      "VAT": 194.03774
+    },
+    {
+      "Menu Item Tag": "Chicken Burgers Meals",
+      "Item Qty": 8,
+      "Total Sales": 511.0,
+      "Total Discounts": 0.0,
+      "VAT": 14.08489
+    },
+    {
+      "Menu Item Tag": "Slurp-Worthy Ramyun",
+      "Item Qty": 42,
+      "Total Sales": 2642.07,
+      "Total Discounts": 80.93,
+      "VAT": 87.70362
+    },
+    {
+      "Menu Item Tag": "Comfort Burritos New",
+      "Item Qty": 284,
+      "Total Sales": 15602.52,
+      "Total Discounts": 1309.48,
+      "VAT": 477.41028
+    },
+    {
+      "Menu Item Tag": "Japchae - Glass Noodles",
+      "Item Qty": 22,
+      "Total Sales": 1478.42,
+      "Total Discounts": 116.58,
+      "VAT": 59.55599
+    },
+    {
+      "Menu Item Tag": "Fajita Fiesta Meals NEW",
+      "Item Qty": 53,
+      "Total Sales": 3600.08,
+      "Total Discounts": 16.92,
+      "VAT": 104.2866
+    },
+    {
+      "Menu Item Tag": "Noona's Japchae New 26",
+      "Item Qty": 69,
+      "Total Sales": 4642.73,
+      "Total Discounts": 294.27,
+      "VAT": 140.04215
+    },
+    {
+      "Menu Item Tag": "Korean Ramen Bowls 26",
+      "Item Qty": 151,
+      "Total Sales": 9786.31,
+      "Total Discounts": 324.69,
+      "VAT": 334.37413
+    },
+    {
+      "Menu Item Tag": "Build Your Own Bowl",
+      "Item Qty": 85,
+      "Total Sales": 6303.0,
+      "Total Discounts": 90.0,
+      "VAT": 185.28212
+    },
+    {
+      "Menu Item Tag": "Accompaniments TT",
+      "Item Qty": 5,
+      "Total Sales": 42.79,
+      "Total Discounts": 3.21,
+      "VAT": 1.82856
+    },
+    {
+      "Menu Item Tag": "NON-VEG CURRIES NEWW",
+      "Item Qty": 29,
+      "Total Sales": 1691.0,
+      "Total Discounts": 0.0,
+      "VAT": 48.39245
+    },
+    {
+      "Menu Item Tag": "Signature Poke Bowls",
+      "Item Qty": 449,
+      "Total Sales": 27494.26,
+      "Total Discounts": 323.74,
+      "VAT": 702.78974
+    },
+    {
+      "Menu Item Tag": "Dips & Sauces New Menu",
+      "Item Qty": 114,
+      "Total Sales": 891.84,
+      "Total Discounts": 20.16,
+      "VAT": 47.98938
+    },
+    {
+      "Menu Item Tag": "K-Pops & Wings (6 pcs)",
+      "Item Qty": 87,
+      "Total Sales": 4326.44,
+      "Total Discounts": 80.56,
+      "VAT": 138.24435
+    },
+    {
+      "Menu Item Tag": "Fire-Baked Enchiladas",
+      "Item Qty": 93,
+      "Total Sales": 4697.91,
+      "Total Discounts": 522.09,
+      "VAT": 147.48178
+    },
+    {
+      "Menu Item Tag": "Japchae Bowls New Menu",
+      "Item Qty": 1,
+      "Total Sales": 59.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.37729
+    },
+    {
+      "Menu Item Tag": "Protein Baps New Menu",
+      "Item Qty": 2,
+      "Total Sales": 133.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.81031
+    },
+    {
+      "Menu Item Tag": "Kimbap Rolls New Menu",
+      "Item Qty": 45,
+      "Total Sales": 2782.07,
+      "Total Discounts": 69.93,
+      "VAT": 100.84742
+    },
+    {
+      "Menu Item Tag": "Chicken Slider Meals",
+      "Item Qty": 3,
+      "Total Sales": 204.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.42856
+    },
+    {
+      "Menu Item Tag": "Korean Dumplings 26",
+      "Item Qty": 10,
+      "Total Sales": 546.0,
+      "Total Discounts": 0.0,
+      "VAT": 20.71224
+    },
+    {
+      "Menu Item Tag": "Jjigae - Soups & Stews",
+      "Item Qty": 69,
+      "Total Sales": 4487.34,
+      "Total Discounts": 407.66,
+      "VAT": 155.60156
+    },
+    {
+      "Menu Item Tag": "Chimichurri-Style Wraps",
+      "Item Qty": 72,
+      "Total Sales": 3838.59,
+      "Total Discounts": 401.41,
+      "VAT": 116.98216
+    },
+    {
+      "Menu Item Tag": "Cheesy Comfort Bowls New",
+      "Item Qty": 161,
+      "Total Sales": 7614.85,
+      "Total Discounts": 585.15,
+      "VAT": 216.00806
+    },
+    {
+      "Menu Item Tag": "Beef Burgers New Menu",
+      "Item Qty": 333,
+      "Total Sales": 23385.38,
+      "Total Discounts": 237.62,
+      "VAT": 668.22646
+    },
+    {
+      "Menu Item Tag": "Beef Sliders New Menu",
+      "Item Qty": 41,
+      "Total Sales": 2374.67,
+      "Total Discounts": 283.33,
+      "VAT": 77.64797
+    },
+    {
+      "Menu Item Tag": "Combo Sets New 26",
+      "Item Qty": 10,
+      "Total Sales": 996.0,
+      "Total Discounts": 0.0,
+      "VAT": 34.02754
+    },
+    {
+      "Menu Item Tag": "Protein Rice Bowls 26",
+      "Item Qty": 84,
+      "Total Sales": 5939.29,
+      "Total Discounts": 199.71,
+      "VAT": 193.85217
+    },
+    {
+      "Menu Item Tag": "Ramyun & Noodle Soups",
+      "Item Qty": 29,
+      "Total Sales": 1564.0,
+      "Total Discounts": 139.0,
+      "VAT": 54.30071
+    },
+    {
+      "Menu Item Tag": "Kimbap Rolls (10 pcs)",
+      "Item Qty": 189,
+      "Total Sales": 7940.13,
+      "Total Discounts": 105.87,
+      "VAT": 232.97259
+    },
+    {
+      "Menu Item Tag": "Tandoori Specialties",
+      "Item Qty": 2,
+      "Total Sales": 115.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.58063
+    },
+    {
+      "Menu Item Tag": "Street Snacks New Menu",
+      "Item Qty": 10,
+      "Total Sales": 773.17,
+      "Total Discounts": 10.83,
+      "VAT": 25.43605
+    },
+    {
+      "Menu Item Tag": "Noodle Bowls New Menu",
+      "Item Qty": 31,
+      "Total Sales": 2241.0,
+      "Total Discounts": 0.0,
+      "VAT": 77.42113
+    },
+    {
+      "Menu Item Tag": "Tenders Wings and Wraps",
+      "Item Qty": 2,
+      "Total Sales": 100.0,
+      "Total Discounts": 0.0,
+      "VAT": 3.55671
+    },
+    {
+      "Menu Item Tag": "Tikke Te Starters",
+      "Item Qty": 83,
+      "Total Sales": 3936.24,
+      "Total Discounts": 54.76,
+      "VAT": 120.59707
+    },
+    {
+      "Menu Item Tag": "Chimichurri Series",
+      "Item Qty": 110,
+      "Total Sales": 5710.28,
+      "Total Discounts": 294.72,
+      "VAT": 164.33933
+    },
+    {
+      "Menu Item Tag": "Cheesy Quesadillas",
+      "Item Qty": 98,
+      "Total Sales": 5607.87,
+      "Total Discounts": 87.13,
+      "VAT": 179.76432
+    },
+    {
+      "Menu Item Tag": "Slider Meals New Menu",
+      "Item Qty": 28,
+      "Total Sales": 2314.5,
+      "Total Discounts": 59.5,
+      "VAT": 77.49565
+    },
+    {
+      "Menu Item Tag": "Signature Mains New Menu",
+      "Item Qty": 20,
+      "Total Sales": 1596.55,
+      "Total Discounts": 35.45,
+      "VAT": 61.02115
+    },
+    {
+      "Menu Item Tag": "Generous Feasts (Sets)",
+      "Item Qty": 172,
+      "Total Sales": 13189.52,
+      "Total Discounts": 185.48,
+      "VAT": 426.22118
+    },
+    {
+      "Menu Item Tag": "Combo Feasts New Menu",
+      "Item Qty": 7,
+      "Total Sales": 616.0,
+      "Total Discounts": 0.0,
+      "VAT": 20.01581
+    },
+    {
+      "Menu Item Tag": "Hearty Starters & Sides",
+      "Item Qty": 741,
+      "Total Sales": 38686.87,
+      "Total Discounts": 283.13,
+      "VAT": 1305.46723
+    },
+    {
+      "Menu Item Tag": "Smash Combo Burger Meals",
+      "Item Qty": 518,
+      "Total Sales": 37086.61,
+      "Total Discounts": 458.39,
+      "VAT": 1133.75312
+    },
+    {
+      "Menu Item Tag": "Urban Ramen Bowls",
+      "Item Qty": 11,
+      "Total Sales": 473.12,
+      "Total Discounts": 35.88,
+      "VAT": 14.84503
+    },
+    {
+      "Menu Item Tag": "Sizzling Enchiladas",
+      "Item Qty": 181,
+      "Total Sales": 8393.82,
+      "Total Discounts": 331.18,
+      "VAT": 254.50812
+    },
+    {
+      "Menu Item Tag": "Quesadilla Delights",
+      "Item Qty": 2706,
+      "Total Sales": 122197.8599999999,
+      "Total Discounts": 19461.14,
+      "VAT": 3976.51546
+    },
+    {
+      "Menu Item Tag": "Noodle Compositions",
+      "Item Qty": 38,
+      "Total Sales": 1635.0,
+      "Total Discounts": 0.0,
+      "VAT": 50.48368
+    },
+    {
+      "Menu Item Tag": "Signature Baps New Menu",
+      "Item Qty": 12,
+      "Total Sales": 856.74,
+      "Total Discounts": 14.26,
+      "VAT": 28.67374
+    },
+    {
+      "Menu Item Tag": "Oven-Baked Enchiladas",
+      "Item Qty": 53,
+      "Total Sales": 2570.86,
+      "Total Discounts": 451.14,
+      "VAT": 83.63233
+    },
+    {
+      "Menu Item Tag": "Dumplings New Menu",
+      "Item Qty": 17,
+      "Total Sales": 908.0,
+      "Total Discounts": 0.0,
+      "VAT": 33.539
+    },
+    {
+      "Menu Item Tag": "Fajita Fire Trays",
+      "Item Qty": 43,
+      "Total Sales": 1910.41,
+      "Total Discounts": 547.59,
+      "VAT": 62.07027
+    },
+    {
+      "Menu Item Tag": "Street Snacks NEW",
+      "Item Qty": 78,
+      "Total Sales": 2536.0,
+      "Total Discounts": 259.0,
+      "VAT": 94.38115
+    },
+    {
+      "Menu Item Tag": "A Bowl of Comfort",
+      "Item Qty": 66,
+      "Total Sales": 3438.0,
+      "Total Discounts": 0.0,
+      "VAT": 88.76961
+    },
+    {
+      "Menu Item Tag": "Refreshing Drinks",
+      "Item Qty": 43,
+      "Total Sales": 294.0,
+      "Total Discounts": 0.0,
+      "VAT": 8.23643
+    },
+    {
+      "Menu Item Tag": "Korean Appetizers 26",
+      "Item Qty": 62,
+      "Total Sales": 2634.61,
+      "Total Discounts": 76.39,
+      "VAT": 97.12751
+    },
+    {
+      "Menu Item Tag": "Veggie Sliders New Menu",
+      "Item Qty": 12,
+      "Total Sales": 553.0,
+      "Total Discounts": 27.0,
+      "VAT": 16.34897
+    },
+    {
+      "Menu Item Tag": "Chimichurri Wraps",
+      "Item Qty": 4,
+      "Total Sales": 198.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.6399
+    },
+    {
+      "Menu Item Tag": "Signature Rice Bowls",
+      "Item Qty": 62,
+      "Total Sales": 4273.91,
+      "Total Discounts": 147.09,
+      "VAT": 141.01253
+    },
+    {
+      "Menu Item Tag": "Noona's Japchae New 26",
+      "Item Qty": 7,
+      "Total Sales": 439.27,
+      "Total Discounts": 42.73,
+      "VAT": 17.223
+    },
+    {
+      "Menu Item Tag": "Wings & Tenders Meals",
+      "Item Qty": 236,
+      "Total Sales": 12791.19,
+      "Total Discounts": 1419.85,
+      "VAT": 368.59318
+    },
+    {
+      "Menu Item Tag": "Spicy Rice Cakes 26",
+      "Item Qty": 49,
+      "Total Sales": 3927.95,
+      "Total Discounts": 78.05,
+      "VAT": 145.65537
+    },
+    {
+      "Menu Item Tag": "Power Bowls New Menu",
+      "Item Qty": 81,
+      "Total Sales": 5482.91,
+      "Total Discounts": 70.09,
+      "VAT": 175.67519
+    },
+    {
+      "Menu Item Tag": "First Courses & Greens",
+      "Item Qty": 87,
+      "Total Sales": 2992.0,
+      "Total Discounts": 10.0,
+      "VAT": 91.10136
+    },
+    {
+      "Menu Item Tag": "Biryani Te Chawal",
+      "Item Qty": 80,
+      "Total Sales": 1518.05,
+      "Total Discounts": 22.95,
+      "VAT": 45.83845
+    },
+    {
+      "Menu Item Tag": "Dips & Sauces fury",
+      "Item Qty": 3,
+      "Total Sales": 24.0,
+      "Total Discounts": 0.0,
+      "VAT": 0.68883
+    },
+    {
+      "Menu Item Tag": "Big Burgers Combos",
+      "Item Qty": 21,
+      "Total Sales": 1324.62,
+      "Total Discounts": 19.38,
+      "VAT": 44.73908
+    },
+    {
+      "Menu Item Tag": "Ranchero-Style Wraps",
+      "Item Qty": 16,
+      "Total Sales": 1022.0,
+      "Total Discounts": 30.0,
+      "VAT": 30.25765
+    },
+    {
+      "Menu Item Tag": "Chicken Slider Duo",
+      "Item Qty": 117,
+      "Total Sales": 4794.28,
+      "Total Discounts": 448.72,
+      "VAT": 148.14168
+    },
+    {
+      "Menu Item Tag": "Taco Salad Bowls NEW",
+      "Item Qty": 21,
+      "Total Sales": 1181.2,
+      "Total Discounts": 85.8,
+      "VAT": 38.15343
+    },
+    {
+      "Menu Item Tag": "Wings & Things New Menu",
+      "Item Qty": 45,
+      "Total Sales": 3128.8,
+      "Total Discounts": 14.2,
+      "VAT": 114.59203
+    },
+    {
+      "Menu Item Tag": "Norii Collections",
+      "Item Qty": 137,
+      "Total Sales": 12561.18,
+      "Total Discounts": 833.82,
+      "VAT": 418.6572
+    },
+    {
+      "Menu Item Tag": "Norii's Urban Legends",
+      "Item Qty": 119,
+      "Total Sales": 5254.23,
+      "Total Discounts": 117.77,
+      "VAT": 163.83288
+    },
+    {
+      "Menu Item Tag": "Dips & Sauces winging",
+      "Item Qty": 7,
+      "Total Sales": 56.0,
+      "Total Discounts": 0.0,
+      "VAT": 1.61795
+    },
+    {
+      "Menu Item Tag": "Japchae - Noodle Bowls",
+      "Item Qty": 21,
+      "Total Sales": 1197.54,
+      "Total Discounts": 139.46,
+      "VAT": 41.18897
+    },
+    {
+      "Menu Item Tag": "Combo Sets New 26",
+      "Item Qty": 10,
+      "Total Sales": 880.0,
+      "Total Discounts": 0.0,
+      "VAT": 29.23191
+    },
+    {
+      "Menu Item Tag": "Nourishing Poke Bowls",
+      "Item Qty": 40,
+      "Total Sales": 2007.0,
+      "Total Discounts": 0.0,
+      "VAT": 52.01521
+    },
+    {
+      "Menu Item Tag": "Mandu - Dumplings",
+      "Item Qty": 6,
+      "Total Sales": 230.01,
+      "Total Discounts": 18.99,
+      "VAT": 9.0407
+    },
+    {
+      "Menu Item Tag": "Smash Combo Slider Meals",
+      "Item Qty": 56,
+      "Total Sales": 3400.0,
+      "Total Discounts": 91.0,
+      "VAT": 91.17463
+    },
+    {
+      "Menu Item Tag": "Noodle Traditions (Myeon)",
+      "Item Qty": 781,
+      "Total Sales": 48920.75,
+      "Total Discounts": 328.25,
+      "VAT": 1476.71752
+    },
+    {
+      "Menu Item Tag": "Noona's Specialties New 26",
+      "Item Qty": 29,
+      "Total Sales": 1981.26,
+      "Total Discounts": 174.74,
+      "VAT": 69.45531
+    },
+    {
+      "Menu Item Tag": "Signature Rice Bowls (Deopbap)",
+      "Item Qty": 220,
+      "Total Sales": 13447.98,
+      "Total Discounts": 455.02,
+      "VAT": 422.62857
+    },
+    {
+      "Menu Item Tag": "Ranchero Comfort Wraps New",
+      "Item Qty": 35,
+      "Total Sales": 1769.66,
+      "Total Discounts": 69.34,
+      "VAT": 59.93481
+    },
+    {
+      "Menu Item Tag": "Noona's Rice Bowls New 26",
+      "Item Qty": 47,
+      "Total Sales": 2859.8,
+      "Total Discounts": 104.2,
+      "VAT": 83.57658
+    },
+    {
+      "Menu Item Tag": "Bronx Chicken Burgers New Menu",
+      "Item Qty": 31,
+      "Total Sales": 1682.28,
+      "Total Discounts": 41.72,
+      "VAT": 141.60715
+    },
+    {
+      "Menu Item Tag": "Shared Moments (Combos) New Menu",
+      "Item Qty": 2,
+      "Total Sales": 298.0,
+      "Total Discounts": 0.0,
+      "VAT": 13.09328
+    },
+    {
+      "Menu Item Tag": "Smashville Chicken Burgers",
+      "Item Qty": 1318,
+      "Total Sales": 63813.67,
+      "Total Discounts": 849.33,
+      "VAT": 1729.62058
+    },
+    {
+      "Menu Item Tag": "Korean Appetizers New 26",
+      "Item Qty": 14,
+      "Total Sales": 507.65,
+      "Total Discounts": 10.35,
+      "VAT": 18.48477
+    },
+    {
+      "Menu Item Tag": "Hearth & Home (Robatayaki) New Menu",
+      "Item Qty": 4,
+      "Total Sales": 266.0,
+      "Total Discounts": 0.0,
+      "VAT": 10.36761
+    },
+    {
+      "Menu Item Tag": "Deopbap (Rice Bowls) New 26",
+      "Item Qty": 5,
+      "Total Sales": 340.0,
+      "Total Discounts": 30.0,
+      "VAT": 14.01501
+    },
+    {
+      "Menu Item Tag": "Oneesan's Signature Rolls",
+      "Item Qty": 128,
+      "Total Sales": 5971.0,
+      "Total Discounts": 0.0,
+      "VAT": 185.21759
+    },
+    {
+      "Menu Item Tag": "Oneesan's Signatures New Menu",
+      "Item Qty": 22,
+      "Total Sales": 1248.02,
+      "Total Discounts": 7.98,
+      "VAT": 45.75984
+    },
+    {
+      "Menu Item Tag": "Simple Rolls (Hosomaki) New Menu",
+      "Item Qty": 9,
+      "Total Sales": 321.22,
+      "Total Discounts": 9.78,
+      "VAT": 9.94519
+    },
+    {
+      "Menu Item Tag": "Spicy Seafood Noodles 26",
+      "Item Qty": 12,
+      "Total Sales": 918.0,
+      "Total Discounts": 0.0,
+      "VAT": 30.23787
+    },
+    {
+      "Menu Item Tag": "Noona's Comfort Noodles New 26",
+      "Item Qty": 69,
+      "Total Sales": 4627.55,
+      "Total Discounts": 104.45,
+      "VAT": 140.90353
+    },
+    {
+      "Menu Item Tag": "Noona's Tteokbokki New 26",
+      "Item Qty": 32,
+      "Total Sales": 2259.85,
+      "Total Discounts": 238.15,
+      "VAT": 82.47409
+    },
+    {
+      "Menu Item Tag": "Jjigae (Korean Stews) New 26",
+      "Item Qty": 64,
+      "Total Sales": 4556.2,
+      "Total Discounts": 269.8,
+      "VAT": 149.78473
+    },
+    {
+      "Menu Item Tag": "Crafted Dips & Salsas New",
+      "Item Qty": 147,
+      "Total Sales": 1120.44,
+      "Total Discounts": 55.56,
+      "VAT": 38.83445
+    },
+    {
+      "Menu Item Tag": "Soulful Stews & Soups (Jjigae)",
+      "Item Qty": 1000,
+      "Total Sales": 66724.55,
+      "Total Discounts": 470.45,
+      "VAT": 1966.80207
+    },
+    {
+      "Menu Item Tag": "Late Night Ramen New Menu",
+      "Item Qty": 75,
+      "Total Sales": 5403.55,
+      "Total Discounts": 44.45,
+      "VAT": 175.56469
+    },
+    {
+      "Menu Item Tag": "Bronx Slider Meals New Menu",
+      "Item Qty": 11,
+      "Total Sales": 1364.32,
+      "Total Discounts": 22.68,
+      "VAT": 135.5374
+    },
+    {
+      "Menu Item Tag": "Artisan's Touch (Nigiri & Sashimi) New Menu",
+      "Item Qty": 2,
+      "Total Sales": 104.0,
+      "Total Discounts": 0.0,
+      "VAT": 4.59524
+    },
+    {
+      "Menu Item Tag": "The Art of the Roll: Hosomaki",
+      "Item Qty": 25,
+      "Total Sales": 652.78,
+      "Total Discounts": 8.22,
+      "VAT": 20.4856
+    },
+    {
+      "Menu Item Tag": "Bronx Beef Sliders New Menu",
+      "Item Qty": 15,
+      "Total Sales": 1053.52,
+      "Total Discounts": 26.48,
+      "VAT": 110.48771
+    },
+    {
+      "Menu Item Tag": "Jjamppong (Spicy Noodles) New 26",
+      "Item Qty": 12,
+      "Total Sales": 900.99,
+      "Total Discounts": 17.01,
+      "VAT": 30.38326
+    },
+    {
+      "Menu Item Tag": "The Artisan's Blade (Sashimi & Nigiri)",
+      "Item Qty": 38,
+      "Total Sales": 1414.0,
+      "Total Discounts": 0.0,
+      "VAT": 41.12485
+    },
+    {
+      "Menu Item Tag": "Deopbap (Rice Bowls) New 26",
+      "Item Qty": 6,
+      "Total Sales": 408.0,
+      "Total Discounts": 0.0,
+      "VAT": 13.23619
+    },
+    {
+      "Menu Item Tag": "Bronx Beef Burgers New Menu",
+      "Item Qty": 146,
+      "Total Sales": 10233.64,
+      "Total Discounts": 255.36,
+      "VAT": 937.66073
+    },
+    {
+      "Menu Item Tag": "Bibimbap - Mixed Rice Bowls",
+      "Item Qty": 126,
+      "Total Sales": 8272.7,
+      "Total Discounts": 462.3,
+      "VAT": 272.73805
+    },
+    {
+      "Menu Item Tag": "Picante - Ramadan Iftar Combos",
+      "Item Qty": 5,
+      "Total Sales": 432.0,
+      "Total Discounts": 15.0,
+      "VAT": 15.19142
+    },
+    {
+      "Menu Item Tag": "Spicy Seafood Bowls New Menu",
+      "Item Qty": 8,
+      "Total Sales": 612.0,
+      "Total Discounts": 0.0,
+      "VAT": 20.30595
+    },
+    {
+      "Menu Item Tag": "Bronx Wings Tenders & Wraps New Menu",
+      "Item Qty": 13,
+      "Total Sales": 591.0,
+      "Total Discounts": 72.0,
+      "VAT": 57.13687
+    },
+    {
+      "Menu Item Tag": "Fried Rice Bowls New Menu",
+      "Item Qty": 1,
+      "Total Sales": 69.0,
+      "Total Discounts": 0.0,
+      "VAT": 2.57143
+    },
+    {
+      "Menu Item Tag": "Flame-Grilled Fajita Feasts",
+      "Item Qty": 373,
+      "Total Sales": 19821.99,
+      "Total Discounts": 1211.01,
+      "VAT": 566.34647
+    },
+    {
+      "Menu Item Tag": "Gentle Beginnings (Starters) New Menu",
+      "Item Qty": 32,
+      "Total Sales": 1142.34,
+      "Total Discounts": 23.66,
+      "VAT": 39.34783
+    },
+    {
+      "Menu Item Tag": "Noona's Specialties New 26",
+      "Item Qty": 16,
+      "Total Sales": 1160.0,
+      "Total Discounts": 90.0,
+      "VAT": 41.17037
+    },
+    {
+      "Menu Item Tag": "Noona's Spicy Noodles New 26",
+      "Item Qty": 14,
+      "Total Sales": 984.0,
+      "Total Discounts": 30.0,
+      "VAT": 31.86912
+    },
+    {
+      "Menu Item Tag": "Noona's Homemade Sides New 26",
+      "Item Qty": 57,
+      "Total Sales": 1020.33,
+      "Total Discounts": 62.67,
+      "VAT": 37.62039
+    },
+    {
+      "Menu Item Tag": "Heritage Rice Bowls (Bibimbap)",
+      "Item Qty": 1046,
+      "Total Sales": 63303.09,
+      "Total Discounts": 208.91,
+      "VAT": 1626.2953
+    },
+    {
+      "Menu Item Tag": "Crispy Comforts (Fried Rolls) New Menu",
+      "Item Qty": 14,
+      "Total Sales": 704.55,
+      "Total Discounts": 28.45,
+      "VAT": 28.061
+    },
+    {
+      "Menu Item Tag": "Bronx Chicken Sliders New Menu",
+      "Item Qty": 25,
+      "Total Sales": 1468.0,
+      "Total Discounts": 0.0,
+      "VAT": 140.36146
+    },
+    {
+      "Menu Item Tag": "Noona's Fresh Kimbap New 26",
+      "Item Qty": 109,
+      "Total Sales": 5992.81,
+      "Total Discounts": 201.19,
+      "VAT": 190.16851
+    },
+    {
+      "Menu Item Tag": "Classic Rolls (Uramaki) New Menu",
+      "Item Qty": 53,
+      "Total Sales": 2582.0,
+      "Total Discounts": 16.0,
+      "VAT": 82.73487
+    },
+    {
+      "Menu Item Tag": "Bronx Veggie Sliders New Menu",
+      "Item Qty": 5,
+      "Total Sales": 270.0,
+      "Total Discounts": 0.0,
+      "VAT": 27.43958
+    },
+    {
+      "Menu Item Tag": "Mandu (Dumplings) New 26",
+      "Item Qty": 25,
+      "Total Sales": 1123.0,
+      "Total Discounts": 0.0,
+      "VAT": 41.59304
+    },
+    {
+      "Menu Item Tag": "The Korean Pantry (Banchan)",
+      "Item Qty": 561,
+      "Total Sales": 9215.09,
+      "Total Discounts": 81.91,
+      "VAT": 302.64043
+    },
+    {
+      "Menu Item Tag": "Cheesy Baked Enchiladas New",
+      "Item Qty": 132,
+      "Total Sales": 7281.78,
+      "Total Discounts": 293.22,
+      "VAT": 237.17081
+    },
+    {
+      "Menu Item Tag": "Noona's Complete Meals New 26",
+      "Item Qty": 17,
+      "Total Sales": 1411.42,
+      "Total Discounts": 56.58,
+      "VAT": 51.92125
+    },
+    {
+      "Menu Item Tag": "Japchae (Glass Noodles) New 26",
+      "Item Qty": 2,
+      "Total Sales": 140.0,
+      "Total Discounts": 0.0,
+      "VAT": 5.9356
+    },
+    {
+      "Menu Item Tag": "Heritage Bibimbap Bowls 26",
+      "Item Qty": 247,
+      "Total Sales": 17043.73,
+      "Total Discounts": 307.27,
+      "VAT": 529.63923
+    },
+    {
+      "Menu Item Tag": "Noona's Comfort Ramen New 26",
+      "Item Qty": 47,
+      "Total Sales": 2926.0,
+      "Total Discounts": 118.0,
+      "VAT": 91.09248
+    },
+    {
+      "Menu Item Tag": "Noona's Homemade Sides New 26",
+      "Item Qty": 13,
+      "Total Sales": 198.38,
+      "Total Discounts": 9.62,
+      "VAT": 7.2108
+    },
+    {
+      "Menu Item Tag": "Signature Cheese Quesadillas New",
+      "Item Qty": 550,
+      "Total Sales": 31076.76,
+      "Total Discounts": 3031.24,
+      "VAT": 1003.7311
+    },
+    {
+      "Menu Item Tag": "Comfort Mains (Noodles & Rice) New Menu",
+      "Item Qty": 35,
+      "Total Sales": 1840.0,
+      "Total Discounts": 0.0,
+      "VAT": 55.44167
+    },
+    {
+      "Menu Item Tag": "The Art of the Roll: Uramaki",
+      "Item Qty": 60,
+      "Total Sales": 2515.55,
+      "Total Discounts": 84.45,
+      "VAT": 81.03896
+    },
+    {
+      "Menu Item Tag": "Noona's Rice Bowls New 26",
+      "Item Qty": 78,
+      "Total Sales": 5498.02,
+      "Total Discounts": 203.98,
+      "VAT": 179.43348
+    },
+    {
+      "Menu Item Tag": "Tteokbokki (Spicy Rice Cakes) New 26",
+      "Item Qty": 27,
+      "Total Sales": 1722.92,
+      "Total Discounts": 82.08,
+      "VAT": 58.15807
+    },
+    {
+      "Menu Item Tag": "Tandoori Chicken Specialties",
+      "Item Qty": 40,
+      "Total Sales": 2276.96,
+      "Total Discounts": 41.04,
+      "VAT": 68.01272
+    },
+    {
+      "Menu Item Tag": "Hearty Korean Stews (Jjigae)",
+      "Item Qty": 57,
+      "Total Sales": 3833.5,
+      "Total Discounts": 164.5,
+      "VAT": 115.43467
+    },
+    {
+      "Menu Item Tag": "Loaded Rice Bowls New Menu",
+      "Item Qty": 51,
+      "Total Sales": 3516.0,
+      "Total Discounts": 0.0,
+      "VAT": 108.14019
+    },
+    {
+      "Menu Item Tag": "Shared Journeys (Platters)",
+      "Item Qty": 6,
+      "Total Sales": 508.0,
+      "Total Discounts": 0.0,
+      "VAT": 16.0351
+    },
+    {
+      "Menu Item Tag": "Tteokbokki (Spicy Rice Cakes) New 26",
+      "Item Qty": 11,
+      "Total Sales": 728.0,
+      "Total Discounts": 0.0,
+      "VAT": 22.9914
+    },
+    {
+      "Menu Item Tag": "Sada Shahi Khana (Vegetarian)",
+      "Item Qty": 258,
+      "Total Sales": 10709.72,
+      "Total Discounts": 200.28,
+      "VAT": 324.94214
+    },
+    {
+      "Menu Item Tag": "Noona's Healing Stews New 26",
+      "Item Qty": 17,
+      "Total Sales": 1140.0,
+      "Total Discounts": 120.0,
+      "VAT": 38.14142
+    },
+    {
+      "Menu Item Tag": "Restorative Soups New Menu",
+      "Item Qty": 80,
+      "Total Sales": 5244.0,
+      "Total Discounts": 0.0,
+      "VAT": 150.89304
+    },
+    {
+      "Menu Item Tag": "Loaded Appetizers New Menu",
+      "Item Qty": 56,
+      "Total Sales": 2376.0,
+      "Total Discounts": 0.0,
+      "VAT": 86.5301
+    },
+    {
+      "Menu Item Tag": "Hot Pots & Stews New Menu",
+      "Item Qty": 15,
+      "Total Sales": 1152.0,
+      "Total Discounts": 0.0,
+      "VAT": 37.99689
+    },
+    {
+      "Menu Item Tag": "Kukkad De Pakwan (Chicken)",
+      "Item Qty": 115,
+      "Total Sales": 5633.07,
+      "Total Discounts": 57.93,
+      "VAT": 162.24877
+    },
+    {
+      "Menu Item Tag": "Spicy Noodle Bowls New Menu",
+      "Item Qty": 13,
+      "Total Sales": 968.0,
+      "Total Discounts": 0.0,
+      "VAT": 31.95565
+    },
+    {
+      "Menu Item Tag": "Noodle Traditions (Ramyeon)",
+      "Item Qty": 296,
+      "Total Sales": 17573.08,
+      "Total Discounts": 294.92,
+      "VAT": 554.95477
+    },
+    {
+      "Menu Item Tag": "Noona's Tteokbokki New 26",
+      "Item Qty": 52,
+      "Total Sales": 3648.06,
+      "Total Discounts": 219.94,
+      "VAT": 137.94739
+    },
+    {
+      "Menu Item Tag": "Chimichurri Comfort Wraps New",
+      "Item Qty": 25,
+      "Total Sales": 1237.71,
+      "Total Discounts": 106.29,
+      "VAT": 45.1816
+    },
+    {
+      "Menu Item Tag": "Chimichurri Cheese Tacos New",
+      "Item Qty": 29,
+      "Total Sales": 1818.0,
+      "Total Discounts": 30.0,
+      "VAT": 58.33211
+    },
+    {
+      "Menu Item Tag": "Late Night Ramen New Menu",
+      "Item Qty": 24,
+      "Total Sales": 1397.0,
+      "Total Discounts": 0.0,
+      "VAT": 43.84632
+    },
+    {
+      "Menu Item Tag": "Noona's Fresh Kimbap New 26",
+      "Item Qty": 25,
+      "Total Sales": 1396.89,
+      "Total Discounts": 17.11,
+      "VAT": 45.06122
+    },
+    {
+      "Menu Item Tag": "Classic Korean Fried Chicken",
+      "Item Qty": 317,
+      "Total Sales": 19610.01,
+      "Total Discounts": 220.99,
+      "VAT": 661.48547
+    },
+    {
+      "Menu Item Tag": "Noona's Healing Stews New 26",
+      "Item Qty": 213,
+      "Total Sales": 14817.94,
+      "Total Discounts": 549.06,
+      "VAT": 408.44731
+    },
+    {
+      "Menu Item Tag": "Loaded Fried Rice New Menu",
+      "Item Qty": 9,
+      "Total Sales": 627.0,
+      "Total Discounts": 0.0,
+      "VAT": 21.07401
+    },
+    {
+      "Menu Item Tag": "Noona's Fried Rice New 26",
+      "Item Qty": 23,
+      "Total Sales": 1527.0,
+      "Total Discounts": 47.0,
+      "VAT": 49.87605
+    },
+    {
+      "Menu Item Tag": "Banchan (Side Dishes) 26",
+      "Item Qty": 128,
+      "Total Sales": 2286.46,
+      "Total Discounts": 70.54,
+      "VAT": 83.24122
+    },
+    {
+      "Menu Item Tag": "Loco Taco - Ramadan Iftar Combos",
+      "Item Qty": 30,
+      "Total Sales": 2793.0,
+      "Total Discounts": 60.0,
+      "VAT": 100.42926
+    },
+    {
+      "Menu Item Tag": "Vegetarian Tandoor Starters",
+      "Item Qty": 8,
+      "Total Sales": 388.0,
+      "Total Discounts": 0.0,
+      "VAT": 12.95743
+    },
+    {
+      "Menu Item Tag": "Deopbap (Rice Bowls) New 26",
+      "Item Qty": 28,
+      "Total Sales": 2044.0,
+      "Total Discounts": 0.0,
+      "VAT": 66.2213
+    },
+    {
+      "Menu Item Tag": "Gimbap (Seaweed Rice Rolls)",
+      "Item Qty": 962,
+      "Total Sales": 43118.82,
+      "Total Discounts": 334.18,
+      "VAT": 1306.209
+    },
+    {
+      "Menu Item Tag": "Noona's Comfort Ramen New 26",
+      "Item Qty": 49,
+      "Total Sales": 2940.3,
+      "Total Discounts": 69.7,
+      "VAT": 85.64041
+    },
+    {
+      "Menu Item Tag": "From the Grill (Robatayaki)",
+      "Item Qty": 20,
+      "Total Sales": 908.8,
+      "Total Discounts": 17.2,
+      "VAT": 30.92385
+    },
+    {
+      "Menu Item Tag": "Korean Fried Chicken New 26",
+      "Item Qty": 53,
+      "Total Sales": 3556.79,
+      "Total Discounts": 87.21,
+      "VAT": 121.84315
+    },
+    {
+      "Menu Item Tag": "Japchae (Glass Noodles) New 26",
+      "Item Qty": 16,
+      "Total Sales": 1170.0,
+      "Total Discounts": 0.0,
+      "VAT": 41.04063
+    },
+    {
+      "Menu Item Tag": "Korean Fried Chicken New 26",
+      "Item Qty": 56,
+      "Total Sales": 3660.6,
+      "Total Discounts": 219.4,
+      "VAT": 137.47649
+    },
+    {
+      "Menu Item Tag": "First Courses: Soups & Salads",
+      "Item Qty": 14,
+      "Total Sales": 450.41,
+      "Total Discounts": 6.59,
+      "VAT": 14.74743
+    },
+    {
+      "Menu Item Tag": "Bronx Combo Meals New Menu",
+      "Item Qty": 67,
+      "Total Sales": 6783.92,
+      "Total Discounts": 87.08,
+      "VAT": 617.43398
+    },
+    {
+      "Menu Item Tag": "Homemade Salsas & Dips NEW",
+      "Item Qty": 85,
+      "Total Sales": 652.72,
+      "Total Discounts": 27.28,
+      "VAT": 22.46394
+    },
+    {
+      "Menu Item Tag": "Chimichurri-Style Wraps NEW",
+      "Item Qty": 3,
+      "Total Sales": 168.0,
+      "Total Discounts": 0.0,
+      "VAT": 4.67391
+    },
+    {
+      "Menu Item Tag": "Oven-Baked Enchiladas NEW",
+      "Item Qty": 22,
+      "Total Sales": 1218.0,
+      "Total Discounts": 0.0,
+      "VAT": 32.51347
+    },
+    {
+      "Menu Item Tag": "Signature Rice Platters (Deopbap)",
+      "Item Qty": 909,
+      "Total Sales": 57466.22,
+      "Total Discounts": 852.78,
+      "VAT": 1704.94233
+    },
+    {
+      "Menu Item Tag": "Loaded Tteokbokki New Menu",
+      "Item Qty": 64,
+      "Total Sales": 4894.1,
+      "Total Discounts": 145.9,
+      "VAT": 173.65811
+    },
+    {
+      "Menu Item Tag": "Garden & Sea (Salads) New Menu",
+      "Item Qty": 25,
+      "Total Sales": 946.87,
+      "Total Discounts": 4.13,
+      "VAT": 32.47201
+    },
+    {
+      "Menu Item Tag": "Golden-Baked Quesadillas NEW",
+      "Item Qty": 89,
+      "Total Sales": 5170.87,
+      "Total Discounts": 201.13,
+      "VAT": 173.7833
+    },
+    {
+      "Menu Item Tag": "Bokkeumbap (Fried Rice) New 26",
+      "Item Qty": 7,
+      "Total Sales": 446.0,
+      "Total Discounts": 30.0,
+      "VAT": 14.05113
+    },
+    {
+      "Menu Item Tag": "From the Grill: Robatayaki",
+      "Item Qty": 14,
+      "Total Sales": 632.55,
+      "Total Discounts": 81.45,
+      "VAT": 25.9127
+    },
+    {
+      "Menu Item Tag": "Hot Pots & Stews New Menu",
+      "Item Qty": 19,
+      "Total Sales": 1330.0,
+      "Total Discounts": 60.0,
+      "VAT": 39.18094
+    },
+    {
+      "Menu Item Tag": "Noona's Handmade Mandu New 26",
+      "Item Qty": 13,
+      "Total Sales": 673.0,
+      "Total Discounts": 13.0,
+      "VAT": 20.66252
+    },
+    {
+      "Menu Item Tag": "Tteokbokki (Spicy Rice Cakes) New 26",
+      "Item Qty": 56,
+      "Total Sales": 3672.52,
+      "Total Discounts": 15.48,
+      "VAT": 110.48221
+    },
+    {
+      "Menu Item Tag": "Wraps Wings & Tenders New Menu",
+      "Item Qty": 10,
+      "Total Sales": 525.5,
+      "Total Discounts": 26.5,
+      "VAT": 15.46419
+    },
+    {
+      "Menu Item Tag": "A Bowl of Comfort (Ramen)",
+      "Item Qty": 470,
+      "Total Sales": 19408.5,
+      "Total Discounts": 19.5,
+      "VAT": 466.50763
+    },
+    {
+      "Menu Item Tag": "Jjigae (Korean Stews) New 26",
+      "Item Qty": 8,
+      "Total Sales": 492.0,
+      "Total Discounts": 60.0,
+      "VAT": 18.82271
+    },
+    {
+      "Menu Item Tag": "Noona's Complete Meals New 26",
+      "Item Qty": 23,
+      "Total Sales": 2114.13,
+      "Total Discounts": 102.87,
+      "VAT": 77.56144
+    },
+    {
+      "Menu Item Tag": "Late Night Ramen New Menu",
+      "Item Qty": 10,
+      "Total Sales": 744.0,
+      "Total Discounts": 0.0,
+      "VAT": 25.99782
+    },
+    {
+      "Menu Item Tag": "Premium Glass Noodles 26",
+      "Item Qty": 50,
+      "Total Sales": 3677.0,
+      "Total Discounts": 30.0,
+      "VAT": 125.31642
+    },
+    {
+      "Menu Item Tag": "Noona's Fried Chicken New 26",
+      "Item Qty": 53,
+      "Total Sales": 2980.55,
+      "Total Discounts": 218.45,
+      "VAT": 96.14546
+    },
+    {
+      "Menu Item Tag": "Noona's Spicy Seafood New 26",
+      "Item Qty": 8,
+      "Total Sales": 600.0,
+      "Total Discounts": 0.0,
+      "VAT": 18.75704
+    },
+    {
+      "Menu Item Tag": "Tandoori Seafood Specialties",
+      "Item Qty": 11,
+      "Total Sales": 574.0,
+      "Total Discounts": 0.0,
+      "VAT": 15.16159
+    },
+    {
+      "Menu Item Tag": "Noona's Homemade Sides New 26",
+      "Item Qty": 7,
+      "Total Sales": 127.91,
+      "Total Discounts": 5.09,
+      "VAT": 4.04223
+    },
+    {
+      "Menu Item Tag": "Noona's Fried Chicken New 26",
+      "Item Qty": 94,
+      "Total Sales": 4922.21,
+      "Total Discounts": 221.79,
+      "VAT": 157.74953
+    },
+    {
+      "Menu Item Tag": "Late Night Ramen New Menu",
+      "Item Qty": 12,
+      "Total Sales": 840.45,
+      "Total Discounts": 15.55,
+      "VAT": 26.3088
+    },
+    {
+      "Menu Item Tag": "Ocean's Signature Bowls",
+      "Item Qty": 140,
+      "Total Sales": 9382.0,
+      "Total Discounts": 0.0,
+      "VAT": 274.05267
+    }
+  ]
+}
