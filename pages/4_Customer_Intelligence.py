@@ -105,12 +105,25 @@ with st.sidebar:
     sel_brands = st.multiselect("Brand",    options=all_brands,    default=[], placeholder="All brands")
     sel_locations = st.multiselect("Location", options=all_locations, default=[], placeholder="All locations")
     st.divider()
+    st.markdown("**Date Range**")
+    _dates_ci = df_orders_raw["Received At"].dropna() if "Received At" in df_orders_raw.columns else pd.Series(dtype="datetime64[ns]")
+    _min_ci = _dates_ci.min().date() if not _dates_ci.empty else None
+    _max_ci = _dates_ci.max().date() if not _dates_ci.empty else None
+    sel_start_ci = sel_end_ci = None
+    if _min_ci and _max_ci:
+        _dr_ci = st.date_input("Period", value=(_min_ci, _max_ci), min_value=_min_ci, max_value=_max_ci, label_visibility="collapsed")
+        sel_start_ci, sel_end_ci = (_dr_ci[0], _dr_ci[1]) if isinstance(_dr_ci, (list, tuple)) and len(_dr_ci) == 2 else (_min_ci, _max_ci)
+    st.divider()
     st.caption("Leave blank to include all values.")
 
 # ── FILTER APPLICATION ────────────────────────────────────────────────────────
 df = df_orders_raw.copy()
 if sel_brands    and "Brand"    in df.columns: df = df[df["Brand"].isin(sel_brands)]
 if sel_locations and "Location" in df.columns: df = df[df["Location"].isin(sel_locations)]
+if sel_start_ci and sel_end_ci and "Date" in df.columns:
+    df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
+    df = df[(df["_date"] >= sel_start_ci) & (df["_date"] <= sel_end_ci)]
+    df = df.drop(columns=["_date"])
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust your selections.")

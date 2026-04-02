@@ -81,7 +81,17 @@ bcg_metric = st.sidebar.radio(
 top_n_annotations = st.sidebar.slider("Top items to annotate per quadrant", 1, 5, 2)
 
 st.sidebar.markdown("---")
-st.sidebar.caption("Data: Grubtech · Period: March 2026")
+st.sidebar.markdown("**Date Range**")
+_dates_me = df_orders["Date"].dropna() if "Date" in df_orders.columns else pd.Series(dtype="datetime64[ns]")
+_dates_me = pd.to_datetime(_dates_me, errors="coerce").dropna()
+_min_me = _dates_me.min().date() if not _dates_me.empty else None
+_max_me = _dates_me.max().date() if not _dates_me.empty else None
+sel_start_me = sel_end_me = None
+if _min_me and _max_me:
+    _dr_me = st.sidebar.date_input("Period", value=(_min_me, _max_me), min_value=_min_me, max_value=_max_me, label_visibility="collapsed")
+    sel_start_me, sel_end_me = (_dr_me[0], _dr_me[1]) if isinstance(_dr_me, (list, tuple)) and len(_dr_me) == 2 else (_min_me, _max_me)
+st.sidebar.markdown("---")
+st.sidebar.caption("Data: Grubtech + Deliverect")
 
 # ─── APPLY FILTERS ──────────────────────────────────────────────────────────
 def apply_filters(df, brand_col="Brand", loc_col="Location"):
@@ -90,7 +100,12 @@ def apply_filters(df, brand_col="Brand", loc_col="Location"):
         mask &= df[brand_col].isin(sel_brands)
     if sel_locs and loc_col in df.columns:
         mask &= df[loc_col].isin(sel_locs)
-    return df[mask].copy()
+    out = df[mask].copy()
+    if sel_start_me and sel_end_me and "Date" in out.columns:
+        out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date
+        out = out[(out["_date"] >= sel_start_me) & (out["_date"] <= sel_end_me)]
+        out = out.drop(columns=["_date"])
+    return out
 
 det  = apply_filters(df_details)
 ord_ = apply_filters(df_orders)

@@ -111,6 +111,16 @@ with st.sidebar:
     )
 
     st.divider()
+    st.markdown("**Date Range**")
+    _dates_mkt = df_mkt_raw["Date"].dropna() if "Date" in df_mkt_raw.columns else pd.Series(dtype="datetime64[ns]")
+    _dates_mkt = pd.to_datetime(_dates_mkt, errors="coerce").dropna()
+    _min_mkt = _dates_mkt.min().date() if not _dates_mkt.empty else None
+    _max_mkt = _dates_mkt.max().date() if not _dates_mkt.empty else None
+    sel_start_mkt = sel_end_mkt = None
+    if _min_mkt and _max_mkt:
+        _dr_mkt = st.date_input("Period", value=(_min_mkt, _max_mkt), min_value=_min_mkt, max_value=_max_mkt, label_visibility="collapsed")
+        sel_start_mkt, sel_end_mkt = (_dr_mkt[0], _dr_mkt[1]) if isinstance(_dr_mkt, (list, tuple)) and len(_dr_mkt) == 2 else (_min_mkt, _max_mkt)
+    st.divider()
     st.caption("Leave blank to include all values.")
 
 # ─── FILTER APPLICATION ───────────────────────────────────────────────────────

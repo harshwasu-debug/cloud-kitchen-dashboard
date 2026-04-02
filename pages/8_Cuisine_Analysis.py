@@ -181,7 +181,16 @@ with st.sidebar:
     )
 
     st.markdown("---")
-    st.caption("Data source: Grubtech · March 2026")
+    st.markdown("**Date Range**")
+    _dates_ca = df_orders["Received At"].dropna() if "Received At" in df_orders.columns else pd.Series(dtype="datetime64[ns]")
+    _min_ca = _dates_ca.min().date() if not _dates_ca.empty else None
+    _max_ca = _dates_ca.max().date() if not _dates_ca.empty else None
+    sel_start_ca = sel_end_ca = None
+    if _min_ca and _max_ca:
+        _dr_ca = st.date_input("Period", value=(_min_ca, _max_ca), min_value=_min_ca, max_value=_max_ca, label_visibility="collapsed")
+        sel_start_ca, sel_end_ca = (_dr_ca[0], _dr_ca[1]) if isinstance(_dr_ca, (list, tuple)) and len(_dr_ca) == 2 else (_min_ca, _max_ca)
+    st.markdown("---")
+    st.caption("Data source: Grubtech + Deliverect")
 
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 df = df_orders.copy()
@@ -189,6 +198,10 @@ if sel_cuisines:
     df = df[df["Cuisine"].isin(sel_cuisines)]
 if sel_locations and "Location" in df.columns:
     df = df[df["Location"].isin(sel_locations)]
+if sel_start_ca and sel_end_ca and "Date" in df.columns:
+    df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
+    df = df[(df["_date"] >= sel_start_ca) & (df["_date"] <= sel_end_ca)]
+    df = df.drop(columns=["_date"])
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust your selections.")

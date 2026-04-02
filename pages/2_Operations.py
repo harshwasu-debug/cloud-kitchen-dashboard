@@ -53,12 +53,27 @@ sel_brands    = st.sidebar.multiselect("Brand",    all_brands,    default=all_br
 sel_locations = st.sidebar.multiselect("Location", all_locations, default=all_locations)
 sel_channels  = st.sidebar.multiselect("Channel",  all_channels,  default=all_channels)
 
+st.sidebar.markdown("---")
+st.sidebar.markdown("**Date Range**")
+_dates_op = df_orders["Received At"].dropna() if "Received At" in df_orders.columns else pd.Series(dtype="datetime64[ns]")
+_min_op = _dates_op.min().date() if not _dates_op.empty else None
+_max_op = _dates_op.max().date() if not _dates_op.empty else None
+sel_start_op = sel_end_op = None
+if _min_op and _max_op:
+    _dr_op = st.sidebar.date_input("Period", value=(_min_op, _max_op), min_value=_min_op, max_value=_max_op, label_visibility="collapsed")
+    sel_start_op, sel_end_op = (_dr_op[0], _dr_op[1]) if isinstance(_dr_op, (list, tuple)) and len(_dr_op) == 2 else (_min_op, _max_op)
+
 def apply_filters(df):
     mask = pd.Series(True, index=df.index)
     if sel_brands    and "Brand"    in df.columns: mask &= df["Brand"].isin(sel_brands)
     if sel_locations and "Location" in df.columns: mask &= df["Location"].isin(sel_locations)
     if sel_channels  and "Channel"  in df.columns: mask &= df["Channel"].isin(sel_channels)
-    return df[mask].copy()
+    out = df[mask].copy()
+    if sel_start_op and sel_end_op and "Date" in out.columns:
+        out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date
+        out = out[(out["_date"] >= sel_start_op) & (out["_date"] <= sel_end_op)]
+        out = out.drop(columns=["_date"])
+    return out
 
 fdf = apply_filters(df_orders)
 fst = apply_filters(df_stations)

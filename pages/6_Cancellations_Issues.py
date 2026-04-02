@@ -180,13 +180,33 @@ with st.sidebar:
     sel_locations = st.multiselect("Location", all_locations, placeholder="All locations")
     sel_channels  = st.multiselect("Channel",  all_channels,  placeholder="All channels")
     st.markdown("---")
-    st.caption("Data period: March 2026")
+    st.markdown("**Date Range**")
+    _all_dates_ci = pd.to_datetime(df_cancel_raw["Date"], errors="coerce").dropna() if "Date" in df_cancel_raw.columns else pd.Series(dtype="datetime64[ns]")
+    _min_ci6 = _all_dates_ci.min().date() if not _all_dates_ci.empty else None
+    _max_ci6 = _all_dates_ci.max().date() if not _all_dates_ci.empty else None
+    sel_start_ci6 = sel_end_ci6 = None
+    if _min_ci6 and _max_ci6:
+        _dr_ci6 = st.date_input("Period", value=(_min_ci6, _max_ci6), min_value=_min_ci6, max_value=_max_ci6, label_visibility="collapsed")
+        sel_start_ci6, sel_end_ci6 = (_dr_ci6[0], _dr_ci6[1]) if isinstance(_dr_ci6, (list, tuple)) and len(_dr_ci6) == 2 else (_min_ci6, _max_ci6)
+    st.markdown("---")
+    st.caption("Data: Grubtech + Deliverect")
 
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 
 df_cancel = apply_filters(df_cancel_raw.copy(), sel_brands, sel_locations, sel_channels)
 df_reject = apply_filters(df_reject_raw.copy(), sel_brands, sel_locations, sel_channels)
 df_sales  = apply_filters(df_sales_raw.copy(),  sel_brands, sel_locations, sel_channels)
+
+# Apply date range filter
+def _apply_date_filter(dframe):
+    if sel_start_ci6 and sel_end_ci6 and "Date" in dframe.columns:
+        dframe["Date"] = pd.to_datetime(dframe["Date"], errors="coerce")
+        dframe = dframe[dframe["Date"].dt.date >= sel_start_ci6]
+        dframe = dframe[dframe["Date"].dt.date <= sel_end_ci6]
+    return dframe
+df_cancel = _apply_date_filter(df_cancel)
+df_reject = _apply_date_filter(df_reject)
+df_sales  = _apply_date_filter(df_sales)
 
 # Ensure date columns are datetime
 for _df, _col in [(df_cancel, "Date"), (df_reject, "Date"), (df_sales, "Date")]:

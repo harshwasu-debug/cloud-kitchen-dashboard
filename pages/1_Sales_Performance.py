@@ -69,7 +69,20 @@ with st.sidebar:
     )
 
     st.markdown("---")
-    st.caption("Data source: Grubtech · March 2026")
+    st.markdown("**Date Range**")
+    if "Received At" in df_orders.columns:
+        _dates = df_orders["Received At"].dropna()
+        _min = _dates.min().date() if not _dates.empty else None
+        _max = _dates.max().date() if not _dates.empty else None
+        if _min and _max:
+            _dr = st.date_input("Period", value=(_min, _max), min_value=_min, max_value=_max, label_visibility="collapsed")
+            sel_start, sel_end = (_dr[0], _dr[1]) if isinstance(_dr, (list, tuple)) and len(_dr) == 2 else (_min, _max)
+        else:
+            sel_start = sel_end = None
+    else:
+        sel_start = sel_end = None
+    st.markdown("---")
+    st.caption("Data source: Grubtech + Deliverect")
 
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 df = df_orders.copy()
@@ -79,6 +92,10 @@ if sel_locations:
     df = df[df["Location"].isin(sel_locations)]
 if sel_channels:
     df = df[df["Channel"].isin(sel_channels)]
+if sel_start and sel_end and "Date" in df.columns:
+    df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
+    df = df[(df["_date"] >= sel_start) & (df["_date"] <= sel_end)]
+    df = df.drop(columns=["_date"])
 
 # Filter aggregated tables by brand/channel/location where applicable
 df_brand_f = df_brand.copy()

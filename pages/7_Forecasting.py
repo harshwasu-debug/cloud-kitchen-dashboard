@@ -265,10 +265,23 @@ with st.sidebar:
     interval_width = confidence_map[confidence_pct]
 
     st.markdown("---")
+    st.markdown("**Date Range**")
+    _dates_fc = df_raw["Received At"].dropna() if "Received At" in df_raw.columns else pd.Series(dtype="datetime64[ns]")
+    _min_fc = _dates_fc.min().date() if not _dates_fc.empty else None
+    _max_fc = _dates_fc.max().date() if not _dates_fc.empty else None
+    sel_start_fc = sel_end_fc = None
+    if _min_fc and _max_fc:
+        _dr_fc = st.date_input("Period", value=(_min_fc, _max_fc), min_value=_min_fc, max_value=_max_fc, label_visibility="collapsed")
+        sel_start_fc, sel_end_fc = (_dr_fc[0], _dr_fc[1]) if isinstance(_dr_fc, (list, tuple)) and len(_dr_fc) == 2 else (_min_fc, _max_fc)
+    st.markdown("---")
     st.caption(f"Dataset: {len(df_raw):,} orders loaded")
 
 # ─── APPLY FILTERS ────────────────────────────────────────────────────────────
 df = apply_filters(df_raw.copy(), sel_brands, sel_locations)
+if sel_start_fc and sel_end_fc and "Date" in df.columns:
+    df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
+    df = df[(df["_date"] >= sel_start_fc) & (df["_date"] <= sel_end_fc)]
+    df = df.drop(columns=["_date"])
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust the sidebar controls.")
