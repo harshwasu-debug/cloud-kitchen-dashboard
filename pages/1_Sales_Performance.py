@@ -137,7 +137,7 @@ def rolling_mean(series: pd.Series, window: int = 7) -> pd.Series:
 
 
 # ─── KPI CALCULATIONS ────────────────────────────────────────────────────────
-total_revenue   = df["Total(Receipt Total)"].sum()
+total_revenue   = df["Gross Price"].sum()
 total_orders    = df["Unique Order ID"].nunique() if "Unique Order ID" in df.columns else len(df)
 total_net_sales = df["Net Sales"].sum()
 total_discounts = df["Discount"].sum()
@@ -149,8 +149,8 @@ midpoint  = len(df_sorted) // 2
 df_h1     = df_sorted.iloc[:midpoint]
 df_h2     = df_sorted.iloc[midpoint:]
 
-rev_h1 = df_h1["Total(Receipt Total)"].sum()
-rev_h2 = df_h2["Total(Receipt Total)"].sum()
+rev_h1 = df_h1["Gross Price"].sum()
+rev_h2 = df_h2["Gross Price"].sum()
 
 ord_h1 = df_h1["Unique Order ID"].nunique() if "Unique Order ID" in df_h1.columns else len(df_h1)
 ord_h2 = df_h2["Unique Order ID"].nunique() if "Unique Order ID" in df_h2.columns else len(df_h2)
@@ -192,7 +192,7 @@ with k1:
         "Total Revenue",
         fmt_aed(total_revenue),
         delta=f"{d:+.1f}%" if d is not None else None,
-        help="Receipt total (incl. VAT & delivery). Delta = H2 vs H1 of the period.",
+        help="Gross sales before discounts. Delta = H2 vs H1 of the period.",
     )
 with k2:
     d = delta_pct(ord_h2, ord_h1)
