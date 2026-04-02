@@ -236,9 +236,10 @@ st.markdown("---")
 # ═══════════════════════════════════════════════════════════════════════════════
 section("Cuisine Overview")
 
-revenue_col = "Total(Receipt Total)" if "Total(Receipt Total)" in df.columns else "Net Sales"
+revenue_col = "Gross Price" if "Gross Price" in df.columns else ("Total(Receipt Total)" if "Total(Receipt Total)" in df.columns else "Net Sales")
 total_revenue = df[revenue_col].sum()
-total_orders  = df["Order ID"].nunique() if "Order ID" in df.columns else len(df)
+order_id_col = "Unique Order ID" if "Unique Order ID" in df.columns else "Order ID"
+total_orders  = df[order_id_col].nunique() if order_id_col in df.columns else len(df)
 active_cuisines = df["Cuisine"].nunique()
 active_brands   = df["Brand"].nunique()
 avg_aov = total_revenue / total_orders if total_orders > 0 else 0
@@ -273,7 +274,7 @@ cuis_summary = (
     df.groupby("Cuisine")
     .agg(
         Revenue=(revenue_col, "sum"),
-        Orders=("Order ID", "nunique") if "Order ID" in df.columns else (revenue_col, "count"),
+        Orders=(revenue_col, "count"),
     )
     .reset_index()
     .sort_values("Revenue", ascending=True)
