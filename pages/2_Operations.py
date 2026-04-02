@@ -62,6 +62,13 @@ sel_start_op = sel_end_op = None
 if _min_op and _max_op:
     _dr_op = st.sidebar.date_input("Period", value=(_min_op, _max_op), min_value=_min_op, max_value=_max_op, label_visibility="collapsed")
     sel_start_op, sel_end_op = (_dr_op[0], _dr_op[1]) if isinstance(_dr_op, (list, tuple)) and len(_dr_op) == 2 else (_min_op, _max_op)
+st.sidebar.markdown("**Time Range**")
+from datetime import time as _time
+_tc1_op, _tc2_op = st.sidebar.columns(2)
+with _tc1_op:
+    sel_time_from_op = st.time_input("From", value=_time(0, 0), step=1800, key="tf_op")
+with _tc2_op:
+    sel_time_to_op = st.time_input("To", value=_time(23, 59), step=1800, key="tt_op")
 
 def apply_filters(df):
     mask = pd.Series(True, index=df.index)
@@ -73,6 +80,9 @@ def apply_filters(df):
         out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date
         out = out[(out["_date"] >= sel_start_op) & (out["_date"] <= sel_end_op)]
         out = out.drop(columns=["_date"])
+    if "Received At" in out.columns and (sel_time_from_op != _time(0, 0) or sel_time_to_op != _time(23, 59)):
+        _t = pd.to_datetime(out["Received At"], errors="coerce").dt.time
+        out = out[(_t >= sel_time_from_op) & (_t <= sel_time_to_op)]
     return out
 
 fdf = apply_filters(df_orders)

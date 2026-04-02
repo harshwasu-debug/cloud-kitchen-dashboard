@@ -90,6 +90,13 @@ sel_start_me = sel_end_me = None
 if _min_me and _max_me:
     _dr_me = st.sidebar.date_input("Period", value=(_min_me, _max_me), min_value=_min_me, max_value=_max_me, label_visibility="collapsed")
     sel_start_me, sel_end_me = (_dr_me[0], _dr_me[1]) if isinstance(_dr_me, (list, tuple)) and len(_dr_me) == 2 else (_min_me, _max_me)
+st.sidebar.markdown("**Time Range**")
+from datetime import time as _time
+_tc1_me, _tc2_me = st.sidebar.columns(2)
+with _tc1_me:
+    sel_time_from_me = st.time_input("From", value=_time(0, 0), step=1800, key="tf_me")
+with _tc2_me:
+    sel_time_to_me = st.time_input("To", value=_time(23, 59), step=1800, key="tt_me")
 st.sidebar.markdown("---")
 st.sidebar.caption("Data: Grubtech + Deliverect")
 
@@ -105,6 +112,10 @@ def apply_filters(df, brand_col="Brand", loc_col="Location"):
         out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date
         out = out[(out["_date"] >= sel_start_me) & (out["_date"] <= sel_end_me)]
         out = out.drop(columns=["_date"])
+    if "Date" in out.columns and (sel_time_from_me != _time(0, 0) or sel_time_to_me != _time(23, 59)):
+        _t = pd.to_datetime(out["Date"], errors="coerce").dt.time
+        _valid = _t.notna()
+        out = out[~_valid | ((_t >= sel_time_from_me) & (_t <= sel_time_to_me))]
     return out
 
 det  = apply_filters(df_details)

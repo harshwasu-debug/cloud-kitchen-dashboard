@@ -81,6 +81,13 @@ with st.sidebar:
             sel_start = sel_end = None
     else:
         sel_start = sel_end = None
+    st.markdown("**Time Range**")
+    from datetime import time as _time
+    _tc1, _tc2 = st.columns(2)
+    with _tc1:
+        sel_time_from = st.time_input("From", value=_time(0, 0), step=1800)
+    with _tc2:
+        sel_time_to = st.time_input("To", value=_time(23, 59), step=1800)
     st.markdown("---")
     st.caption("Data source: Grubtech + Deliverect")
 
@@ -96,6 +103,9 @@ if sel_start and sel_end and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start) & (df["_date"] <= sel_end)]
     df = df.drop(columns=["_date"])
+if "Received At" in df.columns and (sel_time_from != _time(0, 0) or sel_time_to != _time(23, 59)):
+    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
+    df = df[(_t >= sel_time_from) & (_t <= sel_time_to)]
 
 # Filter aggregated tables by brand/channel/location where applicable
 df_brand_f = df_brand.copy()

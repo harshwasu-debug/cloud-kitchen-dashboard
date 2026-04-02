@@ -194,6 +194,15 @@ sel_brands = st.sidebar.multiselect("Brand", options=all_brands, default=all_bra
 all_locations = sorted(df_raw["Location"].dropna().unique().tolist()) if "Location" in df_raw.columns else []
 sel_locations = st.sidebar.multiselect("Location", options=all_locations, default=all_locations)
 
+# Time Range
+st.sidebar.markdown("**Time Range**")
+from datetime import time as _time
+_tc1_ch, _tc2_ch = st.sidebar.columns(2)
+with _tc1_ch:
+    sel_time_from_ch = st.time_input("From", value=_time(0, 0), step=1800, key="tf_ch")
+with _tc2_ch:
+    sel_time_to_ch = st.time_input("To", value=_time(23, 59), step=1800, key="tt_ch")
+
 # Apply filters
 df = df_raw.copy()
 if len(date_range) == 2:
@@ -205,6 +214,9 @@ if sel_brands:
     df = df[df["Brand"].isin(sel_brands)]
 if sel_locations:
     df = df[df["Location"].isin(sel_locations)]
+if "Received At" in df.columns and (sel_time_from_ch != _time(0, 0) or sel_time_to_ch != _time(23, 59)):
+    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
+    df = df[(_t >= sel_time_from_ch) & (_t <= sel_time_to_ch)]
 
 if df.empty:
     st.info("No data matches the selected filters. Please adjust your filters.")

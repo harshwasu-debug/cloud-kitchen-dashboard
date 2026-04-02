@@ -273,6 +273,13 @@ with st.sidebar:
     if _min_fc and _max_fc:
         _dr_fc = st.date_input("Period", value=(_min_fc, _max_fc), min_value=_min_fc, max_value=_max_fc, label_visibility="collapsed")
         sel_start_fc, sel_end_fc = (_dr_fc[0], _dr_fc[1]) if isinstance(_dr_fc, (list, tuple)) and len(_dr_fc) == 2 else (_min_fc, _max_fc)
+    st.markdown("**Time Range**")
+    from datetime import time as _time
+    _tc1_fc, _tc2_fc = st.columns(2)
+    with _tc1_fc:
+        sel_time_from_fc = st.time_input("From", value=_time(0, 0), step=1800, key="tf_fc")
+    with _tc2_fc:
+        sel_time_to_fc = st.time_input("To", value=_time(23, 59), step=1800, key="tt_fc")
     st.markdown("---")
     st.caption(f"Dataset: {len(df_raw):,} orders loaded")
 
@@ -282,6 +289,9 @@ if sel_start_fc and sel_end_fc and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start_fc) & (df["_date"] <= sel_end_fc)]
     df = df.drop(columns=["_date"])
+if "Received At" in df.columns and (sel_time_from_fc != _time(0, 0) or sel_time_to_fc != _time(23, 59)):
+    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
+    df = df[(_t >= sel_time_from_fc) & (_t <= sel_time_to_fc)]
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust the sidebar controls.")

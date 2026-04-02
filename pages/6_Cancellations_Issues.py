@@ -188,6 +188,13 @@ with st.sidebar:
     if _min_ci6 and _max_ci6:
         _dr_ci6 = st.date_input("Period", value=(_min_ci6, _max_ci6), min_value=_min_ci6, max_value=_max_ci6, label_visibility="collapsed")
         sel_start_ci6, sel_end_ci6 = (_dr_ci6[0], _dr_ci6[1]) if isinstance(_dr_ci6, (list, tuple)) and len(_dr_ci6) == 2 else (_min_ci6, _max_ci6)
+    st.markdown("**Time Range**")
+    from datetime import time as _time
+    _tc1_c6, _tc2_c6 = st.columns(2)
+    with _tc1_c6:
+        sel_time_from_c6 = st.time_input("From", value=_time(0, 0), step=1800, key="tf_c6")
+    with _tc2_c6:
+        sel_time_to_c6 = st.time_input("To", value=_time(23, 59), step=1800, key="tt_c6")
     st.markdown("---")
     st.caption("Data: Grubtech + Deliverect")
 
@@ -197,12 +204,16 @@ df_cancel = apply_filters(df_cancel_raw.copy(), sel_brands, sel_locations, sel_c
 df_reject = apply_filters(df_reject_raw.copy(), sel_brands, sel_locations, sel_channels)
 df_sales  = apply_filters(df_sales_raw.copy(),  sel_brands, sel_locations, sel_channels)
 
-# Apply date range filter
+# Apply date + time range filter
 def _apply_date_filter(dframe):
     if sel_start_ci6 and sel_end_ci6 and "Date" in dframe.columns:
         dframe["Date"] = pd.to_datetime(dframe["Date"], errors="coerce")
         dframe = dframe[dframe["Date"].dt.date >= sel_start_ci6]
         dframe = dframe[dframe["Date"].dt.date <= sel_end_ci6]
+        if sel_time_from_c6 != _time(0, 0) or sel_time_to_c6 != _time(23, 59):
+            _t = dframe["Date"].dt.time
+            _valid = _t.notna()
+            dframe = dframe[~_valid | ((_t >= sel_time_from_c6) & (_t <= sel_time_to_c6))]
     return dframe
 df_cancel = _apply_date_filter(df_cancel)
 df_reject = _apply_date_filter(df_reject)

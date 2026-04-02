@@ -189,6 +189,13 @@ with st.sidebar:
     if _min_ca and _max_ca:
         _dr_ca = st.date_input("Period", value=(_min_ca, _max_ca), min_value=_min_ca, max_value=_max_ca, label_visibility="collapsed")
         sel_start_ca, sel_end_ca = (_dr_ca[0], _dr_ca[1]) if isinstance(_dr_ca, (list, tuple)) and len(_dr_ca) == 2 else (_min_ca, _max_ca)
+    st.markdown("**Time Range**")
+    from datetime import time as _time
+    _tc1_ca, _tc2_ca = st.columns(2)
+    with _tc1_ca:
+        sel_time_from_ca = st.time_input("From", value=_time(0, 0), step=1800, key="tf_ca")
+    with _tc2_ca:
+        sel_time_to_ca = st.time_input("To", value=_time(23, 59), step=1800, key="tt_ca")
     st.markdown("---")
     st.caption("Data source: Grubtech + Deliverect")
 
@@ -202,6 +209,9 @@ if sel_start_ca and sel_end_ca and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start_ca) & (df["_date"] <= sel_end_ca)]
     df = df.drop(columns=["_date"])
+if "Received At" in df.columns and (sel_time_from_ca != _time(0, 0) or sel_time_to_ca != _time(23, 59)):
+    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
+    df = df[(_t >= sel_time_from_ca) & (_t <= sel_time_to_ca)]
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust your selections.")

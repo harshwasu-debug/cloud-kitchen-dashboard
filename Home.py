@@ -243,10 +243,19 @@ with st.sidebar:
     )
 
     st.markdown("---")
+    st.markdown("**Time Range**")
+    from datetime import time as _time
+    _tc1_hm, _tc2_hm = st.columns(2)
+    with _tc1_hm:
+        sel_time_from_hm = st.time_input("From", value=_time(0, 0), step=1800, key="tf_hm")
+    with _tc2_hm:
+        sel_time_to_hm = st.time_input("To", value=_time(23, 59), step=1800, key="tt_hm")
+
+    st.markdown("---")
     st.markdown(
         '<p style="color:#3a4555; font-size:0.7rem; text-align:center;">'
         "Cloud Kitchen Command Center v1.0<br>"
-        "Data: Grubtech Export Mar 2026</p>",
+        "Data: Grubtech + Deliverect</p>",
         unsafe_allow_html=True,
     )
 
@@ -269,6 +278,11 @@ def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
         if pd.api.types.is_datetime64_any_dtype(date_col):
             date_col = date_col.dt.date
         df = df.loc[(date_col >= sel_start) & (date_col <= sel_end)]
+
+    # Time filter
+    if "Received At" in df.columns and (sel_time_from_hm != _time(0, 0) or sel_time_to_hm != _time(23, 59)):
+        _t = df["Received At"].dt.time
+        df = df[(_t >= sel_time_from_hm) & (_t <= sel_time_to_hm)]
 
     if sel_brands and "Brand" in df.columns:
         df = df.loc[df["Brand"].isin(sel_brands)]

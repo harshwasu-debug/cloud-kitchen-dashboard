@@ -113,6 +113,13 @@ with st.sidebar:
     if _min_ci and _max_ci:
         _dr_ci = st.date_input("Period", value=(_min_ci, _max_ci), min_value=_min_ci, max_value=_max_ci, label_visibility="collapsed")
         sel_start_ci, sel_end_ci = (_dr_ci[0], _dr_ci[1]) if isinstance(_dr_ci, (list, tuple)) and len(_dr_ci) == 2 else (_min_ci, _max_ci)
+    st.markdown("**Time Range**")
+    from datetime import time as _time
+    _tc1_ci, _tc2_ci = st.columns(2)
+    with _tc1_ci:
+        sel_time_from_ci = st.time_input("From", value=_time(0, 0), step=1800, key="tf_ci")
+    with _tc2_ci:
+        sel_time_to_ci = st.time_input("To", value=_time(23, 59), step=1800, key="tt_ci")
     st.divider()
     st.caption("Leave blank to include all values.")
 
@@ -124,6 +131,9 @@ if sel_start_ci and sel_end_ci and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start_ci) & (df["_date"] <= sel_end_ci)]
     df = df.drop(columns=["_date"])
+if "Received At" in df.columns and (sel_time_from_ci != _time(0, 0) or sel_time_to_ci != _time(23, 59)):
+    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
+    df = df[(_t >= sel_time_from_ci) & (_t <= sel_time_to_ci)]
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust your selections.")

@@ -120,6 +120,13 @@ with st.sidebar:
     if _min_mkt and _max_mkt:
         _dr_mkt = st.date_input("Period", value=(_min_mkt, _max_mkt), min_value=_min_mkt, max_value=_max_mkt, label_visibility="collapsed")
         sel_start_mkt, sel_end_mkt = (_dr_mkt[0], _dr_mkt[1]) if isinstance(_dr_mkt, (list, tuple)) and len(_dr_mkt) == 2 else (_min_mkt, _max_mkt)
+    st.markdown("**Time Range**")
+    from datetime import time as _time
+    _tc1_mk, _tc2_mk = st.columns(2)
+    with _tc1_mk:
+        sel_time_from_mk = st.time_input("From", value=_time(0, 0), step=1800, key="tf_mk")
+    with _tc2_mk:
+        sel_time_to_mk = st.time_input("To", value=_time(23, 59), step=1800, key="tt_mk")
     st.divider()
     st.caption("Leave blank to include all values.")
 
