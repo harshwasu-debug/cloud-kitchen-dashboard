@@ -56,8 +56,8 @@ def _extract_df(data, expected_sheet=None) -> pd.DataFrame:
 # ─── CACHED DATA LOADERS ───────────────────────────────────────────────
 
 @st.cache_data(ttl=3600)
-def load_sales_orders() -> pd.DataFrame:
-    """Sales - Orders: 40,802 records, 32 columns. Core financial order data."""
+def _load_grubtech_sales_orders() -> pd.DataFrame:
+    """Load Grubtech Sales Orders only (internal helper)."""
     data = _load_json("2603 Sales - Orders.json")
     df = _extract_df(data, "OrderDetails")
     if not df.empty:
@@ -69,12 +69,140 @@ def load_sales_orders() -> pd.DataFrame:
             df["Week"] = df["Received At"].dt.isocalendar().week.astype(int)
             df["Day"] = df["Received At"].dt.day_name()
             df["Hour"] = df["Received At"].dt.hour
-        # Ensure numeric columns
         for col in ["Item Price", "Surcharge", "Delivery", "Net Sales", "Gross Price",
                      "Discount", "VAT", "Total(Receipt Total)", "Tips"]:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
     return df
+
+
+@st.cache_data(ttl=3600)
+def _load_deliverect_as_grubtech_schema() -> pd.DataFrame:
+    """
+    Load Deliverect orders, aggregate to order-level, and map columns
+    to the Grubtech Sales Orders schema so every downstream page works
+    without any changes.
+    """
+    data = _load_json("Deliverect_March_2026.json")
+    raw = _extract_df(data, "DeliverectOrders")
+    if raw.empty:
+        return pd.DataFrame()
+
+    raw.columns = raw.columns.str.strip()
+    # Parse timestamps
+    for col in ["CreatedTime"]:
+        if col in raw.columns:
+            raw[col] = pd.to_datetime(raw[col], errors="coerce", utc=True)
+            raw[col] = raw[col].dt.tz_convert("Asia/Dubai").dt.tz_localize(None)
+    # Numeric columns
+    for col in ["PaymentAmount", "ServiceCharge", "DeliveryCost", "DiscountTotal",
+                 "ItemPrice", "ItemQuantities", "SubTotal", "Rebate", "Due",
+                 "Tip", "DriverTip", "Tax", "VAT", "OrderTotalAmount"]:
+        if col in raw.columns:
+            raw[col] = pd.to_numeric(raw[col], errors="coerce").fillna(0)
+
+    # Only include successful orders (exclude CANCELLED / FAILED for sales)
+    success_statuses = ["DELIVERED", "AUTO_FINALIZED", "ACCEPTED",
+                        "READY_FOR_PICKUP", "PREPARING"]
+    raw = raw[raw["Status"].isin(success_statuses)]
+    if raw.empty:
+        return pd.DataFrame()
+
+    # Aggregate item-lines to order-level
+    orders = (
+        raw.groupby("OrderID", as_index=False)
+        .agg(
+            Brand=("Brands", "first"),
+            Channel=("Channel", "first"),
+            Location=("Location", "first"),
+            Status=("Status", "first"),
+            Type=("Type", "first"),
+            Payment=("Payment", "first"),
+            CreatedTime=("CreatedTime", "first"),
+            ItemPriceTotal=("ItemPrice", "sum"),
+            ItemQtyTotal=("ItemQuantities", "sum"),
+            ServiceCharge=("ServiceCharge", "first"),
+            DeliveryCost=("DeliveryCost", "first"),
+            DiscountTotal=("DiscountTotal", "first"),
+            SubTotal=("SubTotal", "first"),
+            Rebate=("Rebate", "first"),
+            Tip=("Tip", "first"),
+            DriverTip=("DriverTip", "first"),
+            Tax=("Tax", "first"),
+            VAT=("VAT", "first"),
+            OrderTotalAmount=("OrderTotalAmount", "first"),
+            PaymentAmount=("PaymentAmount", "first"),
+            Note=("Note", "first"),
+            DeliveryBy=("DeliveryBy", "first"),
+            ChannelLink=("ChannelLink", "first"),
+        )
+    )
+
+    # Map to Grubtech column names
+    mapped = pd.DataFrame()
+    mapped["Brand"] = orders["Brand"]
+    mapped["Channel"] = orders["Channel"]
+    mapped["Location"] = orders["Location"]
+    mapped["Unique Order ID"] = orders["OrderID"].astype(str)
+    mapped["Order ID"] = orders["OrderID"].astype(str)
+    mapped["Sequence Number"] = 1
+    mapped["Received At"] = orders["CreatedTime"]
+    mapped["Type"] = orders["Type"].replace({"DELIVERY": "Delivery by food aggregator",
+                                              "PICKUP": "Pickup"})
+    mapped["Customer Name"] = "N/A"
+    mapped["Telephone"] = None
+    mapped["Address"] = "N/A"
+    mapped["VAT ID"] = "N/A"
+    mapped["Currency"] = "AED"
+    mapped["Item Price"] = orders["ItemPriceTotal"]
+    mapped["Surcharge"] = orders["ServiceCharge"]
+    mapped["Delivery"] = orders["DeliveryCost"]
+    mapped["Net Sales"] = orders["PaymentAmount"]
+    mapped["Gross Price"] = orders["SubTotal"]
+    mapped["Discount"] = orders["DiscountTotal"].abs()
+    mapped["VAT"] = orders["VAT"]
+    mapped["Total(Receipt Total)"] = orders["OrderTotalAmount"]
+    mapped["Channel Service Charge"] = orders["ServiceCharge"]
+    mapped["Payment Method"] = orders["Payment"]
+    mapped["Payment Type"] = orders["Payment"]
+    mapped["Fort ID"] = "N/A"
+    mapped["Discount Code"] = "N/A"
+    mapped["Delivery Partner Name"] = orders["DeliveryBy"]
+    mapped["Delivery Plan"] = "ASAP"
+    mapped["Note"] = orders["Note"]
+    mapped["Customer Note"] = "N/A"
+    mapped["Employee Name"] = "N/A"
+    mapped["Tips"] = orders["Tip"] + orders["DriverTip"]
+
+    # Derive date fields
+    mapped["Date"] = mapped["Received At"].dt.date
+    mapped["Month"] = mapped["Received At"].dt.to_period("M").astype(str)
+    mapped["Week"] = mapped["Received At"].dt.isocalendar().week.astype(int)
+    mapped["Day"] = mapped["Received At"].dt.day_name()
+    mapped["Hour"] = mapped["Received At"].dt.hour
+
+    return mapped
+
+
+@st.cache_data(ttl=3600)
+def load_sales_orders() -> pd.DataFrame:
+    """
+    Combined Sales Orders: Grubtech + Deliverect in one unified schema.
+    All downstream pages see a single business — no code changes needed.
+    """
+    grub = _load_grubtech_sales_orders()
+    delv = _load_deliverect_as_grubtech_schema()
+    frames = [f for f in [grub, delv] if not f.empty]
+    if not frames:
+        return pd.DataFrame()
+    combined = pd.concat(frames, ignore_index=True)
+    # Re-ensure types after concat
+    combined["Received At"] = pd.to_datetime(combined["Received At"], errors="coerce")
+    for col in ["Item Price", "Surcharge", "Delivery", "Net Sales", "Gross Price",
+                 "Discount", "VAT", "Total(Receipt Total)", "Tips"]:
+        if col in combined.columns:
+            combined[col] = pd.to_numeric(combined[col], errors="coerce").fillna(0)
+    return combined
 
 
 @st.cache_data(ttl=3600)
@@ -178,19 +306,74 @@ def load_operations_stations() -> pd.DataFrame:
 
 @st.cache_data(ttl=3600)
 def load_cancelled_orders() -> pd.DataFrame:
-    """Cancelled Orders: 525 records."""
+    """Cancelled Orders: Grubtech (525) + Deliverect cancelled/failed orders."""
+    # ── Grubtech cancelled ──
     data = _load_json("2603 Cancelled orders.json")
-    df = _extract_df(data, "CancelledOrder")
-    if not df.empty:
-        df.columns = df.columns.str.strip()
-        if "Date" in df.columns:
-            df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
-        if "Cancellation Time" in df.columns:
-            df["Cancellation Time"] = pd.to_datetime(df["Cancellation Time"], errors="coerce")
+    gdf = _extract_df(data, "CancelledOrder")
+    if not gdf.empty:
+        gdf.columns = gdf.columns.str.strip()
+        if "Date" in gdf.columns:
+            gdf["Date"] = pd.to_datetime(gdf["Date"], errors="coerce")
+        if "Cancellation Time" in gdf.columns:
+            gdf["Cancellation Time"] = pd.to_datetime(gdf["Cancellation Time"], errors="coerce")
         for col in ["Sales Amount", "VAT", "Sales After Tax"]:
-            if col in df.columns:
-                df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
-    return df
+            if col in gdf.columns:
+                gdf[col] = pd.to_numeric(gdf[col], errors="coerce").fillna(0)
+
+    # ── Deliverect cancelled/failed ──
+    del_data = _load_json("Deliverect_March_2026.json")
+    del_raw = _extract_df(del_data, "DeliverectOrders")
+    ddf = pd.DataFrame()
+    if not del_raw.empty:
+        del_raw.columns = del_raw.columns.str.strip()
+        cancel_mask = del_raw["Status"].isin(["CANCELLED", "FAILED", "FAILED_RESOLVE"])
+        del_cancel = del_raw[cancel_mask].copy()
+        if not del_cancel.empty:
+            for col in ["OrderTotalAmount", "VAT"]:
+                del_cancel[col] = pd.to_numeric(del_cancel[col], errors="coerce").fillna(0)
+            del_cancel["CreatedTime"] = pd.to_datetime(del_cancel["CreatedTime"], errors="coerce", utc=True)
+            del_cancel["CreatedTime"] = del_cancel["CreatedTime"].dt.tz_convert("Asia/Dubai").dt.tz_localize(None)
+            # Aggregate to order level
+            del_orders = (
+                del_cancel.groupby("OrderID", as_index=False)
+                .agg(Brand=("Brands", "first"), Channel=("Channel", "first"),
+                     Location=("Location", "first"), Status=("Status", "first"),
+                     CreatedTime=("CreatedTime", "first"),
+                     OrderTotalAmount=("OrderTotalAmount", "first"),
+                     VAT=("VAT", "first"),
+                     FailureMessage=("FailureMessage", "first"))
+            )
+            ddf = pd.DataFrame()
+            ddf["Date"] = del_orders["CreatedTime"]
+            ddf["Order ID"] = del_orders["OrderID"].astype(str)
+            ddf["Unique Order ID"] = del_orders["OrderID"].astype(str)
+            ddf["Order Sequence"] = None
+            ddf["Currency"] = "AED"
+            ddf["Sales Amount"] = del_orders["OrderTotalAmount"]
+            ddf["VAT"] = del_orders["VAT"]
+            ddf["Sales After Tax"] = del_orders["OrderTotalAmount"]
+            ddf["Brand"] = del_orders["Brand"]
+            ddf["Location"] = del_orders["Location"]
+            ddf["Channel"] = del_orders["Channel"]
+            ddf["Delivery Type"] = "Delivery by food aggregator"
+            ddf["Reason"] = del_orders["FailureMessage"].fillna(del_orders["Status"])
+            ddf["Cancellation Time"] = del_orders["CreatedTime"]
+            ddf["Source"] = "Deliverect"
+            ddf["User ID"] = None
+            ddf["Post Cancelled"] = "No"
+            ddf["Credit Memo Sequence"] = None
+
+    frames = [f for f in [gdf, ddf] if not f.empty]
+    if not frames:
+        return pd.DataFrame()
+    combined = pd.concat(frames, ignore_index=True)
+    combined["Date"] = pd.to_datetime(combined["Date"], errors="coerce")
+    if "Cancellation Time" in combined.columns:
+        combined["Cancellation Time"] = pd.to_datetime(combined["Cancellation Time"], errors="coerce")
+    for col in ["Sales Amount", "VAT", "Sales After Tax"]:
+        if col in combined.columns:
+            combined[col] = pd.to_numeric(combined[col], errors="coerce").fillna(0)
+    return combined
 
 
 @st.cache_data(ttl=3600)
@@ -461,14 +644,119 @@ def get_cuisine_brand_df() -> pd.DataFrame:
 # ─── FUTURE: DELIVERECT & REVLY INTEGRATION STUBS ──────────────────────
 
 def load_deliverect_orders() -> pd.DataFrame:
+    """Deliverect Orders: 1,249+ records from Deliverect middleware CSV exports."""
+    data = _load_json("Deliverect_March_2026.json")
+    df = _extract_df(data, "DeliverectOrders")
+    if not df.empty:
+        df.columns = df.columns.str.strip()
+        # Parse timestamps
+        for col in ["PickupTime", "CreatedTime", "ScheduledTime"]:
+            if col in df.columns:
+                df[col] = pd.to_datetime(df[col], errors="coerce", utc=True)
+                df[col] = df[col].dt.tz_convert("Asia/Dubai").dt.tz_localize(None)
+        if "CreatedTime" in df.columns:
+            df["Date"] = df["CreatedTime"].dt.date
+            df["Month"] = df["CreatedTime"].dt.to_period("M").astype(str)
+            df["Week"] = df["CreatedTime"].dt.isocalendar().week.astype(int)
+            df["Day"] = df["CreatedTime"].dt.day_name()
+            df["Hour"] = df["CreatedTime"].dt.hour
+        # Ensure numeric columns
+        for col in ["PaymentAmount", "ServiceCharge", "DeliveryCost", "DiscountTotal",
+                     "ItemPrice", "ItemQuantities", "SubTotal", "Rebate", "Due",
+                     "Tip", "DriverTip", "Tax", "VAT", "OrderTotalAmount"]:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+        # Rename key columns for compatibility with existing dashboard filters
+        df.rename(columns={"Brands": "Brand", "Channel": "Channel"}, inplace=True)
+        # Add Cuisine column
+        if "Brand" in df.columns:
+            df["Cuisine"] = df["Brand"].apply(get_cuisine_for_brand)
+        # Add data source tag
+        df["DataSource"] = "Deliverect"
+    return df
+
+
+@st.cache_data(ttl=3600)
+def load_combined_orders() -> pd.DataFrame:
     """
-    Placeholder for Deliverect API integration.
-    Deliverect REST API: https://api.deliverect.com/
-    Endpoints: /orders, /products, /channels, /reports
-    Will require API key from Deliverect dashboard.
+    Unified order-level DataFrame combining Grubtech and Deliverect data.
+    Normalises both sources to a common schema for cross-platform analysis.
     """
-    st.info("Deliverect integration coming soon. Configure API key in settings.")
-    return pd.DataFrame()
+    # ── Grubtech ──────────────────────────────────────────────────────
+    gdf = load_sales_orders()
+    if not gdf.empty:
+        g = pd.DataFrame()
+        g["DataSource"] = "Grubtech"
+        g["Brand"] = gdf["Brand"]
+        g["Channel"] = gdf["Channel"]
+        g["Location"] = gdf["Location"]
+        g["OrderID"] = gdf["Unique Order ID"].astype(str)
+        g["Timestamp"] = gdf["Received At"]
+        g["Date"] = gdf.get("Date")
+        g["Month"] = gdf.get("Month")
+        g["Week"] = gdf.get("Week")
+        g["Day"] = gdf.get("Day")
+        g["Hour"] = gdf.get("Hour")
+        g["Type"] = gdf.get("Type")
+        g["PaymentMethod"] = gdf.get("Payment Method")
+        g["GrossRevenue"] = gdf.get("Gross Price", 0)
+        g["Discount"] = gdf.get("Discount", 0).abs() if "Discount" in gdf.columns else 0
+        g["NetRevenue"] = gdf.get("Net Sales", 0)
+        g["VAT"] = gdf.get("VAT", 0)
+        g["Total"] = gdf.get("Total(Receipt Total)", 0)
+        g["DeliveryCost"] = gdf.get("Delivery", 0)
+        g["Tips"] = gdf.get("Tips", 0)
+        g["Status"] = "DELIVERED"  # Grubtech sales = successful orders
+        g["Cuisine"] = g["Brand"].apply(get_cuisine_for_brand)
+    else:
+        g = pd.DataFrame()
+
+    # ── Deliverect (aggregate to order level) ─────────────────────────
+    raw_del = load_deliverect_orders()
+    if not raw_del.empty:
+        dord = (
+            raw_del.groupby("OrderID", as_index=False)
+            .agg(
+                Brand=("Brand", "first"),
+                Channel=("Channel", "first"),
+                Location=("Location", "first"),
+                Status=("Status", "first"),
+                Type=("Type", "first"),
+                PaymentMethod=("Payment", "first"),
+                Cuisine=("Cuisine", "first"),
+                Timestamp=("CreatedTime", "first"),
+                Date=("Date", "first"),
+                Month=("Month", "first"),
+                Week=("Week", "first"),
+                Day=("Day", "first"),
+                Hour=("Hour", "first"),
+                GrossRevenue=("SubTotal", "first"),
+                Discount=("DiscountTotal", "first"),
+                NetRevenue=("PaymentAmount", "first"),
+                VAT=("VAT", "first"),
+                Total=("OrderTotalAmount", "first"),
+                DeliveryCost=("DeliveryCost", "first"),
+                Tips=("Tip", "first"),
+            )
+        )
+        dord["OrderID"] = dord["OrderID"].astype(str)
+        dord["DataSource"] = "Deliverect"
+        dord["Discount"] = dord["Discount"].abs()
+        d = dord
+    else:
+        d = pd.DataFrame()
+
+    # ── Combine ───────────────────────────────────────────────────────
+    frames = [f for f in [g, d] if not f.empty]
+    if not frames:
+        return pd.DataFrame()
+    combined = pd.concat(frames, ignore_index=True)
+    combined["Timestamp"] = pd.to_datetime(combined["Timestamp"], errors="coerce")
+    combined["Date"] = pd.to_datetime(combined["Date"], errors="coerce")
+    for col in ["GrossRevenue", "Discount", "NetRevenue", "VAT", "Total",
+                "DeliveryCost", "Tips"]:
+        combined[col] = pd.to_numeric(combined[col], errors="coerce").fillna(0)
+    return combined
 
 
 def load_revly_data() -> pd.DataFrame:

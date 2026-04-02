@@ -960,7 +960,7 @@ st.markdown(
     <div style="text-align:center; color:#3a4555; font-size:0.72rem; padding: 12px 0;">
         Cloud Kitchen Analytics &nbsp;|&nbsp; Data: Grubtech Export (Mar 2026)
         &nbsp;|&nbsp; Built with Streamlit &amp; Plotly
-        &nbsp;|&nbsp; Deliverect &amp; Revly integrations coming soon
+        &nbsp;|&nbsp; Deliverect: Live &nbsp;|&nbsp; Revly integration coming soon
     </div>
     """,
     unsafe_allow_html=True,
