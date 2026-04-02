@@ -573,11 +573,13 @@ def get_date_range(df: pd.DataFrame = None):
 
 CUISINE_BRAND_MAP = {
     "Big Dawg's Burgers": "American",
+    "Big Dawg\u2019s Burgers": "American",
     "Bronx Burger House": "American",
     "Juicy Buns - Loaded Burgers & Fries": "American",
     "Smashville Burgers": "American",
     "The Patty Pit - Burgers & Fries": "American",
     "Slider Shack - Mini Beach Burgers": "American",
+    "The Slider Shack": "American",
     "Winging It - Artisan Wings & Bites": "American",
     "Wings of Fury - Fiery Crispy Wings": "American",
     "Before Noon - Breakfast & Brunch": "Breakfast",
@@ -591,6 +593,7 @@ CUISINE_BRAND_MAP = {
     "Tandoori Tribe - Indian Grill": "Indian",
     "The Curry Club - Indian Kitchen": "Indian",
     "Smoky Tandoor - Indian Grill": "Indian",
+    "The Smoky Tandoor": "Indian",
     "Zaika Punjab - Indian Kitchen": "Indian",
     "Annyeong - Korean Cuisine": "Korean",
     "Hungry Oppa - Korean Street Food": "Korean",
