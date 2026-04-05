@@ -18,6 +18,7 @@ def _resolve_data_dir():
     """Resolve data directory - check multiple possible locations."""
     candidates = [
         DATA_DIR,
+        Path("E:/Cloud Kitchen/Data/JSON"),
         Path("E:/Cloud Kitchen/Grubtech Data/2503/2603/JSON"),
         Path("C:/Users/harsh/Downloads/Grubtech Data/2503/2603/JSON"),
         Path(__file__).parent.parent / "data",
