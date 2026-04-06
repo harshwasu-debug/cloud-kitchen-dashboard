@@ -59,11 +59,15 @@ def color_pct(val: float) -> str:
     return COLOR_POS if val >= 0 else COLOR_NEG
 
 
-def apply_filters(df: pd.DataFrame, brands, locations) -> pd.DataFrame:
+def apply_filters(df: pd.DataFrame, brands, locations, channels=None, cuisines=None) -> pd.DataFrame:
     if brands:
         df = df[df["Brand"].isin(brands)]
     if locations and "Location" in df.columns:
         df = df[df["Location"].isin(locations)]
+    if channels and "Channel" in df.columns:
+        df = df[df["Channel"].isin(channels)]
+    if cuisines and "Cuisine" in df.columns:
+        df = df[df["Cuisine"].isin(cuisines)]
     return df
 
 
@@ -254,6 +258,12 @@ with st.sidebar:
         help="Leave blank to include all locations",
     )
 
+    all_channels_fc = sorted(df_raw["Channel"].dropna().unique().tolist()) if "Channel" in df_raw.columns else []
+    sel_channels_fc = st.multiselect("Channel (optional)", options=all_channels_fc, default=[], help="Leave blank to include all channels")
+
+    all_cuisines_fc = sorted(df_raw["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_raw.columns else []
+    sel_cuisines_fc = st.multiselect("Cuisine (optional)", options=all_cuisines_fc, default=[], help="Leave blank to include all cuisines")
+
     st.markdown("---")
     confidence_pct = st.selectbox(
         "Confidence Interval",
@@ -284,7 +294,7 @@ with st.sidebar:
     st.caption(f"Dataset: {len(df_raw):,} orders loaded")
 
 # ─── APPLY FILTERS ────────────────────────────────────────────────────────────
-df = apply_filters(df_raw.copy(), sel_brands, sel_locations)
+df = apply_filters(df_raw.copy(), sel_brands, sel_locations, sel_channels_fc, sel_cuisines_fc)
 if sel_start_fc and sel_end_fc and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start_fc) & (df["_date"] <= sel_end_fc)]

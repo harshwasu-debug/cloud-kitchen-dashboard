@@ -70,6 +70,22 @@ sel_locs = st.sidebar.multiselect(
     help="Filter by kitchen location",
 )
 
+all_channels_me = sorted(df_orders["Channel"].dropna().unique().tolist()) if "Channel" in df_orders.columns else []
+sel_channels_me = st.sidebar.multiselect(
+    "Channel",
+    options=all_channels_me,
+    default=all_channels_me,
+    help="Filter by sales channel",
+)
+
+all_cuisines_me = sorted(df_orders["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_orders.columns else []
+sel_cuisines_me = st.sidebar.multiselect(
+    "Cuisine",
+    options=all_cuisines_me,
+    default=all_cuisines_me,
+    help="Filter by cuisine type",
+)
+
 st.sidebar.markdown("---")
 st.sidebar.markdown("**BCG Matrix Settings**")
 bcg_metric = st.sidebar.radio(
@@ -107,6 +123,10 @@ def apply_filters(df, brand_col="Brand", loc_col="Location"):
         mask &= df[brand_col].isin(sel_brands)
     if sel_locs and loc_col in df.columns:
         mask &= df[loc_col].isin(sel_locs)
+    if sel_channels_me and "Channel" in df.columns:
+        mask &= df["Channel"].isin(sel_channels_me)
+    if sel_cuisines_me and "Cuisine" in df.columns:
+        mask &= df["Cuisine"].isin(sel_cuisines_me)
     out = df[mask].copy()
     if sel_start_me and sel_end_me and "Date" in out.columns:
         out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date

@@ -110,6 +110,12 @@ with st.sidebar:
         placeholder="All types",
     )
 
+    all_locations_mkt = sorted(df_mkt_raw["Location"].dropna().unique().tolist()) if "Location" in df_mkt_raw.columns else []
+    sel_locations_mkt = st.multiselect("Location", options=all_locations_mkt, default=[], placeholder="All locations")
+
+    all_cuisines_mkt = sorted(df_mkt_raw["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_mkt_raw.columns else []
+    sel_cuisines_mkt = st.multiselect("Cuisine", options=all_cuisines_mkt, default=[], placeholder="All cuisines")
+
     st.divider()
     st.markdown("**Date Range**")
     _dates_mkt = df_mkt_raw["Date"].dropna() if "Date" in df_mkt_raw.columns else pd.Series(dtype="datetime64[ns]")
@@ -138,6 +144,10 @@ if sel_channels and "Channel" in df.columns:
     df = df[df["Channel"].isin(sel_channels)]
 if sel_types and "Type" in df.columns:
     df = df[df["Type"].isin(sel_types)]
+if sel_locations_mkt and "Location" in df.columns:
+    df = df[df["Location"].isin(sel_locations_mkt)]
+if sel_cuisines_mkt and "Cuisine" in df.columns:
+    df = df[df["Cuisine"].isin(sel_cuisines_mkt)]
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust your selections.")

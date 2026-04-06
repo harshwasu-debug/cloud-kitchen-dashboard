@@ -104,6 +104,10 @@ with st.sidebar:
     st.header("Filters")
     sel_brands = st.multiselect("Brand",    options=all_brands,    default=[], placeholder="All brands")
     sel_locations = st.multiselect("Location", options=all_locations, default=[], placeholder="All locations")
+    all_channels_ci = sorted(df_orders_raw["Channel"].dropna().unique().tolist()) if "Channel" in df_orders_raw.columns else []
+    sel_channels_ci = st.multiselect("Channel", options=all_channels_ci, default=[], placeholder="All channels")
+    all_cuisines_ci = sorted(df_orders_raw["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_orders_raw.columns else []
+    sel_cuisines_ci = st.multiselect("Cuisine", options=all_cuisines_ci, default=[], placeholder="All cuisines")
     st.divider()
     st.markdown("**Date Range**")
     _dates_ci = df_orders_raw["Received At"].dropna() if "Received At" in df_orders_raw.columns else pd.Series(dtype="datetime64[ns]")
@@ -127,6 +131,8 @@ with st.sidebar:
 df = df_orders_raw.copy()
 if sel_brands    and "Brand"    in df.columns: df = df[df["Brand"].isin(sel_brands)]
 if sel_locations and "Location" in df.columns: df = df[df["Location"].isin(sel_locations)]
+if sel_channels_ci and "Channel" in df.columns: df = df[df["Channel"].isin(sel_channels_ci)]
+if sel_cuisines_ci and "Cuisine" in df.columns: df = df[df["Cuisine"].isin(sel_cuisines_ci)]
 if sel_start_ci and sel_end_ci and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start_ci) & (df["_date"] <= sel_end_ci)]

@@ -242,6 +242,17 @@ with st.sidebar:
         label_visibility="collapsed",
     )
 
+    # Cuisine filter
+    all_cuisines_hm = sorted(orders_df["Cuisine"].dropna().unique().tolist()) if "Cuisine" in orders_df.columns else []
+    st.markdown("**Cuisine**")
+    sel_cuisines_hm = st.multiselect(
+        "Cuisines",
+        options=all_cuisines_hm,
+        default=[],
+        placeholder="All cuisines",
+        label_visibility="collapsed",
+    )
+
     st.markdown("---")
     st.markdown("**Time Range**")
     from datetime import time as _time
@@ -295,6 +306,9 @@ def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
 
     if sel_channels and "Channel" in df.columns:
         df = df.loc[df["Channel"].isin(sel_channels)]
+
+    if sel_cuisines_hm and "Cuisine" in df.columns:
+        df = df.loc[df["Cuisine"].isin(sel_cuisines_hm)]
 
     return df
 

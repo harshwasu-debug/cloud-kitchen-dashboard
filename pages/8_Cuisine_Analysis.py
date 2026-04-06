@@ -180,6 +180,12 @@ with st.sidebar:
         placeholder="All locations",
     )
 
+    all_brands_ca = sorted(df_orders["Brand"].dropna().unique().tolist()) if "Brand" in df_orders.columns else []
+    sel_brands_ca = st.multiselect("Brand", options=all_brands_ca, default=[], placeholder="All brands")
+
+    all_channels_ca = sorted(df_orders["Channel"].dropna().unique().tolist()) if "Channel" in df_orders.columns else []
+    sel_channels_ca = st.multiselect("Channel", options=all_channels_ca, default=[], placeholder="All channels")
+
     st.markdown("---")
     st.markdown("**Date Range**")
     _dates_ca = df_orders["Received At"].dropna() if "Received At" in df_orders.columns else pd.Series(dtype="datetime64[ns]")
@@ -205,6 +211,10 @@ if sel_cuisines:
     df = df[df["Cuisine"].isin(sel_cuisines)]
 if sel_locations and "Location" in df.columns:
     df = df[df["Location"].isin(sel_locations)]
+if sel_brands_ca and "Brand" in df.columns:
+    df = df[df["Brand"].isin(sel_brands_ca)]
+if sel_channels_ca and "Channel" in df.columns:
+    df = df[df["Channel"].isin(sel_channels_ca)]
 if sel_start_ca and sel_end_ca and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start_ca) & (df["_date"] <= sel_end_ca)]
@@ -223,10 +233,16 @@ if sel_cuisines and "Cuisine" in df_ops_f.columns:
     df_ops_f = df_ops_f[df_ops_f["Cuisine"].isin(sel_cuisines)]
 if sel_locations and "Location" in df_ops_f.columns:
     df_ops_f = df_ops_f[df_ops_f["Location"].isin(sel_locations)]
+if sel_brands_ca and "Brand" in df_ops_f.columns:
+    df_ops_f = df_ops_f[df_ops_f["Brand"].isin(sel_brands_ca)]
+if sel_channels_ca and "Channel" in df_ops_f.columns:
+    df_ops_f = df_ops_f[df_ops_f["Channel"].isin(sel_channels_ca)]
 
 df_cancel_f = df_cancel.copy()
 if sel_cuisines and "Cuisine" in df_cancel_f.columns:
     df_cancel_f = df_cancel_f[df_cancel_f["Cuisine"].isin(sel_cuisines)]
+if sel_brands_ca and "Brand" in df_cancel_f.columns:
+    df_cancel_f = df_cancel_f[df_cancel_f["Brand"].isin(sel_brands_ca)]
 
 # ─── PAGE HEADER ─────────────────────────────────────────────────────────────
 st.markdown(
@@ -832,7 +848,7 @@ if not brand_perf.empty:
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
     )
     fig_leader.update_yaxes(title=dict(text="", font=dict(size=11)), secondary_y=False)
-    fig_leader.update_xaxes(title=dict(text="Revenue (AED)", font=dict(size=11)), secondary_y=False)
+    fig_leader.update_xaxes(title=dict(text="Revenue (AED)", font=dict(size=11)))
     fig_leader.update_yaxes(title=dict(text="AOV (AED)", font=dict(size=11)), secondary_y=True)
     _layout(fig_leader, height=max(350, len(brand_perf) * 50))
     st.plotly_chart(fig_leader, use_container_width=True)
