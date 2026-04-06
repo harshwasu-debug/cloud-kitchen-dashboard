@@ -61,15 +61,15 @@ st.markdown(
     """
     <style>
     .kpi-card {
-        background: #1E1E2E;
+        background: #F8F9FA;
         border-radius: 10px;
         padding: 18px 20px;
         border-left: 4px solid #FF6B35;
         margin-bottom: 8px;
     }
-    .kpi-label { color: #9E9E9E; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
-    .kpi-value { color: #FFFFFF; font-size: 1.75rem; font-weight: 700; margin: 4px 0 2px; }
-    .kpi-sub   { color: #9E9E9E; font-size: 0.78rem; }
+    .kpi-label { color: #6C757D; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .kpi-value { color: #1A1A2E; font-size: 1.75rem; font-weight: 700; margin: 4px 0 2px; }
+    .kpi-sub   { color: #6C757D; font-size: 0.78rem; }
     .section-header {
         color: #FF6B35;
         font-size: 1.05rem;
@@ -77,7 +77,7 @@ st.markdown(
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin: 24px 0 12px;
-        border-bottom: 1px solid #2A2A3E;
+        border-bottom: 1px solid #DEE2E6;
         padding-bottom: 6px;
     }
     </style>

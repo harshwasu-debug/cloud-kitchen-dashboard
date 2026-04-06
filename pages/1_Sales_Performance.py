@@ -462,7 +462,7 @@ with rb_brand:
         orientation="h",
         marker=dict(
             color=brand_rev["Total Earnings"],
-            colorscale=[[0, "#2b2b2b"], [1, PRIMARY]],
+            colorscale=[[0, "#E9ECEF"], [1, PRIMARY]],
             showscale=False,
         ),
         hovertemplate="<b>%{y}</b><br>Revenue: AED %{x:,.0f}<extra></extra>",
@@ -529,7 +529,7 @@ with rb_location:
         path=["Brand", "Location Name"],
         values="Total Earnings",
         color="Total Earnings",
-        color_continuous_scale=["#1a1a2e", PRIMARY],
+        color_continuous_scale=["#E9ECEF", PRIMARY],
         hover_data={"Total Earnings": ":,.0f"},
     )
     fig_tree.update_traces(
@@ -615,7 +615,7 @@ with aov_c1:
     fig_ab = px.bar(
         aov_brand, x="Brand", y="AOV",
         color="AOV",
-        color_continuous_scale=[[0, "#2b2b2b"], [1, SECONDARY]],
+        color_continuous_scale=[[0, "#E9ECEF"], [1, SECONDARY]],
         text=aov_brand["AOV"].apply(lambda v: f"AED {v:,.0f}"),
     )
     fig_ab.update_traces(
@@ -655,7 +655,7 @@ with aov_c2:
     fig_ac = px.bar(
         aov_channel, x="Channel", y="AOV",
         color="AOV",
-        color_continuous_scale=[[0, "#2b2b2b"], [1, PRIMARY]],
+        color_continuous_scale=[[0, "#E9ECEF"], [1, PRIMARY]],
         text=aov_channel["AOV"].apply(lambda v: f"AED {v:,.0f}"),
     )
     fig_ac.update_traces(
@@ -696,7 +696,7 @@ with aov_c3:
     fig_dow = px.bar(
         aov_dow, x="Day", y="AOV",
         color="AOV",
-        color_continuous_scale=[[0, "#2b2b2b"], [1, ACCENT]],
+        color_continuous_scale=[[0, "#E9ECEF"], [1, ACCENT]],
         text=aov_dow["AOV"].apply(lambda v: f"AED {v:,.0f}"),
     )
     fig_dow.update_traces(
@@ -759,7 +759,7 @@ with aov_c4:
                 arrowhead=2,
                 arrowcolor=PRIMARY,
                 font=dict(color=PRIMARY, size=12),
-                bgcolor="rgba(0,0,0,0.5)",
+                bgcolor="rgba(0,0,0,0.05)",
             )
     fig_hour.update_layout(
         template=TEMPLATE,

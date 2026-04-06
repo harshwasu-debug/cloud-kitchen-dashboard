@@ -52,24 +52,24 @@ st.markdown(
     """
     <style>
         /* Main background */
-        .stApp { background-color: #1a1f2e; }
+        .stApp { background-color: #FFFFFF; }
 
         /* Metric card styling */
         [data-testid="metric-container"] {
-            background: linear-gradient(135deg, #1e2535 0%, #252d40 100%);
-            border: 1px solid #2e3a50;
+            background: linear-gradient(135deg, #F8F9FA 0%, #EEF0F4 100%);
+            border: 1px solid #DEE2E6;
             border-radius: 12px;
             padding: 16px 20px;
         }
         [data-testid="metric-container"] label {
-            color: #8b9ab5 !important;
+            color: #6C757D !important;
             font-size: 0.78rem !important;
             font-weight: 600 !important;
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
         [data-testid="metric-container"] [data-testid="stMetricValue"] {
-            color: #e8eaf0 !important;
+            color: #1A1A2E !important;
             font-size: 1.65rem !important;
             font-weight: 700 !important;
         }
@@ -79,7 +79,7 @@ st.markdown(
 
         /* Section headers */
         .section-header {
-            color: #e8eaf0;
+            color: #1A1A2E;
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.03em;
@@ -91,29 +91,29 @@ st.markdown(
 
         /* Sidebar styling */
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #1a1f2e 0%, #0f1318 100%);
-            border-right: 1px solid #2e3a50;
+            background: linear-gradient(180deg, #F8F9FA 0%, #EAEDF1 100%);
+            border-right: 1px solid #DEE2E6;
         }
         [data-testid="stSidebar"] .stMarkdown p {
-            color: #8b9ab5;
+            color: #495057;
         }
 
         /* Dividers */
-        hr { border-color: #2e3a50 !important; }
+        hr { border-color: #DEE2E6 !important; }
 
         /* Data source badge */
         .ds-badge {
-            background: #1e2535;
+            background: #F0FDFA;
             border: 1px solid #4ECDC4;
             border-radius: 8px;
             padding: 8px 12px;
-            color: #4ECDC4;
+            color: #0D9488;
             font-size: 0.8rem;
             font-weight: 600;
         }
         .ds-soon {
-            background: #1e2535;
-            border: 1px dashed #3a4555;
+            background: #F5F5F5;
+            border: 1px dashed #CED4DA;
             border-radius: 8px;
             padding: 6px 12px;
             color: #888;
@@ -123,7 +123,7 @@ st.markdown(
 
         /* KPI row label */
         .kpi-row-label {
-            color: #5a6a80;
+            color: #6C757D;
             font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -398,11 +398,11 @@ else:
 st.markdown(
     """
     <div style="padding: 0.5rem 0 1.5rem 0;">
-        <h1 style="color:#e8eaf0; font-size:1.85rem; font-weight:800;
+        <h1 style="color:#1A1A2E; font-size:1.85rem; font-weight:800;
                    margin:0; letter-spacing:0.02em;">
             &#127829; Cloud Kitchen Command Center
         </h1>
-        <p style="color:#8b9ab5; margin:4px 0 0 0; font-size:0.9rem;">
+        <p style="color:#6C757D; margin:4px 0 0 0; font-size:0.9rem;">
             Executive Summary &nbsp;&middot;&nbsp; Grubtech Historical Data
         </p>
     </div>
@@ -519,7 +519,7 @@ def _add_mom_line(fig: go.Figure, daily: pd.DataFrame, value_col: str, color: st
             tickfont=dict(color=color, size=10),
             title=dict(text="MoM Growth %", font=dict(color=color, size=10)),
             zeroline=True,
-            zerolinecolor="#3a4555",
+            zerolinecolor="#CED4DA",
         )
     )
     return fig
@@ -546,14 +546,14 @@ with tc1:
         fig_rev = _add_mom_line(fig_rev, daily_rev, "Gross Price", ACCENT)
         fig_rev.update_layout(
             template=TEMPLATE,
-            title=dict(text="Daily Revenue (GMV)", font=dict(size=14, color="#e8eaf0")),
+            title=dict(text="Daily Revenue (GMV)", font=dict(size=14, color="#1A1A2E")),
             xaxis=dict(title="", showgrid=False),
-            yaxis=dict(title="AED", tickformat=",.0f", gridcolor="#2e3a50"),
+            yaxis=dict(title="AED", tickformat=",.0f", gridcolor="#DEE2E6"),
             legend=dict(orientation="h", y=-0.18, font=dict(size=10)),
             margin=dict(l=10, r=10, t=45, b=10),
             height=320,
-            plot_bgcolor="#1e2535",
-            paper_bgcolor="#1e2535",
+            plot_bgcolor="#F8F9FA",
+            paper_bgcolor="#F8F9FA",
         )
         st.plotly_chart(fig_rev, use_container_width=True)
     else:
@@ -574,14 +574,14 @@ with tc2:
         fig_ord = _add_mom_line(fig_ord, daily_orders, "Orders", ACCENT)
         fig_ord.update_layout(
             template=TEMPLATE,
-            title=dict(text="Daily Orders", font=dict(size=14, color="#e8eaf0")),
+            title=dict(text="Daily Orders", font=dict(size=14, color="#1A1A2E")),
             xaxis=dict(title="", showgrid=False),
-            yaxis=dict(title="Orders", gridcolor="#2e3a50"),
+            yaxis=dict(title="Orders", gridcolor="#DEE2E6"),
             legend=dict(orientation="h", y=-0.18, font=dict(size=10)),
             margin=dict(l=10, r=10, t=45, b=10),
             height=320,
-            plot_bgcolor="#1e2535",
-            paper_bgcolor="#1e2535",
+            plot_bgcolor="#F8F9FA",
+            paper_bgcolor="#F8F9FA",
         )
         st.plotly_chart(fig_ord, use_container_width=True)
     else:
@@ -610,23 +610,23 @@ with rc1:
                 orientation="h",
                 marker=dict(
                     color=brand_rev["Gross Sales"],
-                    colorscale=[[0, "#1e2535"], [1, PRIMARY]],
+                    colorscale=[[0, "#F8F9FA"], [1, PRIMARY]],
                     showscale=False,
                 ),
                 text=brand_rev["Gross Sales"].apply(lambda v: f"AED {v:,.0f}"),
                 textposition="outside",
-                textfont=dict(size=10, color="#8b9ab5"),
+                textfont=dict(size=10, color="#6C757D"),
             )
         )
         fig_brand.update_layout(
             template=TEMPLATE,
-            title=dict(text="Revenue by Brand", font=dict(size=14, color="#e8eaf0")),
-            xaxis=dict(title="AED", tickformat=",.0f", gridcolor="#2e3a50"),
+            title=dict(text="Revenue by Brand", font=dict(size=14, color="#1A1A2E")),
+            xaxis=dict(title="AED", tickformat=",.0f", gridcolor="#DEE2E6"),
             yaxis=dict(title="", tickfont=dict(size=10)),
             margin=dict(l=10, r=90, t=45, b=10),
             height=380,
-            plot_bgcolor="#1e2535",
-            paper_bgcolor="#1e2535",
+            plot_bgcolor="#F8F9FA",
+            paper_bgcolor="#F8F9FA",
         )
         st.plotly_chart(fig_brand, use_container_width=True)
     else:
@@ -646,23 +646,23 @@ with rc1:
                     orientation="h",
                     marker=dict(
                         color=fb["Revenue"],
-                        colorscale=[[0, "#1e2535"], [1, PRIMARY]],
+                        colorscale=[[0, "#F8F9FA"], [1, PRIMARY]],
                         showscale=False,
                     ),
                     text=fb["Revenue"].apply(lambda v: f"AED {v:,.0f}"),
                     textposition="outside",
-                    textfont=dict(size=10, color="#8b9ab5"),
+                    textfont=dict(size=10, color="#6C757D"),
                 )
             )
             fig_brand.update_layout(
                 template=TEMPLATE,
-                title=dict(text="Revenue by Brand", font=dict(size=14, color="#e8eaf0")),
-                xaxis=dict(title="AED", tickformat=",.0f", gridcolor="#2e3a50"),
+                title=dict(text="Revenue by Brand", font=dict(size=14, color="#1A1A2E")),
+                xaxis=dict(title="AED", tickformat=",.0f", gridcolor="#DEE2E6"),
                 yaxis=dict(title="", tickfont=dict(size=10)),
                 margin=dict(l=10, r=90, t=45, b=10),
                 height=380,
-                plot_bgcolor="#1e2535",
-                paper_bgcolor="#1e2535",
+                plot_bgcolor="#F8F9FA",
+                paper_bgcolor="#F8F9FA",
             )
             st.plotly_chart(fig_brand, use_container_width=True)
         else:
@@ -684,17 +684,17 @@ with rc2:
         )
         fig_chan.update_layout(
             template=TEMPLATE,
-            title=dict(text="Revenue by Channel", font=dict(size=14, color="#e8eaf0")),
+            title=dict(text="Revenue by Channel", font=dict(size=14, color="#1A1A2E")),
             legend=dict(orientation="v", x=1.02, font=dict(size=10)),
             margin=dict(l=10, r=10, t=45, b=10),
             height=380,
-            paper_bgcolor="#1e2535",
+            paper_bgcolor="#F8F9FA",
         )
         fig_chan.add_annotation(
             text=f"AED<br>{total_chan_rev:,.0f}",
             x=0.5,
             y=0.5,
-            font=dict(size=13, color="#e8eaf0"),
+            font=dict(size=13, color="#1A1A2E"),
             showarrow=False,
         )
         st.plotly_chart(fig_chan, use_container_width=True)
@@ -718,17 +718,17 @@ with rc2:
             )
             fig_chan.update_layout(
                 template=TEMPLATE,
-                title=dict(text="Revenue by Channel", font=dict(size=14, color="#e8eaf0")),
+                title=dict(text="Revenue by Channel", font=dict(size=14, color="#1A1A2E")),
                 legend=dict(orientation="v", x=1.02, font=dict(size=10)),
                 margin=dict(l=10, r=10, t=45, b=10),
                 height=380,
-                paper_bgcolor="#1e2535",
+                paper_bgcolor="#F8F9FA",
             )
             fig_chan.add_annotation(
                 text=f"AED<br>{total_fc:,.0f}",
                 x=0.5,
                 y=0.5,
-                font=dict(size=13, color="#e8eaf0"),
+                font=dict(size=13, color="#1A1A2E"),
                 showarrow=False,
             )
             st.plotly_chart(fig_chan, use_container_width=True)
@@ -765,23 +765,23 @@ with lc1:
                 orientation="h",
                 marker=dict(
                     color=top_loc["No. of Orders"],
-                    colorscale=[[0, "#1e2535"], [1, SECONDARY]],
+                    colorscale=[[0, "#F8F9FA"], [1, SECONDARY]],
                     showscale=False,
                 ),
                 text=top_loc["No. of Orders"].apply(lambda v: f"{v:,.0f}"),
                 textposition="outside",
-                textfont=dict(size=10, color="#8b9ab5"),
+                textfont=dict(size=10, color="#6C757D"),
             )
         )
         fig_loc.update_layout(
             template=TEMPLATE,
-            title=dict(text="Top 10 Locations by Orders", font=dict(size=14, color="#e8eaf0")),
-            xaxis=dict(title="Orders", gridcolor="#2e3a50"),
+            title=dict(text="Top 10 Locations by Orders", font=dict(size=14, color="#1A1A2E")),
+            xaxis=dict(title="Orders", gridcolor="#DEE2E6"),
             yaxis=dict(title="", tickfont=dict(size=10)),
             margin=dict(l=10, r=60, t=45, b=10),
             height=380,
-            plot_bgcolor="#1e2535",
-            paper_bgcolor="#1e2535",
+            plot_bgcolor="#F8F9FA",
+            paper_bgcolor="#F8F9FA",
         )
         st.plotly_chart(fig_loc, use_container_width=True)
     elif not filtered_orders.empty and "Location" in filtered_orders.columns:
@@ -800,23 +800,23 @@ with lc1:
                 orientation="h",
                 marker=dict(
                     color=top_loc_f["Orders"],
-                    colorscale=[[0, "#1e2535"], [1, SECONDARY]],
+                    colorscale=[[0, "#F8F9FA"], [1, SECONDARY]],
                     showscale=False,
                 ),
                 text=top_loc_f["Orders"].apply(lambda v: f"{v:,}"),
                 textposition="outside",
-                textfont=dict(size=10, color="#8b9ab5"),
+                textfont=dict(size=10, color="#6C757D"),
             )
         )
         fig_loc.update_layout(
             template=TEMPLATE,
-            title=dict(text="Top 10 Locations by Orders", font=dict(size=14, color="#e8eaf0")),
-            xaxis=dict(title="Orders", gridcolor="#2e3a50"),
+            title=dict(text="Top 10 Locations by Orders", font=dict(size=14, color="#1A1A2E")),
+            xaxis=dict(title="Orders", gridcolor="#DEE2E6"),
             yaxis=dict(title="", tickfont=dict(size=10)),
             margin=dict(l=10, r=60, t=45, b=10),
             height=380,
-            plot_bgcolor="#1e2535",
-            paper_bgcolor="#1e2535",
+            plot_bgcolor="#F8F9FA",
+            paper_bgcolor="#F8F9FA",
         )
         st.plotly_chart(fig_loc, use_container_width=True)
     else:
@@ -835,23 +835,23 @@ with lc2:
                 y=aov_brand["Avg. Order Value"],
                 marker=dict(
                     color=aov_brand["Avg. Order Value"],
-                    colorscale=[[0, "#1e2535"], [1, ACCENT]],
+                    colorscale=[[0, "#F8F9FA"], [1, ACCENT]],
                     showscale=False,
                 ),
                 text=aov_brand["Avg. Order Value"].apply(lambda v: f"AED {v:,.1f}"),
                 textposition="outside",
-                textfont=dict(size=9, color="#8b9ab5"),
+                textfont=dict(size=9, color="#6C757D"),
             )
         )
         fig_aov.update_layout(
             template=TEMPLATE,
-            title=dict(text="Avg. Order Value by Brand", font=dict(size=14, color="#e8eaf0")),
+            title=dict(text="Avg. Order Value by Brand", font=dict(size=14, color="#1A1A2E")),
             xaxis=dict(title="", tickangle=-35, tickfont=dict(size=9)),
-            yaxis=dict(title="AED", gridcolor="#2e3a50"),
+            yaxis=dict(title="AED", gridcolor="#DEE2E6"),
             margin=dict(l=10, r=10, t=45, b=80),
             height=380,
-            plot_bgcolor="#1e2535",
-            paper_bgcolor="#1e2535",
+            plot_bgcolor="#F8F9FA",
+            paper_bgcolor="#F8F9FA",
         )
         st.plotly_chart(fig_aov, use_container_width=True)
     elif not filtered_orders.empty and "Brand" in filtered_orders.columns and "Gross Price" in filtered_orders.columns:
@@ -867,23 +867,23 @@ with lc2:
                 y=aov_f["AOV"],
                 marker=dict(
                     color=aov_f["AOV"],
-                    colorscale=[[0, "#1e2535"], [1, ACCENT]],
+                    colorscale=[[0, "#F8F9FA"], [1, ACCENT]],
                     showscale=False,
                 ),
                 text=aov_f["AOV"].apply(lambda v: f"AED {v:,.1f}"),
                 textposition="outside",
-                textfont=dict(size=9, color="#8b9ab5"),
+                textfont=dict(size=9, color="#6C757D"),
             )
         )
         fig_aov.update_layout(
             template=TEMPLATE,
-            title=dict(text="Avg. Order Value by Brand", font=dict(size=14, color="#e8eaf0")),
+            title=dict(text="Avg. Order Value by Brand", font=dict(size=14, color="#1A1A2E")),
             xaxis=dict(title="", tickangle=-35, tickfont=dict(size=9)),
-            yaxis=dict(title="AED", gridcolor="#2e3a50"),
+            yaxis=dict(title="AED", gridcolor="#DEE2E6"),
             margin=dict(l=10, r=10, t=45, b=80),
             height=380,
-            plot_bgcolor="#1e2535",
-            paper_bgcolor="#1e2535",
+            plot_bgcolor="#F8F9FA",
+            paper_bgcolor="#F8F9FA",
         )
         st.plotly_chart(fig_aov, use_container_width=True)
     else:

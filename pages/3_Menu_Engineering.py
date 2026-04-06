@@ -34,7 +34,7 @@ ACCENT = "#4ECDC4"
 st.markdown("""
 <style>
 [data-testid="stMetricValue"] { font-size: 1.6rem !important; }
-section[data-testid="stSidebar"] { background: #0e1117; }
+section[data-testid="stSidebar"] { background: #F8F9FA; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -275,7 +275,7 @@ if not item_agg.empty:
             text=f"<b>{qlabel}</b><br><span style='font-size:10px'>{qdesc}</span>",
             showarrow=False,
             font=dict(size=12, color=qcolor),
-            bgcolor="rgba(0,0,0,0.35)",
+            bgcolor="rgba(0,0,0,0.05)",
             bordercolor=qcolor,
             borderwidth=1,
             borderpad=5,
@@ -296,7 +296,7 @@ if not item_agg.empty:
                 arrowcolor=color,
                 arrowwidth=1,
                 font=dict(size=9, color=color),
-                bgcolor="rgba(0,0,0,0.5)",
+                bgcolor="rgba(0,0,0,0.05)",
                 borderpad=3,
                 ax=25, ay=-25,
             )

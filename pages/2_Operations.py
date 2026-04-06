@@ -246,7 +246,7 @@ if COL_TOTAL in fdf.columns and "Received At" in fdf.columns:
         z=heat_pivot.values,
         x=[f"{h:02d}:00" for h in heat_pivot.columns],
         y=heat_pivot.index.tolist(),
-        colorscale=[[0, "#1a1a2e"], [0.5, WARNING], [1, DANGER]],
+        colorscale=[[0, "#E9ECEF"], [0.5, WARNING], [1, DANGER]],
         hovertemplate="Day: %{y}<br>Hour: %{x}<br>Delay Rate: %{z:.1f}%<extra></extra>",
         colorbar=dict(title="Delay %"),
     ))

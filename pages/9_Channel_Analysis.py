@@ -48,15 +48,15 @@ st.markdown(
     """
     <style>
     .kpi-card {
-        background: #1E1E2E;
+        background: #F8F9FA;
         border-radius: 10px;
         padding: 18px 20px;
         border-left: 4px solid #FF6B35;
         margin-bottom: 8px;
     }
-    .kpi-label { color: #9E9E9E; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
-    .kpi-value { color: #FFFFFF; font-size: 1.75rem; font-weight: 700; margin: 4px 0 2px; }
-    .kpi-sub   { color: #9E9E9E; font-size: 0.78rem; }
+    .kpi-label { color: #6C757D; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .kpi-value { color: #1A1A2E; font-size: 1.75rem; font-weight: 700; margin: 4px 0 2px; }
+    .kpi-sub   { color: #6C757D; font-size: 0.78rem; }
     .section-header {
         color: #FF6B35;
         font-size: 1.05rem;
@@ -64,7 +64,7 @@ st.markdown(
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin: 24px 0 12px;
-        border-bottom: 1px solid #2A2A3E;
+        border-bottom: 1px solid #DEE2E6;
         padding-bottom: 6px;
     }
     </style>
@@ -763,7 +763,7 @@ if "Month" in df.columns:
             def color_growth(val):
                 try:
                     if pd.isna(val):
-                        return "color: #9E9E9E"
+                        return "color: #6C757D"
                     return "color: #2ECC71; font-weight:600" if val >= 0 else "color: #E74C3C; font-weight:600"
                 except Exception:
                     return ""
@@ -790,7 +790,7 @@ if "Month" in df.columns:
                     color_discrete_map=cmap,
                     markers=True,
                 )
-                fig_growth.add_hline(y=0, line_dash="dash", line_color="#9E9E9E")
+                fig_growth.add_hline(y=0, line_dash="dash", line_color="#6C757D")
                 fig_growth = _layout(fig_growth, height=400)
                 st.plotly_chart(fig_growth, use_container_width=True)
         else:
