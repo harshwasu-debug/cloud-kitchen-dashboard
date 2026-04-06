@@ -647,7 +647,7 @@ def get_cuisine_brand_df() -> pd.DataFrame:
 
 # ─── CPC / ADVERTISING DATA ──────────────────────────────────────────
 
-# Brand name mapping: CPC data uses "BRAND - UAE" format
+# Brand name mapping: CPC data uses "BRAND - UAE" format (Careem)
 CPC_BRAND_MAP = {
     "BRONX BURGER HOUSE - UAE": "Bronx Burger House",
     "CASA DEL QUESO - UAE": "Casa Del Queso",
@@ -657,34 +657,217 @@ CPC_BRAND_MAP = {
     "POKEMAN - UAE": "PokeMan - Poke Bowls",
     "SEOUL FOOD - UAE": "Seoul Food",
     "SMASHVILLE - UAE": "Smashville Burgers",
+    # Talabat canonical names
+    "Hikari": "Hikari - Ramen & Bao",
+    "Hungry Oppa": "Hungry Oppa",
+    "Jinjja": "Jinjja Chicken",
+    "Noona": "Noona",
+    "Norii": "Norii - Premium Sushi",
+    "Oneesan": "Oneesan - Sushi Bar",
+    "PokeMan": "PokeMan - Poke Bowls",
+    "The Big Kahuna": "The Big Kahuna",
+    "Bronx Burger House": "Bronx Burger House",
+    "Casa Del Queso": "Casa Del Queso",
+    "Loco Taco": "Loco Taco",
+    "Mexigo": "Mexigo",
+    "Patiala Plate": "Patiala Plate",
+    "Seoul Food": "Seoul Food",
+    "Smashville Burgers": "Smashville Burgers",
+    "The Curry Club": "The Curry Club",
+    "The Patty Pit": "The Patty Pit",
+    "Zaika Punjab": "Zaika Punjab",
+    # Noon/Revly canonical names
+    "Bronx Burger": "Bronx Burger House",
 }
+
+# Base path for aggregator CPC files
+_AGG_BASE = Path("E:/Cloud Kitchen/AI Teams/Aggregator_Performance")
+
+
+def _load_json_path(filepath: Path) -> dict | list:
+    """Load a JSON file from an absolute path."""
+    if not filepath.exists():
+        return {}
+    with open(filepath, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _load_talabat_cpc() -> pd.DataFrame:
+    """Load all Talabat CPC files (Keyword + Premium Position)."""
+    frames = []
+    for subdir in ("Keyword", "Premium_Position"):
+        folder = _AGG_BASE / "Talabat" / "CPC_Campaigns" / subdir
+        if not folder.exists():
+            continue
+        for fp in sorted(folder.glob("*.json")):
+            raw = _load_json_path(fp)
+            if not raw or "records" not in raw:
+                continue
+            df = pd.DataFrame(raw["records"])
+            if df.empty:
+                continue
+            # Map to common schema
+            df = df.rename(columns={
+                "date": "date_value",
+                "canonical_brand_name": "brand_name",
+                "sales": "gmv_local",
+                "cost": "netbasket_amount",
+                "menu_views_clicks": "clicks",
+                "return_on_ad_investment": "ROAS",
+                "average_cost_per_click": "source_cpc",
+                "average_cost_per_order": "source_cpo",
+                "click_to_order_rate": "source_conv_rate",
+            })
+            df["Aggregator"] = "Talabat"
+            ad_prod = raw.get("metadata", {}).get("ad_product", subdir.replace("_", " "))
+            df["Ad Product"] = df.get("ad_product", ad_prod) if "ad_product" in df.columns else ad_prod
+            # Fill columns that Talabat doesn't have
+            for col in ["impressions", "order_users",
+                        "newuser_orders", "repeatuser_orders", "lapseduser_orders",
+                        "newuser_gmv", "repeatuser_gmv", "lapseduser_gmv"]:
+                if col not in df.columns:
+                    df[col] = 0
+            # Build campaign_name from outlet + ad_product
+            if "outlet_name" in df.columns:
+                df["campaign_name"] = df["outlet_name"] + " - " + df["Ad Product"]
+            df["campaign_type"] = "Paid"
+            frames.append(df)
+    return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+
+
+def _load_careem_cpc() -> pd.DataFrame:
+    """Load Careem CPC performance data."""
+    # Primary: CPC_Results.json in dashboard data folder
+    data = _load_json("CPC_Results.json")
+    df1 = _extract_df(data, "CPCData")
+
+    # Secondary: raw file from Aggregator_Performance
+    fp2 = _AGG_BASE / "Careem" / "CPC_Campaigns" / "careem_cpc_performance.json"
+    raw2 = _load_json_path(fp2)
+    df2 = pd.DataFrame(raw2.get("records", [])) if isinstance(raw2, dict) else pd.DataFrame()
+
+    # Use raw file if dashboard file is empty; avoid duplicates by preferring the richer file
+    if not df1.empty:
+        df = df1
+    elif not df2.empty:
+        df = df2
+    else:
+        return pd.DataFrame()
+
+    df["Aggregator"] = "Careem"
+    df["Ad Product"] = "CPC"
+    if "campaign_type" not in df.columns:
+        df["campaign_type"] = "Paid"
+    return df
+
+
+def _load_careem_campaign_perf() -> pd.DataFrame:
+    """Load Careem campaign performance (quarterly aggregate from Revly)."""
+    fp = _AGG_BASE / "Careem" / "Campaign_Performance" / "revly_campaign_performance_2026-Q1.json"
+    raw = _load_json_path(fp)
+    if not raw or "records" not in raw:
+        return pd.DataFrame()
+    df = pd.DataFrame(raw["records"])
+    if df.empty:
+        return df
+    # Map to common schema
+    period_start = raw.get("metadata", {}).get("date_range", {}).get("start", "2026-01-01")
+    df = df.rename(columns={
+        "canonical_brand_name": "brand_name",
+        "attributed_order_value": "gmv_local",
+        "budget_spent": "netbasket_amount",
+        "roas": "ROAS",
+    })
+    df["date_value"] = period_start
+    df["Aggregator"] = "Careem"
+    df["Ad Product"] = df.get("type", "Campaign").apply(lambda x: f"Campaign ({x})" if pd.notna(x) else "Campaign") if "type" in df.columns else "Campaign"
+    df["campaign_name"] = df.get("chain", "") + " - Careem Campaign"
+    df["campaign_type"] = "Paid"
+    for col in ["impressions", "order_users",
+                "newuser_orders", "repeatuser_orders", "lapseduser_orders",
+                "newuser_gmv", "repeatuser_gmv", "lapseduser_gmv"]:
+        if col not in df.columns:
+            df[col] = 0
+    return df
+
+
+def _load_noon_campaign_perf() -> pd.DataFrame:
+    """Load Noon campaign performance (quarterly aggregate from Revly)."""
+    fp = _AGG_BASE / "Noon" / "Campaign_Performance" / "revly_campaign_performance_2026-Q1.json"
+    raw = _load_json_path(fp)
+    if not raw or "records" not in raw:
+        return pd.DataFrame()
+    df = pd.DataFrame(raw["records"])
+    if df.empty:
+        return df
+    period_start = raw.get("metadata", {}).get("date_range", {}).get("start", "2026-01-01")
+    df = df.rename(columns={
+        "canonical_brand_name": "brand_name",
+        "attributed_order_value": "gmv_local",
+        "budget_spent": "netbasket_amount",
+        "roas": "ROAS",
+    })
+    df["date_value"] = period_start
+    df["Aggregator"] = "Noon"
+    df["Ad Product"] = df.get("type", "Campaign").apply(lambda x: f"Campaign ({x})" if pd.notna(x) else "Campaign") if "type" in df.columns else "Campaign"
+    df["campaign_name"] = df.get("chain", "") + " - Noon Campaign"
+    df["campaign_type"] = "Paid"
+    for col in ["impressions", "order_users",
+                "newuser_orders", "repeatuser_orders", "lapseduser_orders",
+                "newuser_gmv", "repeatuser_gmv", "lapseduser_gmv"]:
+        if col not in df.columns:
+            df[col] = 0
+    return df
+
+
+def _finalize_cpc(df: pd.DataFrame) -> pd.DataFrame:
+    """Common post-processing for unified CPC DataFrame."""
+    if df.empty:
+        return df
+    df.columns = df.columns.str.strip()
+    # Parse dates
+    if "date_value" in df.columns:
+        df["date_value"] = pd.to_datetime(df["date_value"], errors="coerce")
+        df["Month"] = df["date_value"].dt.to_period("M").astype(str)
+    # Normalize brand names
+    if "brand_name" in df.columns:
+        df["Brand"] = df["brand_name"].map(CPC_BRAND_MAP).fillna(df["brand_name"])
+        df["Cuisine"] = df["Brand"].apply(get_cuisine_for_brand)
+    # Ensure numeric columns
+    for col in ["impressions", "clicks", "orders", "order_users", "gmv_local",
+                 "netbasket_amount", "ROAS", "newuser_orders", "repeatuser_orders",
+                 "lapseduser_orders", "newuser_gmv", "repeatuser_gmv", "lapseduser_gmv"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+    # Derived metrics
+    df["CPC"] = (df["netbasket_amount"] / df["clicks"].replace(0, float("nan"))).round(2)
+    df["CPO"] = (df["netbasket_amount"] / df["orders"].replace(0, float("nan"))).round(2)
+    df["CTR"] = ((df["clicks"] / df["impressions"].replace(0, float("nan"))) * 100).round(2)
+    df["Conversion Rate"] = ((df["orders"] / df["clicks"].replace(0, float("nan"))) * 100).round(2)
+    # Ensure Aggregator and Ad Product columns exist
+    if "Aggregator" not in df.columns:
+        df["Aggregator"] = "Unknown"
+    if "Ad Product" not in df.columns:
+        df["Ad Product"] = "CPC"
+    return df
 
 
 @st.cache_data(ttl=3600)
 def load_cpc_data() -> pd.DataFrame:
-    """CPC Campaign Results: 50 records. Careem paid ad campaigns."""
-    data = _load_json("CPC_Results.json")
-    df = _extract_df(data, "CPCData")
-    if not df.empty:
-        df.columns = df.columns.str.strip()
-        if "date_value" in df.columns:
-            df["date_value"] = pd.to_datetime(df["date_value"], errors="coerce")
-            df["Month"] = df["date_value"].dt.to_period("M").astype(str)
-        # Normalize brand names
-        if "brand_name" in df.columns:
-            df["Brand"] = df["brand_name"].map(CPC_BRAND_MAP).fillna(df["brand_name"])
-            df["Cuisine"] = df["Brand"].apply(get_cuisine_for_brand)
-        for col in ["impressions", "clicks", "orders", "order_users", "gmv_local",
-                     "netbasket_amount", "ROAS", "newuser_orders", "repeatuser_orders",
-                     "lapseduser_orders", "newuser_gmv", "repeatuser_gmv", "lapseduser_gmv"]:
-            if col in df.columns:
-                df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
-        # Derived metrics
-        df["CPC"] = (df["netbasket_amount"] / df["clicks"].replace(0, float("nan"))).round(2)
-        df["CPO"] = (df["netbasket_amount"] / df["orders"].replace(0, float("nan"))).round(2)
-        df["CTR"] = ((df["clicks"] / df["impressions"].replace(0, float("nan"))) * 100).round(2)
-        df["Conversion Rate"] = ((df["orders"] / df["clicks"].replace(0, float("nan"))) * 100).round(2)
-    return df
+    """Load CPC data from ALL aggregators: Talabat, Careem, Noon."""
+    frames = []
+    for loader in (_load_talabat_cpc, _load_careem_cpc,
+                   _load_careem_campaign_perf, _load_noon_campaign_perf):
+        try:
+            df = loader()
+            if not df.empty:
+                frames.append(df)
+        except Exception as e:
+            st.warning(f"CPC loader warning ({loader.__name__}): {e}")
+    if not frames:
+        return pd.DataFrame()
+    combined = pd.concat(frames, ignore_index=True)
+    return _finalize_cpc(combined)
 
 
 # ─── FUTURE: DELIVERECT & REVLY INTEGRATION STUBS ──────────────────────
