@@ -30,8 +30,8 @@ C2 = "#4ECDC4"
 C3 = "#FFE66D"
 C4 = "#845EC2"
 PALETTE = [C1, C2, C3, C4, "#A8DADC", "#E63946", "#457B9D", "#2EC4B6"]
-TEMPLATE = "plotly_dark"
-BG = "rgba(0,0,0,0)"
+TEMPLATE = "plotly_white"
+BG = "rgba(255,255,255,0)"
 
 
 # ─── HELPERS ──────────────────────────────────────────────────────────────────

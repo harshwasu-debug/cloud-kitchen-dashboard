@@ -30,7 +30,7 @@ PRIMARY   = "#FF6B35"
 SECONDARY = "#4ECDC4"
 ACCENT    = "#FFE66D"
 DARK      = "#2C3E50"
-TEMPLATE  = "plotly_dark"
+TEMPLATE  = "plotly_white"
 
 PALETTE = [
     PRIMARY, SECONDARY, ACCENT, "#A8E6CF", "#FF8B94",
@@ -116,7 +116,7 @@ st.markdown(
             border: 1px dashed #3a4555;
             border-radius: 8px;
             padding: 6px 12px;
-            color: #3a4555;
+            color: #888;
             font-size: 0.75rem;
             margin-top: 4px;
         }
@@ -253,7 +253,7 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown(
-        '<p style="color:#3a4555; font-size:0.7rem; text-align:center;">'
+        '<p style="color:#888; font-size:0.7rem; text-align:center;">'
         "Cloud Kitchen Command Center v1.0<br>"
         "Data: Grubtech + Deliverect</p>",
         unsafe_allow_html=True,
@@ -971,7 +971,7 @@ st.markdown("---")
 
 st.markdown(
     """
-    <div style="text-align:center; color:#3a4555; font-size:0.72rem; padding: 12px 0;">
+    <div style="text-align:center; color:#888; font-size:0.72rem; padding: 12px 0;">
         Cloud Kitchen Analytics &nbsp;|&nbsp; Data: Grubtech Export (Mar 2026)
         &nbsp;|&nbsp; Built with Streamlit &amp; Plotly
         &nbsp;|&nbsp; Deliverect: Live &nbsp;|&nbsp; Revly integration coming soon

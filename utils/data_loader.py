@@ -645,6 +645,48 @@ def get_cuisine_brand_df() -> pd.DataFrame:
     return pd.DataFrame(records).sort_values(["Cuisine", "Brand"]).reset_index(drop=True)
 
 
+# ─── CPC / ADVERTISING DATA ──────────────────────────────────────────
+
+# Brand name mapping: CPC data uses "BRAND - UAE" format
+CPC_BRAND_MAP = {
+    "BRONX BURGER HOUSE - UAE": "Bronx Burger House",
+    "CASA DEL QUESO - UAE": "Casa Del Queso",
+    "NOONA - UAE": "Noona",
+    "NORII - UAE": "Norii - Premium Sushi",
+    "ONEESAN - UAE": "Oneesan - Sushi Bar",
+    "POKEMAN - UAE": "PokeMan - Poke Bowls",
+    "SEOUL FOOD - UAE": "Seoul Food",
+    "SMASHVILLE - UAE": "Smashville Burgers",
+}
+
+
+@st.cache_data(ttl=3600)
+def load_cpc_data() -> pd.DataFrame:
+    """CPC Campaign Results: 50 records. Careem paid ad campaigns."""
+    data = _load_json("CPC_Results.json")
+    df = _extract_df(data, "CPCData")
+    if not df.empty:
+        df.columns = df.columns.str.strip()
+        if "date_value" in df.columns:
+            df["date_value"] = pd.to_datetime(df["date_value"], errors="coerce")
+            df["Month"] = df["date_value"].dt.to_period("M").astype(str)
+        # Normalize brand names
+        if "brand_name" in df.columns:
+            df["Brand"] = df["brand_name"].map(CPC_BRAND_MAP).fillna(df["brand_name"])
+            df["Cuisine"] = df["Brand"].apply(get_cuisine_for_brand)
+        for col in ["impressions", "clicks", "orders", "order_users", "gmv_local",
+                     "netbasket_amount", "ROAS", "newuser_orders", "repeatuser_orders",
+                     "lapseduser_orders", "newuser_gmv", "repeatuser_gmv", "lapseduser_gmv"]:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+        # Derived metrics
+        df["CPC"] = (df["netbasket_amount"] / df["clicks"].replace(0, float("nan"))).round(2)
+        df["CPO"] = (df["netbasket_amount"] / df["orders"].replace(0, float("nan"))).round(2)
+        df["CTR"] = ((df["clicks"] / df["impressions"].replace(0, float("nan"))) * 100).round(2)
+        df["Conversion Rate"] = ((df["orders"] / df["clicks"].replace(0, float("nan"))) * 100).round(2)
+    return df
+
+
 # ─── FUTURE: DELIVERECT & REVLY INTEGRATION STUBS ──────────────────────
 
 def load_deliverect_orders() -> pd.DataFrame:

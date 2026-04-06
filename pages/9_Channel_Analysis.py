@@ -33,8 +33,8 @@ st.set_page_config(page_title="Channel Analysis", page_icon="📡", layout="wide
 PRIMARY   = "#FF6B35"
 SECONDARY = "#4ECDC4"
 ACCENT    = "#FFE66D"
-TEMPLATE  = "plotly_dark"
-CHART_BG  = "rgba(0,0,0,0)"
+TEMPLATE  = "plotly_white"
+CHART_BG  = "rgba(255,255,255,0)"
 
 PALETTE = [
     PRIMARY, SECONDARY, ACCENT,

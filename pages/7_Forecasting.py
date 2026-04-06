@@ -28,8 +28,8 @@ COLOR_FORECAST   = "#4ECDC4"
 COLOR_CONFIDENCE = "#FFE66D"
 COLOR_POS        = "#00C851"
 COLOR_NEG        = "#FF4444"
-TEMPLATE         = "plotly_dark"
-BG               = "rgba(0,0,0,0)"
+TEMPLATE         = "plotly_white"
+BG               = "rgba(255,255,255,0)"
 
 # ─── PAGE CONFIG ──────────────────────────────────────────────────────────────
 st.set_page_config(page_title="Forecasting", page_icon="🔮", layout="wide")
@@ -117,9 +117,9 @@ def growth_table_html(df: pd.DataFrame, value_col: str, growth_col: str,
     return (
         "<table style='width:100%;border-collapse:collapse;background:#1a1a2e;border-radius:8px;overflow:hidden;'>"
         "<thead><tr style='background:#16213e;'>"
-        "<th style='padding:8px 12px;text-align:left;color:#aaa;font-weight:600;'>Period</th>"
-        "<th style='padding:8px 12px;text-align:right;color:#aaa;font-weight:600;'>Value</th>"
-        "<th style='padding:8px 12px;text-align:right;color:#aaa;font-weight:600;'>Growth %</th>"
+        "<th style='padding:8px 12px;text-align:left;color:#555;font-weight:600;'>Period</th>"
+        "<th style='padding:8px 12px;text-align:right;color:#555;font-weight:600;'>Value</th>"
+        "<th style='padding:8px 12px;text-align:right;color:#555;font-weight:600;'>Growth %</th>"
         "</tr></thead>"
         f"<tbody>{rows}</tbody></table>"
     )
@@ -197,7 +197,7 @@ except ImportError:
 # ─── PAGE HEADER ──────────────────────────────────────────────────────────────
 st.markdown(
     "<h1 style='margin-bottom:4px;'>🔮 Forecasting Analytics</h1>"
-    "<p style='color:#888;margin-top:0;'>Prophet-powered 30 / 60 / 90-day revenue, order and AOV projections</p>",
+    "<p style='color:#666;margin-top:0;'>Prophet-powered 30 / 60 / 90-day revenue, order and AOV projections</p>",
     unsafe_allow_html=True,
 )
 st.divider()

@@ -22,8 +22,8 @@ st.set_page_config(page_title="Sales Performance", page_icon="💰", layout="wid
 PRIMARY   = "#FF6B35"
 SECONDARY = "#4ECDC4"
 ACCENT    = "#FFE66D"
-TEMPLATE  = "plotly_dark"
-CHART_BG  = "rgba(0,0,0,0)"
+TEMPLATE  = "plotly_white"
+CHART_BG  = "rgba(255,255,255,0)"
 
 # Multi-series colour palette
 PALETTE = [
@@ -184,7 +184,7 @@ elif sel_channels:
 st.markdown(
     f"""
     <h1 style='color:{PRIMARY}; margin-bottom:0;'>💰 Sales Performance</h1>
-    <p style='color:#aaa; margin-top:4px;'>
+    <p style='color:#555; margin-top:4px;'>
         Cloud Kitchen Analytics · {total_orders:,} orders{filter_note}
     </p>
     """,

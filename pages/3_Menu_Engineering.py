@@ -21,7 +21,7 @@ st.set_page_config(
     layout="wide",
 )
 
-TEMPLATE = "plotly_dark"
+TEMPLATE = "plotly_white"
 COLORS = {
     "Stars":       "#4ECDC4",
     "Puzzles":     "#FFE66D",

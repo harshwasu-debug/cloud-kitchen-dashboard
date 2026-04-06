@@ -34,8 +34,8 @@ st.set_page_config(page_title="Cuisine Analysis", page_icon="🍽️", layout="w
 PRIMARY   = "#FF6B35"
 SECONDARY = "#4ECDC4"
 ACCENT    = "#FFE66D"
-TEMPLATE  = "plotly_dark"
-CHART_BG  = "rgba(0,0,0,0)"
+TEMPLATE  = "plotly_white"
+CHART_BG  = "rgba(255,255,255,0)"
 
 CUISINE_COLORS = {
     "American":  "#FF6B35",
@@ -232,7 +232,7 @@ if sel_cuisines and "Cuisine" in df_cancel_f.columns:
 st.markdown(
     f"""
     <h1 style='color:{PRIMARY}; margin-bottom:0;'>🍽️ Cuisine Analysis</h1>
-    <p style='color:#aaa; margin-top:4px;'>
+    <p style='color:#555; margin-top:4px;'>
         Cross-cuisine performance comparison · {len(df):,} orders
     </p>
     """,
@@ -538,7 +538,7 @@ if "Location" in df.columns:
         z=heat_pivot.values,
         x=heat_pivot.columns.tolist(),
         y=heat_pivot.index.tolist(),
-        colorscale=[[0, "#16161F"], [0.5, "#FF6B35"], [1, "#FFE66D"]],
+        colorscale=[[0, "#FFFFFF"], [0.5, "#FF6B35"], [1, "#FFE66D"]],
         text=[[fmt_aed(v) for v in row] for row in heat_pivot.values],
         texttemplate="%{text}",
         hovertemplate="Cuisine: %{y}<br>Location: %{x}<br>Revenue: %{text}<extra></extra>",

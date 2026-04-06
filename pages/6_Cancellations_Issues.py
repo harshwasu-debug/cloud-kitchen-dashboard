@@ -33,9 +33,9 @@ SUCCESS  = "#4ECDC4"
 PRIMARY  = "#FF6B35"
 MUTED    = "#9E9E9E"
 BG_CARD  = "#1E1E2E"
-BG_PLOT  = "#16161F"
-TEMPLATE = "plotly_dark"
-BG       = "rgba(0,0,0,0)"
+BG_PLOT  = "#FFFFFF"
+TEMPLATE = "plotly_white"
+BG       = "rgba(255,255,255,0)"
 
 # ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
 st.set_page_config(

@@ -22,7 +22,7 @@ PRIMARY   = "#FF6B35"
 SECONDARY = "#4ECDC4"
 WARNING   = "#FFE66D"
 DANGER    = "#FF6B6B"
-TEMPLATE  = "plotly_dark"
+TEMPLATE  = "plotly_white"
 DELAY_THRESHOLD   = 45   # minutes
 TARGET_DELAY_RATE = 20   # percent
 

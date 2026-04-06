@@ -28,8 +28,8 @@ st.set_page_config(page_title="Customer Intelligence", page_icon="👥", layout=
 COLORS    = ["#FF6B35", "#4ECDC4", "#FFE66D", "#FF6B6B", "#845EC2", "#00C9A7"]
 PRIMARY   = COLORS[0]
 SECONDARY = COLORS[1]
-TEMPLATE  = "plotly_dark"
-BG        = "rgba(0,0,0,0)"
+TEMPLATE  = "plotly_white"
+BG        = "rgba(255,255,255,0)"
 SEG_ORDER = ["Champions", "Loyal", "At Risk", "New", "One-time"]
 
 

@@ -114,7 +114,7 @@ def create_forecast_chart(historical_df: pd.DataFrame, forecast_df: pd.DataFrame
         title=title,
         xaxis_title="Date",
         yaxis_title=y_label,
-        template="plotly_dark",
+        template="plotly_white",
         hovermode="x unified",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         margin=dict(l=40, r=20, t=60, b=40),
