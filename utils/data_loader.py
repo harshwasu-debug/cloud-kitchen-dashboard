@@ -854,20 +854,35 @@ def _finalize_cpc(df: pd.DataFrame) -> pd.DataFrame:
 
 @st.cache_data(ttl=3600)
 def load_cpc_data() -> pd.DataFrame:
-    """Load CPC data from ALL aggregators: Talabat, Careem, Noon."""
+    """Load CPC data from ALL aggregators: Talabat, Careem, Noon.
+
+    Strategy:
+    1. Try loading from individual aggregator source files (local dev).
+    2. If no source files found (cloud deploy), fall back to the unified
+       CPC_Results.json which already contains all aggregator data with
+       Aggregator and Ad Product columns baked in.
+    """
     frames = []
-    for loader in (_load_talabat_cpc, _load_careem_cpc,
-                   _load_careem_campaign_perf, _load_noon_campaign_perf):
-        try:
-            df = loader()
-            if not df.empty:
-                frames.append(df)
-        except Exception as e:
-            st.warning(f"CPC loader warning ({loader.__name__}): {e}")
-    if not frames:
-        return pd.DataFrame()
-    combined = pd.concat(frames, ignore_index=True)
-    return _finalize_cpc(combined)
+    if _AGG_BASE.exists():
+        for loader in (_load_talabat_cpc, _load_careem_cpc,
+                       _load_careem_campaign_perf, _load_noon_campaign_perf):
+            try:
+                df = loader()
+                if not df.empty:
+                    frames.append(df)
+            except Exception as e:
+                st.warning(f"CPC loader warning ({loader.__name__}): {e}")
+
+    if frames:
+        combined = pd.concat(frames, ignore_index=True)
+        return _finalize_cpc(combined)
+
+    # Fallback: unified CPC_Results.json (for Streamlit Cloud / no local files)
+    data = _load_json("CPC_Results.json")
+    df = _extract_df(data, "CPCData")
+    if not df.empty:
+        return _finalize_cpc(df)
+    return pd.DataFrame()
 
 
 # ─── FUTURE: DELIVERECT & REVLY INTEGRATION STUBS ──────────────────────
