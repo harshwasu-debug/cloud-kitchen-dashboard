@@ -346,21 +346,22 @@ def apply_location_filter(df: pd.DataFrame) -> pd.DataFrame:
 filtered_orders  = apply_filters(orders_df.copy())
 filtered_cancel  = apply_filters(cancel_df.copy())
 
-# Determine if date/time filters are active — pre-aggregated tables can't filter by time
-_time_filter_active = (
-    sel_start and sel_end and (sel_time_from_hm != _time(0, 0) or sel_time_to_hm != _time(23, 59))
+# Pre-aggregated tables are lifetime totals — can't filter by Cuisine, Date, or Time.
+# Bypass them whenever ANY filter is active, forcing charts to recompute from filtered_orders.
+_use_preagg = not (
+    sel_cuisines_hm
+    or (sel_time_from_hm != _time(0, 0) or sel_time_to_hm != _time(23, 59))
+    or sel_brands or sel_locations or sel_channels
 )
 
-if _time_filter_active:
-    # When time filters are active, make pre-aggregated data empty to force
-    # fallback paths that compute from filtered_orders (which IS properly filtered)
-    filtered_brand = pd.DataFrame()
-    filtered_chan   = pd.DataFrame()
-    filtered_loc   = pd.DataFrame()
-else:
+if _use_preagg:
     filtered_brand   = apply_brand_filter(brand_df.copy())
     filtered_chan     = apply_channel_filter(chan_df.copy())
     filtered_loc     = apply_location_filter(loc_df.copy())
+else:
+    filtered_brand = pd.DataFrame()
+    filtered_chan   = pd.DataFrame()
+    filtered_loc   = pd.DataFrame()
 
 # ─── KPI CALCULATIONS ────────────────────────────────────────────────────────
 

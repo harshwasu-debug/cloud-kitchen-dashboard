@@ -120,31 +120,27 @@ elif sel_start and sel_end and "Date" in df.columns:
     df = df[(df["_date"] >= sel_start) & (df["_date"] <= sel_end)]
     df = df.drop(columns=["_date"])
 
-# Determine if date/time filters are active (pre-aggregated tables can't filter by time)
-_time_filter_active = (
-    sel_start and sel_end and (sel_time_from != _time(0, 0) or sel_time_to != _time(23, 59))
+# Pre-aggregated tables (df_brand, df_channels, df_location) are lifetime totals
+# that only have Brand/Channel/Location columns. They CANNOT filter by:
+#   - Cuisine (no Cuisine column)
+#   - Date/Time range (no timestamp column)
+# So we bypass them whenever ANY of these filters are active, forcing charts to
+# recompute from the properly filtered `df` (order-level data).
+_use_preagg = not (
+    sel_cuisines                                                               # Cuisine filter active
+    or (sel_time_from != _time(0, 0) or sel_time_to != _time(23, 59))         # Time filter active
+    or sel_brands or sel_locations or sel_channels                              # Any dimension filter
 )
 
-# Filter aggregated tables by brand/channel/location where applicable
-# When time filters are active, force empty so fallback paths compute from filtered df
-if _time_filter_active:
+if _use_preagg:
+    df_brand_f = df_brand.copy()
+    df_channels_f = df_channels.copy()
+    df_location_f = df_location.copy()
+else:
+    # Force empty — fallback paths in charts will compute from filtered df
     df_brand_f = pd.DataFrame()
     df_channels_f = pd.DataFrame()
     df_location_f = pd.DataFrame()
-else:
-    df_brand_f = df_brand.copy()
-    if sel_brands and "Brand" in df_brand_f.columns:
-        df_brand_f = df_brand_f[df_brand_f["Brand"].isin(sel_brands)]
-
-    df_channels_f = df_channels.copy()
-    if sel_channels and "Channel" in df_channels_f.columns:
-        df_channels_f = df_channels_f[df_channels_f["Channel"].isin(sel_channels)]
-
-    df_location_f = df_location.copy()
-    if sel_locations and "Location Name" in df_location_f.columns:
-        df_location_f = df_location_f[df_location_f["Location Name"].isin(sel_locations)]
-    if sel_brands and "Brand" in df_location_f.columns:
-        df_location_f = df_location_f[df_location_f["Brand"].isin(sel_brands)]
 
 # ─── GUARD: EMPTY DATA ────────────────────────────────────────────────────────
 if df.empty:
