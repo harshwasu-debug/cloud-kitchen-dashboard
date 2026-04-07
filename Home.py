@@ -339,10 +339,23 @@ def apply_location_filter(df: pd.DataFrame) -> pd.DataFrame:
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 
 filtered_orders  = apply_filters(orders_df.copy())
-filtered_brand   = apply_brand_filter(brand_df.copy())
-filtered_chan     = apply_channel_filter(chan_df.copy())
-filtered_loc     = apply_location_filter(loc_df.copy())
 filtered_cancel  = apply_filters(cancel_df.copy())
+
+# Determine if date/time filters are active — pre-aggregated tables can't filter by time
+_time_filter_active = (
+    sel_start and sel_end and (sel_time_from_hm != _time(0, 0) or sel_time_to_hm != _time(23, 59))
+)
+
+if _time_filter_active:
+    # When time filters are active, make pre-aggregated data empty to force
+    # fallback paths that compute from filtered_orders (which IS properly filtered)
+    filtered_brand = pd.DataFrame()
+    filtered_chan   = pd.DataFrame()
+    filtered_loc   = pd.DataFrame()
+else:
+    filtered_brand   = apply_brand_filter(brand_df.copy())
+    filtered_chan     = apply_channel_filter(chan_df.copy())
+    filtered_loc     = apply_location_filter(loc_df.copy())
 
 # ─── KPI CALCULATIONS ────────────────────────────────────────────────────────
 

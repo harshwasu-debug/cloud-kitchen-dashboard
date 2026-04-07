@@ -109,20 +109,31 @@ elif sel_start and sel_end and "Date" in df.columns:
     df = df[(df["_date"] >= sel_start) & (df["_date"] <= sel_end)]
     df = df.drop(columns=["_date"])
 
+# Determine if date/time filters are active (pre-aggregated tables can't filter by time)
+_time_filter_active = (
+    sel_start and sel_end and (sel_time_from != _time(0, 0) or sel_time_to != _time(23, 59))
+)
+
 # Filter aggregated tables by brand/channel/location where applicable
-df_brand_f = df_brand.copy()
-if sel_brands and "Brand" in df_brand_f.columns:
-    df_brand_f = df_brand_f[df_brand_f["Brand"].isin(sel_brands)]
+# When time filters are active, force empty so fallback paths compute from filtered df
+if _time_filter_active:
+    df_brand_f = pd.DataFrame()
+    df_channels_f = pd.DataFrame()
+    df_location_f = pd.DataFrame()
+else:
+    df_brand_f = df_brand.copy()
+    if sel_brands and "Brand" in df_brand_f.columns:
+        df_brand_f = df_brand_f[df_brand_f["Brand"].isin(sel_brands)]
 
-df_channels_f = df_channels.copy()
-if sel_channels and "Channel" in df_channels_f.columns:
-    df_channels_f = df_channels_f[df_channels_f["Channel"].isin(sel_channels)]
+    df_channels_f = df_channels.copy()
+    if sel_channels and "Channel" in df_channels_f.columns:
+        df_channels_f = df_channels_f[df_channels_f["Channel"].isin(sel_channels)]
 
-df_location_f = df_location.copy()
-if sel_locations and "Location Name" in df_location_f.columns:
-    df_location_f = df_location_f[df_location_f["Location Name"].isin(sel_locations)]
-if sel_brands and "Brand" in df_location_f.columns:
-    df_location_f = df_location_f[df_location_f["Brand"].isin(sel_brands)]
+    df_location_f = df_location.copy()
+    if sel_locations and "Location Name" in df_location_f.columns:
+        df_location_f = df_location_f[df_location_f["Location Name"].isin(sel_locations)]
+    if sel_brands and "Brand" in df_location_f.columns:
+        df_location_f = df_location_f[df_location_f["Brand"].isin(sel_brands)]
 
 # ─── GUARD: EMPTY DATA ────────────────────────────────────────────────────────
 if df.empty:
