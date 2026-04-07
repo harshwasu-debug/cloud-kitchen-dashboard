@@ -14,7 +14,7 @@ import streamlit as st
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from utils.data_loader import load_sales_orders, get_all_brands, get_all_locations, get_all_channels
+from utils.data_loader import load_sales_orders, get_all_brands, get_all_locations, get_all_channels, add_cuisine_column, get_all_cuisines
 from utils.forecasting import (
     prepare_prophet_df,
     run_prophet_forecast,
@@ -226,6 +226,7 @@ if df_raw.empty:
 df_raw["Received At"] = pd.to_datetime(df_raw["Received At"], errors="coerce")
 df_raw["Total(Receipt Total)"] = pd.to_numeric(df_raw["Total(Receipt Total)"], errors="coerce").fillna(0)
 df_raw["Net Sales"] = pd.to_numeric(df_raw.get("Net Sales", 0), errors="coerce").fillna(0)
+df_raw = add_cuisine_column(df_raw, "Brand")
 
 all_brands    = sorted(get_all_brands())
 all_locations = sorted(get_all_locations())
@@ -261,7 +262,7 @@ with st.sidebar:
     all_channels_fc = sorted(df_raw["Channel"].dropna().unique().tolist()) if "Channel" in df_raw.columns else []
     sel_channels_fc = st.multiselect("Channel (optional)", options=all_channels_fc, default=[], help="Leave blank to include all channels")
 
-    all_cuisines_fc = sorted(df_raw["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_raw.columns else []
+    all_cuisines_fc = get_all_cuisines()
     sel_cuisines_fc = st.multiselect("Cuisine (optional)", options=all_cuisines_fc, default=[], help="Leave blank to include all cuisines")
 
     st.markdown("---")

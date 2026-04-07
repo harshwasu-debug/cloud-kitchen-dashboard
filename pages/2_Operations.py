@@ -39,6 +39,9 @@ def get_data():
 with st.spinner("Loading operations data…"):
     df_orders, df_locations, df_stations, df_pos = get_data()
 
+df_orders  = add_cuisine_column(df_orders, "Brand")
+df_stations = add_cuisine_column(df_stations, "Brand") if "Brand" in df_stations.columns else df_stations
+
 # ─── SIDEBAR FILTERS ─────────────────────────────────────────────────────────
 st.sidebar.header("⚙️ Operations Filters")
 
@@ -48,10 +51,12 @@ def _unique(df, col):
 all_brands    = _unique(df_orders, "Brand")
 all_locations = _unique(df_orders, "Location")
 all_channels  = _unique(df_orders, "Channel")
+all_cuisines  = get_all_cuisines()
 
 sel_brands    = st.sidebar.multiselect("Brand",    all_brands,    default=all_brands)
 sel_locations = st.sidebar.multiselect("Location", all_locations, default=all_locations)
 sel_channels  = st.sidebar.multiselect("Channel",  all_channels,  default=all_channels)
+sel_cuisines  = st.sidebar.multiselect("Cuisine",  all_cuisines,  default=[], placeholder="All cuisines")
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Date Range**")
@@ -75,6 +80,7 @@ def apply_filters(df):
     if sel_brands    and "Brand"    in df.columns: mask &= df["Brand"].isin(sel_brands)
     if sel_locations and "Location" in df.columns: mask &= df["Location"].isin(sel_locations)
     if sel_channels  and "Channel"  in df.columns: mask &= df["Channel"].isin(sel_channels)
+    if sel_cuisines  and "Cuisine"  in df.columns: mask &= df["Cuisine"].isin(sel_cuisines)
     out = df[mask].copy()
     if sel_start_op and sel_end_op and "Received At" in out.columns:
         from datetime import datetime as _dt

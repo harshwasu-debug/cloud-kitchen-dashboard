@@ -19,6 +19,8 @@ from utils.data_loader import (
     load_marketing,
     load_sales_brand,
     load_sales_orders,
+    add_cuisine_column,
+    get_all_cuisines,
 )
 
 # ─── PAGE CONFIG ──────────────────────────────────────────────────────────────
@@ -79,6 +81,8 @@ with st.spinner("Loading marketing data…"):
     df_orders = load_sales_orders()
     df_brand_sales = load_sales_brand()
 
+df_mkt_raw = add_cuisine_column(df_mkt_raw, "Brand")
+
 if df_mkt_raw.empty:
     st.error("Marketing data could not be loaded. Please verify the data file exists.")
     st.stop()
@@ -113,7 +117,7 @@ with st.sidebar:
     all_locations_mkt = sorted(df_mkt_raw["Location"].dropna().unique().tolist()) if "Location" in df_mkt_raw.columns else []
     sel_locations_mkt = st.multiselect("Location", options=all_locations_mkt, default=[], placeholder="All locations")
 
-    all_cuisines_mkt = sorted(df_mkt_raw["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_mkt_raw.columns else []
+    all_cuisines_mkt = get_all_cuisines()
     sel_cuisines_mkt = st.multiselect("Cuisine", options=all_cuisines_mkt, default=[], placeholder="All cuisines")
 
     st.divider()

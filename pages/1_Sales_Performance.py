@@ -40,9 +40,12 @@ with st.spinner("Loading sales data…"):
     df_channels = load_sales_channels()
     df_location = load_sales_location()
 
+df_orders = add_cuisine_column(df_orders, "Brand")
+
 all_brands    = get_all_brands(df_orders)
 all_locations = get_all_locations(df_orders)
 all_channels  = get_all_channels(df_orders)
+all_cuisines  = get_all_cuisines()
 
 # ─── SIDEBAR FILTERS ─────────────────────────────────────────────────────────
 with st.sidebar:
@@ -66,6 +69,12 @@ with st.sidebar:
         options=all_channels,
         default=[],
         placeholder="All channels",
+    )
+    sel_cuisines = st.multiselect(
+        "Cuisine",
+        options=all_cuisines,
+        default=[],
+        placeholder="All cuisines",
     )
 
     st.markdown("---")
@@ -99,6 +108,8 @@ if sel_locations:
     df = df[df["Location"].isin(sel_locations)]
 if sel_channels:
     df = df[df["Channel"].isin(sel_channels)]
+if sel_cuisines and "Cuisine" in df.columns:
+    df = df[df["Cuisine"].isin(sel_cuisines)]
 if sel_start and sel_end and "Received At" in df.columns:
     from datetime import datetime as _dt
     _start_dt = pd.Timestamp(_dt.combine(sel_start, sel_time_from))

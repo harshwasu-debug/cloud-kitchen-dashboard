@@ -19,6 +19,8 @@ from utils.data_loader import (
     get_all_brands,
     get_all_locations,
     get_all_channels,
+    add_cuisine_column,
+    get_all_cuisines,
 )
 
 # ── PAGE CONFIG ────────────────────────────────────────────────────────────────
@@ -96,6 +98,8 @@ with st.spinner("Loading data…"):
     df_orders_raw = load_sales_orders()
     df_customers  = load_customers()
 
+df_orders_raw = add_cuisine_column(df_orders_raw, "Brand")
+
 all_brands    = get_all_brands(df_orders_raw)
 all_locations = get_all_locations(df_orders_raw)
 
@@ -106,7 +110,7 @@ with st.sidebar:
     sel_locations = st.multiselect("Location", options=all_locations, default=[], placeholder="All locations")
     all_channels_ci = sorted(df_orders_raw["Channel"].dropna().unique().tolist()) if "Channel" in df_orders_raw.columns else []
     sel_channels_ci = st.multiselect("Channel", options=all_channels_ci, default=[], placeholder="All channels")
-    all_cuisines_ci = sorted(df_orders_raw["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_orders_raw.columns else []
+    all_cuisines_ci = get_all_cuisines()
     sel_cuisines_ci = st.multiselect("Cuisine", options=all_cuisines_ci, default=[], placeholder="All cuisines")
     st.divider()
     st.markdown("**Date Range**")

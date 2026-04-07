@@ -22,6 +22,8 @@ from utils.data_loader import (
     get_all_locations,
     get_all_channels,
     get_date_range,
+    add_cuisine_column,
+    get_all_cuisines,
 )
 
 # ─── CONSTANTS ──────────────────────────────────────────────────────────────
@@ -153,6 +155,9 @@ def _load_all():
 with st.spinner("Loading data..."):
     orders_df, brand_df, chan_df, loc_df, cancel_df = _load_all()
 
+orders_df = add_cuisine_column(orders_df, "Brand")
+cancel_df = add_cuisine_column(cancel_df, "Brand")
+
 all_brands    = get_all_brands(orders_df)
 all_locations = get_all_locations(orders_df)
 all_channels  = get_all_channels(orders_df)
@@ -243,7 +248,7 @@ with st.sidebar:
     )
 
     # Cuisine filter
-    all_cuisines_hm = sorted(orders_df["Cuisine"].dropna().unique().tolist()) if "Cuisine" in orders_df.columns else []
+    all_cuisines_hm = get_all_cuisines()
     st.markdown("**Cuisine**")
     sel_cuisines_hm = st.multiselect(
         "Cuisines",

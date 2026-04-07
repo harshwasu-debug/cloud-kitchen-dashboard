@@ -21,6 +21,8 @@ from utils.data_loader import (
     load_cancelled_orders,
     load_cpc_data,
     get_cuisine_for_brand,
+    add_cuisine_column,
+    get_all_cuisines,
     CUISINE_BRAND_MAP,
 )
 
@@ -93,6 +95,10 @@ def load_all_data():
 
 orders_df, cancelled_df, cpc_df = load_all_data()
 
+orders_df = add_cuisine_column(orders_df, "Brand")
+cancelled_df = add_cuisine_column(cancelled_df, "Brand")
+cpc_df = add_cuisine_column(cpc_df, "Brand")
+
 # ─── SIDEBAR FILTERS ────────────────────────────────────────────────────────
 st.sidebar.header("🤖 AI Q&A Filters")
 
@@ -107,7 +113,7 @@ sel_locations = st.sidebar.multiselect("Location", all_locations, default=[], pl
 all_channels = sorted(df_work["Channel"].dropna().unique().tolist()) if "Channel" in df_work.columns else []
 sel_channels = st.sidebar.multiselect("Channel", all_channels, default=[], placeholder="All channels")
 
-all_cuisines = sorted(df_work["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_work.columns else []
+all_cuisines = get_all_cuisines()
 sel_cuisines = st.sidebar.multiselect("Cuisine", all_cuisines, default=[], placeholder="All cuisines")
 
 st.sidebar.markdown("---")

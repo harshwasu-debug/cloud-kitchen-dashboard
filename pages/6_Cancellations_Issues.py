@@ -23,6 +23,8 @@ from utils.data_loader import (
     load_pos_sync,
     get_all_brands,
     get_all_locations,
+    add_cuisine_column,
+    get_all_cuisines,
     get_all_channels,
 )
 
@@ -104,13 +106,15 @@ def fmt_currency(val: float) -> str:
     return f"AED {val:,.0f}"
 
 
-def apply_filters(df: pd.DataFrame, brands, locations, channels) -> pd.DataFrame:
+def apply_filters(df: pd.DataFrame, brands, locations, channels, cuisines=None) -> pd.DataFrame:
     if brands and "Brand" in df.columns:
         df = df[df["Brand"].isin(brands)]
     if locations and "Location" in df.columns:
         df = df[df["Location"].isin(locations)]
     if channels and "Channel" in df.columns:
         df = df[df["Channel"].isin(channels)]
+    if cuisines and "Cuisine" in df.columns:
+        df = df[df["Cuisine"].isin(cuisines)]
     return df
 
 
@@ -171,6 +175,11 @@ with st.spinner("Loading data…"):
     all_brands      = get_all_brands()
     all_locations   = get_all_locations()
     all_channels    = get_all_channels()
+    all_cuisines    = get_all_cuisines()
+
+df_cancel_raw = add_cuisine_column(df_cancel_raw, "Brand")
+df_reject_raw = add_cuisine_column(df_reject_raw, "Brand")
+df_sales_raw  = add_cuisine_column(df_sales_raw, "Brand")
 
 # ─── SIDEBAR FILTERS ─────────────────────────────────────────────────────────
 
@@ -179,6 +188,7 @@ with st.sidebar:
     sel_brands    = st.multiselect("Brand",    all_brands,    placeholder="All brands")
     sel_locations = st.multiselect("Location", all_locations, placeholder="All locations")
     sel_channels  = st.multiselect("Channel",  all_channels,  placeholder="All channels")
+    sel_cuisines  = st.multiselect("Cuisine",  all_cuisines,  placeholder="All cuisines")
     st.markdown("---")
     st.markdown("**Date Range**")
     _all_dates_ci = pd.to_datetime(df_cancel_raw["Date"], errors="coerce").dropna() if "Date" in df_cancel_raw.columns else pd.Series(dtype="datetime64[ns]")
@@ -200,9 +210,9 @@ with st.sidebar:
 
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 
-df_cancel = apply_filters(df_cancel_raw.copy(), sel_brands, sel_locations, sel_channels)
-df_reject = apply_filters(df_reject_raw.copy(), sel_brands, sel_locations, sel_channels)
-df_sales  = apply_filters(df_sales_raw.copy(),  sel_brands, sel_locations, sel_channels)
+df_cancel = apply_filters(df_cancel_raw.copy(), sel_brands, sel_locations, sel_channels, sel_cuisines)
+df_reject = apply_filters(df_reject_raw.copy(), sel_brands, sel_locations, sel_channels, sel_cuisines)
+df_sales  = apply_filters(df_sales_raw.copy(),  sel_brands, sel_locations, sel_channels, sel_cuisines)
 
 # Apply date + time range filter
 def _apply_date_filter(dframe):

@@ -18,7 +18,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from utils.data_loader import load_cpc_data
+from utils.data_loader import load_cpc_data, add_cuisine_column, get_all_cuisines
 
 # ─── PAGE CONFIG ─────────────────────────────────────────────────────────────
 st.set_page_config(page_title="CPC & Advertising", page_icon="📣", layout="wide")
@@ -177,6 +177,7 @@ if raw_df is None or raw_df.empty:
     st.stop()
 
 df_work = raw_df.copy()
+df_work = add_cuisine_column(df_work, "Brand")
 
 # Ensure date column is datetime
 if "date_value" in df_work.columns:
@@ -195,7 +196,7 @@ all_brands = sorted(df_work["Brand"].dropna().unique().tolist()) if "Brand" in d
 sel_brands = st.sidebar.multiselect("Brand", all_brands, default=all_brands)
 
 # Cuisine filter
-all_cuisines = sorted(df_work["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_work.columns else []
+all_cuisines = get_all_cuisines()
 sel_cuisines = st.sidebar.multiselect("Cuisine", all_cuisines, default=all_cuisines)
 
 # Date range filter

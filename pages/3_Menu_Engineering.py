@@ -50,6 +50,9 @@ def get_menu_data():
 with st.spinner("Loading menu data…"):
     df_details, df_orders, df_modifiers, df_tags = get_menu_data()
 
+df_details  = add_cuisine_column(df_details, "Brand")
+df_orders   = add_cuisine_column(df_orders, "Brand")
+
 # ─── SIDEBAR FILTERS ────────────────────────────────────────────────────────
 st.sidebar.title("🍽️ Menu Engineering")
 st.sidebar.markdown("---")
@@ -78,7 +81,7 @@ sel_channels_me = st.sidebar.multiselect(
     help="Filter by sales channel",
 )
 
-all_cuisines_me = sorted(df_orders["Cuisine"].dropna().unique().tolist()) if "Cuisine" in df_orders.columns else []
+all_cuisines_me = get_all_cuisines()
 sel_cuisines_me = st.sidebar.multiselect(
     "Cuisine",
     options=all_cuisines_me,
