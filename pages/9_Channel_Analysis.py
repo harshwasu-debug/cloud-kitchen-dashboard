@@ -23,6 +23,8 @@ from utils.data_loader import (
     get_all_locations,
     get_all_channels,
     get_cuisine_for_brand,
+    add_cuisine_column,
+    get_all_cuisines,
     CUISINE_BRAND_MAP,
 )
 
@@ -194,6 +196,10 @@ sel_brands = st.sidebar.multiselect("Brand", options=all_brands, default=all_bra
 all_locations = sorted(df_raw["Location"].dropna().unique().tolist()) if "Location" in df_raw.columns else []
 sel_locations = st.sidebar.multiselect("Location", options=all_locations, default=all_locations)
 
+# Cuisine
+all_cuisines_ch = get_all_cuisines()
+sel_cuisines_ch = st.sidebar.multiselect("Cuisine", options=all_cuisines_ch, default=[], placeholder="All cuisines")
+
 # Time Range
 st.sidebar.markdown("**Time Range**")
 from datetime import time as _time
@@ -216,6 +222,8 @@ if sel_brands:
     df = df[df["Brand"].isin(sel_brands)]
 if sel_locations:
     df = df[df["Location"].isin(sel_locations)]
+if sel_cuisines_ch and "Cuisine" in df.columns:
+    df = df[df["Cuisine"].isin(sel_cuisines_ch)]
 
 if df.empty:
     st.info("No data matches the selected filters. Please adjust your filters.")
@@ -224,13 +232,20 @@ if df.empty:
 # Filtered cancellations
 df_cancel = pd.DataFrame()
 if not df_cancel_raw.empty:
-    df_cancel = df_cancel_raw.copy()
+    df_cancel = add_cuisine_column(df_cancel_raw.copy(), "Brand")
     if "Channel" in df_cancel.columns and sel_channels:
         df_cancel = df_cancel[df_cancel["Channel"].isin(sel_channels)]
     if "Brand" in df_cancel.columns and sel_brands:
         df_cancel = df_cancel[df_cancel["Brand"].isin(sel_brands)]
     if "Location" in df_cancel.columns and sel_locations:
         df_cancel = df_cancel[df_cancel["Location"].isin(sel_locations)]
+    if sel_cuisines_ch and "Cuisine" in df_cancel.columns:
+        df_cancel = df_cancel[df_cancel["Cuisine"].isin(sel_cuisines_ch)]
+    if len(date_range) == 2 and "Received At" in df_cancel.columns:
+        df_cancel["Received At"] = pd.to_datetime(df_cancel["Received At"], errors="coerce")
+        _cs = pd.Timestamp(_dt.combine(date_range[0], sel_time_from_ch))
+        _ce = pd.Timestamp(_dt.combine(date_range[1], sel_time_to_ch))
+        df_cancel = df_cancel[(df_cancel["Received At"] >= _cs) & (df_cancel["Received At"] <= _ce)]
 
 cmap = channel_color_map(df["Channel"].dropna().unique())
 

@@ -199,6 +199,20 @@ sel_brands = st.sidebar.multiselect("Brand", all_brands, default=all_brands)
 all_cuisines = get_all_cuisines()
 sel_cuisines = st.sidebar.multiselect("Cuisine", all_cuisines, default=all_cuisines)
 
+# Location filter (only if column exists in CPC data)
+all_locations_cpc = sorted(df_work["Location"].dropna().unique().tolist()) if "Location" in df_work.columns else []
+if all_locations_cpc:
+    sel_locations_cpc = st.sidebar.multiselect("Location", all_locations_cpc, default=all_locations_cpc)
+else:
+    sel_locations_cpc = []
+
+# Channel filter (only if column exists in CPC data)
+all_channels_cpc = sorted(df_work["Channel"].dropna().unique().tolist()) if "Channel" in df_work.columns else []
+if all_channels_cpc:
+    sel_channels_cpc = st.sidebar.multiselect("Channel", all_channels_cpc, default=all_channels_cpc)
+else:
+    sel_channels_cpc = []
+
 # Date range filter
 if "date_value" in df_work.columns and df_work["date_value"].notna().any():
     min_date = df_work["date_value"].min().date()
@@ -217,12 +231,13 @@ else:
     start_date, end_date = None, None
 
 # Time range filter
+from datetime import time as _time
 st.sidebar.markdown("**Time Range**")
 time_col1, time_col2 = st.sidebar.columns(2)
 with time_col1:
-    from_time = st.time_input("From", value=None, step=1800)
+    sel_time_from_cpc = st.time_input("From", value=_time(0, 0), step=1800, key="tf_cpc")
 with time_col2:
-    to_time = st.time_input("To", value=None, step=1800)
+    sel_time_to_cpc = st.time_input("To", value=_time(23, 59), step=1800, key="tt_cpc")
 
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 df = df_work.copy()
@@ -235,11 +250,15 @@ if sel_brands:
     df = df[df["Brand"].isin(sel_brands)]
 if sel_cuisines:
     df = df[df["Cuisine"].isin(sel_cuisines)]
+if sel_locations_cpc and "Location" in df.columns:
+    df = df[df["Location"].isin(sel_locations_cpc)]
+if sel_channels_cpc and "Channel" in df.columns:
+    df = df[df["Channel"].isin(sel_channels_cpc)]
 if start_date and end_date and "date_value" in df.columns:
-    df = df[
-        (df["date_value"].dt.date >= start_date)
-        & (df["date_value"].dt.date <= end_date)
-    ]
+    from datetime import datetime as _dt
+    _s = pd.Timestamp(_dt.combine(start_date, sel_time_from_cpc))
+    _e = pd.Timestamp(_dt.combine(end_date, sel_time_to_cpc))
+    df = df[(df["date_value"] >= _s) & (df["date_value"] <= _e)]
 
 if df.empty:
     st.info("No data matches the selected filters. Please adjust your filters.")

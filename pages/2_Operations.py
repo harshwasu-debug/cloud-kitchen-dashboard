@@ -95,6 +95,7 @@ def apply_filters(df):
 
 fdf = apply_filters(df_orders)
 fst = apply_filters(df_stations)
+fpos = apply_filters(df_pos)
 
 # ─── COLUMN ALIASES ──────────────────────────────────────────────────────────
 COL_ACCEPT   = "Order Accepted to Started (min)"
@@ -487,17 +488,17 @@ pos1, pos2 = st.columns([2, 1])
 with pos1:
     st.markdown("##### Sync Success Rate by Location")
     needed = {"Location", "Sync Successful", "Total No of Orders", "Error"}
-    if not df_pos.empty and needed.issubset(df_pos.columns):
+    if not fpos.empty and needed.issubset(fpos.columns):
         fig11 = go.Figure()
         fig11.add_trace(go.Bar(
             name="Sync Successful",
-            x=df_pos["Location"], y=df_pos["Sync Successful"],
+            x=fpos["Location"], y=fpos["Sync Successful"],
             marker_color=SECONDARY,
             hovertemplate="%{x}<br>Successful: %{y:,}<extra></extra>",
         ))
         fig11.add_trace(go.Bar(
             name="Errors",
-            x=df_pos["Location"], y=df_pos["Error"],
+            x=fpos["Location"], y=fpos["Error"],
             marker_color=DANGER,
             hovertemplate="%{x}<br>Errors: %{y:,}<extra></extra>",
         ))
@@ -513,9 +514,9 @@ with pos1:
 
 with pos2:
     st.markdown("##### Total Errors by Brand")
-    if not df_pos.empty and {"Brand", "Error"}.issubset(df_pos.columns):
+    if not fpos.empty and {"Brand", "Error"}.issubset(fpos.columns):
         brand_err = (
-            df_pos.groupby("Brand")["Error"].sum()
+            fpos.groupby("Brand")["Error"].sum()
                   .sort_values(ascending=True).reset_index()
         )
         fig12 = px.bar(

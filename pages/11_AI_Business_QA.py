@@ -159,7 +159,7 @@ def apply_filters(df):
 
 filtered_orders = apply_filters(orders_df)
 filtered_cancelled = apply_filters(cancelled_df)
-filtered_cpc = cpc_df.copy()  # CPC has its own filters built-in
+filtered_cpc = apply_filters(cpc_df)
 
 
 # ─── DATA SUMMARY FOR CLAUDE ────────────────────────────────────────────────
