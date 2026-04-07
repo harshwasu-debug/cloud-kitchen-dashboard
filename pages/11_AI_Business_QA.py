@@ -145,10 +145,10 @@ def apply_filters(df):
     if sel_cuisines and "Cuisine" in out.columns:
         out = out[out["Cuisine"].isin(sel_cuisines)]
     if start_date and end_date and "Received At" in out.columns:
-        out = out[(out["Received At"].dt.date >= start_date) & (out["Received At"].dt.date <= end_date)]
-    if "Received At" in out.columns and (sel_time_from != _time(0, 0) or sel_time_to != _time(23, 59)):
-        _t = out["Received At"].dt.time
-        out = out[(_t >= sel_time_from) & (_t <= sel_time_to)]
+        from datetime import datetime as _dt
+        _s = pd.Timestamp(_dt.combine(start_date, sel_time_from))
+        _e = pd.Timestamp(_dt.combine(end_date, sel_time_to))
+        out = out[(out["Received At"] >= _s) & (out["Received At"] <= _e)]
     return out
 
 filtered_orders = apply_filters(orders_df)

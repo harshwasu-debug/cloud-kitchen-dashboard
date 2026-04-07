@@ -206,14 +206,15 @@ df_sales  = apply_filters(df_sales_raw.copy(),  sel_brands, sel_locations, sel_c
 
 # Apply date + time range filter
 def _apply_date_filter(dframe):
-    if sel_start_ci6 and sel_end_ci6 and "Date" in dframe.columns:
-        dframe["Date"] = pd.to_datetime(dframe["Date"], errors="coerce")
-        dframe = dframe[dframe["Date"].dt.date >= sel_start_ci6]
-        dframe = dframe[dframe["Date"].dt.date <= sel_end_ci6]
-        if sel_time_from_c6 != _time(0, 0) or sel_time_to_c6 != _time(23, 59):
-            _t = dframe["Date"].dt.time
-            _valid = _t.notna()
-            dframe = dframe[~_valid | ((_t >= sel_time_from_c6) & (_t <= sel_time_to_c6))]
+    if sel_start_ci6 and sel_end_ci6:
+        from datetime import datetime as _dt
+        _s = pd.Timestamp(_dt.combine(sel_start_ci6, sel_time_from_c6))
+        _e = pd.Timestamp(_dt.combine(sel_end_ci6, sel_time_to_c6))
+        if "Received At" in dframe.columns:
+            dframe = dframe[(dframe["Received At"] >= _s) & (dframe["Received At"] <= _e)]
+        elif "Date" in dframe.columns:
+            dframe["Date"] = pd.to_datetime(dframe["Date"], errors="coerce")
+            dframe = dframe[(dframe["Date"] >= _s) & (dframe["Date"] <= _e)]
     return dframe
 df_cancel = _apply_date_filter(df_cancel)
 df_reject = _apply_date_filter(df_reject)

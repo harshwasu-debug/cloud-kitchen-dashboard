@@ -295,13 +295,16 @@ with st.sidebar:
 
 # ─── APPLY FILTERS ────────────────────────────────────────────────────────────
 df = apply_filters(df_raw.copy(), sel_brands, sel_locations, sel_channels_fc, sel_cuisines_fc)
-if sel_start_fc and sel_end_fc and "Date" in df.columns:
-    df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
-    df = df[(df["_date"] >= sel_start_fc) & (df["_date"] <= sel_end_fc)]
-    df = df.drop(columns=["_date"])
-if "Received At" in df.columns and (sel_time_from_fc != _time(0, 0) or sel_time_to_fc != _time(23, 59)):
-    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
-    df = df[(_t >= sel_time_from_fc) & (_t <= sel_time_to_fc)]
+if sel_start_fc and sel_end_fc:
+    from datetime import datetime as _dt
+    _s = pd.Timestamp(_dt.combine(sel_start_fc, sel_time_from_fc))
+    _e = pd.Timestamp(_dt.combine(sel_end_fc, sel_time_to_fc))
+    if "Received At" in df.columns:
+        df = df[(df["Received At"] >= _s) & (df["Received At"] <= _e)]
+    elif "Date" in df.columns:
+        df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
+        df = df[(df["_date"] >= sel_start_fc) & (df["_date"] <= sel_end_fc)]
+        df = df.drop(columns=["_date"])
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust the sidebar controls.")

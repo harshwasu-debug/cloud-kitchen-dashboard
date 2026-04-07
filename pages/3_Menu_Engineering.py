@@ -128,14 +128,16 @@ def apply_filters(df, brand_col="Brand", loc_col="Location"):
     if sel_cuisines_me and "Cuisine" in df.columns:
         mask &= df["Cuisine"].isin(sel_cuisines_me)
     out = df[mask].copy()
-    if sel_start_me and sel_end_me and "Date" in out.columns:
-        out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date
-        out = out[(out["_date"] >= sel_start_me) & (out["_date"] <= sel_end_me)]
-        out = out.drop(columns=["_date"])
-    if "Date" in out.columns and (sel_time_from_me != _time(0, 0) or sel_time_to_me != _time(23, 59)):
-        _t = pd.to_datetime(out["Date"], errors="coerce").dt.time
-        _valid = _t.notna()
-        out = out[~_valid | ((_t >= sel_time_from_me) & (_t <= sel_time_to_me))]
+    if sel_start_me and sel_end_me:
+        from datetime import datetime as _dt
+        _s = pd.Timestamp(_dt.combine(sel_start_me, sel_time_from_me))
+        _e = pd.Timestamp(_dt.combine(sel_end_me, sel_time_to_me))
+        if "Received At" in out.columns:
+            out = out[(out["Received At"] >= _s) & (out["Received At"] <= _e)]
+        elif "Date" in out.columns:
+            out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date
+            out = out[(out["_date"] >= sel_start_me) & (out["_date"] <= sel_end_me)]
+            out = out.drop(columns=["_date"])
     return out
 
 det  = apply_filters(df_details)

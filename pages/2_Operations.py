@@ -76,13 +76,15 @@ def apply_filters(df):
     if sel_locations and "Location" in df.columns: mask &= df["Location"].isin(sel_locations)
     if sel_channels  and "Channel"  in df.columns: mask &= df["Channel"].isin(sel_channels)
     out = df[mask].copy()
-    if sel_start_op and sel_end_op and "Date" in out.columns:
+    if sel_start_op and sel_end_op and "Received At" in out.columns:
+        from datetime import datetime as _dt
+        _s = pd.Timestamp(_dt.combine(sel_start_op, sel_time_from_op))
+        _e = pd.Timestamp(_dt.combine(sel_end_op, sel_time_to_op))
+        out = out[(out["Received At"] >= _s) & (out["Received At"] <= _e)]
+    elif sel_start_op and sel_end_op and "Date" in out.columns:
         out["_date"] = pd.to_datetime(out["Date"], errors="coerce").dt.date
         out = out[(out["_date"] >= sel_start_op) & (out["_date"] <= sel_end_op)]
         out = out.drop(columns=["_date"])
-    if "Received At" in out.columns and (sel_time_from_op != _time(0, 0) or sel_time_to_op != _time(23, 59)):
-        _t = pd.to_datetime(out["Received At"], errors="coerce").dt.time
-        out = out[(_t >= sel_time_from_op) & (_t <= sel_time_to_op)]
     return out
 
 fdf = apply_filters(df_orders)

@@ -99,13 +99,15 @@ if sel_locations:
     df = df[df["Location"].isin(sel_locations)]
 if sel_channels:
     df = df[df["Channel"].isin(sel_channels)]
-if sel_start and sel_end and "Date" in df.columns:
+if sel_start and sel_end and "Received At" in df.columns:
+    from datetime import datetime as _dt
+    _start_dt = pd.Timestamp(_dt.combine(sel_start, sel_time_from))
+    _end_dt = pd.Timestamp(_dt.combine(sel_end, sel_time_to))
+    df = df[(df["Received At"] >= _start_dt) & (df["Received At"] <= _end_dt)]
+elif sel_start and sel_end and "Date" in df.columns:
     df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
     df = df[(df["_date"] >= sel_start) & (df["_date"] <= sel_end)]
     df = df.drop(columns=["_date"])
-if "Received At" in df.columns and (sel_time_from != _time(0, 0) or sel_time_to != _time(23, 59)):
-    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
-    df = df[(_t >= sel_time_from) & (_t <= sel_time_to)]
 
 # Filter aggregated tables by brand/channel/location where applicable
 df_brand_f = df_brand.copy()

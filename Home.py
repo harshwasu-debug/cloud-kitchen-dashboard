@@ -277,23 +277,17 @@ def apply_filters(df: pd.DataFrame) -> pd.DataFrame:
     if df.empty:
         return df
 
-    # Date filter on Received At
+    # Combined date + time filter using full datetime comparison
     if sel_start and sel_end and "Received At" in df.columns:
-        mask = (
-            (df["Received At"].dt.date >= sel_start)
-            & (df["Received At"].dt.date <= sel_end)
-        )
-        df = df.loc[mask]
+        from datetime import datetime as _dt
+        start_datetime = pd.Timestamp(_dt.combine(sel_start, sel_time_from_hm))
+        end_datetime = pd.Timestamp(_dt.combine(sel_end, sel_time_to_hm))
+        df = df.loc[(df["Received At"] >= start_datetime) & (df["Received At"] <= end_datetime)]
     elif sel_start and sel_end and "Date" in df.columns:
         date_col = df["Date"]
         if pd.api.types.is_datetime64_any_dtype(date_col):
             date_col = date_col.dt.date
         df = df.loc[(date_col >= sel_start) & (date_col <= sel_end)]
-
-    # Time filter
-    if "Received At" in df.columns and (sel_time_from_hm != _time(0, 0) or sel_time_to_hm != _time(23, 59)):
-        _t = df["Received At"].dt.time
-        df = df[(_t >= sel_time_from_hm) & (_t <= sel_time_to_hm)]
 
     if sel_brands and "Brand" in df.columns:
         df = df.loc[df["Brand"].isin(sel_brands)]

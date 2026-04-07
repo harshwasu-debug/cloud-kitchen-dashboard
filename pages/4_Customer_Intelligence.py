@@ -133,13 +133,16 @@ if sel_brands    and "Brand"    in df.columns: df = df[df["Brand"].isin(sel_bran
 if sel_locations and "Location" in df.columns: df = df[df["Location"].isin(sel_locations)]
 if sel_channels_ci and "Channel" in df.columns: df = df[df["Channel"].isin(sel_channels_ci)]
 if sel_cuisines_ci and "Cuisine" in df.columns: df = df[df["Cuisine"].isin(sel_cuisines_ci)]
-if sel_start_ci and sel_end_ci and "Date" in df.columns:
-    df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
-    df = df[(df["_date"] >= sel_start_ci) & (df["_date"] <= sel_end_ci)]
-    df = df.drop(columns=["_date"])
-if "Received At" in df.columns and (sel_time_from_ci != _time(0, 0) or sel_time_to_ci != _time(23, 59)):
-    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
-    df = df[(_t >= sel_time_from_ci) & (_t <= sel_time_to_ci)]
+if sel_start_ci and sel_end_ci:
+    from datetime import datetime as _dt
+    _s = pd.Timestamp(_dt.combine(sel_start_ci, sel_time_from_ci))
+    _e = pd.Timestamp(_dt.combine(sel_end_ci, sel_time_to_ci))
+    if "Received At" in df.columns:
+        df = df[(df["Received At"] >= _s) & (df["Received At"] <= _e)]
+    elif "Date" in df.columns:
+        df["_date"] = pd.to_datetime(df["Date"], errors="coerce").dt.date
+        df = df[(df["_date"] >= sel_start_ci) & (df["_date"] <= sel_end_ci)]
+        df = df.drop(columns=["_date"])
 
 if df.empty:
     st.warning("No data matches the selected filters. Please adjust your selections.")

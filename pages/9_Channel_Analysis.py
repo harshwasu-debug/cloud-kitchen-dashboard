@@ -206,17 +206,16 @@ with _tc2_ch:
 # Apply filters
 df = df_raw.copy()
 if len(date_range) == 2:
-    start_dt, end_dt = pd.Timestamp(date_range[0]), pd.Timestamp(date_range[1]) + pd.Timedelta(days=1)
-    df = df[df["Received At"].between(start_dt, end_dt, inclusive="left")]
+    from datetime import datetime as _dt
+    _s = pd.Timestamp(_dt.combine(date_range[0], sel_time_from_ch))
+    _e = pd.Timestamp(_dt.combine(date_range[1], sel_time_to_ch))
+    df = df[(df["Received At"] >= _s) & (df["Received At"] <= _e)]
 if sel_channels:
     df = df[df["Channel"].isin(sel_channels)]
 if sel_brands:
     df = df[df["Brand"].isin(sel_brands)]
 if sel_locations:
     df = df[df["Location"].isin(sel_locations)]
-if "Received At" in df.columns and (sel_time_from_ch != _time(0, 0) or sel_time_to_ch != _time(23, 59)):
-    _t = pd.to_datetime(df["Received At"], errors="coerce").dt.time
-    df = df[(_t >= sel_time_from_ch) & (_t <= sel_time_to_ch)]
 
 if df.empty:
     st.info("No data matches the selected filters. Please adjust your filters.")
