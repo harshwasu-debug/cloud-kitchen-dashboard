@@ -203,6 +203,10 @@ def load_sales_orders() -> pd.DataFrame:
                  "Discount", "VAT", "Total(Receipt Total)", "Tips"]:
         if col in combined.columns:
             combined[col] = pd.to_numeric(combined[col], errors="coerce").fillna(0)
+    # Normalize channel names
+    if "Channel" in combined.columns:
+        _ch_map = {"KeeTa": "Keeta", "Noon Food": "Noon"}
+        combined["Channel"] = combined["Channel"].replace(_ch_map)
     return combined
 
 
@@ -374,6 +378,9 @@ def load_cancelled_orders() -> pd.DataFrame:
     for col in ["Sales Amount", "VAT", "Sales After Tax"]:
         if col in combined.columns:
             combined[col] = pd.to_numeric(combined[col], errors="coerce").fillna(0)
+    if "Channel" in combined.columns:
+        _ch_map = {"KeeTa": "Keeta", "Noon Food": "Noon"}
+        combined["Channel"] = combined["Channel"].replace(_ch_map)
     return combined
 
 
