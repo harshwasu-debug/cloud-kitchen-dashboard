@@ -1,7 +1,10 @@
 """
-Centralized data loader for Grubtech Cloud Kitchen Dashboard.
-Loads all 19 JSON data files and provides cleaned DataFrames.
-Designed to also support Deliverect and Revly data sources in the future.
+Centralized data loader for ZWQ Cloud Kitchen Dashboard.
+
+Data sources:
+- Grubtech: historical, used for orders BEFORE 2026-03-24
+- Deliverect: live, used for orders ON OR AFTER 2026-03-24
+The two are partitioned by date — no overlap, no double-count.
 """
 
 import json
@@ -12,6 +15,10 @@ from pathlib import Path
 
 # Base path to JSON data
 DATA_DIR = Path(__file__).parent.parent.parent / "JSON"
+
+# Cutover date: switched from Grubtech to Deliverect during week of 2026-03-24.
+# Earliest Deliverect record is 2026-03-24 11:19. Anything before is Grubtech-only.
+DELIVERECT_CUTOVER = pd.Timestamp("2026-03-24")
 
 
 def _resolve_data_dir():
@@ -58,13 +65,15 @@ def _extract_df(data, expected_sheet=None) -> pd.DataFrame:
 
 @st.cache_data(ttl=3600)
 def _load_grubtech_sales_orders() -> pd.DataFrame:
-    """Load Grubtech Sales Orders only (internal helper)."""
+    """Load Grubtech Sales Orders, filtered to dates BEFORE the Deliverect cutover."""
     data = _load_json("2603 Sales - Orders.json")
     df = _extract_df(data, "OrderDetails")
     if not df.empty:
         df.columns = df.columns.str.strip()
         if "Received At" in df.columns:
             df["Received At"] = pd.to_datetime(df["Received At"], errors="coerce")
+            # Partition: Grubtech owns dates strictly BEFORE cutover
+            df = df[df["Received At"] < DELIVERECT_CUTOVER].copy()
             df["Date"] = df["Received At"].dt.date
             df["Month"] = df["Received At"].dt.to_period("M").astype(str)
             df["Week"] = df["Received At"].dt.isocalendar().week.astype(int)
@@ -91,7 +100,7 @@ def _load_deliverect_as_grubtech_schema() -> pd.DataFrame:
 
     raw.columns = raw.columns.str.strip()
     # Parse timestamps
-    for col in ["CreatedTime"]:
+    for col in ["CreatedTime", "PickupTime"]:
         if col in raw.columns:
             raw[col] = pd.to_datetime(raw[col], errors="coerce", utc=True)
             raw[col] = raw[col].dt.tz_convert("Asia/Dubai").dt.tz_localize(None)
@@ -101,6 +110,9 @@ def _load_deliverect_as_grubtech_schema() -> pd.DataFrame:
                  "Tip", "DriverTip", "Tax", "VAT", "OrderTotalAmount"]:
         if col in raw.columns:
             raw[col] = pd.to_numeric(raw[col], errors="coerce").fillna(0)
+
+    # Partition: Deliverect owns dates ON OR AFTER cutover
+    raw = raw[raw["CreatedTime"] >= DELIVERECT_CUTOVER]
 
     # Only include successful orders (exclude CANCELLED / FAILED for sales)
     success_statuses = ["DELIVERED", "AUTO_FINALIZED", "ACCEPTED",
@@ -120,6 +132,7 @@ def _load_deliverect_as_grubtech_schema() -> pd.DataFrame:
             Type=("Type", "first"),
             Payment=("Payment", "first"),
             CreatedTime=("CreatedTime", "first"),
+            PickupTime=("PickupTime", "first"),
             ItemPriceTotal=("ItemPrice", "sum"),
             ItemQtyTotal=("ItemQuantities", "sum"),
             ServiceCharge=("ServiceCharge", "max"),
@@ -148,6 +161,7 @@ def _load_deliverect_as_grubtech_schema() -> pd.DataFrame:
     mapped["Order ID"] = orders["OrderID"].astype(str)
     mapped["Sequence Number"] = 1
     mapped["Received At"] = orders["CreatedTime"]
+    mapped["Pickup Time"] = orders["PickupTime"]
     mapped["Type"] = orders["Type"].replace({"DELIVERY": "Delivery by food aggregator",
                                               "PICKUP": "Pickup"})
     mapped["Customer Name"] = "N/A"
@@ -311,21 +325,22 @@ def load_operations_stations() -> pd.DataFrame:
 
 @st.cache_data(ttl=3600)
 def load_cancelled_orders() -> pd.DataFrame:
-    """Cancelled Orders: Grubtech (525) + Deliverect cancelled/failed orders."""
-    # ── Grubtech cancelled ──
+    """Cancelled Orders: Grubtech (pre-cutover) + Deliverect cancelled (post-cutover)."""
+    # ── Grubtech cancelled (filter to pre-cutover) ──
     data = _load_json("2603 Cancelled orders.json")
     gdf = _extract_df(data, "CancelledOrder")
     if not gdf.empty:
         gdf.columns = gdf.columns.str.strip()
         if "Date" in gdf.columns:
             gdf["Date"] = pd.to_datetime(gdf["Date"], errors="coerce")
+            gdf = gdf[gdf["Date"] < DELIVERECT_CUTOVER].copy()
         if "Cancellation Time" in gdf.columns:
             gdf["Cancellation Time"] = pd.to_datetime(gdf["Cancellation Time"], errors="coerce")
         for col in ["Sales Amount", "VAT", "Sales After Tax"]:
             if col in gdf.columns:
                 gdf[col] = pd.to_numeric(gdf[col], errors="coerce").fillna(0)
 
-    # ── Deliverect cancelled/failed ──
+    # ── Deliverect cancelled/failed (post-cutover) ──
     del_data = _load_json("Deliverect_March_2026.json")
     del_raw = _extract_df(del_data, "DeliverectOrders")
     ddf = pd.DataFrame()
@@ -338,18 +353,26 @@ def load_cancelled_orders() -> pd.DataFrame:
                 del_cancel[col] = pd.to_numeric(del_cancel[col], errors="coerce").fillna(0)
             del_cancel["CreatedTime"] = pd.to_datetime(del_cancel["CreatedTime"], errors="coerce", utc=True)
             del_cancel["CreatedTime"] = del_cancel["CreatedTime"].dt.tz_convert("Asia/Dubai").dt.tz_localize(None)
+            if "PickupTime" in del_cancel.columns:
+                del_cancel["PickupTime"] = pd.to_datetime(del_cancel["PickupTime"], errors="coerce", utc=True)
+                del_cancel["PickupTime"] = del_cancel["PickupTime"].dt.tz_convert("Asia/Dubai").dt.tz_localize(None)
+            # Partition: Deliverect owns post-cutover
+            del_cancel = del_cancel[del_cancel["CreatedTime"] >= DELIVERECT_CUTOVER]
             # Aggregate to order level
-            del_orders = (
-                del_cancel.groupby("OrderID", as_index=False)
-                .agg(Brand=("Brands", "first"), Channel=("Channel", "first"),
-                     Location=("Location", "first"), Status=("Status", "first"),
-                     CreatedTime=("CreatedTime", "first"),
-                     OrderTotalAmount=("OrderTotalAmount", "max"),
-                     VAT=("VAT", "max"),
-                     FailureMessage=("FailureMessage", "first"))
+            agg_dict = dict(
+                Brand=("Brands", "first"), Channel=("Channel", "first"),
+                Location=("Location", "first"), Status=("Status", "first"),
+                CreatedTime=("CreatedTime", "first"),
+                OrderTotalAmount=("OrderTotalAmount", "max"),
+                VAT=("VAT", "max"),
+                FailureMessage=("FailureMessage", "first"),
             )
+            if "PickupTime" in del_cancel.columns:
+                agg_dict["PickupTime"] = ("PickupTime", "first")
+            del_orders = del_cancel.groupby("OrderID", as_index=False).agg(**agg_dict)
             ddf = pd.DataFrame()
             ddf["Date"] = del_orders["CreatedTime"]
+            ddf["Pickup Time"] = del_orders.get("PickupTime")
             ddf["Order ID"] = del_orders["OrderID"].astype(str)
             ddf["Unique Order ID"] = del_orders["OrderID"].astype(str)
             ddf["Order Sequence"] = None
@@ -944,7 +967,7 @@ def load_cpc_data() -> pd.DataFrame:
 # ─── FUTURE: DELIVERECT & REVLY INTEGRATION STUBS ──────────────────────
 
 def load_deliverect_orders() -> pd.DataFrame:
-    """Deliverect Orders: 1,249+ records from Deliverect middleware CSV exports."""
+    """Deliverect Orders: live order-line data, filtered to post-cutover."""
     data = _load_json("Deliverect_March_2026.json")
     df = _extract_df(data, "DeliverectOrders")
     if not df.empty:
@@ -954,6 +977,9 @@ def load_deliverect_orders() -> pd.DataFrame:
             if col in df.columns:
                 df[col] = pd.to_datetime(df[col], errors="coerce", utc=True)
                 df[col] = df[col].dt.tz_convert("Asia/Dubai").dt.tz_localize(None)
+        # Partition: Deliverect owns post-cutover (defensive — already true today)
+        if "CreatedTime" in df.columns:
+            df = df[df["CreatedTime"] >= DELIVERECT_CUTOVER].copy()
         if "CreatedTime" in df.columns:
             df["Date"] = df["CreatedTime"].dt.date
             df["Month"] = df["CreatedTime"].dt.to_period("M").astype(str)
