@@ -184,11 +184,12 @@ df_sales_raw  = add_cuisine_column(df_sales_raw, "Brand")
 # ─── SIDEBAR FILTERS ─────────────────────────────────────────────────────────
 
 with st.sidebar:
-    st.markdown("## Filters")
-    sel_brands    = st.multiselect("Brand",    all_brands,    placeholder="All brands")
-    sel_locations = st.multiselect("Location", all_locations, placeholder="All locations")
-    sel_channels  = st.multiselect("Channel",  all_channels,  placeholder="All channels")
-    sel_cuisines  = st.multiselect("Cuisine",  all_cuisines,  placeholder="All cuisines")
+    st.markdown("## 🎛️ Filters")
+    st.caption("Filters persist across pages.")
+    sel_brands    = st.multiselect("Brand",    all_brands,    placeholder="All brands",    key="f_brands")
+    sel_locations = st.multiselect("Location", all_locations, placeholder="All locations", key="f_locations")
+    sel_channels  = st.multiselect("Channel",  all_channels,  placeholder="All channels",  key="f_channels")
+    sel_cuisines  = st.multiselect("Cuisine",  all_cuisines,  placeholder="All cuisines",  key="f_cuisines")
     st.markdown("---")
     st.markdown("**Date Range**")
     _all_dates_ci = pd.to_datetime(df_cancel_raw["Date"], errors="coerce").dropna() if "Date" in df_cancel_raw.columns else pd.Series(dtype="datetime64[ns]")
@@ -196,17 +197,17 @@ with st.sidebar:
     _max_ci6 = _all_dates_ci.max().date() if not _all_dates_ci.empty else None
     sel_start_ci6 = sel_end_ci6 = None
     if _min_ci6 and _max_ci6:
-        _dr_ci6 = st.date_input("Period", value=(_min_ci6, _max_ci6), min_value=_min_ci6, max_value=_max_ci6, label_visibility="collapsed")
+        _dr_ci6 = st.date_input("Period", value=(_min_ci6, _max_ci6), min_value=_min_ci6, max_value=_max_ci6, label_visibility="collapsed", key="f_dates")
         sel_start_ci6, sel_end_ci6 = (_dr_ci6[0], _dr_ci6[1]) if isinstance(_dr_ci6, (list, tuple)) and len(_dr_ci6) == 2 else (_min_ci6, _max_ci6)
     st.markdown("**Time Range**")
     from datetime import time as _time
     _tc1_c6, _tc2_c6 = st.columns(2)
     with _tc1_c6:
-        sel_time_from_c6 = st.time_input("From", value=_time(0, 0), step=1800, key="tf_c6")
+        sel_time_from_c6 = st.time_input("From", value=_time(0, 0), step=1800, key="f_time_from")
     with _tc2_c6:
-        sel_time_to_c6 = st.time_input("To", value=_time(23, 59), step=1800, key="tt_c6")
+        sel_time_to_c6 = st.time_input("To", value=_time(23, 59), step=1800, key="f_time_to")
     st.markdown("---")
-    st.caption("Data: Grubtech + Deliverect")
+    st.caption("Data: Grubtech (≤ Mar 23) + Deliverect (≥ Mar 24)")
 
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 

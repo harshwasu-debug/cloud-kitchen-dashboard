@@ -50,31 +50,24 @@ all_cuisines  = get_all_cuisines()
 # ─── SIDEBAR FILTERS ─────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("## 🎛️ Filters")
+    st.caption("Filters persist across pages.")
     st.markdown("---")
 
     sel_brands = st.multiselect(
-        "Brand",
-        options=all_brands,
-        default=[],
-        placeholder="All brands",
+        "Brand", options=all_brands, default=[],
+        placeholder="All brands", key="f_brands",
     )
     sel_locations = st.multiselect(
-        "Location",
-        options=all_locations,
-        default=[],
-        placeholder="All locations",
+        "Location", options=all_locations, default=[],
+        placeholder="All locations", key="f_locations",
     )
     sel_channels = st.multiselect(
-        "Channel",
-        options=all_channels,
-        default=[],
-        placeholder="All channels",
+        "Channel", options=all_channels, default=[],
+        placeholder="All channels", key="f_channels",
     )
     sel_cuisines = st.multiselect(
-        "Cuisine",
-        options=all_cuisines,
-        default=[],
-        placeholder="All cuisines",
+        "Cuisine", options=all_cuisines, default=[],
+        placeholder="All cuisines", key="f_cuisines",
     )
 
     st.markdown("---")
@@ -84,7 +77,11 @@ with st.sidebar:
         _min = _dates.min().date() if not _dates.empty else None
         _max = _dates.max().date() if not _dates.empty else None
         if _min and _max:
-            _dr = st.date_input("Period", value=(_min, _max), min_value=_min, max_value=_max, label_visibility="collapsed")
+            _dr = st.date_input(
+                "Period", value=(_min, _max),
+                min_value=_min, max_value=_max,
+                label_visibility="collapsed", key="f_dates",
+            )
             sel_start, sel_end = (_dr[0], _dr[1]) if isinstance(_dr, (list, tuple)) and len(_dr) == 2 else (_min, _max)
         else:
             sel_start = sel_end = None
@@ -94,11 +91,11 @@ with st.sidebar:
     from datetime import time as _time
     _tc1, _tc2 = st.columns(2)
     with _tc1:
-        sel_time_from = st.time_input("From", value=_time(0, 0), step=1800)
+        sel_time_from = st.time_input("From", value=_time(0, 0), step=1800, key="f_time_from")
     with _tc2:
-        sel_time_to = st.time_input("To", value=_time(23, 59), step=1800)
+        sel_time_to = st.time_input("To", value=_time(23, 59), step=1800, key="f_time_to")
     st.markdown("---")
-    st.caption("Data source: Grubtech + Deliverect")
+    st.caption("Data: Grubtech (≤ Mar 23) + Deliverect (≥ Mar 24)")
 
 # ─── APPLY FILTERS ───────────────────────────────────────────────────────────
 df = df_orders.copy()

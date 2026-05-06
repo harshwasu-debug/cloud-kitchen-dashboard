@@ -53,10 +53,16 @@ all_locations = _unique(df_orders, "Location")
 all_channels  = _unique(df_orders, "Channel")
 all_cuisines  = get_all_cuisines()
 
-sel_brands    = st.sidebar.multiselect("Brand",    all_brands,    default=all_brands)
-sel_locations = st.sidebar.multiselect("Location", all_locations, default=all_locations)
-sel_channels  = st.sidebar.multiselect("Channel",  all_channels,  default=all_channels)
-sel_cuisines  = st.sidebar.multiselect("Cuisine",  all_cuisines,  default=[], placeholder="All cuisines")
+st.sidebar.caption("Filters persist across pages.")
+sel_brands    = st.sidebar.multiselect("Brand",    all_brands,    default=[], placeholder="All brands",    key="f_brands")
+sel_locations = st.sidebar.multiselect("Location", all_locations, default=[], placeholder="All locations", key="f_locations")
+sel_channels  = st.sidebar.multiselect("Channel",  all_channels,  default=[], placeholder="All channels",  key="f_channels")
+sel_cuisines  = st.sidebar.multiselect("Cuisine",  all_cuisines,  default=[], placeholder="All cuisines",  key="f_cuisines")
+
+# Empty selection means "all" (consistent with other pages)
+if not sel_brands:    sel_brands    = all_brands
+if not sel_locations: sel_locations = all_locations
+if not sel_channels:  sel_channels  = all_channels
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Date Range**")
@@ -65,15 +71,15 @@ _min_op = _dates_op.min().date() if not _dates_op.empty else None
 _max_op = _dates_op.max().date() if not _dates_op.empty else None
 sel_start_op = sel_end_op = None
 if _min_op and _max_op:
-    _dr_op = st.sidebar.date_input("Period", value=(_min_op, _max_op), min_value=_min_op, max_value=_max_op, label_visibility="collapsed")
+    _dr_op = st.sidebar.date_input("Period", value=(_min_op, _max_op), min_value=_min_op, max_value=_max_op, label_visibility="collapsed", key="f_dates")
     sel_start_op, sel_end_op = (_dr_op[0], _dr_op[1]) if isinstance(_dr_op, (list, tuple)) and len(_dr_op) == 2 else (_min_op, _max_op)
 st.sidebar.markdown("**Time Range**")
 from datetime import time as _time
 _tc1_op, _tc2_op = st.sidebar.columns(2)
 with _tc1_op:
-    sel_time_from_op = st.time_input("From", value=_time(0, 0), step=1800, key="tf_op")
+    sel_time_from_op = st.time_input("From", value=_time(0, 0), step=1800, key="f_time_from")
 with _tc2_op:
-    sel_time_to_op = st.time_input("To", value=_time(23, 59), step=1800, key="tt_op")
+    sel_time_to_op = st.time_input("To", value=_time(23, 59), step=1800, key="f_time_to")
 
 def apply_filters(df):
     mask = pd.Series(True, index=df.index)
