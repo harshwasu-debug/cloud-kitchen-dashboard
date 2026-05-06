@@ -461,7 +461,7 @@ st.markdown("---")
 # ─── SECTION 4 — REVENUE BREAKDOWN ───────────────────────────────────────────
 st.subheader("Revenue Breakdown")
 
-rb_brand, rb_channel, rb_location = st.tabs(["By Brand", "By Channel", "By Location"])
+rb_brand, rb_channel, rb_cuisine, rb_location = st.tabs(["By Brand", "By Channel", "By Cuisine", "By Location"])
 
 # ── By Brand — Horizontal bar chart sorted descending ─────────────────────────
 with rb_brand:
@@ -530,6 +530,65 @@ with rb_channel:
         annotations=[dict(text="Revenue", x=0.5, y=0.5, font_size=14, showarrow=False)],
     )
     st.plotly_chart(fig_ch, use_container_width=True)
+
+# ── By Cuisine — Horizontal bar + share donut ─────────────────────────────────
+with rb_cuisine:
+    if "Cuisine" in df.columns:
+        cui_rev = (
+            df.groupby("Cuisine")["Total(Receipt Total)"]
+            .sum()
+            .reset_index()
+            .rename(columns={"Total(Receipt Total)": "Total Earnings"})
+            .sort_values("Total Earnings", ascending=True)
+        )
+        cui_orders = (
+            df.groupby("Cuisine")["Unique Order ID"]
+            .nunique()
+            .reset_index()
+            .rename(columns={"Unique Order ID": "Orders"})
+        )
+        cui = cui_rev.merge(cui_orders, on="Cuisine")
+        cui["AOV"] = cui["Total Earnings"] / cui["Orders"].replace(0, np.nan)
+
+        col_a, col_b = st.columns([3, 2])
+        with col_a:
+            fig_cui = go.Figure(go.Bar(
+                x=cui["Total Earnings"],
+                y=cui["Cuisine"],
+                orientation="h",
+                marker=dict(
+                    color=cui["Total Earnings"],
+                    colorscale=[[0, "#E9ECEF"], [1, PRIMARY]],
+                    showscale=False,
+                ),
+                hovertemplate="<b>%{y}</b><br>Revenue: AED %{x:,.0f}<br>Orders: %{customdata[0]}<br>AOV: AED %{customdata[1]:.0f}<extra></extra>",
+                customdata=cui[["Orders", "AOV"]].values,
+                text=cui["Total Earnings"].apply(fmt_aed),
+                textposition="outside",
+            ))
+            fig_cui.update_layout(
+                template=TEMPLATE, paper_bgcolor=CHART_BG, plot_bgcolor=CHART_BG,
+                xaxis_title="Revenue (AED)", yaxis_title="",
+                height=max(320, len(cui) * 38 + 60),
+                margin=dict(l=10, r=90, t=10, b=10),
+            )
+            st.plotly_chart(fig_cui, use_container_width=True)
+        with col_b:
+            fig_donut = go.Figure(go.Pie(
+                labels=cui["Cuisine"], values=cui["Total Earnings"],
+                hole=0.5, marker=dict(colors=PALETTE[:len(cui)]),
+                hovertemplate="<b>%{label}</b><br>Share: %{percent}<extra></extra>",
+                textinfo="label+percent",
+            ))
+            fig_donut.update_layout(
+                template=TEMPLATE, paper_bgcolor=CHART_BG, plot_bgcolor=CHART_BG,
+                showlegend=False, height=max(320, len(cui) * 38 + 60),
+                margin=dict(l=10, r=10, t=10, b=10),
+                annotations=[dict(text="Cuisine<br>mix", x=0.5, y=0.5, font_size=12, showarrow=False)],
+            )
+            st.plotly_chart(fig_donut, use_container_width=True)
+    else:
+        st.info("Cuisine breakdown unavailable.")
 
 # ── By Location — Treemap ─────────────────────────────────────────────────────
 with rb_location:
