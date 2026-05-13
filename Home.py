@@ -430,12 +430,47 @@ st.markdown(
             &#127829; Cloud Kitchen Command Center
         </h1>
         <p style="color:#6C757D; margin:4px 0 0 0; font-size:0.9rem;">
-            Executive Summary &nbsp;&middot;&nbsp; Grubtech Historical Data
+            Executive Summary &nbsp;&middot;&nbsp; Grubtech (≤ Mar 23) + Deliverect (≥ Mar 24)
         </p>
     </div>
     """,
     unsafe_allow_html=True,
 )
+
+# ─── DATA FRESHNESS INDICATOR ────────────────────────────────────────────────
+try:
+    if "Pickup Time" in orders.columns and orders["Pickup Time"].notna().any():
+        latest_pickup = orders["Pickup Time"].max()
+    elif "Received At" in orders.columns:
+        latest_pickup = orders["Received At"].max()
+    else:
+        latest_pickup = None
+
+    if pd.notna(latest_pickup):
+        age = pd.Timestamp.now() - latest_pickup
+        age_hours = age.total_seconds() / 3600
+        if age_hours > 24:
+            badge_color = "#FFB000"
+            badge_label = f"⚠️ Data {age_hours:.0f}h old — upload latest Deliverect export"
+        elif age_hours > 6:
+            badge_color = "#4ECDC4"
+            badge_label = f"📅 Data current as of {latest_pickup.strftime('%Y-%m-%d %H:%M')} ({age_hours:.1f}h ago)"
+        else:
+            badge_color = "#2A9D8F"
+            badge_label = f"🟢 Data fresh ({latest_pickup.strftime('%H:%M')}, {age_hours:.1f}h ago)"
+
+        st.markdown(
+            f"""
+            <div style="background:{badge_color}22; border:1px solid {badge_color};
+                        border-radius:6px; padding:6px 12px; margin-bottom:1rem;
+                        font-size:0.85rem; color:#1A1A2E;">
+                {badge_label}
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+except Exception:
+    pass
 
 # ─── TOP KPI ROW ─────────────────────────────────────────────────────────────
 
