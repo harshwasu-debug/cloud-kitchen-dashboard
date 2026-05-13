@@ -181,17 +181,13 @@ with st.sidebar:
     st.markdown("---")
 
     # Data source indicator
-    st.markdown("**Data Source**")
+    st.markdown("**Data Sources**")
     st.markdown(
-        '<div class="ds-badge">&#10003;&nbsp; Grubtech (Historical)</div>',
+        '<div class="ds-badge">&#10003;&nbsp; Grubtech (Historical ≤ Mar 23)</div>',
         unsafe_allow_html=True,
     )
     st.markdown(
-        '<div class="ds-soon">Coming soon: Deliverect</div>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<div class="ds-soon">Coming soon: Revly</div>',
+        '<div class="ds-badge" style="margin-top:4px;">&#10003;&nbsp; Deliverect (Live ≥ Mar 24)</div>',
         unsafe_allow_html=True,
     )
     st.markdown("---")
@@ -346,22 +342,17 @@ def apply_location_filter(df: pd.DataFrame) -> pd.DataFrame:
 filtered_orders  = apply_filters(orders_df.copy())
 filtered_cancel  = apply_filters(cancel_df.copy())
 
-# Pre-aggregated tables are lifetime totals — can't filter by Cuisine, Date, or Time.
-# Bypass them whenever ANY filter is active, forcing charts to recompute from filtered_orders.
-_use_preagg = not (
-    sel_cuisines_hm
-    or (sel_time_from_hm != _time(0, 0) or sel_time_to_hm != _time(23, 59))
-    or sel_brands or sel_locations or sel_channels
-)
+# Pre-aggregated tables (Grubtech lifetime snapshots) are NEVER used —
+# they ignore date/time/cuisine filters and produce misleading "lifetime"
+# numbers even when a date range is filtered. Always compute from filtered_orders.
+filtered_brand = pd.DataFrame()
+filtered_chan = pd.DataFrame()
+filtered_loc = pd.DataFrame()
 
-if _use_preagg:
-    filtered_brand   = apply_brand_filter(brand_df.copy())
-    filtered_chan     = apply_channel_filter(chan_df.copy())
-    filtered_loc     = apply_location_filter(loc_df.copy())
-else:
-    filtered_brand = pd.DataFrame()
-    filtered_chan   = pd.DataFrame()
-    filtered_loc   = pd.DataFrame()
+# Exclude test channels from any channel-level views
+_TEST_CHANNELS = {"Grubtech Test", "Test", "TEST"}
+if "Channel" in filtered_orders.columns:
+    filtered_orders = filtered_orders[~filtered_orders["Channel"].isin(_TEST_CHANNELS)]
 
 # ─── KPI CALCULATIONS ────────────────────────────────────────────────────────
 
@@ -371,41 +362,81 @@ def _safe_sum(df: pd.DataFrame, col: str) -> float:
     return 0.0
 
 
-def _period_split(df: pd.DataFrame):
-    """Split orders into two halves for period-over-period delta."""
-    if df.empty or "Received At" not in df.columns:
-        return df, df
+def _prior_period(df: pd.DataFrame, source_df: pd.DataFrame):
+    """
+    Return the equivalent-length period immediately preceding the filtered window.
+    E.g., if filter is May 1-13 (13 days), returns Apr 18-30 (13 days) from source_df.
+
+    Excludes today (incomplete day) from the current period before computing
+    the comparable prior window, so we don't compare 13 full days against
+    12 full + 1 partial.
+    """
+    if df.empty or "Received At" not in df.columns or "Received At" not in source_df.columns:
+        return df.iloc[0:0]
+
     dates = df["Received At"].dt.date
+    if dates.empty:
+        return df.iloc[0:0]
+
     d_min, d_max = dates.min(), dates.max()
-    mid = d_min + (d_max - d_min) / 2
-    return df[dates <= mid], df[dates > mid]
+    today = pd.Timestamp.now(tz="Asia/Dubai").tz_localize(None).date()
+
+    # Exclude today from the comparison if it's in the window
+    if d_max >= today and d_max > d_min:
+        d_max = d_max if d_max != today else d_max - pd.Timedelta(days=1)
+    n_days = (d_max - d_min).days + 1
+    if n_days <= 0:
+        return df.iloc[0:0]
+
+    prior_end = d_min - pd.Timedelta(days=1)
+    prior_start = prior_end - pd.Timedelta(days=n_days - 1)
+
+    src_dates = source_df["Received At"].dt.date
+    return source_df[(src_dates >= prior_start) & (src_dates <= prior_end)]
+
+
+def _current_complete(df: pd.DataFrame):
+    """Current period EXCLUDING today (incomplete day) to match prior period."""
+    if df.empty or "Received At" not in df.columns:
+        return df
+    today = pd.Timestamp.now(tz="Asia/Dubai").tz_localize(None).date()
+    return df[df["Received At"].dt.date < today]
 
 
 def _delta(current: float, previous: float):
-    if previous == 0:
+    if previous == 0 or pd.isna(previous):
         return None
     pct = (current - previous) / abs(previous) * 100
     return f"{pct:+.1f}%"
 
 
-first_half, second_half = _period_split(filtered_orders)
+# Build comparable periods: current (ex-today) vs prior equivalent-length window
+current_complete = _current_complete(filtered_orders)
+prior_period = _prior_period(filtered_orders, orders_df)
+prior_cancel = _prior_period(filtered_cancel, cancel_df) if not filtered_cancel.empty else filtered_cancel.iloc[0:0]
 
 total_orders  = len(filtered_orders)
-orders_h1     = len(first_half)
-orders_h2     = len(second_half)
+orders_cur    = len(current_complete)
+orders_prior  = len(prior_period)
 
 total_revenue = _safe_sum(filtered_orders, "Gross Price")
-rev_h1        = _safe_sum(first_half, "Gross Price")
-rev_h2        = _safe_sum(second_half, "Gross Price")
+rev_cur       = _safe_sum(current_complete, "Gross Price")
+rev_prior     = _safe_sum(prior_period, "Gross Price")
 
-aov     = total_revenue / total_orders if total_orders > 0 else 0.0
-aov_h1  = rev_h1 / orders_h1 if orders_h1 > 0 else 0.0
-aov_h2  = rev_h2 / orders_h2 if orders_h2 > 0 else 0.0
+aov          = total_revenue / total_orders if total_orders > 0 else 0.0
+aov_cur      = rev_cur / orders_cur if orders_cur > 0 else 0.0
+aov_prior    = rev_prior / orders_prior if orders_prior > 0 else 0.0
 
 cancel_count = len(filtered_cancel)
 cancel_rate  = (
     cancel_count / (total_orders + cancel_count) * 100
     if (total_orders + cancel_count) > 0
+    else 0.0
+)
+prior_cancel_count = len(prior_cancel)
+cancel_rate_prior = (
+    prior_cancel_count / (orders_prior + prior_cancel_count) * 100
+    if (orders_prior + prior_cancel_count) > 0
     else 0.0
 )
 
@@ -439,10 +470,10 @@ st.markdown(
 
 # ─── DATA FRESHNESS INDICATOR ────────────────────────────────────────────────
 try:
-    if "Pickup Time" in orders.columns and orders["Pickup Time"].notna().any():
-        latest_pickup = orders["Pickup Time"].max()
-    elif "Received At" in orders.columns:
-        latest_pickup = orders["Received At"].max()
+    if "Pickup Time" in orders_df.columns and orders_df["Pickup Time"].notna().any():
+        latest_pickup = orders_df["Pickup Time"].max()
+    elif "Received At" in orders_df.columns:
+        latest_pickup = orders_df["Received At"].max()
     else:
         latest_pickup = None
 
@@ -478,33 +509,39 @@ st.markdown('<p class="kpi-row-label">Core Performance</p>', unsafe_allow_html=T
 
 k1, k2, k3, k4 = st.columns(4)
 
+_delta_help = (
+    "vs the equivalent-length period immediately before your selected window. "
+    "Today (incomplete day) is excluded from both sides for a fair comparison."
+)
+
 with k1:
     st.metric(
         label="Total Orders",
         value=f"{total_orders:,}",
-        delta=_delta(orders_h2, orders_h1),
-        help="All completed orders in the selected period.",
+        delta=_delta(orders_cur, orders_prior),
+        help=f"All orders in the selected period. Delta: {_delta_help}",
     )
 with k2:
     st.metric(
         label="Total Revenue (GMV)",
         value=f"AED {total_revenue:,.0f}",
-        delta=_delta(rev_h2, rev_h1),
-        help="Gross merchandise value (Gross Price) for the selected period.",
+        delta=_delta(rev_cur, rev_prior),
+        help=f"Gross revenue for the selected period. Delta: {_delta_help}",
     )
 with k3:
     st.metric(
         label="Avg. Order Value",
         value=f"AED {aov:,.2f}",
-        delta=_delta(aov_h2, aov_h1),
-        help="Average gross price per order.",
+        delta=_delta(aov_cur, aov_prior),
+        help=f"Average gross price per order. Delta: {_delta_help}",
     )
 with k4:
     st.metric(
         label="Cancellation Rate",
         value=f"{cancel_rate:.1f}%",
-        delta=None,
-        help="Cancelled orders as a percentage of total attempted orders.",
+        delta=_delta(cancel_rate, cancel_rate_prior),
+        delta_color="inverse",
+        help=f"Cancelled orders as % of total. Delta: {_delta_help}",
     )
 
 st.markdown("<br>", unsafe_allow_html=True)
@@ -799,150 +836,89 @@ with rc2:
 
 st.markdown("---")
 
-# ─── TOP 10 LOCATIONS & AOV BY BRAND ─────────────────────────────────────────
+# ─── CUISINE MIX & TOP 15 AOV BY BRAND ───────────────────────────────────────
 
-st.markdown('<p class="section-header">Location & Brand Performance</p>', unsafe_allow_html=True)
+st.markdown('<p class="section-header">Cuisine & Brand Performance</p>', unsafe_allow_html=True)
 
 lc1, lc2 = st.columns(2)
 
 with lc1:
-    loc_name_col = None
-    for c in ("Location Name", "Location"):
-        if c in filtered_loc.columns:
-            loc_name_col = c
-            break
-
-    if loc_name_col and "No. of Orders" in filtered_loc.columns:
-        top_loc = (
-            filtered_loc[[loc_name_col, "No. of Orders"]]
-            .dropna()
-            .sort_values("No. of Orders", ascending=False)
-            .head(10)
-            .sort_values("No. of Orders", ascending=True)
+    if not filtered_orders.empty and "Cuisine" in filtered_orders.columns and "Gross Price" in filtered_orders.columns:
+        cui_rev = (
+            filtered_orders.groupby("Cuisine")
+            .agg(Revenue=("Gross Price", "sum"), Orders=("Brand", "count"))
+            .reset_index()
+            .sort_values("Revenue", ascending=True)
         )
-        fig_loc = go.Figure(
+        cui_rev["AOV"] = (cui_rev["Revenue"] / cui_rev["Orders"]).round(1)
+        fig_cui = go.Figure(
             go.Bar(
-                x=top_loc["No. of Orders"],
-                y=top_loc[loc_name_col],
+                x=cui_rev["Revenue"],
+                y=cui_rev["Cuisine"],
                 orientation="h",
                 marker=dict(
-                    color=top_loc["No. of Orders"],
+                    color=cui_rev["Revenue"],
                     colorscale=[[0, "#F8F9FA"], [1, SECONDARY]],
                     showscale=False,
                 ),
-                text=top_loc["No. of Orders"].apply(lambda v: f"{v:,.0f}"),
+                text=cui_rev["Revenue"].apply(lambda v: f"AED {v:,.0f}"),
                 textposition="outside",
                 textfont=dict(size=10, color="#6C757D"),
+                customdata=cui_rev[["Orders", "AOV"]].values,
+                hovertemplate="<b>%{y}</b><br>Revenue: AED %{x:,.0f}<br>Orders: %{customdata[0]}<br>AOV: AED %{customdata[1]}<extra></extra>",
             )
         )
-        fig_loc.update_layout(
+        fig_cui.update_layout(
             template=TEMPLATE,
-            title=dict(text="Top 10 Locations by Orders", font=dict(size=14, color="#1A1A2E")),
-            xaxis=dict(title="Orders", gridcolor="#DEE2E6"),
+            title=dict(text="Revenue by Cuisine", font=dict(size=14, color="#1A1A2E")),
+            xaxis=dict(title="AED", tickformat=",.0f", gridcolor="#DEE2E6"),
             yaxis=dict(title="", tickfont=dict(size=10)),
-            margin=dict(l=10, r=60, t=45, b=10),
+            margin=dict(l=10, r=80, t=45, b=10),
             height=380,
             plot_bgcolor="#F8F9FA",
             paper_bgcolor="#F8F9FA",
         )
-        st.plotly_chart(fig_loc, use_container_width=True)
-    elif not filtered_orders.empty and "Location" in filtered_orders.columns:
-        top_loc_f = (
-            filtered_orders.groupby("Location")
-            .size()
-            .reset_index(name="Orders")
-            .sort_values("Orders", ascending=False)
-            .head(10)
-            .sort_values("Orders", ascending=True)
-        )
-        fig_loc = go.Figure(
-            go.Bar(
-                x=top_loc_f["Orders"],
-                y=top_loc_f["Location"],
-                orientation="h",
-                marker=dict(
-                    color=top_loc_f["Orders"],
-                    colorscale=[[0, "#F8F9FA"], [1, SECONDARY]],
-                    showscale=False,
-                ),
-                text=top_loc_f["Orders"].apply(lambda v: f"{v:,}"),
-                textposition="outside",
-                textfont=dict(size=10, color="#6C757D"),
-            )
-        )
-        fig_loc.update_layout(
-            template=TEMPLATE,
-            title=dict(text="Top 10 Locations by Orders", font=dict(size=14, color="#1A1A2E")),
-            xaxis=dict(title="Orders", gridcolor="#DEE2E6"),
-            yaxis=dict(title="", tickfont=dict(size=10)),
-            margin=dict(l=10, r=60, t=45, b=10),
-            height=380,
-            plot_bgcolor="#F8F9FA",
-            paper_bgcolor="#F8F9FA",
-        )
-        st.plotly_chart(fig_loc, use_container_width=True)
+        st.plotly_chart(fig_cui, use_container_width=True)
     else:
-        st.info("Location data not available.")
+        st.info("Cuisine data not available.")
 
 with lc2:
-    if not filtered_brand.empty and "Avg. Order Value" in filtered_brand.columns and "Brand" in filtered_brand.columns:
-        aov_brand = (
-            filtered_brand[["Brand", "Avg. Order Value"]]
-            .dropna()
-            .sort_values("Avg. Order Value", ascending=False)
+    if not filtered_orders.empty and "Brand" in filtered_orders.columns and "Gross Price" in filtered_orders.columns:
+        # Top 15 brands BY ORDER VOLUME (so most-relevant), show their AOV
+        brand_stats = (
+            filtered_orders.groupby("Brand")
+            .agg(orders=("Brand", "count"),
+                 revenue=("Gross Price", "sum"))
+            .reset_index()
         )
+        brand_stats["AOV"] = brand_stats["revenue"] / brand_stats["orders"]
+        # Top 15 by volume (most representative), then sort by AOV for visual
+        top15 = brand_stats.sort_values("orders", ascending=False).head(15)
+        top15 = top15.sort_values("AOV", ascending=True)
+
         fig_aov = go.Figure(
             go.Bar(
-                x=aov_brand["Brand"],
-                y=aov_brand["Avg. Order Value"],
+                x=top15["AOV"],
+                y=top15["Brand"],
+                orientation="h",
                 marker=dict(
-                    color=aov_brand["Avg. Order Value"],
+                    color=top15["AOV"],
                     colorscale=[[0, "#F8F9FA"], [1, ACCENT]],
                     showscale=False,
                 ),
-                text=aov_brand["Avg. Order Value"].apply(lambda v: f"AED {v:,.1f}"),
+                text=top15["AOV"].apply(lambda v: f"AED {v:,.0f}"),
                 textposition="outside",
-                textfont=dict(size=9, color="#6C757D"),
+                textfont=dict(size=10, color="#6C757D"),
+                customdata=top15[["orders"]].values,
+                hovertemplate="<b>%{y}</b><br>AOV: AED %{x:,.1f}<br>Orders in period: %{customdata[0]}<extra></extra>",
             )
         )
         fig_aov.update_layout(
             template=TEMPLATE,
-            title=dict(text="Avg. Order Value by Brand", font=dict(size=14, color="#1A1A2E")),
-            xaxis=dict(title="", tickangle=-35, tickfont=dict(size=9)),
-            yaxis=dict(title="AED", gridcolor="#DEE2E6"),
-            margin=dict(l=10, r=10, t=45, b=80),
-            height=380,
-            plot_bgcolor="#F8F9FA",
-            paper_bgcolor="#F8F9FA",
-        )
-        st.plotly_chart(fig_aov, use_container_width=True)
-    elif not filtered_orders.empty and "Brand" in filtered_orders.columns and "Gross Price" in filtered_orders.columns:
-        aov_f = (
-            filtered_orders.groupby("Brand")["Gross Price"]
-            .mean()
-            .reset_index(name="AOV")
-            .sort_values("AOV", ascending=False)
-        )
-        fig_aov = go.Figure(
-            go.Bar(
-                x=aov_f["Brand"],
-                y=aov_f["AOV"],
-                marker=dict(
-                    color=aov_f["AOV"],
-                    colorscale=[[0, "#F8F9FA"], [1, ACCENT]],
-                    showscale=False,
-                ),
-                text=aov_f["AOV"].apply(lambda v: f"AED {v:,.1f}"),
-                textposition="outside",
-                textfont=dict(size=9, color="#6C757D"),
-            )
-        )
-        fig_aov.update_layout(
-            template=TEMPLATE,
-            title=dict(text="Avg. Order Value by Brand", font=dict(size=14, color="#1A1A2E")),
-            xaxis=dict(title="", tickangle=-35, tickfont=dict(size=9)),
-            yaxis=dict(title="AED", gridcolor="#DEE2E6"),
-            margin=dict(l=10, r=10, t=45, b=80),
+            title=dict(text="Top 15 Brands — AOV (sorted)", font=dict(size=14, color="#1A1A2E")),
+            xaxis=dict(title="AED", gridcolor="#DEE2E6"),
+            yaxis=dict(title="", tickfont=dict(size=10)),
+            margin=dict(l=10, r=80, t=45, b=10),
             height=380,
             plot_bgcolor="#F8F9FA",
             paper_bgcolor="#F8F9FA",
@@ -1034,9 +1010,8 @@ st.markdown("---")
 st.markdown(
     """
     <div style="text-align:center; color:#888; font-size:0.72rem; padding: 12px 0;">
-        Cloud Kitchen Analytics &nbsp;|&nbsp; Data: Grubtech Export (Mar 2026)
+        Cloud Kitchen Analytics &nbsp;|&nbsp; Grubtech (≤ Mar 23) + Deliverect (≥ Mar 24)
         &nbsp;|&nbsp; Built with Streamlit &amp; Plotly
-        &nbsp;|&nbsp; Deliverect: Live &nbsp;|&nbsp; Revly integration coming soon
     </div>
     """,
     unsafe_allow_html=True,
