@@ -86,8 +86,6 @@ if not all_dates:
     st.error("No data available.")
     st.stop()
 
-# Default = most recent biz_date with at least 6 hours of data after start (so it's "complete")
-# Heuristic: drop the most recent if it appears to be today (still in progress)
 today_dubai = pd.Timestamp.now(tz="Asia/Dubai").tz_localize(None)
 today_biz = biz_date(today_dubai)
 
@@ -95,7 +93,128 @@ default_yesterday = all_dates[-1]
 if default_yesterday == today_biz and len(all_dates) > 1:
     default_yesterday = all_dates[-2]
 
-# ─── HEADER ───────────────────────────────────────────────────────────────────
+
+# ═════════════════════════════════════════════════════════════════════════════
+# LIVE "TODAY" PANEL — shown if today's biz_date exists in data
+# ═════════════════════════════════════════════════════════════════════════════
+today_sales = df_sales[df_sales["_biz_date"] == today_biz]
+today_canc  = df_canc[df_canc["_biz_date"] == today_biz]
+
+if len(today_sales) > 0:
+    st.markdown("## 🔴 Live — Today")
+
+    # Latest pickup in our data
+    latest_pickup = today_sales["_pickup"].max()
+    minutes_since_open = int((latest_pickup - (pd.Timestamp(today_biz) + pd.Timedelta(hours=3))).total_seconds() / 60)
+    # If now is past last pickup, show how recent the data is
+    age_min = int((today_dubai - latest_pickup).total_seconds() / 60)
+
+    current_total = len(today_sales) + len(today_canc)
+    current_dow = pd.Timestamp(today_biz).day_name()
+    current_dom = pd.Timestamp(today_biz).day
+
+    # Compute historical post-cutoff tail by current biz minute
+    completed = df_sales[df_sales["_biz_date"] != today_biz].copy()
+    completed_c = df_canc[df_canc["_biz_date"] != today_biz].copy()
+    # Combined per day totals
+    completed["_biz_minute"] = ((completed["_pickup"] -
+                                  pd.to_datetime(completed["_biz_date"]) - pd.Timedelta(hours=3)).dt.total_seconds() / 60).clip(lower=0)
+    completed_c["_biz_minute"] = ((completed_c["_pickup"] -
+                                    pd.to_datetime(completed_c["_biz_date"]) - pd.Timedelta(hours=3)).dt.total_seconds() / 60).clip(lower=0)
+
+    # Recent 14 completed days
+    recent_dates = sorted([d for d in completed["_biz_date"].dropna().unique()])[-14:]
+    recent_completed = completed[completed["_biz_date"].isin(recent_dates)]
+    recent_completed_c = completed_c[completed_c["_biz_date"].isin(recent_dates)]
+    # Same-DOW last 4
+    dow_dates = [d for d in recent_dates if pd.Timestamp(d).day_name() == current_dow][-4:]
+    dow_completed = completed[completed["_biz_date"].isin(dow_dates)]
+    dow_completed_c = completed_c[completed_c["_biz_date"].isin(dow_dates)]
+
+    # Compute by-cutoff and post-cutoff for each historical day
+    def agg_by_cut(s_df, c_df, cut_min, dates):
+        if not dates:
+            return None, None
+        n = len(dates)
+        # By-cutoff orders per day
+        by_cut_total = (
+            (s_df["_biz_minute"] < cut_min).sum() + (c_df["_biz_minute"] < cut_min).sum()
+        ) / n
+        total_avg = (len(s_df) + len(c_df)) / n
+        post_cut = total_avg - by_cut_total
+        return by_cut_total, post_cut
+
+    by14, post14 = agg_by_cut(recent_completed, recent_completed_c, minutes_since_open, recent_dates)
+    by_dow, post_dow = agg_by_cut(dow_completed, dow_completed_c, minutes_since_open, dow_dates)
+
+    # Projection
+    if post14 is not None and post14 > 0:
+        proj_14 = current_total + post14
+        proj_dow = current_total + post_dow if post_dow else proj_14
+        proj_best = (proj_14 + proj_dow) / 2 if post_dow else proj_14
+    else:
+        proj_best = current_total
+        proj_14 = proj_dow = None
+
+    # Header row
+    c1, c2, c3, c4 = st.columns([2, 2, 2, 2])
+    with c1:
+        st.metric(
+            f"Today ({current_dow}, day {current_dom})",
+            f"{current_total} orders",
+            delta=f"As of {latest_pickup.strftime('%H:%M') if pd.notna(latest_pickup) else 'n/a'} · data {age_min}m old",
+            delta_color="off",
+        )
+    with c2:
+        if proj_best:
+            st.metric("EOD projection", f"~{proj_best:.0f}",
+                      delta=f"Range {min(proj_14 or proj_best, proj_dow or proj_best):.0f}–{max(proj_14 or proj_best, proj_dow or proj_best):.0f}",
+                      delta_color="off")
+    with c3:
+        if by_dow is not None and by_dow > 0:
+            pace = (current_total - by_dow) / by_dow * 100
+            st.metric(f"vs {current_dow} avg (last {len(dow_dates)})",
+                      f"{pace:+.0f}%",
+                      delta=f"{int(by_dow)} typical at this hour",
+                      delta_color="off")
+    with c4:
+        cancel_today = len(today_canc)
+        cancel_rate = cancel_today / current_total * 100 if current_total else 0
+        st.metric("Cancellations today", f"{cancel_today}",
+                  delta=f"{cancel_rate:.1f}% rate",
+                  delta_color="off")
+
+    # Pace narrative
+    if proj_best and by14:
+        post_orders_expected = post14
+        st.caption(
+            f"**Pace:** ~{post_orders_expected:.0f} more orders expected from {latest_pickup.strftime('%H:%M')} → 02:00. "
+            f"Best estimate {proj_best:.0f}. "
+            f"Same-DOW basis ({len(dow_dates)} samples): {proj_dow:.0f}. "
+            f"Last-14-day basis: {proj_14:.0f}."
+        )
+
+    # Hourly orders chart for today
+    st.markdown("##### Hour-by-hour progress")
+    today_combined = pd.concat([
+        today_sales[["_pickup"]].assign(_status="successful"),
+        today_canc[["_pickup"]].assign(_status="cancelled"),
+    ], ignore_index=True)
+    today_combined["_hour"] = today_combined["_pickup"].dt.hour
+    hours_order = list(range(7, 24)) + [0, 1, 2]
+    by_hr = today_combined.groupby("_hour").size().reindex(hours_order, fill_value=0)
+    hr_labels = [f"{h:02d}:00" for h in hours_order]
+    fig = go.Figure(go.Bar(x=hr_labels, y=by_hr.values, marker_color=PRIMARY))
+    fig.update_layout(template=TEMPLATE, height=220, margin=dict(l=10, r=10, t=10, b=10),
+                      yaxis_title="Orders", xaxis_title=None)
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown("---")
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# YESTERDAY / HISTORICAL DAILY REPORT
+# ═════════════════════════════════════════════════════════════════════════════
 st.title("📋 Daily Report")
 left, right = st.columns([3, 1])
 with left:

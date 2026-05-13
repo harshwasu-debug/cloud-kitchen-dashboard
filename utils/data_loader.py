@@ -623,7 +623,6 @@ CUISINE_BRAND_MAP = {
     "Before Noon - Breakfast & Brunch": "Breakfast",
     "Toast & Co – Artisan Breakfast": "Breakfast",
     "Breakfast Counter – All Day Diner": "Breakfast",
-    "Sunrise & Co – Acai & Power Bowls": "Breakfast",
     # Chinese
     "Red Ginger - Chinese Wok House": "Chinese",
     "Red Ginger": "Chinese",
@@ -675,6 +674,15 @@ CUISINE_BRAND_MAP = {
     "Norii": "Sushi",
     "Oneesan - Sushi Bar": "Sushi",
     "Oneesan": "Sushi",
+    # Healthy Bowls (new category, ramped Apr 2026)
+    "LowCal - Healthy Bowls & Wraps": "Healthy",
+    "LowCal": "Healthy",
+    "MACROS - High Protein Bowls & Prep": "Healthy",
+    "MACROS": "Healthy",
+    "Bowl & Soul - Healthy Global Bowls": "Healthy",
+    "Bowl & Soul": "Healthy",
+    "Sunrise & Co – Acai & Power Bowls": "Healthy",
+    "Sunrise & Co": "Healthy",
 }
 
 
