@@ -444,12 +444,15 @@ total_brands    = filtered_orders["Brand"].nunique()    if "Brand"    in filtere
 total_locations = filtered_orders["Location"].nunique() if "Location" in filtered_orders.columns else 0
 active_channels = filtered_orders["Channel"].nunique()  if "Channel"  in filtered_orders.columns else 0
 
-if "Unique Order ID" in filtered_orders.columns:
-    unique_customers = int(filtered_orders["Unique Order ID"].nunique())
-elif "Order ID" in filtered_orders.columns:
-    unique_customers = int(filtered_orders["Order ID"].nunique() * 0.72)
+# Avg orders per day over last 30 days of the filtered window
+if not filtered_orders.empty and "Received At" in filtered_orders.columns:
+    _last30 = filtered_orders[
+        filtered_orders["Received At"] >= (filtered_orders["Received At"].max() - pd.Timedelta(days=30))
+    ]
+    _days = _last30["Received At"].dt.date.nunique()
+    avg_orders_per_day = round(len(_last30) / _days, 1) if _days > 0 else 0.0
 else:
-    unique_customers = 0
+    avg_orders_per_day = 0.0
 
 # ─── PAGE HEADER ─────────────────────────────────────────────────────────────
 
@@ -560,9 +563,9 @@ with k7:
     st.metric(label="Active Channels",        value=f"{active_channels}")
 with k8:
     st.metric(
-        label="Est. Unique Customers",
-        value=f"{unique_customers:,}",
-        help="Estimated from unique order identifiers (72% unique-customer proxy).",
+        label="Avg Orders/Day (30d)",
+        value=f"{avg_orders_per_day:,.1f}",
+        help="Average orders per day over the last 30 days of the selected window.",
     )
 
 st.markdown("---")

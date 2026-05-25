@@ -221,6 +221,9 @@ def load_sales_orders() -> pd.DataFrame:
     if "Channel" in combined.columns:
         _ch_map = {"KeeTa": "Keeta", "Noon Food": "Noon"}
         combined["Channel"] = combined["Channel"].replace(_ch_map)
+    # Normalize brand and location names
+    combined = normalize_brands(combined, "Brand")
+    combined = normalize_locations(combined, "Location")
     return combined
 
 
@@ -404,6 +407,8 @@ def load_cancelled_orders() -> pd.DataFrame:
     if "Channel" in combined.columns:
         _ch_map = {"KeeTa": "Keeta", "Noon Food": "Noon"}
         combined["Channel"] = combined["Channel"].replace(_ch_map)
+    combined = normalize_brands(combined, "Brand")
+    combined = normalize_locations(combined, "Location")
     return combined
 
 
@@ -601,6 +606,86 @@ def get_date_range(df: pd.DataFrame = None):
 
 
 # ─── CUISINE-TO-BRAND MAPPING ──────────────────────────────────────────
+
+# ─── BRAND NAME NORMALISATION ─────────────────────────────────────────
+# Deliverect stores full descriptive names ("PokeMan - Poke Bowls").
+# Grubtech uses short canonical names ("PokeMan").
+# This map collapses all variants to a single canonical name so
+# Brand.nunique() reflects actual distinct brands, not naming variants.
+BRAND_NORMALIZE_MAP = {
+    # Deliverect long-form → canonical
+    "Breakfast Counter – All Day Diner": "Breakfast Counter",
+    "Breakfast Counter – All Day Diner":      "Breakfast Counter",
+    "Breakfast Counter - All Day Diner":      "Breakfast Counter",
+    "PokeMan - Poke Bowls":                   "PokeMan",
+    "Hungry Oppa - Korean Street Food":       "Hungry Oppa",
+    "MACROS - High Protein Bowls & Prep":     "MACROS",
+    "Jinjja - Korean Kitchen":                "Jinjja",
+    "The Big Kahuna - Hawaiian Poke Bowls":   "The Big Kahuna",
+    "Before Noon - Breakfast & Brunch":       "Before Noon",
+    "LowCal - Healthy Bowls & Wraps":         "LowCal",
+    "Loco Taco - Mexican Street Tacos":       "Loco Taco",
+    "Norii - Premium Sushi":                  "Norii",
+    "Picante - Spicy Mexican Grill":          "Picante",
+    "Bowl & Soul - Healthy Global Bowls":     "Bowl & Soul",
+    "Oneesan - Sushi Bar":                    "Oneesan",
+    "Toast & Co – Artisan Breakfast":    "Toast & Co",
+    "Toast & Co – Artisan Breakfast":         "Toast & Co",
+    "Toast & Co - Artisan Breakfast":         "Toast & Co",
+    "Mexigo - Street Mexican":                "Mexigo",
+    "Hikari - Sushi Bar":                     "Hikari",
+    "Hikari - Ramen & Bao":                   "Hikari",
+    "Sunrise & Co – Acai & Power Bowls": "Sunrise & Co",
+    "Sunrise & Co – Acai & Power Bowls":      "Sunrise & Co",
+    "Sunrise & Co - Acai & Power Bowls":      "Sunrise & Co",
+    "Annyeong - Korean Cuisine":              "Annyeong",
+    "Annyeong - Korean Cuisine, Korean Brands": "Annyeong",
+    "Tandoori Tribe - Indian Grill":          "Tandoori Tribe",
+    "Fiesta - Mexican food":                  "Fiesta",
+    "Wings of Fury - Fiery Crispy Wings":     "Wings of Fury",
+    "The Curry Club - Indian Kitchen":        "The Curry Club",
+    "Zaika Punjab - Indian Kitchen":          "Zaika Punjab",
+    "Big Dawg’s Burgers":               "Big Dawg's Burgers",
+    "Big Dawg��s Burgers":          "Big Dawg's Burgers",
+    "Shanghai Spice - Chinese Noodle House":  "Shanghai Spice",
+    "Slider Shack - Mini Beach Burgers":      "The Slider Shack",
+    "Juicy Buns - Loaded Burgers & Fries":    "Juicy Buns",
+    "Patiala Plate - Indian Kitchen":         "Patiala Plate",
+    "Wok Street - Chinese Street Noodles":    "Wok Street",
+    "Winging It - Artisan Wings & Bites":     "Winging It",
+    "Winging it":                             "Winging It",
+    "The Patty Pit - Burgers & Fries":        "The Patty Pit",
+    "Smoky Tandoor - Indian Grill":           "The Smoky Tandoor",
+    "Smashville Burgers":                     "Smashville Burgers",
+    "Bronx Burger House":                     "Bronx Burger House",
+    "Seoul Food":                             "Seoul Food",
+    "Casa Del Queso":                         "Casa Del Queso",
+    "Noona":                                  "Noona",
+    "Jinjja Chicken":                         "Jinjja",
+}
+
+# Location normalisation — Deliverect sends "Hessa Street", Grubtech sends
+# "Ghost Kitchen". Same physical kitchen; collapse to a single value.
+LOCATION_NORMALIZE_MAP = {
+    "Hessa Street": "Ghost Kitchen",
+}
+
+
+def normalize_brands(df: pd.DataFrame, col: str = "Brand") -> pd.DataFrame:
+    """Map all brand name variants to their canonical short names."""
+    if col in df.columns:
+        df = df.copy()
+        df[col] = df[col].map(lambda x: BRAND_NORMALIZE_MAP.get(x, x) if pd.notna(x) else x)
+    return df
+
+
+def normalize_locations(df: pd.DataFrame, col: str = "Location") -> pd.DataFrame:
+    """Collapse location name variants to a single canonical value."""
+    if col in df.columns:
+        df = df.copy()
+        df[col] = df[col].map(lambda x: LOCATION_NORMALIZE_MAP.get(x, x) if pd.notna(x) else x)
+    return df
+
 
 CUISINE_BRAND_MAP = {
     # American
