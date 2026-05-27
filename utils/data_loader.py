@@ -83,6 +83,10 @@ def _load_grubtech_sales_orders() -> pd.DataFrame:
                      "Discount", "VAT", "Total(Receipt Total)", "Tips"]:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+        # Recompute Net Sales as Gross Price - Discount (exclude VAT so formula matches
+        # Deliverect schema: Revenue - Discounts = Net Sales always balances on the KPI row)
+        if "Gross Price" in df.columns and "Discount" in df.columns:
+            df["Net Sales"] = df["Gross Price"] - df["Discount"]
     return df
 
 
