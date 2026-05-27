@@ -172,7 +172,7 @@ def _load_deliverect_as_grubtech_schema() -> pd.DataFrame:
     mapped["Item Price"] = orders["ItemPriceTotal"]
     mapped["Surcharge"] = orders["ServiceCharge"]
     mapped["Delivery"] = orders["DeliveryCost"]
-    mapped["Net Sales"] = orders["PaymentAmount"]
+    mapped["Net Sales"] = orders["SubTotal"] + orders["DiscountTotal"]   # DiscountTotal is negative → Gross minus discount
     mapped["Gross Price"] = orders["SubTotal"]
     mapped["Discount"] = orders["DiscountTotal"].abs()
     mapped["VAT"] = orders["VAT"]
