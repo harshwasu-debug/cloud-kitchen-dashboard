@@ -317,3 +317,29 @@ if fresh:
         f"{fresh['total_orders']:,} fulfilled orders · "
         f"AED {fresh['total_net']:,.0f} net sales total"
     )
+
+# Diagnostic — Supabase live data status
+with st.expander("🔧 Data source diagnostics (debug)"):
+    from utils.supabase_client import supabase_health
+    h = supabase_health()
+    st.json(h)
+    if h.get("enabled"):
+        if h.get("error"):
+            st.error(f"Supabase error: {h['error']}")
+        elif h.get("raw_row_count", 0) == 0:
+            st.warning(
+                "Supabase returned 0 rows — check that orders exist in the "
+                "table for `business_date >= " + (h.get("since") or "today-2d") + "`"
+            )
+        else:
+            st.success(
+                f"Supabase OK — {h.get('raw_row_count')} rows from API, "
+                f"{h.get('after_filter_count')} after fulfilled+non-test filters · "
+                f"covering dates: {', '.join(h.get('dates_returned', []) or ['none'])}"
+            )
+    else:
+        st.warning(
+            "Supabase secrets not detected. Add SUPABASE_URL and "
+            "SUPABASE_SERVICE_KEY in **Manage app → Settings → Secrets** "
+            "(TOML format)."
+        )

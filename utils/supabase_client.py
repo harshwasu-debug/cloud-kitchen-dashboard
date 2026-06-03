@@ -41,25 +41,52 @@ def supabase_enabled() -> bool:
     return bool(_read_secret("SUPABASE_URL") and _read_secret("SUPABASE_SERVICE_KEY"))
 
 
+# Module-level diagnostic state — set by every call to load_orders_from_supabase
+_LAST_STATUS: dict = {
+    "tried": False,
+    "url_present": False,
+    "key_present": False,
+    "http_status": None,
+    "raw_row_count": 0,
+    "after_filter_count": 0,
+    "error": None,
+    "dates_returned": [],
+    "is_test_breakdown": {},
+}
+
+
 @st.cache_data(ttl=120, show_spinner=False)
 def load_orders_from_supabase(since: Optional[date] = None) -> pd.DataFrame:
     """
     Load fulfilled orders from Supabase since the given date (default: 2 days ago).
-
-    Returns a DataFrame in the JSONL-compatible schema:
-        order_key, biz_date, channel, brand, order_gross, order_discount,
-        order_net, fulfilled, status, source
-
-    Empty DataFrame on any error (missing config, network, etc.) — caller
-    can detect via .empty and fall back to JSONL.
+    Records diagnostic info to _LAST_STATUS for the Home-page debug panel.
     """
+    global _LAST_STATUS
+    _LAST_STATUS = {
+        "tried": True,
+        "url_present": False,
+        "key_present": False,
+        "http_status": None,
+        "raw_row_count": 0,
+        "after_filter_count": 0,
+        "error": None,
+        "dates_returned": [],
+        "is_test_breakdown": {},
+        "since": None,
+    }
+
     url = _read_secret("SUPABASE_URL")
     key = _read_secret("SUPABASE_SERVICE_KEY")
+    _LAST_STATUS["url_present"] = bool(url)
+    _LAST_STATUS["key_present"] = bool(key)
+
     if not url or not key:
+        _LAST_STATUS["error"] = "Missing SUPABASE_URL or SUPABASE_SERVICE_KEY in secrets/env"
         return pd.DataFrame()
 
     if since is None:
         since = date.today() - timedelta(days=2)
+    _LAST_STATUS["since"] = since.isoformat()
 
     cols = ",".join([
         "platform", "platform_order_id", "business_date",
@@ -71,27 +98,40 @@ def load_orders_from_supabase(since: Optional[date] = None) -> pd.DataFrame:
     params = {
         "select": cols,
         "business_date": f"gte.{since.isoformat()}",
-        "is_test_order": "eq.false",
         "limit": 10000,
     }
-    headers = {
-        "apikey": key,
-        "Authorization": f"Bearer {key}",
-    }
+    headers = {"apikey": key, "Authorization": f"Bearer {key}"}
 
     try:
         with httpx.Client(timeout=15) as client:
             r = client.get(api_url, params=params, headers=headers)
+        _LAST_STATUS["http_status"] = r.status_code
         if r.status_code >= 400:
+            _LAST_STATUS["error"] = f"HTTP {r.status_code}: {r.text[:200]}"
             return pd.DataFrame()
         rows = r.json()
-    except (httpx.HTTPError, ValueError):
+    except (httpx.HTTPError, ValueError) as e:
+        _LAST_STATUS["error"] = f"Request error: {e}"
         return pd.DataFrame()
+
+    _LAST_STATUS["raw_row_count"] = len(rows) if isinstance(rows, list) else 0
 
     if not rows:
         return pd.DataFrame()
 
     df = pd.DataFrame(rows)
+
+    # Diagnostics: breakdown by is_test_order and is_fulfilled
+    if "is_test_order" in df.columns:
+        _LAST_STATUS["is_test_breakdown"] = {
+            "test_true": int((df["is_test_order"] == True).sum()),
+            "test_false": int((df["is_test_order"] == False).sum()),
+        }
+    if "is_fulfilled" in df.columns:
+        _LAST_STATUS["is_test_breakdown"]["fulfilled_true"] = int((df["is_fulfilled"] == True).sum())
+        _LAST_STATUS["is_test_breakdown"]["fulfilled_false"] = int((df["is_fulfilled"] == False).sum())
+    if "business_date" in df.columns:
+        _LAST_STATUS["dates_returned"] = sorted(set(str(d) for d in df["business_date"].dropna()))
 
     # Rename Supabase columns → JSONL schema
     df = df.rename(columns={
@@ -105,35 +145,36 @@ def load_orders_from_supabase(since: Optional[date] = None) -> pd.DataFrame:
         "canonical_status": "status",
     })
 
-    # Compose order_key (the JSONL convention)
+    # Compose order_key
     df["order_key"] = "D:" + df["platform_order_id"].astype(str)
     df["source"] = "Supabase (live)"
 
-    # Coerce numerics
     for col in ("order_gross", "order_discount", "order_net"):
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
 
-    # biz_date → date object
     if "biz_date" in df.columns:
         df["biz_date"] = pd.to_datetime(df["biz_date"], errors="coerce").dt.date
-
-    # Drop rows with no business_date or no brand (incomplete data)
     df = df[df["biz_date"].notna()]
 
-    # Only fulfilled, non-test
-    df = df[df["fulfilled"] == True].reset_index(drop=True)  # noqa: E712
+    # Apply fulfilled + non-test filters
+    if "fulfilled" in df.columns:
+        df = df[df["fulfilled"] == True]  # noqa: E712
+    if "is_test_order" in df.columns:
+        df = df[df["is_test_order"] != True]  # noqa: E712
+
+    df = df.reset_index(drop=True)
+    _LAST_STATUS["after_filter_count"] = len(df)
 
     return df
 
 
 def supabase_health() -> dict:
-    """For debugging / health check."""
-    if not supabase_enabled():
-        return {"enabled": False}
-    df = load_orders_from_supabase()
+    """Returns whatever the last query learned, plus current config check."""
+    # Trigger a query if we haven't yet
+    if not _LAST_STATUS.get("tried"):
+        load_orders_from_supabase()
     return {
-        "enabled": True,
-        "rows_today_window": len(df),
-        "dates_covered": sorted(df["biz_date"].unique().tolist()) if not df.empty else [],
+        "enabled": bool(_read_secret("SUPABASE_URL") and _read_secret("SUPABASE_SERVICE_KEY")),
+        **_LAST_STATUS,
     }
