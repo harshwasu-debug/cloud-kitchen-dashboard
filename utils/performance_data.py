@@ -38,7 +38,7 @@ DUBAI_TZ = timezone(timedelta(hours=4))
 # ---------------------------------------------------------------------------
 
 CANDIDATE_PATHS = [
-    Path("C:/Users/harsh/Desktop/Order Data Audit/Combined_Orders_clean.jsonl"),
+    Path("E:/Cloud Kitchen/Order Data/Combined_Orders_clean.jsonl"),
     Path(__file__).resolve().parent.parent / "data" / "Combined_Orders_clean.jsonl",
 ]
 
@@ -199,10 +199,12 @@ def _load_orders_jsonl_dedup() -> pd.DataFrame:
 @st.cache_data(ttl=120)
 def load_orders() -> pd.DataFrame:
     """
-    Combined order-level view — JSONL historical + Supabase live for
-    today (and recent days). For any date Supabase has data on, those
-    rows replace the JSONL rows for the same date — Supabase is the
-    fresher source.
+    Combined order-level view — UNION of JSONL historical + Supabase live.
+
+    Both sources are unioned and deduped by order_key. JSONL is kept as the
+    canonical row when an order appears in both (preserves the richer JSONL
+    schema). Supabase rows only add value where they fill gaps — typically
+    orders that arrived via webhook AFTER the JSONL was last built.
 
     Falls back to JSONL only if Supabase isn't configured or unreachable.
     """
@@ -214,19 +216,23 @@ def load_orders() -> pd.DataFrame:
     df_live = load_orders_from_supabase()
     if df_live.empty:
         return df_hist
-
-    # Drop JSONL rows for any date Supabase covers — live is authoritative
-    live_dates = set(df_live["biz_date"].unique())
     if df_hist.empty:
-        df_combined = df_live
-    else:
-        df_hist_filtered = df_hist[~df_hist["biz_date"].isin(live_dates)].copy()
-        # Align column sets — historical has more columns; keep what live has + common ones
-        common_cols = list(set(df_hist.columns) & set(df_live.columns))
-        df_combined = pd.concat(
-            [df_hist_filtered[common_cols], df_live[common_cols]],
-            ignore_index=True, sort=False,
-        )
+        return df_live.reset_index(drop=True)
+
+    # Align column sets — keep all columns from both; missing get NaN
+    all_cols = sorted(set(df_hist.columns) | set(df_live.columns))
+    for col in all_cols:
+        if col not in df_hist.columns:
+            df_hist[col] = None
+        if col not in df_live.columns:
+            df_live[col] = None
+
+    # Union, then dedup by order_key keeping JSONL row when both have it
+    df_combined = pd.concat(
+        [df_hist[all_cols], df_live[all_cols]],
+        ignore_index=True, sort=False,
+    )
+    df_combined = df_combined.drop_duplicates(subset=["order_key"], keep="first")
 
     return df_combined.reset_index(drop=True)
 
