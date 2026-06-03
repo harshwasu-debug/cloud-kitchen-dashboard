@@ -26,13 +26,19 @@ from utils.performance_data import (
     all_brands,
     brand_view,
     data_freshness,
+    day_fraction,
     delta_pct,
     fmt_aed,
     fmt_int,
     fmt_pct,
     latest_date,
+    latest_order_time_today,
     load_orders,
+    now_dubai,
+    project_eod_additive,
+    projection_caption,
     same_weekday_history,
+    should_project,
     signed_pct,
     slice_range,
     total_kpis,
@@ -109,28 +115,64 @@ else:
 
 
 # ---------------------------------------------------------------------------
-# Headline
+# Projection — if today is incomplete, project EOD; otherwise show actuals
+# ---------------------------------------------------------------------------
+project_today = should_project(selected) and bool(hist_dates)
+if project_today:
+    # Use data-driven fraction (latest order time today) if available;
+    # else wall-clock
+    latest_in_data = latest_order_time_today(df, selected)
+    if latest_in_data is not None:
+        # Convert pandas timestamp / naive datetime to fraction
+        frac = day_fraction(latest_in_data)
+    else:
+        frac = day_fraction(now_dubai())
+    projected = project_eod_additive(today_k, typical, frac)
+else:
+    frac = 1.0
+    projected = today_k
+
+
+# ---------------------------------------------------------------------------
+# Headline — show projection for tier when today is partial
 # ---------------------------------------------------------------------------
 st.markdown(f"### {selected.strftime('%A, %d %B %Y')}")
 
-v_net = verdict_for(today_k["net"], DAY_NET_TIERS)
-v_ord = verdict_for(today_k["orders"], DAY_ORDERS_TIERS)
+# Tier the PROJECTED number (or actual if day complete / historical day)
+v_net = verdict_for(projected["net"], DAY_NET_TIERS)
+v_ord = verdict_for(projected["orders"], DAY_ORDERS_TIERS)
 
 c1, c2, c3 = st.columns(3)
 with c1:
-    st.metric(
-        "Net Sales",
-        fmt_aed(today_k["net"]),
-        delta=(signed_pct(delta_pct(today_k["net"], typical["net"])) + " vs typical") if hist_dates else None,
-    )
+    if project_today and frac < 0.95:
+        st.metric(
+            "Net Sales (projected EOD)",
+            fmt_aed(projected["net"]),
+            delta=f"actual so far: {fmt_aed(today_k['net'])}",
+            delta_color="off",
+        )
+    else:
+        st.metric(
+            "Net Sales",
+            fmt_aed(today_k["net"]),
+            delta=(signed_pct(delta_pct(today_k["net"], typical["net"])) + " vs typical") if hist_dates else None,
+        )
     st.markdown(f"#### {v_net.emoji} {v_net.tier}")
 
 with c2:
-    st.metric(
-        "Orders",
-        fmt_int(today_k["orders"]),
-        delta=(signed_pct(delta_pct(today_k["orders"], typical["orders"])) + " vs typical") if hist_dates else None,
-    )
+    if project_today and frac < 0.95:
+        st.metric(
+            "Orders (projected EOD)",
+            fmt_int(projected["orders"]),
+            delta=f"actual so far: {fmt_int(today_k['orders'])}",
+            delta_color="off",
+        )
+    else:
+        st.metric(
+            "Orders",
+            fmt_int(today_k["orders"]),
+            delta=(signed_pct(delta_pct(today_k["orders"], typical["orders"])) + " vs typical") if hist_dates else None,
+        )
     st.markdown(f"#### {v_ord.emoji} {v_ord.tier}")
 
 with c3:
@@ -141,6 +183,12 @@ with c3:
     )
     if v_net.tier != v_ord.tier:
         st.caption("⚠️ Volume and revenue tiers disagree — discount issue likely")
+
+# Pace context
+if project_today and frac < 0.95:
+    caption = projection_caption(today_k, projected, frac)
+    if caption:
+        st.caption(caption)
 
 
 # ---------------------------------------------------------------------------

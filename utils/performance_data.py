@@ -19,12 +19,17 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
 import pandas as pd
 import streamlit as st
+
+from utils.supabase_client import load_orders_from_supabase, supabase_enabled
+
+# Asia/Dubai (no DST, fixed UTC+4)
+DUBAI_TZ = timezone(timedelta(hours=4))
 
 
 # ---------------------------------------------------------------------------
@@ -181,14 +186,49 @@ def load_orders_items() -> pd.DataFrame:
 
 
 @st.cache_data(ttl=3600)
-def load_orders() -> pd.DataFrame:
-    """Order-level view — one row per order, fulfilled only (Rule 11)."""
+def _load_orders_jsonl_dedup() -> pd.DataFrame:
+    """Order-level from JSONL only — internal use."""
     df = load_orders_items()
     if df.empty:
         return df
     df = df[df["fulfilled"] == True].copy()  # noqa: E712
     df = df.drop_duplicates(subset=["order_key"]).reset_index(drop=True)
     return df
+
+
+@st.cache_data(ttl=120)
+def load_orders() -> pd.DataFrame:
+    """
+    Combined order-level view — JSONL historical + Supabase live for
+    today (and recent days). For any date Supabase has data on, those
+    rows replace the JSONL rows for the same date — Supabase is the
+    fresher source.
+
+    Falls back to JSONL only if Supabase isn't configured or unreachable.
+    """
+    df_hist = _load_orders_jsonl_dedup()
+
+    if not supabase_enabled():
+        return df_hist
+
+    df_live = load_orders_from_supabase()
+    if df_live.empty:
+        return df_hist
+
+    # Drop JSONL rows for any date Supabase covers — live is authoritative
+    live_dates = set(df_live["biz_date"].unique())
+    if df_hist.empty:
+        df_combined = df_live
+    else:
+        df_hist_filtered = df_hist[~df_hist["biz_date"].isin(live_dates)].copy()
+        # Align column sets — historical has more columns; keep what live has + common ones
+        common_cols = list(set(df_hist.columns) & set(df_live.columns))
+        df_combined = pd.concat(
+            [df_hist_filtered[common_cols], df_live[common_cols]],
+            ignore_index=True, sort=False,
+        )
+
+    return df_combined.reset_index(drop=True)
 
 
 def data_freshness() -> Optional[dict]:
@@ -333,7 +373,11 @@ def all_brands(df: pd.DataFrame) -> list[str]:
 
 def project_period_end(period_to_date_kpis: dict, days_so_far: int,
                        total_days: int, typical_daily_kpis: dict) -> dict:
-    """Project full-period kpis from PTD + typical daily."""
+    """Project full-period kpis from PTD + typical daily.
+
+    days_so_far should be a FRACTIONAL value if the current day is partial
+    (e.g., 3.5 means Mon + Tue + Wed + 50% of today).
+    """
     if days_so_far >= total_days:
         return period_to_date_kpis
     days_remaining = total_days - days_so_far
@@ -344,6 +388,90 @@ def project_period_end(period_to_date_kpis: dict, days_so_far: int,
         out[k] = actual + remaining
     out["orders"] = round(out["orders"])
     return out
+
+
+# ---------------------------------------------------------------------------
+# Day fraction + EOD projection (the in-day pace logic)
+# ---------------------------------------------------------------------------
+
+def now_dubai() -> datetime:
+    """Current time in Asia/Dubai (UTC+4, no DST)."""
+    return datetime.now(DUBAI_TZ)
+
+
+def day_fraction(at_time: Optional[datetime] = None) -> float:
+    """Fraction of business day elapsed (0.0 to 1.0).
+
+    Business day runs 03:00 → 03:00 (per Rule 3). 24-hour denominator.
+    Returns 0.0 for "just started" (03:00) and 1.0 for "ended" (next 03:00).
+    """
+    if at_time is None:
+        at_time = now_dubai()
+    h = at_time.hour + at_time.minute / 60.0
+    # Map hours [3, 27) → [0, 24)
+    bd_hours = (h - 3) if h >= 3 else (h + 21)
+    return min(max(bd_hours / 24.0, 0.0), 1.0)
+
+
+def project_eod_additive(actual_kpis: dict, typical_full_day_kpis: dict,
+                         frac: float) -> dict:
+    """Project end-of-day numbers using additive method.
+
+    Logic: take what we've done so far + assume the rest of the day
+    matches the typical pattern. Capped to avoid wild projections at
+    very low fractions.
+    """
+    # Below 15% of the day, projection is unreliable — return typical
+    if frac < 0.15:
+        return {k: typical_full_day_kpis.get(k, 0) for k in ("orders", "net", "gross", "discount")}
+    if frac >= 0.95:
+        return actual_kpis
+    out = {}
+    for k in ("orders", "net", "gross", "discount"):
+        actual = actual_kpis.get(k, 0)
+        typical_remaining = typical_full_day_kpis.get(k, 0) * (1 - frac)
+        out[k] = actual + typical_remaining
+    out["orders"] = round(out["orders"])
+    return out
+
+
+def latest_order_time_today(df: pd.DataFrame, target_date: date) -> Optional[datetime]:
+    """Return the latest order's local time for the given business date,
+    or None if no orders yet. Used to compute day_fraction from data, not
+    wall-clock.
+    """
+    if df.empty or "created_local" not in df.columns:
+        return None
+    today_rows = df[df["biz_date"] == target_date]
+    if today_rows.empty:
+        return None
+    ts = pd.to_datetime(today_rows["created_local"], errors="coerce").max()
+    if pd.isna(ts):
+        return None
+    return ts.to_pydatetime()
+
+
+def should_project(selected_date: date, today_in_data: bool = True) -> bool:
+    """Project only if the selected day might be incomplete.
+
+    Returns True if selected_date is today (Dubai) or later.
+    """
+    if not today_in_data:
+        return False
+    return selected_date >= now_dubai().date()
+
+
+def projection_caption(actual_kpis: dict, projected_kpis: dict, frac: float) -> str:
+    """One-line summary of the projection — "on pace to land at X by EOD"."""
+    if frac >= 0.95:
+        return ""
+    if frac < 0.15:
+        return f"⏱️ Early in the day (~{frac*100:.0f}% elapsed) — projection based on typical"
+    return (
+        f"⏱️ At ~{frac*100:.0f}% of the business day. "
+        f"On pace to land at AED {projected_kpis['net']:,.0f} / "
+        f"{projected_kpis['orders']:,} orders by 3am."
+    )
 
 
 # ---------------------------------------------------------------------------

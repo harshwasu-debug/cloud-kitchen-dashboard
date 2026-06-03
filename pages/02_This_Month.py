@@ -23,13 +23,17 @@ from utils.performance_data import (
     all_brands,
     brand_view,
     data_freshness,
+    day_fraction,
     delta_pct,
     fmt_aed,
     fmt_int,
     fmt_pct,
     latest_date,
+    latest_order_time_today,
     load_orders,
+    now_dubai,
     project_period_end,
+    should_project,
     signed_pct,
     slice_range,
     total_kpis,
@@ -90,7 +94,16 @@ typical_daily = {
     for k in ("orders", "net", "gross", "discount")
 }
 
-projected = project_period_end(mtd, days_so_far, days_in_month, typical_daily)
+# Fractional days_so_far if today is partial
+today_dubai = now_dubai().date()
+if selected == today_dubai and should_project(selected):
+    latest_in_data = latest_order_time_today(df, selected)
+    today_frac = day_fraction(latest_in_data) if latest_in_data else day_fraction(now_dubai())
+    effective_days_so_far = (days_so_far - 1) + today_frac
+else:
+    effective_days_so_far = float(days_so_far)
+
+projected = project_period_end(mtd, effective_days_so_far, days_in_month, typical_daily)
 
 
 # ---------------------------------------------------------------------------
