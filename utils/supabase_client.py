@@ -169,6 +169,108 @@ def load_orders_from_supabase(since: Optional[date] = None) -> pd.DataFrame:
     return df
 
 
+@st.cache_data(ttl=120, show_spinner=False)
+def load_promo_data(since: Optional[date] = None) -> pd.DataFrame:
+    """
+    Pull per-discount detail from the orders_discounts view.
+    One row per discount applied (an order with 2 promos = 2 rows).
+
+    Columns: platform, platform_order_id, business_date, canonical_brand,
+             canonical_channel, gross_revenue, net_sales,
+             promo_code, promo_name, promo_type, promo_provider,
+             promo_value, promo_amount, merchant_funded, platform_funded
+    """
+    url = _read_secret("SUPABASE_URL")
+    key = _read_secret("SUPABASE_SERVICE_KEY")
+    if not url or not key:
+        return pd.DataFrame()
+
+    if since is None:
+        since = date.today() - timedelta(days=30)
+
+    api_url = f"{url.rstrip('/')}/rest/v1/orders_discounts"
+    params = {
+        "select": "*",
+        "business_date": f"gte.{since.isoformat()}",
+        "limit": 50000,
+    }
+    headers = {"apikey": key, "Authorization": f"Bearer {key}"}
+
+    try:
+        with httpx.Client(timeout=30) as client:
+            r = client.get(api_url, params=params, headers=headers)
+        if r.status_code >= 400:
+            return pd.DataFrame()
+        rows = r.json()
+    except (httpx.HTTPError, ValueError):
+        return pd.DataFrame()
+
+    if not rows:
+        return pd.DataFrame()
+
+    df = pd.DataFrame(rows)
+    if "business_date" in df.columns:
+        df["business_date"] = pd.to_datetime(df["business_date"], errors="coerce").dt.date
+        df = df[df["business_date"].notna()]
+    for col in ("gross_revenue", "net_sales", "promo_value", "promo_amount",
+                "merchant_funded", "platform_funded"):
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+    return df.reset_index(drop=True)
+
+
+@st.cache_data(ttl=120, show_spinner=False)
+def load_orders_full(since: Optional[date] = None) -> pd.DataFrame:
+    """
+    Pull a wider set of order columns from Supabase — for the Promo page.
+    Includes delivery_fee so we can detect free-delivery subscription orders.
+    """
+    url = _read_secret("SUPABASE_URL")
+    key = _read_secret("SUPABASE_SERVICE_KEY")
+    if not url or not key:
+        return pd.DataFrame()
+
+    if since is None:
+        since = date.today() - timedelta(days=30)
+
+    cols = ",".join([
+        "platform", "platform_order_id", "business_date",
+        "canonical_brand", "canonical_channel",
+        "gross_revenue", "net_sales", "promo_total_discount",
+        "delivery_fee", "is_fulfilled", "is_test_order", "is_cancelled",
+        "source",
+    ])
+    api_url = f"{url.rstrip('/')}/rest/v1/orders"
+    params = {
+        "select": cols,
+        "business_date": f"gte.{since.isoformat()}",
+        "limit": 50000,
+    }
+    headers = {"apikey": key, "Authorization": f"Bearer {key}"}
+
+    try:
+        with httpx.Client(timeout=30) as client:
+            r = client.get(api_url, params=params, headers=headers)
+        if r.status_code >= 400:
+            return pd.DataFrame()
+        rows = r.json()
+    except (httpx.HTTPError, ValueError):
+        return pd.DataFrame()
+
+    if not rows:
+        return pd.DataFrame()
+
+    df = pd.DataFrame(rows)
+    if "business_date" in df.columns:
+        df["business_date"] = pd.to_datetime(df["business_date"], errors="coerce").dt.date
+        df = df[df["business_date"].notna()]
+    for col in ("gross_revenue", "net_sales", "promo_total_discount", "delivery_fee"):
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+    df = df[(df["is_fulfilled"] == True) & (df["is_cancelled"] != True) & (df["is_test_order"] != True)]
+    return df.reset_index(drop=True)
+
+
 def supabase_health() -> dict:
     """Returns whatever the last query learned, plus current config check."""
     # Trigger a query if we haven't yet
